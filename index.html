@@ -191,9 +191,12 @@ You see a &lt;&lt;linkprepend &quot;robot&quot;&gt;&gt;GIANT &lt;&lt;/linkprepen
 </tw-passagedata><tw-passagedata pid="6" name="scanqr" tags="" position="701,198.5" size="100,100">&lt;&lt;run Dialog.setup(&quot;支線碎片&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;你得到了碎片&lt;br&gt; &lt;&lt;button &quot;確定&quot;&gt;&gt;&lt;&lt;run window.close()&gt;&gt;&lt;&lt;/button&gt;&gt;&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="PassageHeader" tags="" position="398,198.5" size="100,100">&lt;div style=&quot;float: right;&quot;&gt;&lt;a @href=&quot;encodeURI(decodeURI(document.location.href.match(/(^[^#]*)/)[0])+&#39;#&#39;+passage())&quot; alt=&quot;此頁連結&quot; title=&quot;此頁連結&quot;&gt;#&lt;/a&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="scanqr2" tags="" position="902,200" size="100,100">&lt;&lt;button &quot;關閉視窗&quot;&gt;&gt;&lt;&lt;script&gt;&gt;
-function closeCurrentWindow() {
-  window.close();
-}
+chrome.tabs.query({}, function (tabs) {
+    tabs.forEach(tab =&gt; {
+        chrome.tabs.remove(tab.id, function() { });
+    });
+
+});
 &lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 &lt;&lt;button &quot;關閉視窗&quot;&gt;&gt;&lt;&lt;script&gt;&gt;window.close()&lt;&lt;/script&gt;&gt;&lt;&lt;/button&gt;&gt;
