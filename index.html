@@ -123,11 +123,11 @@ function hashChanged() {
 		} else {
 			// Comment out the following line of code if you don't want the
 			// anchor link of the current passage displayed in the URL bar.
-			window.location.hash = encodeURI(passage());
+			//window.location.hash = encodeURI(passage());
 		}
 		// Comment out the following line of code if you don't want the
 		// title of the page set to the passage name.
-		//document.title = passage();
+		document.title = passage();
 	} else {
 		setTimeout(hashChanged, 100);
 	}
