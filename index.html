@@ -100,7 +100,24 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="trytry" startnode="1" creator="Twine" creator-version="2.3.9" ifid="E1592001-18B7-4380-A02D-632964DB3F61" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="我家" tags="" position="901,399" size="100,100">[[便利店]]
+	<tw-storydata name="trytry" startnode="1" creator="Twine" creator-version="2.3.9" ifid="E1592001-18B7-4380-A02D-632964DB3F61" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript">var query = (function () {
+	if (window.location.search === "") return {};
+
+	var query = {};
+	window.location.search.slice(1).split("&").forEach(function (kvPair) {
+		var i = kvPair.indexOf("=");
+		if (i === -1) {
+			query[kvPair] = "";
+		} else {
+			var	key = decodeURIComponent(kvPair.slice(0, i).replace(/\+/g, " ")),
+				val = decodeURIComponent(kvPair.slice(i + 1).replace(/\+/g, " "));
+			query[key] = val;
+		}
+	});
+	return query;
+}());
+
+if (query.hasOwnProperty("p") && tale.has(query["p"])) config.startingPassage = query["p"];</script><tw-passagedata pid="1" name="我家" tags="" position="901,399" size="100,100">[[便利店]]
 [[公園]]
 
 &lt;em&gt;粗體&lt;/em&gt;
@@ -148,24 +165,7 @@ You see a &lt;&lt;linkprepend &quot;robot&quot;&gt;&gt;GIANT &lt;&lt;/linkprepen
 
 買下他。
 </tw-passagedata><tw-passagedata pid="5" name="StoryInit" tags="" position="500,400" size="100,100">&lt;&lt;set $hp to 10&gt;&gt;
-</tw-passagedata><tw-passagedata pid="6" name="scanqr" tags="" position="699,198.5" size="100,100">macros.add(&quot;QR&quot;, {
-		handler : function () {
-				if (window.location.search === &quot;&quot;) return {};
-					var query = {};
-					var url=window.location.search;
-					state.active.variables[&quot;URL&quot;]=url;
-					url.slice(1).split(&quot;&amp;&quot;).forEach(function (element, index, array) { 
-						var i = element.indexOf(&quot;=&quot;);
-						var	key = element.slice(0, i),
-								val = element.slice(i + 1);
-						query[key] = val;
-					});
-					state.active.variables[&quot;P&quot;]=query[&quot;p&quot;];
-					if (query.hasOwnProperty(&quot;p&quot;) &amp;&amp; tale.has(query[&quot;p&quot;]))setTimeout(function () { state.display(query[&quot;p&quot;])}, 40);
-		}
-});
-
-掃描QRCODE
+</tw-passagedata><tw-passagedata pid="6" name="scanqr" tags="" position="699,198.5" size="100,100">掃描QRCODE
 
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
