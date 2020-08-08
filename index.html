@@ -581,7 +581,7 @@ Rolling a 2d6 + 10: &lt;&lt;print random(1, 6) + random(1, 6) + 10 &gt;&gt;</tw-
     &lt;&lt;/button&gt;&gt;\
 &lt;/span&gt;</tw-passagedata><tw-passagedata pid="29" name="Main Menu" tags="" position="1100,800" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="30" name="branch1" tags="no-side-bar noheader nofooter" position="1600,100" size="100,100">你得到一片支線碎片
 &lt;&lt;set $inventory to $inventory.concat($branch1)&gt;&gt;
-&lt;&lt;script&gt;&gt;Save.autosave.save()&lt;&lt;/script&gt;&gt;
+&lt;&lt;script&gt;&gt;Save.autosave.save(null, someMetadata)&lt;&lt;/script&gt;&gt;
 
 （提醒：閱讀完後，請關閉此分頁並回到原遊戲分頁）
 [[背包]]</tw-passagedata></tw-storydata>
