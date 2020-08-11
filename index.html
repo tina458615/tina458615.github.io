@@ -630,13 +630,10 @@ predisplay["Menu Return"] = function (taskName) {
   [[再試一次|start]]
 &lt;&lt;if $textGroup == 1&gt;&gt;
 	&lt;&lt;include &quot;第一關線索1&quot;&gt;&gt;
-	&lt;&lt;set $textGroup += 1&gt;&gt;
 &lt;&lt;elseif $textGroup == 2&gt;&gt;
 	&lt;&lt;include &quot;第一關線索2&quot;&gt;&gt;
-	&lt;&lt;set $textGroup ++&gt;&gt;
 &lt;&lt;else&gt;&gt;
 	&lt;&lt;include &quot;第一關線索3&quot;&gt;&gt;
-	&lt;&lt;set $textGroup ++&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="第一關線索1" tags="noreturn" position="1400,0" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
   //拜託嘛！漂亮的大姊姊～～～請告訴我提示！//
@@ -647,6 +644,7 @@ predisplay["Menu Return"] = function (taskName) {
 	  &lt;p&gt;嘛嘛嘛，真是個好小子。依循著對聯並彼此相連的話，我想就能看出端倪了！&lt;/p&gt;
 	&lt;/div&gt;
   &lt;&lt;/timed&gt;&gt;
+  &lt;&lt;set $textGroup += 1&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="第一關線索2" tags="noreturn" position="1400,100" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
   @@color:blue;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@
@@ -671,7 +669,8 @@ predisplay["Menu Return"] = function (taskName) {
 			&lt;p&gt;WORD HIDE UNDER W , 字就藏在「w」的下方，找出代天府門口所有對照為W的字，將W下方一個的英 文字由左至右排列即為「FLOOD」&lt;/p&gt;
 		  &lt;/div&gt;
 		 &lt;&lt;/timed&gt;&gt;
-  &lt;&lt;/linkappend&gt;&gt;		
+  &lt;&lt;/linkappend&gt;&gt;
+  &lt;&lt;set $textGroup += 1&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
