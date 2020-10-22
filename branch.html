@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="支線碎片統整" startnode="14" creator="Twine" creator-version="2.3.9" ifid="2319E8AF-64BD-4AD3-85B2-229958A990CB" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*字體*/
+	<tw-storydata name="支線碎片統整" startnode="11" creator="Twine" creator-version="2.3.9" ifid="2319E8AF-64BD-4AD3-85B2-229958A990CB" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*字體*/
 @import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
 
 .message {
@@ -543,14 +543,7 @@ predisplay["Menu Return"] = function (taskName) {
 &lt;&lt;set $chestOpen to false&gt;&gt; 設置箱子未開啟
 
 /* 關卡提示 */
-&lt;&lt;set $textGroup to 1&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="PassageHeader" tags="noreturn" position="300,0" size="100,100">/* 設定有noheader標籤的片段不會出現頁首內容 */
-&lt;&lt;if not tags().includes(&quot;noheader&quot;)&gt;&gt;\
-/* 顯示當前片段的網址 */
-&lt;div style=&quot;float: right;&quot;&gt;&lt;a @href=&quot;encodeURI(decodeURI(document.location.href.match(/(^[^#]*)/)[0])+&#39;#&#39;+passage())&quot; alt=&quot;此頁連結&quot; title=&quot;此頁連結&quot;&gt;#&lt;/a&gt;&lt;/div&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="PassageFooter" tags="noreturn" position="300,100" size="100,100">/* 設定有nofooter標籤的片段不會出現頁尾內容 */
-&lt;&lt;if not tags().includes(&quot;nofooter&quot;)&gt;&gt;
-[[閱讀製作說明|說明文件]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="branch1" tags="nofooter no-side-bar noreturn branch" position="1101,200" size="100,100">@@color:black;
+&lt;&lt;set $textGroup to 1&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="branch1" tags="nofooter no-side-bar noreturn branch" position="1101,200" size="100,100">@@color:black;
 我從來沒見過奶奶。
 其實，家族裡沒有人知道奶奶是在何時消失……
 一向寡言的父親不說，母親也要我別問。
@@ -567,78 +560,14 @@ predisplay["Menu Return"] = function (taskName) {
 第一次見到外國人等趣聞，甚至想帶上爸爸移居台南。 
 
 但，某天，奶奶又展開台南之旅，之後，失去了消息……
-@@</tw-passagedata><tw-passagedata pid="13" name="說明文件" tags="nofooter" position="0,200" size="200,200">&lt;div class=&quot;message&quot;&gt;&lt;h3&gt;[介面顯示調整]&lt;/h3&gt;&lt;/div&gt;
-1.如果希望片段頁面不要出現&#39;&#39;頁首&#39;&#39;、&#39;&#39;頁尾&#39;&#39;的內容(像是用QRCODE連接的支線碎片片段)，可以加上標籤@@color:red; noheader @@和@@color:red; nofooter @@
-
-2.除了故事進行的片段，其於有關介面、選單或機制功能設定的片段，均加上標籤@@color:red;  noreturn @@
-
-3.不希望出現側邊欄的片段，可以加上標籤@@color:red; no-side-bar @@
-
-----
-
-&lt;div class=&quot;message&quot;&gt;&lt;h3&gt;[文字顯示調整]&lt;/h3&gt;&lt;/div&gt;
-1.預設字體為新細明體，要改成思源黑體，在文字前後加上@@color:green;{{{&lt;div class=&quot;message&quot;&gt;}}}@@文字內容@@color:green;{{{&lt;/div&gt;}}}@@
-
-2.標題的文字，在文字前後加上@@color:green;{{{&lt;h1&gt;}}}@@標題1@@color:green;{{{&lt;/h1&gt;}}}@@
-一共有6個階層的標題（1最大~6最小），使用哪個階層就更改h1的數字
-
-//預覽效果//
-&lt;h1&gt;標題1&lt;/h1&gt; &lt;h2&gt;標題2&lt;/h2&gt; &lt;h3&gt;標題3&lt;/h3&gt; &lt;h4&gt;標題4&lt;/h4&gt; &lt;h5&gt;標題5&lt;/h5&gt; &lt;h6&gt;標題6&lt;/h6&gt;
-
-3.更改文字顏色，在文字前後加上@@color:green;{{{@@color:green;}}}@@文字內容@@color:green;{{{@@}}}@@
-要換成其他顏色，更改@@color:green; green @@成其他顏色，顏色名稱詳見[[css顏色表|https://www.w3schools.com/cssref/css_colors.asp]]
-
-4.如果要置中，在文字（圖片亦同）前後加上
-@@color:green;{{{@@.center;}}}@@
-文字內容
-@@color:green;{{{@@}}}@@
-
-5.如果要在文字加上紙條背景，在文字前後加上：
-@@color:green;{{{&lt;section class=&quot;paper&quot;&gt;\}}}@@
-@@color:green;{{{&lt;article class=&quot;paperheader&quot;&gt;&lt;/article&gt;\}}}@@
-紙條內容
-@@color:green;{{{&lt;/section&gt;}}}@@
-
-//預覽效果//
-&lt;section class=&quot;paper&quot;&gt;\
-	&lt;article class=&quot;paperheader&quot;&gt;&lt;/article&gt;\
-	紙條內容
-	
-&lt;/section&gt;
-
-
-----
-&lt;div class=&quot;message&quot;&gt;&lt;h3&gt;[其他功能]&lt;/h3&gt;&lt;/div&gt;
-1.角色對話框
-@@color:green;{{{&lt;div class=&quot;say&quot;&gt;}}}@@
-@@color:green;{{{&lt;img src=&quot;}}}@@圖片URL@@color:green;{{{&quot;&gt;}}}@@
-@@color:green;{{{&lt;p&gt;}}}@@角色名字@@color:green;{{{&lt;/p&gt;}}}@@
-@@color:green;{{{&lt;p&gt;}}}@@對話內容@@color:green;{{{&lt;/p&gt;}}}@@
-@@color:green;{{{&lt;/div&gt;}}}@@
-
-//預覽效果//
-&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://stickershop.line-scdn.net/stickershop/v1/product/1305453/LINEStorePC/main.png&quot;&gt;
-&lt;p&gt;女鬼&lt;/p&gt;
-&lt;p&gt;女鬼講的話&lt;/p&gt;
-&lt;/div&gt;
-
-2.文字逐行出現
-@@color:green;{{{@@.delayed;}}}@@第一行文字@@color:green;{{{@@}}}@@
-@@color:green;{{{@@.delayed;}}}@@第二行文字@@color:green;{{{@@}}}@@
-@@color:green;{{{@@.delayed;}}}@@第三行文字@@color:green;{{{@@}}}@@
-
-3.幾秒後出現文字
-@@color:green;{{{&lt;&lt;timed 1s t8n&gt;&gt;}}}@@文字內容@@color:green;{{{&lt;&lt;/timed&gt;&gt;}}}@@
-要調整出現的時間，更改@@color:green;1s@@(1秒)
-不想要文字淡出，刪掉@@color:green;t8n@@</tw-passagedata><tw-passagedata pid="14" name="不要整合" tags="" position="901,199" size="100,100">支線碎片統整
+@@</tw-passagedata><tw-passagedata pid="11" name="不要整合" tags="" position="901,199" size="100,100">支線碎片統整
 
 [[支線一：關於奶奶|branch1]]
 [[支線二：貓妖|branch2]]
 [[支線三：貓咪怪盜|branch3]]
 [[支線四：女誡扇綺譚|branch4]]
 [[支線五：八爺|branch5]]
-[[支線六：水禍|branch6]]</tw-passagedata><tw-passagedata pid="15" name="branch2" tags="nofooter no-side-bar noreturn branch" position="1100,326" size="100,100">@@color:black;
+[[支線六：水禍|branch6]]</tw-passagedata><tw-passagedata pid="12" name="branch2" tags="nofooter no-side-bar noreturn branch" position="1100,326" size="100,100">@@color:black;
 一輪明月高掛，那是如常的夜晚，
 不知何處而來的貓兒，慢慢聚攏到高家門外，
 慢慢佔據屋頂、圍牆……
@@ -655,7 +584,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 現在你走在信義街，總會看見許許多多的貓……
 @@
-</tw-passagedata><tw-passagedata pid="16" name="branch3" tags="nofooter no-side-bar noreturn branch" position="1099,452" size="100,100">@@color:black;
+</tw-passagedata><tw-passagedata pid="13" name="branch3" tags="nofooter no-side-bar noreturn branch" position="1099,452" size="100,100">@@color:black;
 信義街的守護神石獅公壓住我的尾巴，讓我動彈不得。
 
 「放開我喵。」
@@ -674,7 +603,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 這是，我與她第一次見面。
 @@
-</tw-passagedata><tw-passagedata pid="17" name="branch4" tags="nofooter no-side-bar noreturn branch" position="1233,200" size="100,100">@@color:black;
+</tw-passagedata><tw-passagedata pid="14" name="branch4" tags="nofooter no-side-bar noreturn branch" position="1233,200" size="100,100">@@color:black;
 很久以前，一位日本人與好友來五條港一帶導覽，
 在代天府附近，意外發現一幢無人看管，荒廢卻豪華氣派的古宅。
 
@@ -703,7 +632,7 @@ predisplay["Menu Return"] = function (taskName) {
 離開前夕，二樓傳來幽幽的聲音。
 「把扇子還給我……」
 @@
-</tw-passagedata><tw-passagedata pid="18" name="branch5" tags="nofooter no-side-bar noreturn branch" position="1233,332" size="100,100">@@color:black;
+</tw-passagedata><tw-passagedata pid="15" name="branch5" tags="nofooter no-side-bar noreturn branch" position="1233,332" size="100,100">@@color:black;
 八爺，身形矮壯，面黑，名為范無赦，稱范將軍。
 
 關於八爺的身份，最普遍的說法是很八爺與七爺的橋下之約，
@@ -716,7 +645,7 @@ predisplay["Menu Return"] = function (taskName) {
 
 下次如果有機會拜見八爺，可以注意看看祂的鞋是否潮濕，是否又出任務了。
 @@
-</tw-passagedata><tw-passagedata pid="19" name="branch6" tags="nofooter no-side-bar noreturn branch" position="1235,452" size="100,100">@@color:black;
+</tw-passagedata><tw-passagedata pid="16" name="branch6" tags="nofooter no-side-bar noreturn branch" position="1235,452" size="100,100">@@color:black;
 如果山、水、樹、石都有生命的話，
 那麼它們對人類破壞自然的行為，將會如何？
 
