@@ -1767,18 +1767,12 @@ Macro.add('message', {
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title5 is 1&gt;&gt;
 [[第五章|第五章0]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv.length is 0&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv.length is 0&gt;&gt;\
     什麼都沒有。
+&lt;&lt;else&gt;&gt;\
+    背包裡有：
+	&lt;br&gt;&lt;&lt;= $inv.join(&#39; &lt;br&gt; &#39;)&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-	&lt;&lt;if $inv.has(&#39;法器1&#39;)&gt;&gt;
-	&lt;&lt;include &#39;虎牌&#39;&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
-	&lt;&lt;if $inv.has(&#39;法器2&#39;)&gt;&gt;
-	&lt;&lt;include &#39;羽扇&#39;&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
-	&lt;&lt;include &#39;帽子&#39;&gt;&gt;
-	&lt;img src=&quot;https://drive.google.com/uc?id=1N7EBfm9lkZa7M6oo0pUevj03mOq43sSf&quot; width=&quot;350&quot; &gt;
-	&lt;&lt;/if&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="86" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置角色屬性 */
 &lt;&lt;set $hp to 10&gt;&gt; 設置血量
