@@ -1769,9 +1769,16 @@ Macro.add('message', {
 [[第五章|第五章0]]
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv.length is 0&gt;&gt;\
     什麼都沒有。
-&lt;&lt;else&gt;&gt;\
-    背包裡有：
-	&lt;br&gt;&lt;&lt;= $inv.join(&#39; &lt;br&gt; &#39;)&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $inv.has(&#39;法器1&#39;)&gt;&gt;
+&lt;&lt;print $dinv1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $inv.has(&#39;法器2&#39;)&gt;&gt;
+&lt;&lt;print $dinv2&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $inv.has(&#39;法器3&#39;)&gt;&gt;
+&lt;&lt;print $dinv3&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="86" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置角色屬性 */
@@ -2780,13 +2787,15 @@ Macro.add('message', {
 @@</tw-passagedata><tw-passagedata pid="148" name="branch1" tags="branch no-side-bar noreturn noheader- nofooter" position="100,900" size="100,100">你找到了虎牌！
 &lt;&lt;include &#39;虎牌&#39;&gt;&gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;&lt;pickup &#39;$inv&#39; &#39;法器1&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="149" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter" position="200,900" size="100,100">你找到了黑色羽扇！
+&lt;&lt;pickup &#39;$inv&#39; &#39;法器1&#39;&gt;&gt;
+&lt;&lt;set $inv to &#39;虎牌&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="149" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter" position="200,900" size="100,100">你找到了黑色羽扇！
 &lt;&lt;include &#39;羽扇&#39;&gt;&gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;&lt;pickup &#39;$inv&#39; &#39;法器21&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="150" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter" position="300,900" size="100,100">你找到了賞善罰惡帽！
+&lt;&lt;pickup &#39;$inv&#39; &#39;法器21&#39;&gt;&gt;
+&lt;&lt;set $inv to &#39;羽扇&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="150" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter" position="300,900" size="100,100">你找到了賞善罰惡帽！
 &lt;&lt;include &#39;帽子&#39;&gt;&gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;&lt;pickup &#39;$inv&#39; &#39;法器3&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="151" name="nobranch" tags="branch no-side-bar noreturn noheader- nofooter" position="100,1000" size="100,100">沒有找到法器，看來找錯地方了……
+&lt;&lt;set $inv to &#39;帽子&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="151" name="nobranch" tags="branch no-side-bar noreturn noheader- nofooter" position="100,1000" size="100,100">沒有找到法器，看來找錯地方了……
 
 (閱讀完後請關掉此分頁，回到遊戲頁面)</tw-passagedata><tw-passagedata pid="152" name="不明圖騰" tags="" position="500,600" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰1&#39;) &gt;&gt;
 &lt;img src=&quot;https://drive.google.com/uc?id=1AZPFhdWd5Oxvr4FQubJWaByUuQmVKkrL&quot; width=&quot;200&quot; &gt;
