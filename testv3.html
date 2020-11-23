@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="測試版v3" startnode="155" creator="Twine" creator-version="2.3.9" ifid="8F043437-C010-4FC5-A327-46809AD56E94" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*提醒視窗*/
+	<tw-storydata name="測試版v3" startnode="131" creator="Twine" creator-version="2.3.9" ifid="8F043437-C010-4FC5-A327-46809AD56E94" zoom="1" format="SugarCube" format-version="2.31.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*提醒視窗*/
 /*
     notify.min.css, by chapel; for use with notify.js
     version 1.0.0
@@ -274,7 +274,7 @@ body.radial-gradient {
   /* An outline around the textbox */
 	border: 5px solid white;
   /* A semi-transparent background color */
-	background-color: rgba(0, 0, 0, 0.85);
+	background-color: rgba(0, 0, 0, 0.75);
   /* Space between the edges of the textbox and the text */
 	padding: 20px 50px 40px 50px;
   /* Round off the edges of the textbox */
@@ -1301,7 +1301,21 @@ Macro.add('message', {
 
     setup.notify = notify;
 }());
-/*提醒視窗結束*/</script><tw-passagedata pid="1" name="第四關1" tags="" position="2800,600" size="200,200">@@.center;
+/*提醒視窗結束*/
+
+/* 密碼加密 - Start */
+/*密碼轉譯 https://qjzhvmqlzvoo5lqnrvuhmg-on.drv.tw/UInv/Sample_Code.html#Simple%20Password%20Hiding */
+window.hashStr = function(txt) {
+	var hash = 0, i, chr;
+	if (txt.length === 0) return hash;
+	for (i = 0; i < txt.length; i++) {
+		chr   = txt.charCodeAt(i);
+		hash  = ((hash << 5) - hash) + chr;
+		hash |= 0; // Convert to 32bit integer
+	}
+	return hash;
+};
+/* 密碼加密 - End */</script><tw-passagedata pid="1" name="第四關1" tags="" position="2800,600" size="200,200">@@.center;
 &lt;h3&gt;追蹤子寧&lt;/h3&gt;
 @@
 要找到子寧和無支祁，需要依靠手機上的妖氣儀，對照@@color:red; &lt;&lt;hovertip &#39;在道具包中找出角頭位置圖&#39;&gt;&gt;集福宮角頭圖&lt;&lt;/hovertip&gt;&gt;@@。
@@ -1314,7 +1328,7 @@ Macro.add('message', {
 
 &lt;&lt;linkappend 前往下一個地點&gt;&gt;
 &lt;&lt;include &quot;前往下一個地點(起點)&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="妖氣儀1" tags="noreturn" position="2200,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1n_WBwatFiR5VpR6g7oZiKc5Pg8CQ27Vn&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="3" name="前往下一個地點(起點)" tags="" position="3725,799" size="100,100">[[甕城跤角|地點A]]
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="妖氣儀1" tags="noreturn" position="2200,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1n_WBwatFiR5VpR6g7oZiKc5Pg8CQ27Vn&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="3" name="前往下一個地點(起點)" tags="" position="3725,799" size="100,100">[[甕城跤角|地點A]]
 
 [[合發角|地點C]]
 
@@ -1352,7 +1366,7 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="12" name="地點F2" tags="" position="2075,1225" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
-[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="13" name="妖氣儀3" tags="noreturn" position="2400,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1TFDxmndDK94lYDNQRtPExlGs3FVeK_xd&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="14" name="妖氣儀2" tags="noreturn" position="2300,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1gQKP9R7lET9pNMCh5AaHUa-SGrMoY6R8&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="15" name="下一個地點3(地點B)" tags="" position="3727,1050" size="100,100">[[合發角|地點C3]]
+[[回到上一個地點-&gt;地點A]]</tw-passagedata><tw-passagedata pid="13" name="妖氣儀3" tags="noreturn" position="2400,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1TFDxmndDK94lYDNQRtPExlGs3FVeK_xd&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="14" name="妖氣儀2" tags="noreturn" position="2300,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1gQKP9R7lET9pNMCh5AaHUa-SGrMoY6R8&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="15" name="下一個地點3(地點B)" tags="" position="3727,1050" size="100,100">[[合發角|地點C3]]
 
 [[下合源角|地點E3]]
 
@@ -1370,7 +1384,6 @@ Macro.add('message', {
 [[回到上一個地點-&gt;地點B2]]</tw-passagedata><tw-passagedata pid="18" name="地點F3" tags="" position="2200,1100" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
 [[回到上一個地點-&gt;地點B2]]</tw-passagedata><tw-passagedata pid="19" name="地點A3" tags="" position="2201,1227" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1394,7 +1407,6 @@ Macro.add('message', {
 </tw-passagedata><tw-passagedata pid="22" name="地點F4" tags="" position="2325,975" size="100,100">不曉得是不是方向判定錯誤，來此處並無任何妖氣及貓咪怪盜的蹤跡。
 
 [[回到上一個地點-&gt;地點C3]]</tw-passagedata><tw-passagedata pid="23" name="地點A4" tags="" position="2325,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1402,7 +1414,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點C3]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="24" name="地點B4" tags="" position="2321,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1424,7 +1435,6 @@ Macro.add('message', {
 &lt;&lt;include &quot;下一個地點6(地點E)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 </tw-passagedata><tw-passagedata pid="27" name="地點A5" tags="" position="2450,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1432,7 +1442,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點D4]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="28" name="地點B5" tags="" position="2450,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1440,7 +1449,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點D4]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="29" name="地點C5" tags="" position="2450,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1461,7 +1469,6 @@ Macro.add('message', {
 &lt;&lt;linkappend 前往下一個地點&gt;&gt;
 &lt;&lt;include &quot;下一個地點7(地點F)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="地點B6" tags="" position="2575,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1469,7 +1476,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點E5]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="33" name="地點C6" tags="" position="2575,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1477,7 +1483,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點E5]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="34" name="地點D6" tags="" position="2575,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1501,10 +1506,9 @@ Macro.add('message', {
 &lt;&lt;include &quot;下一個地點8(地點A7)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 
-&lt;&lt;linkappend &quot;需要更多提示！&quot;&gt;&gt;
+&lt;&lt;linkreplace &quot;需要提示！&quot;&gt;&gt;
 &lt;&lt;include &quot;第四關關卡提示1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="地點C7" tags="" position="2800,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="地點C7" tags="" position="2800,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1512,7 +1516,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點F6]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="38" name="地點D7" tags="" position="2800,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1520,7 +1523,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點F6]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="39" name="地點E7" tags="" position="2800,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1546,10 +1548,9 @@ Macro.add('message', {
 &lt;&lt;include &quot;下一個地點9(地點B8)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 
-&lt;&lt;linkappend &quot;需要提示！&quot;&gt;&gt;
+&lt;&lt;linkreplace &quot;需要提示！&quot;&gt;&gt;
 &lt;&lt;include &quot;第四關關卡提示1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="地點D8" tags="" position="2925,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="地點D8" tags="" position="2925,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1557,7 +1558,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點A7]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="43" name="地點E8" tags="" position="2925,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1565,7 +1565,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點A7]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="44" name="地點F8" tags="" position="2925,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1592,10 +1591,9 @@ Macro.add('message', {
 &lt;&lt;include &quot;下一個地點10(地點C9)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 
-&lt;&lt;linkappend &quot;需要提示！&quot;&gt;&gt;
+&lt;&lt;linkreplace &quot;需要提示！&quot;&gt;&gt;
 &lt;&lt;include &quot;第四關關卡提示1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="地點E9" tags="" position="3050,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="地點E9" tags="" position="3050,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1603,7 +1601,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點B8]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="49" name="地點F9" tags="" position="3050,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1611,7 +1608,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點B8]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="50" name="地點A9" tags="" position="3050,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1638,10 +1634,9 @@ Macro.add('message', {
 &lt;&lt;include &quot;下一個地點11(地點D10)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 
-&lt;&lt;linkappend &quot;需要提示！&quot;&gt;&gt;
+&lt;&lt;linkreplace &quot;需要提示！&quot;&gt;&gt;
 &lt;&lt;include &quot;第四關關卡提示1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="地點F10" tags="" position="3175,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="地點F10" tags="" position="3175,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1649,7 +1644,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點C9]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="55" name="地點A10" tags="" position="3175,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1657,7 +1651,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點C9]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="56" name="地點B10" tags="" position="3175,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1684,10 +1677,9 @@ Macro.add('message', {
 &lt;&lt;include &quot;下一個地點12(地點E11)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 
-&lt;&lt;linkappend &quot;需要提示！&quot;&gt;&gt;
+&lt;&lt;linkreplace &quot;需要提示！&quot;&gt;&gt;
 &lt;&lt;include &quot;第四關關卡提示1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="地點A11" tags="" position="3300,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="地點A11" tags="" position="3300,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1695,7 +1687,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點D10]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="61" name="地點B11" tags="" position="3300,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1703,7 +1694,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點D10]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="62" name="地點C11" tags="" position="3300,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1730,10 +1720,9 @@ Macro.add('message', {
 &lt;&lt;include &quot;下一個地點13(地點E12)&quot;&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 
-&lt;&lt;linkappend &quot;需要提示！&quot;&gt;&gt;
+&lt;&lt;linkreplace &quot;需要提示！&quot;&gt;&gt;
 &lt;&lt;include &quot;第四關關卡提示1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="地點B12" tags="" position="3425,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="地點B12" tags="" position="3425,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1741,7 +1730,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點E11]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="67" name="地點C12" tags="" position="3425,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1749,7 +1737,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點E11]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="68" name="地點D12" tags="" position="3425,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1766,7 +1753,6 @@ Macro.add('message', {
 [[下合源角|地點E13]]
 
 [[頂合源角|地點B13]]</tw-passagedata><tw-passagedata pid="71" name="地點C13" tags="" position="3550,975" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1774,7 +1760,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點F12]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="72" name="地點D13" tags="" position="3550,1100" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1782,7 +1767,6 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點F12]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="73" name="地點E13" tags="" position="3550,1225" size="100,100">@@.delayed;嗶! 嗶! 嗶! @@
-
 @@.delayed;這是什麼聲音...?@@
 
 @@.delayed;&lt;&lt;linkappend &quot;⚠警告 妖氣偵測量極低&quot;&gt;&gt;
@@ -1790,23 +1774,9 @@ Macro.add('message', {
 
 [[回到上一個地點-&gt;地點F12]]
 &lt;&lt;/linkappend&gt;&gt;@@</tw-passagedata><tw-passagedata pid="74" name="地點B13" tags="" position="3550,1350" size="100,100">追到子寧了！
-&lt;&lt;timed 1s&gt;&gt;&lt;&lt;goto &quot;第四關2&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="75" name="第四關0" tags="" position="2800,400" size="100,100">＊想不到子寧竟然搶走法器，好在子寧並沒有走遠，我們得趕緊去追子寧，把『法器』拿回來，並詢問子寧做這些事情的原因。
-
-林：子寧，快點把『法器』還回來，妳到底發生什麼事？
-
-寧：你不會知道的⋯⋯我這麼做都是為了你！
-
-＊只見子寧身上散發出一層濃厚的黑霧，包裹少女全身，突然，子寧的身軀隨著黑霧逐漸改變，在我眼前的是-
-
-林：貓咪怪盜！難道是你故意裝成子寧的模樣，快說，真正的子寧在哪裡？
-
-貓：真是愚昧喵，『法器』我就帶走了喵。
-
-我開始[[追逐貓咪怪盜|第四關1]]。
-
-</tw-passagedata><tw-passagedata pid="76" name="妖氣儀4" tags="noreturn" position="2500,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1eXAvnCtgPnamChHHzOfKrnR73u9rcPQf&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="77" name="妖氣儀5" tags="noreturn" position="2200,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=15m4SXCPPNZyoTF5wG7JfprytbxlNr0g9&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="78" name="妖氣儀6" tags="noreturn" position="2300,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=11X0o8HjwEFFKdQ6s4i9pDlwi1f31SoW1&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="79" name="妖氣儀7" tags="noreturn" position="2400,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1n_WBwatFiR5VpR6g7oZiKc5Pg8CQ27Vn&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="80" name="妖氣儀8" tags="noreturn" position="2500,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1n_WBwatFiR5VpR6g7oZiKc5Pg8CQ27Vn&quot; width=&quot;300&quot; &gt;</tw-passagedata><tw-passagedata pid="81" name="StoryBanner" tags="noreturn" position="700,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=14_bGCjdkgHaYjjb5C5uMXcbyKKaZZBv1&quot; width=&quot;200&quot;&gt;</tw-passagedata><tw-passagedata pid="82" name="StoryDisplayTitle" tags="noreturn" position="700,600" size="100,100"></tw-passagedata><tw-passagedata pid="83" name="StorySubtitle" tags="noreturn" position="700,700" size="100,100">
+&lt;&lt;timed 1s&gt;&gt;&lt;&lt;goto &quot;第四關2&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="75" name="妖氣儀4" tags="noreturn" position="2500,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1eXAvnCtgPnamChHHzOfKrnR73u9rcPQf&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="76" name="妖氣儀5" tags="noreturn" position="2200,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=15m4SXCPPNZyoTF5wG7JfprytbxlNr0g9&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="77" name="妖氣儀6" tags="noreturn" position="2300,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=11X0o8HjwEFFKdQ6s4i9pDlwi1f31SoW1&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="78" name="妖氣儀7" tags="noreturn" position="2400,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1n_WBwatFiR5VpR6g7oZiKc5Pg8CQ27Vn&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="79" name="妖氣儀8" tags="noreturn" position="2500,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1n_WBwatFiR5VpR6g7oZiKc5Pg8CQ27Vn&quot; width=&quot;80%&quot; &gt;</tw-passagedata><tw-passagedata pid="80" name="StoryBanner" tags="noreturn" position="700,500" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=14_bGCjdkgHaYjjb5C5uMXcbyKKaZZBv1&quot; width=&quot;200&quot;&gt;</tw-passagedata><tw-passagedata pid="81" name="StoryDisplayTitle" tags="noreturn" position="700,600" size="100,100"></tw-passagedata><tw-passagedata pid="82" name="StorySubtitle" tags="noreturn" position="700,700" size="100,100">
 -製作團隊：街密小組-
-[[人員名單|work]]</tw-passagedata><tw-passagedata pid="84" name="StoryMenu" tags="noreturn" position="700,800" size="100,100">[[日記碎片]]
+[[人員名單|work]]</tw-passagedata><tw-passagedata pid="83" name="StoryMenu" tags="noreturn" position="700,800" size="100,100">[[日記碎片]]
 [[背包]]
 &lt;&lt;if $title1 is 1&gt;&gt;
 [[第一章|第一章0]]
@@ -1822,109 +1792,106 @@ Macro.add('message', {
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title5 is 1&gt;&gt;
 [[第五章|第五章0]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;inventory &#39;$inv&#39; &#39;, &#39;&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv1 is &quot;虎牌&quot; and $inv2 is &quot;黑色羽扇&quot; and $inv3 is &quot;賞善罰惡帽&quot;&gt;&gt;$inv1,$inv2,$inv3&lt;&lt;else&gt;&gt;沒有東西。&lt;&lt;/if&gt;&gt;&lt;&lt;inventory &#39;$inv&#39; &#39;, &#39;&gt;&gt;
 
 [[返回前頁|$return]]
 [[branch1]]
 [[branch2]]
-[[branch3]]</tw-passagedata><tw-passagedata pid="86" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
+[[branch3]]</tw-passagedata><tw-passagedata pid="85" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
 &lt;&lt;newinventory &#39;$inv&#39;&gt;&gt;
 &lt;&lt;newinventory &#39;$dinv&#39;&gt;&gt;
 &lt;&lt;newinventory &#39;$face&#39;&gt;&gt;
 
 /* 關卡提示 */
-&lt;&lt;set $textGroup to 1&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="PassageHeader" tags="noreturn" position="700,1200" size="100,100"></tw-passagedata><tw-passagedata pid="88" name="PassageFooter" tags="" position="700,1100" size="100,100">
+&lt;&lt;set $textGroup to 1&gt;&gt;
 
-&lt;&lt;if tags().includes(&#39;QR&#39;)&gt;&gt;&lt;u&gt;@@color:DarkSeaGreen;提醒：如果找不到QRCODE，可以到@@@@color:Aquamarine;祈願榕樹@@@@color:DarkSeaGreen;許願，就會出現了喔~@@&lt;/u&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="89" name="開場" tags="" position="1000,500" size="100,100">@@.center;
-&lt;h1&gt;府城奇聞錄&lt;/h1&gt;
--老古石街篇-
-@@
+/*音檔*/
+&lt;&lt;cacheaudio &quot;bibi&quot; &quot;mp3|https://drive.google.com/uc?id=1N8dCDAHqt8-yIsWRwQsBThE_GWt_sMj4&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="PassageHeader" tags="noreturn" position="700,1200" size="100,100"></tw-passagedata><tw-passagedata pid="87" name="PassageFooter" tags="" position="700,1100" size="100,100">
 
+&lt;&lt;if tags().includes(&#39;QR&#39;)&gt;&gt;&lt;u&gt;@@color:DarkSeaGreen;提醒：如果找不到QRCODE，可以到@@@@color:Aquamarine;祈願榕樹@@@@color:DarkSeaGreen;許願，就會出現了喔~@@&lt;/u&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="開場" tags="" position="1000,500" size="100,100">@@.center;&lt;h2&gt;府城奇聞錄（老古石街篇）&lt;/h2&gt;@@
 &lt;table&gt;
 少年小凡，跟隨爸爸整理老屋時，發現失蹤許久的奶奶的日記，小凡閱讀日記的過程中，發覺奶奶的失蹤並不單純，於是，小凡重回奶奶曾經旅遊的歷史街區，找尋奶奶失蹤的真相。
-&lt;/table&gt;
-
-[[開始遊戲|第一章0]]</tw-passagedata><tw-passagedata pid="90" name="第一章0" tags="autosave noheader" position="1125,500" size="100,100">&lt;&lt;set $title1 to 1&gt;&gt;
+@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=16CJnw1MSW_unRoBRYw8tJaLIXXLrBI5-&quot; width=&quot;65%&quot;&gt;@@
+[[開始遊戲|第一章0]]
+&lt;/table&gt;</tw-passagedata><tw-passagedata pid="89" name="第一章0" tags="autosave noheader" position="1125,500" size="100,100">&lt;&lt;set $title1 to 1&gt;&gt;
 @@.center;&lt;h1&gt;第一章&lt;/h1&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1KQPyB65ugH8Zem2ST9_i1EZBpf0QPkNR&quot; width=&quot;100%&quot;&gt;@@
+&lt;img src=&quot;https://drive.google.com/uc?id=10h9j1er7LNtNZeH-aqKUnie0zA3W9-gS&quot; width=&quot;100%&quot;&gt;@@
 
 &lt;table&gt;
 信義街古地名為老古石街，老古石是白化的珊瑚石，因這條街能看見老古石的痕跡，所以稱之為『老古石』街。
-少年小凡藉由奶奶遺留的日記來到了信義街，日記裡留下許多奶奶曾經瀏覽歷史街區的紀錄，有街區的@@color:Aquamarine;古地圖@@和一些莫名的紙本資料，小凡心想，這些日記紙本可能隱藏奶奶失蹤的線索……
-&lt;/table&gt;
+少年小凡藉由奶奶遺留的日記來到了信義街，日記裡留下許多奶奶曾經瀏覽歷史街區的紀錄，有街區的@@color:Aquamarine;古地圖@@和一些莫名的紙本資料
+小凡心想，這些日記紙本可能隱藏奶奶失蹤的線索……
 [[開始探索|第一關1]]
 &lt;&lt;set $oldmap to 1&gt;&gt;
 &lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片1&#39;&gt;&gt;
 &lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰1&#39;&gt;&gt;
-&lt;&lt;notify&gt;&gt;小凡得到寫著「古地圖」的日記碎片及一塊不明圖騰！&lt;&lt;/notify&gt;&gt;</tw-passagedata><tw-passagedata pid="91" name="第二章0" tags="autosave noheader" position="1250,500" size="100,100">&lt;&lt;set $title2 to 1&gt;&gt;
+&lt;&lt;notify&gt;&gt;小凡得到寫著「古地圖」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;
+&lt;/table&gt;</tw-passagedata><tw-passagedata pid="90" name="第二章0" tags="autosave noheader" position="1250,500" size="100,100">&lt;&lt;set $title2 to 1&gt;&gt;
 @@.center;
 &lt;h1&gt;第二章&lt;/h1&gt;
 &lt;img src=&quot;https://drive.google.com/uc?id=
-17HdXrAuC9kQwbnmABbiq6xC2Z33DSytp&quot; width=&quot;300&quot;&gt;
+1SUAkJTPm62iWhf_IqHCSVojg84tXF3ma&quot; width=&quot;100%&quot;&gt;
 @@
 &lt;table&gt;
 小凡從日記碎片中看見信義街殘破的景象，他明白日記碎片所產生的影像就是奶奶在日記中所書寫的內容，難道奶奶的失蹤並不單純？似乎與信義街隱藏的祕密有關。
 &lt;/table&gt;
-[[繼續尋找碎片|第二關1]]
-</tw-passagedata><tw-passagedata pid="92" name="第三章0" tags="autosave noheader" position="1375,500" size="100,100">&lt;&lt;set $title3 to 1&gt;&gt;
+[[繼續尋找碎片|第二關1]]</tw-passagedata><tw-passagedata pid="91" name="第三章0" tags="autosave noheader" position="1375,500" size="100,100">&lt;&lt;set $title3 to 1&gt;&gt;&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片7&#39;&gt;&gt;&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰7&#39;&gt;&gt;
 @@.center;
 &lt;h1&gt;第三章&lt;/h1&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1INZcHlOLeiCJMHuMkiwLGz53PSf455Yg&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1vVNevL0XJ-mLsNvB7zXcCWWLoC0kHTAr&quot; width=&quot;100%&quot;&gt;
 @@
 &lt;table&gt;
 小凡在子寧細心的照顧下，終於醒過來，知道日記碎片中出現的龐大身影，可能是名為@@color:Aquamarine;無支祁@@的水怪，小凡和子寧為了理解關於無支祁的事情，聽從李青的建議，趕去@@color:Aquamarine;集福宮@@。
 &lt;/table&gt;
-[[前往集福宮|第三關1]]
-</tw-passagedata><tw-passagedata pid="93" name="第四章0" tags="autosave noheader" position="1500,500" size="100,100">&lt;&lt;set $title4 to 1&gt;&gt;
+[[前往集福宮|第三關1]]</tw-passagedata><tw-passagedata pid="92" name="第四章0" tags="autosave noheader" position="1500,500" size="100,100">&lt;&lt;set $title4 to 1&gt;&gt;
 @@.center;
 &lt;h1&gt;第四章&lt;/h1&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1chYwSD2NWcAPFeXJe3wCu2LgFG7QTDP1&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1T_717Em1u_FG8IAHc2NaljLns2E5LeJl&quot; width=&quot;100%&quot;&gt;
 @@
 &lt;table&gt;
 想不到子寧和無支祁是一夥，不過小凡見到子寧哀傷的表情，那副悲傷的容顏背後到底隱藏著怎樣的真相？小凡決定去把法器搶回來，向子寧詢問真相。
 &lt;/table&gt;
-[[尋找子寧|第四關1]]
-</tw-passagedata><tw-passagedata pid="94" name="第五章0" tags="autosave noheader" position="1625,500" size="100,100">&lt;&lt;set $title5 to 1&gt;&gt;
+[[尋找子寧|第四關1]]</tw-passagedata><tw-passagedata pid="93" name="第五章0" tags="autosave noheader" position="1625,500" size="100,100">&lt;&lt;set $title5 to 1&gt;&gt;
 @@.center;
 &lt;h1&gt;第五章&lt;/h1&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1-D9K77aTs5PWXZMDz1B5MrHycZmtKfa3&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1suNAzKw6rH3cesapKOQQgWJbb9IZmHLw&quot; width=&quot;100%&quot;&gt;
 @@
 &lt;table&gt;
 子寧帶小凡來帶屎溝墘客廳，拿出好幾張舊報紙，裡頭講述X月X日老古石街發生過水患。
 子寧原是一隻貓妖，很早以前在老古石街作亂，後來被玄天上帝收服，她和一般街民一樣，開設民宿維生，奶奶曾經是子寧民宿的房客。
 &lt;/table&gt;
-[[詢問子寧|第五關1]]
-</tw-passagedata><tw-passagedata pid="95" name="第一關1" tags="" position="1125,625" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1aOFSciwG3vcll3jr3lGcXVj1UZ5bVsOG&quot; width=&quot;100%&quot;&gt;
+[[詢問子寧|第五關1]]</tw-passagedata><tw-passagedata pid="94" name="第一關1" tags="" position="1125,625" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1tKRoXQUlhS82_LIUMYadpW-Kroh6kdTM&quot; width=&quot;100%&quot;&gt;
 @@
 當小凡思索『古地圖』與『現代地圖』間能否找出奶奶的線索時，一隻黑貓出現，一臉狐疑地盯著小凡手邊的日記，突然，發出一聲喵叫，竟然伸爪去搶小凡手裡的日記。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;黑貓&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;趕緊把東西給我喵。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;你是誰？怎麼搶我的日記。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;黑貓&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我是貓咪怪盜喵，少年，
 趕緊把日記給我喵。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;不要！這是很重要的東西。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-小凡與貓咪怪盜拉扯中，日記終於[[扛不住兩人的力道|第一關2]]……</tw-passagedata><tw-passagedata pid="96" name="日記碎片" tags="noreturn" position="500,700" size="100,100">&lt;h3&gt;不明圖騰&lt;/h3&gt;
+小凡與貓咪怪盜拉扯中，日記終於[[扛不住兩人的力道|第一關2]]……</tw-passagedata><tw-passagedata pid="95" name="日記碎片" tags="noreturn" position="500,700" size="100,100">&lt;h3&gt;不明圖騰&lt;/h3&gt;
 &lt;&lt;include &#39;不明圖騰&#39;&gt;&gt;
 ----
 &lt;&lt;if $dinv.has(&#39;日記碎片1&#39;)&gt;&gt;
@@ -1981,33 +1948,33 @@ Macro.add('message', {
   &lt;&lt;/message&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="97" name="日記碎片1" tags="noreturn" position="100,500" size="100,100">一月二號，晴。
+[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="96" name="日記碎片1" tags="noreturn" position="100,500" size="100,100">一月二號，晴。
 
 心情真的太好了，好不容易才擺脫家庭的束縛，瞞著老公一個人來到老古石街，開始屬於我，一個人的旅行。
 
-想不到這裡盡是魚塭，旁邊還有一條港口，可以看見小船直接開到我旁邊，難怪這裡每年都會發生……奇怪，有一群人一直看著我，眼神好奇怪，算了，我趕緊去民宿休息吧。</tw-passagedata><tw-passagedata pid="98" name="第一關2" tags="" position="1125,750" size="100,100">小凡與貓咪怪盜拉扯中，日記終於扛不住兩人的力道，發出奇異的光芒，化為數十個碎片，飛向信義街周邊。
+想不到這裡盡是魚塭，旁邊還有一條港口，可以看見小船直接開到我旁邊，難怪這裡每年都會發生……奇怪，有一群人一直看著我，眼神好奇怪，算了，我趕緊去民宿休息吧。</tw-passagedata><tw-passagedata pid="97" name="第一關2" tags="" position="1125,750" size="100,100">小凡與貓咪怪盜拉扯中，日記終於扛不住兩人的力道，發出奇異的光芒，化為數十個碎片，飛向信義街周邊。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;黑貓&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;發生了什麼事情喵，
 難道，少年用了什麼法術？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;什麼法術不法術！
 現在日記變成這樣，你這隻可惡的貓咪！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;黑貓&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;誰管你，我要去找@@color:Aquamarine;日記碎片喵。@@&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-小凡落寞地看著貓咪怪盜匆忙離開的背影，忽然他發現手中僅存的日記碎片古地圖發出亮光，他想，或許，[[這道光可以指引他去尋找其他的日記碎片|第一關關卡1]]。</tw-passagedata><tw-passagedata pid="99" name="第一關關卡1" tags="" position="1125,875" size="100,100">@@.center;
+小凡落寞地看著貓咪怪盜匆忙離開的背影，忽然他發現手中僅存的日記碎片古地圖發出亮光，他想，或許，[[這道光可以指引他去尋找其他的日記碎片|第一關關卡1]]。</tw-passagedata><tw-passagedata pid="98" name="第一關關卡1" tags="" position="1125,875" size="100,100">@@.center;
 &lt;h3&gt;尋找碎片&lt;/h3&gt;
 @@
 請回答@@color:red; &lt;&lt;hovertip &#39;在道具包中找出新港墘古地圖&#39;&gt;&gt;古地圖&lt;&lt;/hovertip&gt;&gt;@@所指示的地點，叫什麼名字。
@@ -2024,84 +1991,84 @@ Macro.add('message', {
 		&lt;&lt;goto &quot;第一關關卡1F&quot;&gt;&gt;
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="100" name="第一關關卡1F" tags="noreturn" position="1125,400" size="100,100">&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="99" name="第一關關卡1F" tags="noreturn" position="1125,400" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好像不是這個地方……
 再重新找找看要去哪吧！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-
 &lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;第一關關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="101" name="第一關3" tags="" position="1125,1000" size="100,100">小凡抵達了@@color:Aquamarine;代天府@@，四處尋找日記碎片，這時，天色忽然變暗，小凡從代天府裡聽見一陣奇怪的聲音，&lt;&lt;linkappend 像是不斷哭泣、哽咽、抽泣。&gt;&gt;
+</tw-passagedata><tw-passagedata pid="100" name="第一關3" tags="" position="1125,1000" size="100,100">小凡抵達了@@color:Aquamarine;代天府@@，四處尋找日記碎片，這時，天色忽然變暗，小凡從代天府裡聽見一陣奇怪的聲音，&lt;&lt;linkappend 像是不斷哭泣、哽咽、抽泣。&gt;&gt;
 @@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BseO6VkRdKAeUen1Xxgb2wdiZeQZBVwR&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=13EUD4s3Y06ukSATL54FTkf-ZBEuHMCOm&quot; width=&quot;100%&quot;&gt;
 @@
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好可怕，這是什麼聲音？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;你好，我是寄宿在代天府的女鬼，
 小朋友怎麼有空來這走踏。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;女、女鬼？
 怎麼白天也遇得到，我是在眠夢嗎？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;現在防曬乳很發達，即便是白天也沒有關係，
+&lt;p&gt;&lt;em&gt;現在防曬乳很發達，即便是白天也沒有關係。
 話說，小朋友，你來做什麼？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我在找日記碎片，不知道女鬼姐姐妳看見了嗎？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;你是說這個？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;對！可以把碎片還給我，
+&lt;p&gt;&lt;em&gt;對！可以把碎片還給我嗎？
 我有很重要的事情要趕著去做。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;要還給你也不是不行，我弄了一個字謎給你，
+&lt;p&gt;&lt;em&gt;要還給你也不是不行，我弄了一個字謎給你。
 只要你回答出正確的答案，我就把碎片還給你。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好，沒問題。[[我接受挑戰！|第一關關卡2]]&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="102" name="第一關關卡2" tags="" position="1125,1125" size="100,100">@@.center;
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="第一關關卡2" tags="" position="1125,1125" size="100,100">@@.center;
 &lt;h3&gt;女鬼的字謎挑戰&lt;/h3&gt;
 @@
 女鬼向小凡提出了字謎的挑戰，請拿出@@color:red; &lt;&lt;hovertip &#39;在道具包中找出女誡字謎&#39;&gt;&gt;字謎表&lt;&lt;/hovertip&gt;&gt;@@，對應代天府上的門聯，找出答案。
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;\
-  請輸入答案：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;(提示：5個英文字)\
+  請輸入答案：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
+  (提示：5個英文字)\
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸入&#39;&gt;&gt;
@@ -2109,11 +2076,11 @@ Macro.add('message', {
 	  &lt;&lt;if $answer is &#39;flood&#39;&gt;&gt;
 		&lt;&lt;goto &quot;第一關4&quot;&gt;&gt;
 	  &lt;&lt;else&gt;&gt;
-		&lt;&lt;goto &quot;第一關關卡2F&quot;&gt;&gt;\
+		&lt;&lt;goto &quot;第一關關卡2F&quot;&gt;&gt;
 	  &lt;&lt;/if&gt;&gt;
-  &lt;&lt;/button&gt;&gt;\
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="103" name="第一關關卡2F" tags="" position="1125,300" size="100,100">&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+  &lt;&lt;/button&gt;&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="102" name="第一關關卡2F" tags="" position="1125,300" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;笑話，這點程度還想拿碎片。該不會看到HERO就自以為是英雄啦？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2126,52 +2093,52 @@ Macro.add('message', {
 	&lt;&lt;include &quot;第一關關卡2線索3&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="104" name="第一關關卡2線索1" tags="" position="1125,200" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
+</tw-passagedata><tw-passagedata pid="103" name="第一關關卡2線索1" tags="" position="1125,200" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;拜託嘛！漂亮的大姊姊～～～
 請告訴我提示！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;嘛嘛嘛，真是個好小子。
 依循著對聯並彼此相連的話，我想就能看出端倪了！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="第一關關卡2線索2" tags="" position="1125,100" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="104" name="第一關關卡2線索2" tags="" position="1125,100" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
 @@color:Cyan;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;拜託嘛！漂亮的大姊姊～～～
 再提示多一點嘛！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;真的是拿你沒辦法，
 將上下聯轉換成的英文字串起來，
 並加以斷句可以得知「字」是藏在某處之下，
 找出對應處其下方的文字由左至右排列即為答案。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="106" name="第一關關卡2線索3" tags="" position="1125,0" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="第一關關卡2線索3" tags="" position="1125,0" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
 @@color:Cyan;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@
 @@color:Cyan;提示二：將上下聯轉換成的英文字串起來，並加以斷句可以得知「字」是藏在某處之下，找出對應處其下方的文字由左至右排列即為答案。@@
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我真的想不出來，
 &lt;&lt;linkappend &quot;直接告訴我答案嘛～～～～&quot;&gt;&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1amRDcbRTUXS3x9WDhe8-Kd5kv2OMvtpr&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;WORD HIDE UNDER W ,
 字就藏在「w」的下方，
@@ -2179,19 +2146,16 @@ Macro.add('message', {
 將W下方一個的英文字由左至右排列即為「FLOOD」。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;&lt;/linkappend&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="107" name="第一關4" tags="" position="1125,1250" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1p99KDuTCFuCN5CM2NdFxG8LZupj2yvPy&quot; width=&quot;300&quot;&gt;
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="106" name="第一關4" tags="" position="1125,1250" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1ItoUwt_yp1n3WMsBlABrFZ_VObKvJMCz&quot; width=&quot;100%&quot;&gt;
 @@
-小凡破解了女鬼的字謎，從祂手中獲得了日記碎片，突然，小凡發覺自己沉入海水中，他努力擺動雙手，向眼前的光亮處前進，穿出水面，[[他看見大水湧入信義街|第二章0]]。
-
-&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片2&#39;&gt;&gt;
-&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰2&#39;&gt;&gt;
-&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片3&#39;&gt;&gt;
-&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰3&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="108" name="日記碎片2" tags="" position="200,600" size="100,100">一月八號，不記得天氣如何。
+小凡破解了女鬼的字謎，從祂手中獲得了日記碎片，突然，小凡發覺自己沉入海水中，他努力擺動雙手，向眼前的光亮處前進，穿出水面，[[他看見大水湧入信義街。|第二章0]]
+&lt;&lt;notify&gt;&gt;小凡得到寫著「令人絕望的恐怖事件」、「代天府」的日記碎片及2塊不明圖騰！&lt;&lt;/notify&gt;&gt;
+&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片2&#39;&gt;&gt;&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰2&#39;&gt;&gt;&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片3&#39;&gt;&gt;&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰3&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="107" name="日記碎片2" tags="" position="200,600" size="100,100">一月八號，不記得天氣如何。
 
 如果說世間萬物都有意識，萬物們是如何看待人類破壞環境？這樣的思考是民宿的少女特地說給我聽的，一開始我還以為少女遇到什麼痛苦的事情，在我來的這幾天，和少女的相處讓我感到十分舒服，對於她現在失落的模樣，我真不知該說些什麼？
 
-果然和前陣子我感受到事情一樣，那些莫名窺探我的眼神，少女只能點點頭，簡短的說：「萬物的復仇即將來臨⋯⋯想要共處，必須得⋯⋯」沒多久，少女就在我面前痛哭起來。</tw-passagedata><tw-passagedata pid="109" name="日記碎片3" tags="" position="300,700" size="100,100">一月五號，陰天。
+果然和前陣子我感受到事情一樣，那些莫名窺探我的眼神，少女只能點點頭，簡短的說：「萬物的復仇即將來臨⋯⋯想要共處，必須得⋯⋯」沒多久，少女就在我面前痛哭起來。</tw-passagedata><tw-passagedata pid="108" name="日記碎片3" tags="" position="300,700" size="100,100">一月五號，陰天。
 
 招待我入住民宿是一位美麗活潑的少女，有一頭漆黑短髮與顯眼的虎牙，對聲音很靈敏、喜歡有老鼠圖案的玩具。我們倆一見如故，總是她帶著我四處溜搭。
 
@@ -2199,55 +2163,52 @@ Macro.add('message', {
 
 這棟宅院曾經住著一位美麗的千金小姐，她的父母因經商發生意外，雙雙落難於汪洋大海之中。千金小姐痛苦萬分，生命唯一的寄託，只有與她許訂終身的情郎能有天來迎娶她。
 
-眼看日子一天一天過去，情郎依舊沒有消息，千金小姐在銅鏡中發現自己年華逝去……有天，宅院裡發出陣陣惡臭，鄰居打開宅院一看，發現千金小姐穿著新娘服，死了。</tw-passagedata><tw-passagedata pid="110" name="第二關1" tags="" position="1250,625" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1kb098_zfUtWaPrPtMkeoHcdaCUjyUxFp&quot; width=&quot;300&quot;&gt;
+眼看日子一天一天過去，情郎依舊沒有消息，千金小姐在銅鏡中發現自己年華逝去……有天，宅院裡發出陣陣惡臭，鄰居打開宅院一看，發現千金小姐穿著新娘服，死了。</tw-passagedata><tw-passagedata pid="109" name="第二關1" tags="" position="1250,625" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1lZBdnDHoIeSZ0v83mmdrwig_de3J99P5&quot; width=&quot;100%&quot;&gt;
 @@
 小凡拜別女鬼之後，起身尋找下一片碎片時，頓時，烏雲密佈，下起大雨，小凡著急地找地方躲雨時，與一位少女擦身而過……
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;看你的模樣不像是旅客，手裡還拿著一本日記？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我正在找尋這本日記的碎片。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;碎片？莫非是剛才四散的光芒，我還以為……不過你似乎正在苦惱，要不把事情說來聽聽？
 或許我能以在地人的身份給你一點意見，對了，我叫蘇子寧，叫我子寧，請多指教。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-小凡將剛才發生的事情[[向子寧說了一遍|第二關2]]。</tw-passagedata><tw-passagedata pid="111" name="第二關2" tags="" position="1250,750" size="100,100">&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+小凡將剛才發生的事情[[向子寧說了一遍|第二關2]]。</tw-passagedata><tw-passagedata pid="110" name="第二關2" tags="" position="1250,750" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;原來這個碎片可以讀取日記作者的記憶，想不到信義街以前發生過這樣的事情……
 連身為在地人的我都不清楚，搞不好，李青姐姐會知其一二。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;妳說可能有人知道……太感謝妳了。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;嘿嘿嘿，我可是子寧呢！
 走，我們去@@color:Aquamarine;白日夢工廠@@。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 [[前往白日夢工廠|第二關3]]
-&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片4&#39;&gt;&gt;
-&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰4&#39;&gt;&gt;
-
-</tw-passagedata><tw-passagedata pid="112" name="日記碎片4" tags="" position="200,500" size="100,100">三月二號，驟雨。
+&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片4&#39;&gt;&gt;&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰4&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="111" name="日記碎片4" tags="" position="200,500" size="100,100">三月二號，驟雨。
 
 少女的狀態越來越不好，甚至也不願意像從前一樣，一起出去走走逛逛。那些詭異的眼神也完全不在意的我感受，當著我的面指指點點，好幾次，那些人和我發生了衝突，到底……這條街發生了什麼事？直到她叫住我。
 
@@ -2255,32 +2216,30 @@ Macro.add('message', {
 七月十一號，晴。
 
 那人就住在代天府附近，一座像是工廠的地方，而她則坐在門外的紅椅頭上，似乎正在沈思，當她看見我，隨口說了句：「妳煩惱的事情，不是妳可以處理的。」我很訝異女人說的話，沒多久，她說起了關於「無支祁」的故事。
-</tw-passagedata><tw-passagedata pid="113" name="第二關3" tags="" position="1250,875" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1OfuKLhNmD8TD83AyIlJM2ZevcC96nPuT&quot; width=&quot;300&quot;&gt;
+</tw-passagedata><tw-passagedata pid="112" name="第二關3" tags="" position="1250,875" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1KAca-WZXmme8Tdgo3UKkZGZhYLzQ2_ce&quot; width=&quot;100%&quot;&gt;
 @@
 小凡和子寧到了『白日夢工廠』，遇見身在工廠裡的算命師李青，李青了解小凡來到信義街的用意，她認為日記碎片和信義街最近的不平靜有關，可以藉由某種儀式去占卜信義街的未來。
-
+&lt;&lt;notify&gt;&gt;小凡得到寫著「白日夢工廠」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;什麼法術不法術！
-現在日記變成這樣，你這隻可惡的貓咪！&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;李青姊姊也不知道信義街發生的事情。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1q2NE3ZGw7L9VFxOIoEE0QN2bLRzqFESM&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;嗯……如果翻閱古文獻或許能略知一二，但具體是什麼，還是得依靠你們，我現在會啟動@@color:Aquamarine;儀式@@，只要你們虔誠，@@color:Aquamarine;儀式@@會回應你們。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;了解，我會努力試試看。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 [[進行儀式|第二關關卡1]]
-&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片5&#39;&gt;&gt;
-&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰5&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="114" name="日記碎片5" tags="" position="300,500" size="100,100">那位自稱李青的算命師，到底幾歲？算了，不要去問人家的隱私。她倒是解答了我許多疑惑，她說，因為信義街曾經發生了許多事情，所以街區的居民很害怕那些事情又再一次發生，尤其，我喜愛的少女扮演了很重要的角色，當居民發現我與少女的關係越來越好，對我這個陌生人就有越多懷疑與害怕。
+&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片5&#39;&gt;&gt;&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰5&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="113" name="日記碎片5" tags="" position="300,500" size="100,100">那位自稱李青的算命師，到底幾歲？算了，不要去問人家的隱私。她倒是解答了我許多疑惑，她說，因為信義街曾經發生了許多事情，所以街區的居民很害怕那些事情又再一次發生，尤其，我喜愛的少女扮演了很重要的角色，當居民發現我與少女的關係越來越好，對我這個陌生人就有越多懷疑與害怕。
 
 
 九月一號，炎熱的天氣。
@@ -2290,20 +2249,20 @@ Macro.add('message', {
 飯後，少女嚴肅地看著我，說，她很久沒有這麼快樂，雖然認識沒有多久，關係卻很密切，我同意她的說法，希望這段關係可以一直持續。
 
 因為少女說有事得先離開，我一個人待在鴨肉羹店裡，跟老闆喝了幾杯，我發現少女之前坐的位子上遺留著一張骯髒的黃紙，寫著：「儀式，X月X日……法器……」，什麼儀式？日期好近，就在下禮拜，我將那張紙收進口袋，心想，少女是不是有什麼事情隱瞞著我。
-</tw-passagedata><tw-passagedata pid="115" name="日記碎片6" tags="" position="100,600" size="100,100">無支祁是山海經所記載的一種水怪，模樣像猴，渾身長滿毛，喜愛下雨，總趁著大雨將至，利用海水、雨水作亂，禍害百姓，故，大禹治水時，藉『定海神針鐵』平定無支祁。
+</tw-passagedata><tw-passagedata pid="114" name="日記碎片6" tags="" position="100,600" size="100,100">無支祁是山海經所記載的一種水怪，模樣像猴，渾身長滿毛，喜愛下雨，總趁著大雨將至，利用海水、雨水作亂，禍害百姓，故，大禹治水時，藉『定海神針鐵』平定無支祁。
 
 我從李青口中得知的『無支祁』與信義街背後有什麼關聯……無支祁、儀式還有少女……三樣法器。
 
 今天我走在路上，一位婆婆擋住我的去路，不斷叫我不要再靠近少女了，為什麼不能接觸少女……我想到少女的眼淚……加上之前那些奇怪的眼神，我跟婆婆發生衝突，真是夠了……到底老古石街發生了什麼事！
-</tw-passagedata><tw-passagedata pid="116" name="日記碎片7" tags="" position="100,700" size="100,100">集福宮是位在信義街的主廟，祀奉玄天上帝，相傳這裡有貓妖的傳說，具體是什麼就不得而知了，或許，問問廟裡的人，可以得到答案。
+</tw-passagedata><tw-passagedata pid="115" name="日記碎片7" tags="" position="100,700" size="100,100">集福宮是位在信義街的主廟，祀奉玄天上帝，相傳這裡有貓妖的傳說，具體是什麼就不得而知了，或許，問問廟裡的人，可以得到答案。
 
 不知道是哪天晚上，具體的時間，我可能忘了，該死的記性……我看見少女穿著奇怪的衣服，是代表儀式的衣物嗎？手裡捧著我不能理解，應該是法器的東西，偷偷跑出集福宮。
-</tw-passagedata><tw-passagedata pid="117" name="日記碎片8" tags="" position="300,600" size="100,100">距離紙上所記載的日期越來越近，每一天我都能看見少女進行某種儀式的練習，當然也拿著夜裡她所帶出去……應該說稱為『三樣法器』的東西。
+</tw-passagedata><tw-passagedata pid="116" name="日記碎片8" tags="" position="300,600" size="100,100">距離紙上所記載的日期越來越近，每一天我都能看見少女進行某種儀式的練習，當然也拿著夜裡她所帶出去……應該說稱為『三樣法器』的東西。
 
 這幾天，雨是越來越大，看這樣子，也不是繼續旅程的時候，待了不少時間，我似乎該離開……
 
 我該不該向少女問起夜裡的事情，算了，我沒有勇氣，結果，我硬是拖到儀式的前一天，才敢敲響少女的房門，但，卻什麼回應也沒有，可是，我明確地感受到少女就在房裡，似乎正在跟某人說話。
-</tw-passagedata><tw-passagedata pid="118" name="日記碎片9" tags="" position="200,700" size="100,100">在奶奶的日記裡，記下一段少女與某人的談話。
+</tw-passagedata><tw-passagedata pid="117" name="日記碎片9" tags="" position="200,700" size="100,100">在奶奶的日記裡，記下一段少女與某人的談話。
 
 //……妳已經把假的法器交給無支祁了，是嗎？
 ……對，他很信任我，畢竟我前半生是妖，很容易博取他的信任，他還在我面前將假的法器給摔壞。
@@ -2312,17 +2271,17 @@ Macro.add('message', {
 ……妳跟那位旅人說過這件事嗎？我見妳們倆關係很好。
 ……沒有，我不想讓她操太多心，反正儀式成功後，我們又會回到原本的生活中。
 ……是呀，如果儀式成功，大家都能回到原本的生活。//
-</tw-passagedata><tw-passagedata pid="119" name="第二關關卡1" tags="" position="1250,1000" size="100,100">@@.center;
+</tw-passagedata><tw-passagedata pid="118" name="第二關關卡1" tags="" position="1250,1000" size="100,100">@@.center;
 &lt;h3&gt;啟動儀式&lt;/h3&gt;
 @@
 算命師李青準備啟動神祕的儀式，請拿出儀式上使用的@@color:red; &lt;&lt;hovertip &#39;在道具包中找出符紙&#39;&gt;&gt;符紙&lt;&lt;/hovertip&gt;&gt;@@，進行以下動作：
 
 1.掃瞄白日夢工廠門外的Qr.code，觀看儀式教學影片。
 2.請把折好的符紙，試著讓A點與B點連在一起，會形成一個關鍵字。
-
+&lt;&lt;notify&gt;&gt;小凡得到寫著「儀式」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;
 儀式得出的關鍵字，與哪一位神明有關？
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;\
-請輸入神明名字：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;\
+請輸入神明名字：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸入&#39;&gt;&gt;
@@ -2330,60 +2289,60 @@ Macro.add('message', {
 	  &lt;&lt;if $answer is &#39;玄天上帝&#39;&gt;&gt;
 		&lt;&lt;goto &quot;第二關4&quot;&gt;&gt;
 	  &lt;&lt;else&gt;&gt;
-		&lt;&lt;goto &quot;第二關關卡1F&quot;&gt;&gt;\
+		&lt;&lt;goto &quot;第二關關卡1F&quot;&gt;&gt;
 	  &lt;&lt;/if&gt;&gt;
-  &lt;&lt;/button&gt;&gt;\
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="120" name="第二關關卡1F" tags="noreturn" position="1250,400" size="100,100">&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1q2NE3ZGw7L9VFxOIoEE0QN2bLRzqFESM&quot; width=&quot;80&quot;&gt;
+  &lt;&lt;/button&gt;&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="119" name="第二關關卡1F" tags="noreturn" position="1250,400" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;不是這個神明，再想想看！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;第二關關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="121" name="第二關4" tags="autosave" position="1250,1125" size="100,100">原來儀式所得出的字，代表玄天上帝的意思，原本進行儀式的符紙發出光芒。
+&lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;第二關關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="120" name="第二關4" tags="autosave" position="1250,1125" size="100,100">原來儀式所得出的字，代表玄天上帝的意思，原本進行儀式的符紙發出光芒。
 
-小凡又能看見奶奶的記憶，發現奶奶配戴三樣法器，走上了兑悅門，似乎想進行某種儀式，沒多久，兑悅門前，[[一道龐大的身影覆蓋住奶奶全身|第二關5]]。</tw-passagedata><tw-passagedata pid="122" name="第二關5" tags="" position="1250,1250" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1OtYsPFmI9_ivY8NGhA7g2uRWsHMQ-ajQ&quot; width=&quot;300&quot;&gt;
+小凡又能看見奶奶的記憶，發現奶奶配戴三樣法器，走上了兑悅門，似乎想進行某種儀式，沒多久，兑悅門前，[[一道龐大的身影覆蓋住奶奶全身。|第二關5]]</tw-passagedata><tw-passagedata pid="121" name="第二關5" tags="" position="1250,1250" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1S5n54dm0qjARFfSU03-Hyhssgg-9LcxZ&quot; width=&quot;100%&quot;&gt;
 @@
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;奶、奶奶！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;小凡，你看見了什麼？臉色這麼差！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;不是很清楚，不過我看見奶奶拿著好像是……法器的東西，進行什麼儀式……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;儀式……搞不懂。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;還有不知道是什麼，很巨大的東西。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1q2NE3ZGw7L9VFxOIoEE0QN2bLRzqFESM&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;儀式、巨大的東西？
 莫非是『無支祁』，難道水禍又要來臨嗎？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;水禍……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2391,13 +2350,13 @@ Macro.add('message', {
 小凡扛不住日記碎片帶給他的壓力，忽然昏了過去。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;小凡！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1q2NE3ZGw7L9VFxOIoEE0QN2bLRzqFESM&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;子寧，妳先帶小凡去屎溝墘客廳休息，
 我大概知道日記碎片和信義街的連結，
@@ -2405,80 +2364,78 @@ Macro.add('message', {
 &lt;/div&gt;
 
 [[前往屎溝墘客廳休息|第三章0]]
-&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片6&#39;&gt;&gt;
-&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰6&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="123" name="第三關1" tags="" position="1375,625" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1F905s9CgVdFcl6iRSCjwwmkveFCcI1Xl&quot; width=&quot;300&quot;&gt;
+&lt;&lt;notify&gt;&gt;小凡得到寫著「無支祁」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片6&#39;&gt;&gt;&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰6&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="122" name="第三關1" tags="" position="1375,625" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1VH6w00nGmchvZDDvn5-uxFoBsrHSRl1H&quot; width=&quot;100%&quot;&gt;
 @@
 小凡在集福宮見到了玄天上帝，玄天上帝表示無支祁不只會破壞信義街的安寧，也會帶來永無止盡的水禍，如果要阻止無支祁和水禍，勢必得搜集集福宮遺失的@@color:Aquamarine;三樣法器@@。
 
 小凡想起奶奶的記憶中，奶奶手裡捧著的法器，可能就是集福宮遺失的法器，此時，奶奶遺留的古地圖發出光點。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;地圖又發光了。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;難道法器的位置剛好與日記碎片重疊，
+&lt;p&gt;&lt;em&gt;難道法器的位置剛好與日記碎片重疊？
 我們可以利用這點找出法器和碎片。
 &lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;太好了，趕緊去[[把法器及碎片找出來|第三關關卡1]]。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;太好了，趕緊去[[把法器及碎片找出來。|第三關關卡1]]&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片8&#39;&gt;&gt;
-&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰8&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="124" name="第五關1" tags="" position="1625,625" size="100,100">&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;&lt;notify&gt;&gt;小凡得到寫著「集福宮」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;</tw-passagedata><tw-passagedata pid="123" name="第五關1" tags="" position="1625,625" size="100,100">&lt;div class=&quot;say&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;所以當時妳參與了儀式？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;確實，我們想了一個方法，利用假的法器誘騙無支祁，然後，由我執行儀式，但我太輕忽無支祁的力量，儀式失敗了……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;那，我奶奶呢？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我不知道她是什麼時候知道整個儀式的內容，她代替我，執行了儀式。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-[[子寧開始回憶……|第五關2]]</tw-passagedata><tw-passagedata pid="125" name="第三關關卡1" tags="QR" position="1375,750" size="100,100">@@.center;
+[[子寧開始回憶……|第五關2]]</tw-passagedata><tw-passagedata pid="124" name="第三關關卡1" tags="QR" position="1375,750" size="100,100">@@.center;
 &lt;h3&gt;找尋法器&lt;/h3&gt;
 @@
 請將@@color:red; &lt;&lt;hovertip &#39;在道具包中找出法器靈數圖&#39;&gt;&gt;數讀表&lt;&lt;/hovertip&gt;&gt;@@套疊在@@color:Aquamarine;老古石地圖@@上，就能找出三種法器的位置。
 
 找到法器後，請掃瞄Qr.code，才算得到法器喔@@color:Cyan;（點擊背包可查閱獲得的法器。）@@
-
+&lt;&lt;notify&gt;&gt;小凡得到寫著「三樣法器」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;&lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片8&#39;&gt;&gt;&lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰8&#39;&gt;&gt;
 [[我找齊所有法器了！|第三關2]]
 
 &lt;&lt;linkappend &quot;需要提示……&quot;&gt;&gt;
 &lt;&lt;include &quot;第三關關卡1線索1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="126" name="第三關2" tags="autosave" position="1375,875" size="100,100">&lt;&lt;if $inv.hasAll(&#39;虎牌&#39;,&#39;黑色羽扇&#39;,&#39;賞善罰惡帽&#39;)&gt;&gt;
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="125" name="第三關2" tags="autosave" position="1375,875" size="100,100">&lt;&lt;if $inv.hasAll(&#39;虎牌&#39;,&#39;黑色羽扇&#39;,&#39;賞善罰惡帽&#39;)&gt;&gt;
 蒐集完三樣法器後，小凡知道這些法器都與水神八爺范無赦有關，此時，法器發出光芒，新的日記碎片出現，然而，[[這片碎片並沒有像先前一樣跑出關於奶奶的任何記憶。|第三關3]]
 &lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片9&#39;&gt;&gt;
 &lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰9&#39;&gt;&gt;
 &lt;&lt;else&gt;&gt;
 你還沒蒐集完所有法器！
 &lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;第三關關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="127" name="數獨玩法" tags="" position="1375,400" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="128" name="第三關關卡1線索1" tags="" position="1375,300" size="100,100">----
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="126" name="數獨玩法" tags="" position="1375,400" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="127" name="第三關關卡1線索1" tags="" position="1375,300" size="100,100">----
 你聽過數獨嗎?在數獨遊戲中，每一行、列都須包含數字1～9，不能缺少也不能重複，這道謎題似乎就和數獨謎題很類似呢？
 
-&lt;&lt;linkreplace &quot;努力了很久，還是找不到正確位置，可以再多給一點提示嗎？&quot;&gt;&gt;&lt;&lt;include &quot;第三關關卡1線索2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="129" name="第三關關卡1線索2" tags="" position="1375,200" size="100,100">----
+&lt;&lt;linkreplace &quot;努力了很久，還是找不到正確位置，可以再多給一點提示嗎？&quot;&gt;&gt;&lt;&lt;include &quot;第三關關卡1線索2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="128" name="第三關關卡1線索2" tags="" position="1375,200" size="100,100">----
 好吧，告訴你幾個空格的數字吧，記好啦──
 由上往下數來第8格，由左向右數來第2格：9
 由上往下數來第4格，由左向右數來第4格：3
@@ -2486,70 +2443,68 @@ Macro.add('message', {
 
 也許你卡住的是 L4-1這樣的符號？ L4-1代表的是第4行的數字1喔！
 
-&lt;&lt;linkreplace &quot;似乎是靠近答案了一點了但又覺得無限遙遠，我不行啦告訴我答案吧&quot;&gt;&gt;&lt;&lt;include &quot;第三關關卡1線索3&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
-</tw-passagedata><tw-passagedata pid="130" name="第三關關卡1線索3" tags="" position="1375,100" size="100,100">----
+&lt;&lt;linkreplace &quot;似乎是靠近答案了一點了但又覺得無限遙遠，我不行啦告訴我答案吧！&quot;&gt;&gt;&lt;&lt;include &quot;第三關關卡1線索3&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
+</tw-passagedata><tw-passagedata pid="129" name="第三關關卡1線索3" tags="" position="1375,100" size="100,100">----
 真的要看答案嗎？不再思考一下？
 &lt;&lt;linkreplace &quot;對我要看答案&quot;&gt;&gt;
 三個道具的位置在地圖上標示「廢棄電桿」、「勵園門柱」、「崇福宮」之處，請到這三個地方掃描QRcode便可通關。
-&lt;img src=&quot;https://drive.google.com/uc?id=1ryBhxHKNE3Yw0Gm17qWl7WNRCd8V1pjE&quot; width=&quot;250&quot;&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="131" name="第三關3" tags="" position="1375,1000" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1gBHYVQNzqEbZ2SdvF-HoukBz_GKdxRxx&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1_qZpfzubl0MfKfV5ND_2z7ose9bLUFiz&quot; width=&quot;100%&quot;&gt;
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="130" name="第三關3" tags="" position="1375,1000" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=10BSE8XSKBKxpNGn6C-v_omNKf_vH8Tgp&quot; width=&quot;100%&quot;&gt;
 @@
-
+&lt;&lt;notify&gt;&gt;小凡得到寫著「？？？」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好奇怪，我什麼也看不到。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;是、是嗎……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1CNCfMPh0e_2Nle0nb6zyQ7azu6-xh-hQ&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1fMtM_TTWprSu5meG_F3hLB4zxpqK3IBO&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;玄天上帝&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;不過竟然已經蒐齊了法器，
-只要明天進行@@color:Aquamarine;儀式@@，就能平定水禍，
+&lt;p&gt;&lt;em&gt;不過竟然已經蒐齊了法器，只要明天進行@@color:Aquamarine;儀式@@，就能平定水禍。
 小凡，請你好好保管法器。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好，沒有問題。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-[[小凡收好法器……|第三關4]]</tw-passagedata><tw-passagedata pid="132" name="第三關4" tags="" position="1375,1125" size="100,100">然而，當小凡準備回到屎溝墘客廳休息時，一道黑影擋住小凡的去路，&lt;&lt;linkappend &quot;將小凡推倒，三樣法器也落在地上。&quot;&gt;&gt;
+[[小凡收好法器……|第三關4]]</tw-passagedata><tw-passagedata pid="131" name="第三關4" tags="" position="1375,1125" size="100,100">然而，當小凡準備回到屎溝墘客廳休息時，一道黑影擋住小凡的去路，&lt;&lt;linkappend &quot;將小凡推倒，三樣法器也落在地上。&quot;&gt;&gt;
 @@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1-g4WMfhCIHRcsbI9uzSvTbqNKpegRofw&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1zKfTS-MM9hAmt3bhfxxcs0EW90_Cozf2&quot; width=&quot;100%&quot;&gt;
 @@
-&lt;&lt;/linkappend&gt;&gt;
+
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;你是誰？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;我就是你們想要阻止的無支祁，
-想不到吧，當你找齊法器的同時，
-也解開了我的封印，哈哈，
-少年，把法器給我。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;我就是你們想要阻止的無支祁～
+想不到吧，當你找齊法器的同時，也解開了我的封印！
+哈哈，少年，把法器給我。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;不要，快跑，子寧，帶著法器離開。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2559,7 +2514,7 @@ Macro.add('message', {
 
 &lt;span id=&quot;topElement&quot;&gt;&lt;/span&gt;
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;子寧，到底怎麼了……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2567,77 +2522,77 @@ Macro.add('message', {
 子寧幻化成熟悉的身影，竟然是貓咪怪盜。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;少年，你現在才知道嗎？
 子寧一直是我們妖的伙伴，哈哈哈哈。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;抱歉，我必須帶走法器，
+&lt;p&gt;&lt;em&gt;抱歉，我必須帶走法器。
 掰掰，小凡，認識你真的很高興。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 小凡勉強站起身，痛苦地望著消失的無支祁和子寧，現在，[[他必須將法器搶回來。|第四章0]]
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="133" name="StoryInterface" tags="noreturn" position="700,1000" size="100,100"></tw-passagedata><tw-passagedata pid="134" name="妖氣儀9" tags="noreturn" position="2100,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1Hb1zkUAqSg0SbqZrEFlQLUkJ8_yaSztK&quot; width=&quot;300&quot; &gt;
-</tw-passagedata><tw-passagedata pid="135" name="第四關關卡提示1" tags="" position="3025,600" size="100,100">妖氣代表子寧現在的方位，請看著妖氣儀的動態圖，依據出子寧移動的規律，來預判子寧下一個移動的地點。
+&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="132" name="StoryInterface" tags="noreturn" position="700,1000" size="100,100"></tw-passagedata><tw-passagedata pid="133" name="妖氣儀9" tags="noreturn" position="2100,600" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1Hb1zkUAqSg0SbqZrEFlQLUkJ8_yaSztK&quot; width=&quot;80%&quot; &gt;
+</tw-passagedata><tw-passagedata pid="134" name="第四關關卡提示1" tags="" position="3025,600" size="100,100">妖氣代表子寧現在的方位，請看著妖氣儀的動態圖，依據出子寧移動的規律，來預判子寧下一個移動的地點。
 
-假設玩家在甕城角，子寧已經移動頂合源角，玩家必須預判子寧下一步移動的方位，選擇合發角的位置，才能追上子寧。</tw-passagedata><tw-passagedata pid="136" name="第四關2" tags="autosave" position="1500,625" size="100,100">在妖氣儀的指引下，小凡終於找到子寧和無支祁，不過他們似乎發生爭執，只見子寧將@@color:Aquamarine;三樣法器@@對準@@color:Aquamarine;無支祁@@……
+假設玩家在甕城角，子寧已經移動頂合源角，玩家必須預判子寧下一步移動的方位，選擇合發角的位置，才能追上子寧。</tw-passagedata><tw-passagedata pid="135" name="第四關2" tags="autosave" position="1500,625" size="100,100">在妖氣儀的指引下，小凡終於找到子寧和無支祁，不過他們似乎發生爭執，只見子寧將@@color:Aquamarine;三樣法器@@對準@@color:Aquamarine;無支祁@@……
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;想不到一直是妳背叛我。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;我可不希望祢破壞這條街，
+&lt;p&gt;&lt;em&gt;我可不希望祢破壞這條街。
 趕快消失吧！無支祁。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;可笑，難道妳忘記上次儀式的事情嗎？
 該不會妳已經忘記那個人了！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;什麼！你知道她在哪裡，快說！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;我怎麼可能會說，笨蛋，
+&lt;p&gt;&lt;em&gt;我怎麼可能會說，笨蛋！
 我才不要被封印，我要無惡不作！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我絕對不允許！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-[[子寧準備使用法器|第四關3]]</tw-passagedata><tw-passagedata pid="137" name="第四關3" tags="" position="1500,750" size="100,100">此刻，三樣法器發出光芒，可惜，無支祁快了一步，祂發出笑聲，手裡一團黑氣將子寧打飛，三樣法器落在地上，&lt;&lt;linkappend 眼見無支祁正準備去破壞法器……&gt;&gt;
+[[子寧準備使用法器|第四關3]]</tw-passagedata><tw-passagedata pid="136" name="第四關3" tags="" position="1500,750" size="100,100">此刻，三樣法器發出光芒，可惜，無支祁快了一步，祂發出笑聲，手裡一團黑氣將子寧打飛，三樣法器落在地上，&lt;&lt;linkappend 眼見無支祁正準備去破壞法器……&gt;&gt;
 @@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1HojP-aF7LQKX24xN5IWSoa5ds38-ns_G&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1HojP-aF7LQKX24xN5IWSoa5ds38-ns_G&quot; width=&quot;100%&quot;&gt;
 @@
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1CNCfMPh0e_2Nle0nb6zyQ7azu6-xh-hQ&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1fMtM_TTWprSu5meG_F3hLB4zxpqK3IBO&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;玄天上帝&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;大膽妖孽！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;可惡，掃興的神明，沒關係，
 反正明天，信義街將會湧入大水，
@@ -2646,75 +2601,76 @@ Macro.add('message', {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;子寧，沒事吧！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Aq518jFcWRIG4cwglc1V8Ds7RUvEwV_O&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1m6JGngPcLOwbYsOueY0XUJHs4xIaxZo5&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我、我沒事，快去保護法器……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 [[小凡趕緊撿起三樣法器|第四關4]]
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="138" name="第四關4" tags="" position="1500,875" size="100,100">小凡撿起@@color:Aquamarine;三樣法器@@，忽然法器與小凡發生共鳴，一道光束發出，刺眼到令人張不開眼睛，無支祁趕緊趁亂逃走，幾分鐘後，光束消失。
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="137" name="第四關4" tags="" position="1500,875" size="100,100">小凡撿起@@color:Aquamarine;三樣法器@@，忽然法器與小凡發生共鳴，一道光束發出，刺眼到令人張不開眼睛，無支祁趕緊趁亂逃走，幾分鐘後，光束消失。
 
-小凡和子寧相互對視，[[想知道上一次的儀式發生了什麼事？|第五章0]]</tw-passagedata><tw-passagedata pid="139" name="第五關2" tags="" position="1625,750" size="100,100">奶奶執行了儀式，她似乎有某種未知的力量，結合三樣法器，封印了無支祁，奶奶和法器也隨之消失。
+小凡和子寧相互對視，[[想知道上一次的儀式發生了什麼事？|第五章0]]</tw-passagedata><tw-passagedata pid="138" name="第五關2" tags="" position="1625,750" size="100,100">奶奶執行了儀式，她似乎有某種未知的力量，結合三樣法器，封印了無支祁，奶奶和法器也隨之消失。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;儀式不是湊足三樣法器就達成條件，
 奶奶日記上遺留的這些圖騰有什麼意涵嗎？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;你看出了什麼端倪？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 小凡一邊翻閱搜集完的日記碎片，還有碎片裡的那些不明圖騰，他發現不明圖騰似乎是某種圖像的碎片，或許，[[儀式的答案就在日記碎片和不明圖騰之中。|第五關3]]
-</tw-passagedata><tw-passagedata pid="140" name="第五關3" tags="" position="1625,875" size="100,100">隔天，小凡和子寧來到集福宮，並把儀式的事情說給玄天上帝聽，話還沒說完，無支祁就已經降臨在集福宮前，此刻風雨大起。
+</tw-passagedata><tw-passagedata pid="139" name="第五關3" tags="" position="1625,875" size="100,100">隔天，小凡和子寧來到集福宮，並把儀式的事情說給玄天上帝聽，話還沒說完，無支祁就已經降臨在集福宮前，此刻風雨大起。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1CNCfMPh0e_2Nle0nb6zyQ7azu6-xh-hQ&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1fMtM_TTWprSu5meG_F3hLB4zxpqK3IBO&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;玄天上帝&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;小凡趕緊啟動儀式，不然大水又會降臨。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好的，子寧，妳來幫我。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好，是這樣拼嗎？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;可笑的儀式！不可能阻止我！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-[[拼完圖騰|第五關4]]</tw-passagedata><tw-passagedata pid="141" name="第五關4" tags="" position="1625,1000" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BQidXiCjYg1rxlsdMLizdrZTfL29tvi1&quot; width=&quot;300&quot;&gt;
+[[拼完圖騰|第五關4]]</tw-passagedata><tw-passagedata pid="140" name="第五關4" tags="" position="1625,1000" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1BQidXiCjYg1rxlsdMLizdrZTfL29tvi1&quot; width=&quot;100%&quot;&gt;
 @@
 當小凡將最後一片不明圖騰拼起來時，圖騰形成了&lt;&lt;linkappend 八爺的臉譜。&gt;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BLnzDWb9OWYouPtQHhzd99nWJhVu4T98&quot; width=&quot;300&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1BLnzDWb9OWYouPtQHhzd99nWJhVu4T98&quot; width=&quot;80%&quot;&gt;
 [[巨大的八爺降臨了……|第五關4.5]]
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="142" name="第五關關卡1" tags="" position="1625,1250" size="100,100">@@.center;
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="141" name="第五關關卡1" tags="" position="1625,1250" size="100,100">@@.center;
 &lt;h3&gt;最後的訊息&lt;/h3&gt;
 @@
 原來臉譜下方是八爺的名片，請參考名片上的提示，請去觀察日記碎片上出現的數字，利用找出來的數字，就能找出八爺的電話號碼，控制八爺。
+&lt;img src=&quot;https://drive.google.com/uc?id=1oBKIP4Vn8iSETjtfSi6pTYv8xMtEyEyM&quot; width=&quot;100%&quot;&gt;
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;\
-  輸入電話號碼：&lt;&lt;textbox &#39;$answer&#39; &#39;09&#39; autofocus&gt;&gt;\
+  輸入電話號碼：&lt;&lt;textbox &#39;$answer&#39; &#39;09&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸入&#39;&gt;&gt;
@@ -2722,113 +2678,120 @@ Macro.add('message', {
       &lt;&lt;if $answer is &#39;0954815481&#39;&gt;&gt;
         &lt;&lt;goto &quot;第五關5&quot;&gt;&gt;
       &lt;&lt;else&gt;&gt;
-        &lt;&lt;goto &quot;第五關關卡1F&quot;&gt;&gt;\
+        &lt;&lt;goto &quot;第五關關卡1F&quot;&gt;&gt;
       &lt;&lt;/if&gt;&gt;
-  &lt;&lt;/button&gt;&gt;\
+  &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
 
 &lt;&lt;linkreplace &quot;需要提示……&quot;&gt;&gt;
 &lt;&lt;include &quot;第五關關卡1線索1&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="143" name="第五關5" tags="autosave special" position="1625,1375" size="100,100">「你好，這裡是0954815481，我是八爺，我是八爺！！」
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="142" name="第五關5" tags="autosave special" position="1625,1375" size="100,100">「你好，這裡是0954815481，我是八爺，我是八爺！！」
 
-[[終於打通八爺的電話了！|第五關6]]</tw-passagedata><tw-passagedata pid="144" name="第五關關卡1線索1" tags="" position="1625,300" size="100,100">將日期的「日相加」，「月相乘」，再將兩個答案相乘，即可得到答案。
+[[終於打通八爺的電話了！|第五關6]]</tw-passagedata><tw-passagedata pid="143" name="第五關關卡1線索1" tags="" position="1625,300" size="100,100">將日期的「日相加」，「月相乘」，再將兩個答案相乘，即可得到答案。
 &lt;&lt;linkreplace &quot;還是搞不懂，直接看答案！&quot;&gt;&gt;
 &lt;&lt;include &quot;第五關關卡1線索2&quot;&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="145" name="第五關關卡1線索2" tags="" position="1625,200" size="100,100">將日期的「日相加」(29)，「月相乘」(189)，再將兩個答案相乘，即可得到答案5481。
+&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="144" name="第五關關卡1線索2" tags="" position="1625,200" size="100,100">將日期的「日相加」(29)，「月相乘」(189)，再將兩個答案相乘，即可得到答案5481。
 
-電話號碼即0954815481。</tw-passagedata><tw-passagedata pid="146" name="第五關6" tags="special" position="1625,1500" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1WoKlLu6531v0IVBUgkT66ilzZkvMwUWj&quot; width=&quot;200&quot;&gt;
+電話號碼即@@color:Aquamarine;0954815481@@。</tw-passagedata><tw-passagedata pid="145" name="第五關6" tags="special" position="1625,1500" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1dJC9qgFdZSADLWcLizUPsVF5zZsRSt9F&quot; width=&quot;70%&quot;&gt;
 @@
 剛才倒地的八爺似乎得到某種神祕力量的加持，一口氣打倒了無支祁，扭轉了局勢。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;怎麼可能……嗚嗚嗚，我得趕緊逃走。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;無支祁，別逃。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;快把那個人的線索說出來。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1LRZj67ysi2AjG5UiQPSsO19vxkqdngOj&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;我怎麼可能輕易把她的訊息告訴妳，
+&lt;p&gt;&lt;em&gt;我怎麼可能輕易把她的訊息告訴妳！
 不然，我給妳一點提示吧……
 答案，就在街區。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-無支祁露出笑容，轉身，消失，雨水慢慢消退，[[信義街區再次恢復日常。|終章0]]</tw-passagedata><tw-passagedata pid="147" name="終章0" tags="autosave" position="1750,625" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1HZD8n6fulyerlCzsOdQPoKgkiyfoRJkn&quot; width=&quot;100%&quot;&gt;
+無支祁露出笑容，轉身，消失，雨水慢慢消退，[[信義街區再次恢復日常。|終章0]]</tw-passagedata><tw-passagedata pid="146" name="終章0" tags="autosave" position="1750,625" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1l5vlg7YK039Yd6bmr6SNLj_W265dlRXp&quot; width=&quot;100%&quot;&gt;
 @@
 小凡和子寧平定了信義街的水禍，趕跑了無支祁，但依然沒有找到奶奶的蹤跡，倒是無支祁逃走前留下的話，說尋找奶奶的答案就在街區，如果不是在信義街，難道在其他街區？
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;所以說，奶奶也可能去其他街區？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;很有可能，畢竟她好不容易擺脫家庭的束縛，當然會四處晃晃。
 況且，街與街的距離並不遠，走路就會到啦。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;對，因為日記碎片也還沒有收齊，
+&lt;p&gt;&lt;em&gt;對，因為日記碎片也還沒有收齊！
 如果持續收齊，或許，能夠找到更多奶奶的線索。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;別忘記還有無支祁，祂可不會輕易放過我們，
+&lt;p&gt;&lt;em&gt;別忘記還有無支祁，祂可不會輕易放過我們。
 也得把祂找出來，避免祂禍害其他街區。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好，子寧，我們去下一條街吧。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1BdPajWzuJ7W_ybIFhtk3IiDpCZqZsNCt&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;當然，樂意之至。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;strong&gt;小凡結束信義街的旅程，下一條又會去哪裡？少年與少女的故事還沒有結束。&lt;/strong&gt;
-@@.center;&lt;img src=&quot;https://drive.google.com/uc?id=1s15aQZ9mgcRV4ltmq5FXnf447dYGDpV5&quot; width=&quot;100%&quot;&gt;@@
-結束之前，別忘了享受[[當地美食|https://www.google.com/maps/d/u/0/embed?mid=1kWwYb3_KKCHs1HG5WtWTJ04tSSQAU0m7]]再回去喔～</tw-passagedata><tw-passagedata pid="148" name="branch1" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="100,900" size="100,100">@@.center;你找到了虎牌！@@
-@@.center;&lt;&lt;include &#39;虎牌&#39;&gt;&gt;@@
-@@.center;(閱讀完後請關掉此分頁，回到遊戲頁面)@@
+@@.center;&lt;img src=&quot;https://drive.google.com/uc?id=1lYvWLEBeFFH5eRA2WGvTjhu1BPFvN2a0&quot; width=&quot;100%&quot;&gt;@@
+結束之前，別忘了享受[[當地美食|https://www.google.com/maps/d/u/0/embed?mid=1kWwYb3_KKCHs1HG5WtWTJ04tSSQAU0m7]]再回去喔～</tw-passagedata><tw-passagedata pid="147" name="branch1" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="100,900" size="100,100">&lt;&lt;set $inv1 to &#39;虎牌&#39;&gt;&gt;&lt;div align=&#39;center&#39;&gt;\
+你找到了虎牌！
+&lt;&lt;include &#39;虎牌&#39;&gt;&gt;
+(閱讀完後請關掉此分頁，回到遊戲頁面)
 &lt;&lt;pickup &#39;$inv&#39; unique &#39;虎牌&#39;&gt;&gt;
-[[返回前頁|$return]]
-</tw-passagedata><tw-passagedata pid="149" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="200,900" size="100,100">@@.center;你找到了黑色羽扇！@@
-@@.center;&lt;&lt;include &#39;羽扇&#39;&gt;&gt;@@
-@@.center;(閱讀完後請關掉此分頁，回到遊戲頁面)@@
+&lt;/div&gt;
+[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="148" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="200,900" size="100,100">&lt;&lt;set $inv2 to &#39;黑色羽扇&#39;&gt;&gt;&lt;div align=&#39;center&#39;&gt;\
+你找到了黑色羽扇！
+&lt;&lt;include &#39;羽扇&#39;&gt;&gt;
+(閱讀完後請關掉此分頁，回到遊戲頁面)
 &lt;&lt;pickup &#39;$inv&#39; unique &#39;黑色羽扇&#39;&gt;&gt;
-[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="150" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="300,900" size="100,100">@@.center;你找到了賞善罰惡帽！@@
-@@.center;&lt;&lt;include &#39;帽子&#39;&gt;&gt;@@
-@@.center;(閱讀完後請關掉此分頁，回到遊戲頁面)@@
+&lt;/div&gt;
+[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="149" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="300,900" size="100,100">&lt;&lt;set $inv3 to &#39;賞善罰惡帽&#39;&gt;&gt;&lt;div align=&#39;center&#39;&gt;\
+你找到了賞善罰惡帽！
+&lt;&lt;include &#39;帽子&#39;&gt;&gt;
+(閱讀完後請關掉此分頁，回到遊戲頁面)
 &lt;&lt;pickup &#39;$inv&#39; unique &#39;賞善罰惡帽&#39;&gt;&gt;
-[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="151" name="nobranch" tags="branch no-side-bar noreturn noheader- nofooter" position="100,1000" size="100,100">沒有找到法器，看來找錯地方了……
+&lt;/div&gt;
+[[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="150" name="nobranch" tags="branch no-side-bar noreturn noheader- nofooter" position="100,1000" size="100,100">&lt;div align=&#39;center&#39;&gt;\
+沒有找到法器，看來找錯地方了……
 
-(閱讀完後請關掉此分頁，回到遊戲頁面)</tw-passagedata><tw-passagedata pid="152" name="不明圖騰" tags="face noreturn" position="500,600" size="100,100">&lt;div class=&quot;face&quot;&gt;
+(閱讀完後請關掉此分頁，回到遊戲頁面)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="151" name="不明圖騰" tags="face noreturn" position="500,600" size="100,100">&lt;div class=&quot;face&quot;&gt;
   &lt;div data-piece1&gt;&lt;&lt;include &#39;圖騰1&#39;&gt;&gt;&lt;/div&gt;
   &lt;div data-piece2&gt;&lt;&lt;include &#39;圖騰2&#39;&gt;&gt;&lt;/div&gt;
   &lt;div data-piece3&gt;&lt;&lt;include &#39;圖騰3&#39;&gt;&gt;&lt;/div&gt;
@@ -2839,20 +2802,20 @@ Macro.add('message', {
   &lt;div data-piece8&gt;&lt;&lt;include &#39;圖騰8&#39;&gt;&gt;&lt;/div&gt;
   &lt;div data-piece9&gt;&lt;&lt;include &#39;圖騰9&#39;&gt;&gt;&lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="153" name="第五關4.5" tags="" position="1625,1125" size="100,100">@@.center;
-&lt;img src=&quot;https://drive.google.com/uc?id=1QaE3-yuHWBK4ixE6WIXqysOAs7BA5lvA&quot; width=&quot;200&quot;&gt;
+</tw-passagedata><tw-passagedata pid="152" name="第五關4.5" tags="" position="1625,1125" size="100,100">@@.center;
+&lt;img src=&quot;https://drive.google.com/uc?id=1IdePGZ0DVH6zzqhZSm1inBLYFN0oIQCB&quot; width=&quot;70%&quot;&gt;
 @@
 巨大的八爺降臨，無支祁也不甘勢弱，凝聚黑色的妖氣也讓自己變得巨大，彼此戰了數十回合，眼看局勢演變成五五波，八爺卻不聽從小凡的指示，被無支祁打倒在地。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1B_tj8tJCNnA8AmuHCbvhiN9r6x6XA9zB&quot; width=&quot;80&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;難道儀式還沒有完成……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-小凡將臉譜翻過來，發現原來臉譜下還有另一個[[儀式訊息|第五關關卡1]]，難道是操控八爺的方法。</tw-passagedata><tw-passagedata pid="154" name="第五關關卡1F" tags="" position="1625,400" size="100,100">「您撥的號碼是空號，請查明後再撥，謝謝……」
+小凡將臉譜翻過來，發現原來臉譜下還有另一個[[儀式訊息|第五關關卡1]]，難道是操控八爺的方法。</tw-passagedata><tw-passagedata pid="153" name="第五關關卡1F" tags="" position="1625,400" size="100,100">「您撥的號碼是空號，請查明後再撥，謝謝……」
 看來號碼不對，是哪裡搞錯了呢？
-&lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;第五關關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="155" name="start" tags="no-side-bar start" position="600,300" size="200,100">
+&lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;第五關關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="154" name="start" tags="no-side-bar start" position="600,300" size="200,100">
 
 
 @@.center;
@@ -2864,13 +2827,22 @@ Macro.add('message', {
 &lt;span id=&#39;textbox-submit&#39;&gt;
   &lt;&lt;button &#39;開始遊戲&#39;&gt;&gt;
 	&lt;&lt;set $answer to $answer.trim().toLowerCase()&gt;&gt;
-	  &lt;&lt;if $answer is &#39;1234&#39;&gt;&gt;
-		&lt;&lt;goto &quot;第一章0&quot;&gt;&gt;
+	  &lt;&lt;if hashStr($answer) == 619048710&gt;&gt;
+		&lt;&lt;goto &quot;開場&quot;&gt;&gt;
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;\
 &lt;/span&gt;
 @@
-</tw-passagedata><tw-passagedata pid="156" name="虎牌" tags="" position="100,800" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1CpuV-j6eQrFXAmWdm33-Y-57g-4w7JoU&quot; width=&quot;70%&quot; &gt;</tw-passagedata><tw-passagedata pid="157" name="羽扇" tags="autosave" position="200,800" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1lDx94f-ARxnZo-z_vT356WwVAMnCy88O&quot; width=&quot;70%&quot; &gt;</tw-passagedata><tw-passagedata pid="158" name="帽子" tags="autosave" position="300,800" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1N7EBfm9lkZa7M6oo0pUevj03mOq43sSf&quot; width=&quot;70%&quot; &gt;</tw-passagedata><tw-passagedata pid="159" name="圖騰1" tags="" position="100,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰1&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1AZPFhdWd5Oxvr4FQubJWaByUuQmVKkrL&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="160" name="圖騰2" tags="" position="200,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰2&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1uEDsywNIBpKmXCB0pVmdhD4MMAULk3cf&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="161" name="圖騰3" tags="" position="300,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰3&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1N7tGeoz5EECbm70_AygkJuTSFSkKbia4&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="162" name="圖騰4" tags="" position="100,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰4&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1BmzoAdUb9dkx_0no9uyCUkyK0IQmmXGE&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="163" name="圖騰5" tags="" position="200,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰5&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1v4lLB0su09wJYkPLy1crx-UyJxYpxmEF&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="164" name="圖騰6" tags="" position="300,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰6&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1wwiKI4ypfqzMpiSt2BmA4VoStTbvEQsH&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="165" name="圖騰7" tags="" position="100,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰7&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1uqbT7rVEVGRN0XaKP1GWwrIelr_9z73O&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="166" name="圖騰8" tags="" position="200,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰8&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1x2clwA2glFkA-7L1HFNdjMF9lgMmKTFf&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="167" name="圖騰9" tags="" position="300,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰9&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1so33-EJdDMAUsXqwSbPZGq_W2HaysqEP&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="168" name="work" tags="noreturn" position="500,500" size="100,100">工作人員名單
+&lt;&lt;script&gt;&gt;
+$(document).one(&quot;:passagerender&quot;, function (ev) {
+	$(ev.content).find(&quot;#textbox-answer&quot;).on(&quot;keyup&quot;, function (e) {
+		if (e.keyCode === 13) {
+			$(&quot;#textbox-submit button&quot;).trigger(&quot;click&quot;);
+		}
+	});
+});
+&lt;&lt;/script&gt;&gt;
+</tw-passagedata><tw-passagedata pid="155" name="虎牌" tags="" position="100,800" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1-ZsVLubXi84QZH1pmd5Ly9bAy9xAwVd8&quot; width=&quot;50%&quot; &gt;</tw-passagedata><tw-passagedata pid="156" name="羽扇" tags="autosave" position="200,800" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1MirovGMqQB8zxd9hdnKLydGUrJ9BwFIW&quot; width=&quot;50%&quot; &gt;</tw-passagedata><tw-passagedata pid="157" name="帽子" tags="autosave" position="300,800" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=13NL-25qKnNdaWvk7sJxDfYOL3H2hY6eb&quot; width=&quot;50%&quot; &gt;</tw-passagedata><tw-passagedata pid="158" name="圖騰1" tags="" position="100,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰1&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1AZPFhdWd5Oxvr4FQubJWaByUuQmVKkrL&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="159" name="圖騰2" tags="" position="200,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰2&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1uEDsywNIBpKmXCB0pVmdhD4MMAULk3cf&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="160" name="圖騰3" tags="" position="300,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰3&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1N7tGeoz5EECbm70_AygkJuTSFSkKbia4&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="161" name="圖騰4" tags="" position="100,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰4&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1BmzoAdUb9dkx_0no9uyCUkyK0IQmmXGE&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="162" name="圖騰5" tags="" position="200,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰5&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1v4lLB0su09wJYkPLy1crx-UyJxYpxmEF&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="163" name="圖騰6" tags="" position="300,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰6&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1wwiKI4ypfqzMpiSt2BmA4VoStTbvEQsH&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="164" name="圖騰7" tags="" position="100,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰7&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1uqbT7rVEVGRN0XaKP1GWwrIelr_9z73O&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="165" name="圖騰8" tags="" position="200,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰8&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1x2clwA2glFkA-7L1HFNdjMF9lgMmKTFf&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="166" name="圖騰9" tags="" position="300,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰9&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1so33-EJdDMAUsXqwSbPZGq_W2HaysqEP&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="167" name="work" tags="noreturn" position="500,500" size="100,100">工作人員名單
 
 [[返回前頁|$return]]</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
