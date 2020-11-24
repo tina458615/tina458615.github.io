@@ -1270,11 +1270,7 @@ window.hashStr = function(txt) {
 	@@.auto-update;&lt;&lt;inventory &#39;$inv&#39; &#39;, &#39;&gt;&gt;@@
 	@@.auto-update;&lt;&lt;= $inv.show()&gt;&gt;@@
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;if $rit.length is 0&gt;&gt;\
-    沒有東西。
-&lt;&lt;else&gt;&gt;\
-    &lt;&lt;= $rit.join(&#39;, &#39;)&gt;&gt;
-&lt;&lt;/if&gt;&gt;
+&lt;&lt;print $rit&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="85" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
 &lt;&lt;newinventory &#39;$inv&#39;&gt;&gt;
