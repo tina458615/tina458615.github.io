@@ -1267,9 +1267,11 @@ window.hashStr = function(txt) {
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv.isEmpty()&gt;&gt;
     沒有東西。
 &lt;&lt;else&gt;&gt;
-	&lt;&lt;inventory &#39;$inv&#39; &#39;, &#39;&gt;&gt;
-	&lt;&lt;= $inv.show()&gt;&gt;
-	&lt;&lt;print $inv&gt;&gt;
+	@@.auto-update;&lt;&lt;inventory &#39;$inv&#39; &#39;, &#39;&gt;&gt;@@
+	@@.auto-update;&lt;&lt;= $inv.show()&gt;&gt;@@
+	&lt;&lt;print $inv1&gt;&gt;
+	&lt;&lt;print $inv2&gt;&gt;
+	&lt;&lt;print $inv3&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="85" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
@@ -2247,17 +2249,17 @@ window.hashStr = function(txt) {
 
 &lt;strong&gt;小凡結束信義街的旅程，下一條又會去哪裡？少年與少女的故事還沒有結束。&lt;/strong&gt;
 @@.center;&lt;img src=&quot;https://drive.google.com/uc?id=1lYvWLEBeFFH5eRA2WGvTjhu1BPFvN2a0&quot; width=&quot;100%&quot;&gt;@@
-結束之前，別忘了享受[[當地美食|https://www.google.com/maps/d/u/0/embed?mid=1kWwYb3_KKCHs1HG5WtWTJ04tSSQAU0m7]]再回去喔～</tw-passagedata><tw-passagedata pid="147" name="branch1" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="100,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;虎牌&#39;&gt;&gt;
+結束之前，別忘了享受[[當地美食|https://www.google.com/maps/d/u/0/embed?mid=1kWwYb3_KKCHs1HG5WtWTJ04tSSQAU0m7]]再回去喔～</tw-passagedata><tw-passagedata pid="147" name="branch1" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="100,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;虎牌&#39;&gt;&gt;&lt;&lt;set $inv1 to &#39;虎牌&#39;&gt;&gt;
 &lt;div align=&#39;center&#39;&gt;\
 你找到了虎牌！
 &lt;img src=&quot;https://drive.google.com/uc?id=1-ZsVLubXi84QZH1pmd5Ly9bAy9xAwVd8&quot; width=&quot;50%&quot; &gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="148" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="200,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;黑色羽扇&#39;&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="148" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="200,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;黑色羽扇&#39;&gt;&gt;&lt;&lt;set $inv2 to &#39;黑色羽扇&#39;&gt;&gt;
 &lt;div align=&#39;center&#39;&gt;\
 你找到了黑色羽扇！
 &lt;img src=&quot;https://drive.google.com/uc?id=1MirovGMqQB8zxd9hdnKLydGUrJ9BwFIW&quot; width=&quot;50%&quot; &gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="149" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="300,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;賞善罰惡帽&#39;&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="149" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="300,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;賞善罰惡帽&#39;&gt;&gt;&lt;&lt;set $inv3 to &#39;賞善罰惡帽&#39;&gt;&gt;
 &lt;div align=&#39;center&#39;&gt;\
 你找到了賞善罰惡帽！
 &lt;img src=&quot;https://drive.google.com/uc?id=13NL-25qKnNdaWvk7sJxDfYOL3H2hY6eb&quot; width=&quot;50%&quot; &gt;
