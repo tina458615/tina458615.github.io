@@ -1792,14 +1792,13 @@ window.hashStr = function(txt) {
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title5 is 1&gt;&gt;
 [[第五章|第五章0]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;set _items to Inventory.removeDuplicates(&#39;$inv&#39;)&gt;&gt;&lt;&lt;dropall &#39;$inv&#39;&gt;&gt;&lt;&lt;pickup &#39;$inv&#39; _items&gt;&gt;
-&lt;&lt;inventory &#39;$inv&#39;&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;print $inv&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="85" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
-&lt;&lt;newinventory &#39;$inv&#39;&gt;&gt;
+&lt;&lt;set $inv = localStorage.inv&gt;&gt;
 &lt;&lt;newinventory &#39;$dinv&#39;&gt;&gt;
 &lt;&lt;newinventory &#39;$face&#39;&gt;&gt;
-&lt;&lt;set $inv = localStorage.inv&gt;&gt;
+
 
 /* 關卡提示 */
 &lt;&lt;set $textGroup to 1&gt;&gt;
