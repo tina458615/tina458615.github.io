@@ -1792,12 +1792,14 @@ window.hashStr = function(txt) {
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title5 is 1&gt;&gt;
 [[第五章|第五章0]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;inventory &#39;$inv&#39; &#39;, &#39;&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;set _items to Inventory.removeDuplicates(&#39;$inv&#39;)&gt;&gt;&lt;&lt;dropall &#39;$inv&#39;&gt;&gt;&lt;&lt;pickup &#39;$inv&#39; _items&gt;&gt;
+&lt;&lt;inventory &#39;$inv&#39;&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="85" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
 &lt;&lt;newinventory &#39;$inv&#39;&gt;&gt;
 &lt;&lt;newinventory &#39;$dinv&#39;&gt;&gt;
 &lt;&lt;newinventory &#39;$face&#39;&gt;&gt;
+&lt;&lt;set $inv = localStorage.inv&gt;&gt;
 
 /* 關卡提示 */
 &lt;&lt;set $textGroup to 1&gt;&gt;
@@ -2772,17 +2774,17 @@ window.hashStr = function(txt) {
 你找到了虎牌！
 &lt;&lt;include &#39;虎牌&#39;&gt;&gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;&lt;pickup &#39;$inv&#39; unique &#39;虎牌&#39;&gt;&gt;
+&lt;script&gt; localStorage.inv = &quot;虎牌&quot;; &lt;/script&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="148" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="200,900" size="100,100">&lt;div align=&#39;center&#39;&gt;\
 你找到了黑色羽扇！
 &lt;&lt;include &#39;羽扇&#39;&gt;&gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;&lt;pickup &#39;$inv&#39; unique &#39;黑色羽扇&#39;&gt;&gt;
+&lt;script&gt; localStorage.inv = &quot;黑色羽扇&quot;; &lt;/script&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="149" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="300,900" size="100,100">&lt;div align=&#39;center&#39;&gt;\
 你找到了賞善罰惡帽！
 &lt;&lt;include &#39;帽子&#39;&gt;&gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;&lt;pickup &#39;$inv&#39; unique &#39;賞善罰惡帽&#39;&gt;&gt;
+&lt;script&gt; localStorage.inv = &quot;賞善罰惡帽&quot;; &lt;/script&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="150" name="nobranch" tags="branch no-side-bar noreturn noheader- nofooter" position="100,1000" size="100,100">&lt;div align=&#39;center&#39;&gt;\
 沒有找到法器，看來找錯地方了……
 
