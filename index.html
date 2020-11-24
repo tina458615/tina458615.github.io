@@ -1421,7 +1421,9 @@ window.hashStr = function(txt) {
 &lt;p&gt;&lt;em&gt;不要！這是很重要的東西。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-小凡與貓咪怪盜拉扯中，日記終於[[扛不住兩人的力道|第一關2]]……</tw-passagedata><tw-passagedata pid="95" name="日記碎片" tags="noreturn" position="500,700" size="100,100">&lt;h3&gt;不明圖騰&lt;/h3&gt;
+小凡與貓咪怪盜拉扯中，日記終於[[扛不住兩人的力道|第一關2]]……</tw-passagedata><tw-passagedata pid="95" name="日記碎片" tags="noreturn" position="500,700" size="100,100">&lt;&lt;if $dinv.isEmpty()&gt;&gt;\
+&lt;&lt;else&gt;&gt;\
+&lt;h3&gt;不明圖騰&lt;/h3&gt;
 &lt;&lt;include &#39;不明圖騰&#39;&gt;&gt;
 ----
 &lt;&lt;if $dinv.has(&#39;日記碎片1&#39;)&gt;&gt;
@@ -1476,6 +1478,7 @@ window.hashStr = function(txt) {
 &lt;&lt;message &quot;&lt;h3&gt;？？？&lt;/h3&gt;&quot;&gt;&gt;
  	 &lt;&lt;include &#39;日記碎片9&#39;&gt;&gt;
   &lt;&lt;/message&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="96" name="日記碎片1" tags="noreturn" position="100,500" size="100,100">一月二號，晴。
