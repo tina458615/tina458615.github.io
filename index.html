@@ -1264,13 +1264,12 @@ window.hashStr = function(txt) {
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title5 is 1&gt;&gt;
 [[第五章|第五章0]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv.has(&#39;虎牌&#39;)&gt;&gt;虎牌&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $inv.has(&#39;黑色羽扇&#39;)&gt;&gt;黑色羽扇&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $inv.has(&#39;賞善罰惡帽&#39;)&gt;&gt;賞善罰惡帽&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $inv.isEmpty()&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv.isEmpty()&gt;&gt;
 沒有東西。
 &lt;&lt;else&gt;&gt;
-有東西。
+  &lt;&lt;if $inv.has(&#39;虎牌&#39;)&gt;&gt;虎牌&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $inv.has(&#39;黑色羽扇&#39;)&gt;&gt;黑色羽扇&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if $inv.has(&#39;賞善罰惡帽&#39;)&gt;&gt;賞善罰惡帽&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="85" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
@@ -2326,7 +2325,7 @@ $(document).one(&quot;:passagerender&quot;, function (ev) {
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="165" name="startf" tags="no-side-bar start" position="800,300" size="100,100">@@.center;
 輸入錯誤，請再確認開通密碼。
 @@
-&lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;start&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="166" name="delet" tags="branch no-side-bar noreturn" position="200,1000" size="100,100">&lt;&lt;dropall &#39;$inv&#39;&gt;&gt;
+&lt;&lt;timed 2s&gt;&gt;&lt;&lt;goto &quot;start&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="166" name="delete" tags="branch no-side-bar noreturn" position="200,1000" size="100,100">&lt;&lt;dropall &#39;$inv&#39;&gt;&gt;
 &lt;&lt;script&gt;&gt;localStorage.clear();&lt;&lt;/script&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
