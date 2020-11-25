@@ -1325,7 +1325,8 @@ window.hashStr = function(txt) {
   &lt;&lt;if $inv.has(&#39;黑色羽扇&#39;)&gt;&gt;黑色羽扇&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $inv.has(&#39;賞善罰惡帽&#39;)&gt;&gt;賞善罰惡帽&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;if $inv.has(&#39;虎牌&#39;)&gt;&gt;
+&lt;&lt;if $inv.isEmpty()&gt;&gt;
+&lt;&lt;elseif $inv.has(&#39;虎牌&#39;)&gt;&gt;
 虎牌
 &lt;&lt;elseif $inv.has(&#39;黑色羽扇&#39;)&gt;&gt;
 黑色羽扇
