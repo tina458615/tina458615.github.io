@@ -1325,13 +1325,14 @@ window.hashStr = function(txt) {
   &lt;&lt;if $inv.has(&#39;黑色羽扇&#39;)&gt;&gt;黑色羽扇&lt;&lt;/if&gt;&gt;
   &lt;&lt;if $inv.has(&#39;賞善罰惡帽&#39;)&gt;&gt;賞善罰惡帽&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;if $inv.isEmpty()&gt;&gt;
-&lt;&lt;elseif $inv.has(&#39;虎牌&#39;)&gt;&gt;
+
+&lt;&lt;if $inv.has(&#39;虎牌&#39;)&gt;&gt;
 虎牌
 &lt;&lt;elseif $inv.has(&#39;黑色羽扇&#39;)&gt;&gt;
 黑色羽扇
-&lt;&lt;else $inv.has(&#39;賞善罰惡帽&#39;)&gt;&gt;
+&lt;&lt;elseif $inv.has(&#39;賞善罰惡帽&#39;)&gt;&gt;
 賞善罰惡帽
+&lt;&lt;else&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="84" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
