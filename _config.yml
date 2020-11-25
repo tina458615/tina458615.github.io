@@ -1,2 +1,3 @@
+# 注意：yml 非常在意縮排。
 sitemap:
-  path: sitemap.xml
+    path: sitemap.xml
