@@ -1,6 +1,0 @@
-# 注意：yml 非常在意縮排。
-sitemap:
-    path: sitemap.xml
-url: https://tina458615.github.io/
-plugins:
-  - jekyll-sitemap

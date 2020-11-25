@@ -1321,12 +1321,7 @@ window.hashStr = function(txt) {
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title5 is 1&gt;&gt;
 [[第五章|第五章0]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;if $inv.isEmpty()&gt;&gt;
-&lt;&lt;else&gt;&gt;
-  &lt;&lt;if $inv.has(&#39;虎牌&#39;)&gt;&gt;虎牌&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $inv.has(&#39;黑色羽扇&#39;)&gt;&gt;黑色羽扇&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if $inv.has(&#39;賞善罰惡帽&#39;)&gt;&gt;賞善罰惡帽&lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="背包" tags="noreturn" position="500,800" size="100,100">&lt;&lt;inventory &#39;$inv&#39; &#39;,&#39;&gt;&gt;
 
 [[返回前頁|$return]]</tw-passagedata><tw-passagedata pid="84" name="StoryInit" tags="noreturn" position="700,900" size="100,100">/* 設置物品變數 */
 &lt;&lt;newinventory &#39;$inv&#39;&gt;&gt;
@@ -1961,7 +1956,7 @@ window.hashStr = function(txt) {
 
 &lt;&lt;linkappend &quot;需要提示……&quot;&gt;&gt;
 &lt;&lt;include &quot;第三關關卡1線索1&quot;&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="124" name="第三關2" tags="autosave" position="1375,875" size="100,100">&lt;&lt;if $inv.hasAll(&#39;虎牌&#39;,&#39;黑色羽扇&#39;,&#39;賞善罰惡帽&#39;)&gt;&gt;
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="124" name="第三關2" tags="autosave" position="1375,875" size="100,100">&lt;&lt;if $inv.hasAll(&#39;法器：虎牌&#39;,&#39;法器：黑色羽扇&#39;,&#39;法器：賞善罰惡帽&#39;)&gt;&gt;
 蒐集完三樣法器後，小凡知道這些法器都與水神八爺范無赦有關，此時，法器發出光芒，新的日記碎片出現，然而，[[這片碎片並沒有像先前一樣跑出關於奶奶的任何記憶。|第三關3]]
 &lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片9&#39;&gt;&gt;
 &lt;&lt;pickup &#39;$face&#39; &#39;不明圖騰9&#39;&gt;&gt;
@@ -2307,17 +2302,17 @@ window.hashStr = function(txt) {
 
 &lt;strong&gt;小凡結束信義街的旅程，下一條又會去哪裡？少年與少女的故事還沒有結束。&lt;/strong&gt;
 @@.center;&lt;img src=&quot;https://drive.google.com/uc?id=1lYvWLEBeFFH5eRA2WGvTjhu1BPFvN2a0&quot; width=&quot;100%&quot;&gt;@@
-結束之前，別忘了享受[[當地美食|https://www.google.com/maps/d/u/0/embed?mid=1kWwYb3_KKCHs1HG5WtWTJ04tSSQAU0m7]]再回去喔～</tw-passagedata><tw-passagedata pid="146" name="branch1" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="100,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;虎牌&#39;&gt;&gt;
+結束之前，別忘了享受[[當地美食|https://www.google.com/maps/d/u/0/embed?mid=1kWwYb3_KKCHs1HG5WtWTJ04tSSQAU0m7]]再回去喔～</tw-passagedata><tw-passagedata pid="146" name="branch1" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="100,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;法器：虎牌&#39;&gt;&gt;
 &lt;div align=&#39;center&#39;&gt;\
 你找到了虎牌！
 &lt;img src=&quot;https://drive.google.com/uc?id=1-ZsVLubXi84QZH1pmd5Ly9bAy9xAwVd8&quot; width=&quot;50%&quot; &gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="147" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="200,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;黑色羽扇&#39;&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="147" name="branch2" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="200,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;法器：黑色羽扇&#39;&gt;&gt;
 &lt;div align=&#39;center&#39;&gt;\
 你找到了黑色羽扇！
 &lt;img src=&quot;https://drive.google.com/uc?id=1MirovGMqQB8zxd9hdnKLydGUrJ9BwFIW&quot; width=&quot;50%&quot; &gt;
 (閱讀完後請關掉此分頁，回到遊戲頁面)
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="148" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="300,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;賞善罰惡帽&#39;&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="148" name="branch3" tags="branch no-side-bar noreturn noheader- nofooter autosave" position="300,900" size="100,100">&lt;&lt;pickup &#39;$inv&#39; &#39;法器：賞善罰惡帽&#39;&gt;&gt;
 &lt;div align=&#39;center&#39;&gt;\
 你找到了賞善罰惡帽！
 &lt;img src=&quot;https://drive.google.com/uc?id=13NL-25qKnNdaWvk7sJxDfYOL3H2hY6eb&quot; width=&quot;50%&quot; &gt;
