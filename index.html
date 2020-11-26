@@ -658,30 +658,6 @@ Macro.add('ScrollTo', {
 /* twine-user-script #2: "user.min.js" */
 "use strict";function setCookie(e,t,n){var i="";if(n){var o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3),i="; expires="+o.toUTCString()}document.cookie=e+"="+(t||"")+i+"; path=/"}function getCookie(e){for(var t=e+"=",n=document.cookie.split(";"),i=0;i<n.length;i++){for(var o=n[i];" "==o.charAt(0);)o=o.substring(1,o.length);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return null}function eraseCookie(e){document.cookie=e+"=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;"}
 /* twine-user-script #3: "Story JavaScript" */
-/* Automatically updating */
-$(document).on(':inventory-update', function (ev) {
-    if (ev.context !== 'transfer') {
-        // this event should only occur on transfer events
-        return;
-    }
-    // only the receiving inventory needs updated, but we'll update both for the sake of simplicity
-    $('.auto-update').each( function (i, el) {
-        // find the inventories marked for auto-updating
-        // get the macro's wrapper:
-        var $macro = $(el).find('.macro-linkedinventory');
-        // get the inventories:
-        var inv = State.getVar($macro.attr('data-self'));
-        var rec = false;
-        if ($macro.attr('data-rec')) {
-            rec = State.getVar($macro.attr('data-rec'));
-        }
-        // reconstruct the list via the `inventory#linkedList()` method
-        var $list = inv.linkedList(rec, $macro.attr('data-action'));
-        // empty the container and replace it
-        $(el).empty().append($list);
-    });
-});
-/* Automatically updating */
 /*背包END*/
 
 /*自動存檔*/
