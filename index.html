@@ -1314,7 +1314,10 @@ window.hashStr = function(txt) {
 /*音檔*/
 &lt;&lt;cacheaudio &quot;bibi&quot; &quot;mp3|https://drive.google.com/uc?id=1N8dCDAHqt8-yIsWRwQsBThE_GWt_sMj4&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="PassageHeader" tags="noreturn" position="700,1200" size="100,100"></tw-passagedata><tw-passagedata pid="86" name="PassageFooter" tags="" position="700,1100" size="100,100">
 
-&lt;&lt;if tags().includes(&#39;QR&#39;)&gt;&gt;&lt;u&gt;@@color:DarkSeaGreen;提醒：如果找不到QRCODE，可以到@@@@color:Aquamarine;祈願榕樹@@@@color:DarkSeaGreen;許願，就會出現了喔~@@&lt;/u&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="開場" tags="" position="1000,500" size="100,100">@@.center;&lt;h2&gt;府城奇聞錄（老古石街篇）&lt;/h2&gt;@@
+&lt;&lt;if tags().includes(&#39;QR&#39;)&gt;&gt;&lt;u&gt;@@color:DarkSeaGreen;提醒：如果找不到QRCODE，可能是找錯地方囉！如果確定地點無誤，那麼到@@@@color:Aquamarine;祈願榕樹@@@@color:DarkSeaGreen;許願，就會出現了喔~@@&lt;/u&gt;&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if tags().includes(&#39;error&#39;)&gt;&gt;&lt;u&gt;@@color:DarkSeaGreen;錯字更正：實體道具「女戒字謎卡」，第一行的倒數第二個字「者」為錯字，應改為「旨」。
+[[正確的女戒字謎卡圖檔|https://drive.google.com/file/d/15i3MlLi-QU7P-PTtFNn1WqtSJY4GK8BM/view?usp=sharing]]@@&lt;/u&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="開場" tags="" position="1000,500" size="100,100">@@.center;&lt;h2&gt;府城奇聞錄（老古石街篇）&lt;/h2&gt;@@
 &lt;table&gt;
 少年小凡，跟隨爸爸整理老屋時，發現失蹤許久的奶奶的日記，小凡閱讀日記的過程中，發覺奶奶的失蹤並不單純，於是，小凡重回奶奶曾經旅遊的歷史街區，找尋奶奶失蹤的真相。
 @@.center;
@@ -1329,6 +1332,7 @@ window.hashStr = function(txt) {
 信義街古地名為老古石街，老古石是白化的珊瑚石，因這條街能看見老古石的痕跡，所以稱之為『老古石』街。
 少年小凡藉由奶奶遺留的日記來到了信義街，日記裡留下許多奶奶曾經瀏覽歷史街區的紀錄，有街區的@@color:Aquamarine;古地圖@@和一些莫名的紙本資料
 小凡心想，這些日記紙本可能隱藏奶奶失蹤的線索……
+
 [[開始探索|第一關1]]
 &lt;&lt;set $oldmap to 1&gt;&gt;
 &lt;&lt;pickup &#39;$dinv&#39; &#39;日記碎片1&#39;&gt;&gt;
@@ -1488,7 +1492,7 @@ window.hashStr = function(txt) {
 小凡落寞地看著貓咪怪盜匆忙離開的背影，忽然他發現手中僅存的日記碎片古地圖發出亮光，他想，或許，[[這道光可以指引他去尋找其他的日記碎片|第一關關卡1]]。</tw-passagedata><tw-passagedata pid="97" name="第一關關卡1" tags="" position="1125,875" size="100,100">@@.center;
 &lt;h3&gt;尋找碎片&lt;/h3&gt;
 @@
-請回答@@color:red; &lt;&lt;hovertip &#39;在道具包中找出新港墘古地圖&#39;&gt;&gt;古地圖&lt;&lt;/hovertip&gt;&gt;@@所指示的地點，叫什麼名字。
+請回答@@color:red; &lt;&lt;hovertip &#39;在道具包中找出新港墘古地圖&#39;&gt;&gt;古地圖&lt;&lt;/hovertip&gt;&gt;@@所指示的地點，對照@@color:Aquamarine;老古石地圖@@，找出「繁星所在之處」叫什麼名字。
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
 請輸入名字：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
@@ -1572,10 +1576,10 @@ window.hashStr = function(txt) {
 &lt;p&gt;小凡&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好，沒問題。[[我接受挑戰！|第一關關卡2]]&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="100" name="第一關關卡2" tags="" position="1125,1125" size="100,100">@@.center;
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="100" name="第一關關卡2" tags="error" position="1125,1125" size="100,100">@@.center;
 &lt;h3&gt;女鬼的字謎挑戰&lt;/h3&gt;
 @@
-女鬼向小凡提出了字謎的挑戰，請拿出@@color:red; &lt;&lt;hovertip &#39;在道具包中找出女誡字謎&#39;&gt;&gt;字謎表&lt;&lt;/hovertip&gt;&gt;@@，對應代天府上的門聯，找出答案。
+女鬼向小凡提出了字謎的挑戰，請拿出@@color:red; &lt;&lt;hovertip &#39;在道具包中找出女誡字謎&#39;&gt;&gt;字謎表&lt;&lt;/hovertip&gt;&gt;@@，對應代天府上的門聯，從中找出答案。
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;\
   請輸入答案：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
@@ -1617,11 +1621,11 @@ window.hashStr = function(txt) {
 &lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;嘛嘛嘛，真是個好小子。
-依循著對聯並彼此相連的話，我想就能看出端倪了！&lt;/em&gt;&lt;/p&gt;
+依循著對聯並彼此相連的話，把對應的英文字拼起來，我想就能看出端倪了！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="第一關關卡2線索2" tags="" position="1125,100" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
-@@color:Cyan;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@
+@@color:Cyan;提示一：依循著對聯並彼此相連的話，把對應的英文字拼起來，我想就能看出端倪了！@@
 &lt;div class=&quot;say&quot;&gt;
 &lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;小凡&lt;/p&gt;
@@ -1632,14 +1636,11 @@ window.hashStr = function(txt) {
 &lt;div class=&quot;say&quot;&gt;
 &lt;img src=&quot;https://drive.google.com/uc?id=1z12rcKBbhHjoE2cL0-if5-IEqWa89n9i&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;女鬼&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;真的是拿你沒辦法，
-將上下聯轉換成的英文字串起來，
-並加以斷句可以得知「字」是藏在某處之下，
-找出對應處其下方的文字由左至右排列即為答案。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;真的是拿你沒辦法，將上下聯轉換成的英文字串起來，並加以斷句可以得知「字」是藏在某處之下，找出對應處其下方的文字由左至右排列即為答案。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="104" name="第一關關卡2線索3" tags="" position="1125,0" size="100,100">&lt;&lt;linkreplace &quot;&lt;strong&gt;獲得提示&lt;/strong&gt;&quot; t8n&gt;&gt;
 ----
-@@color:Cyan;提示一：依循著對聯並彼此相連的話，我想就能看出端倪了！@@
+@@color:Cyan;提示一：依循著對聯並彼此相連的話，把對應的英文字拼起來，我想就能看出端倪了！@@
 @@color:Cyan;提示二：將上下聯轉換成的英文字串起來，並加以斷句可以得知「字」是藏在某處之下，找出對應處其下方的文字由左至右排列即為答案。@@
 &lt;div class=&quot;say&quot;&gt;
 &lt;img src=&quot;https://drive.google.com/uc?id=1f4jfw4y-7WBnhggxV9mDt-7FhNVNUgg_&quot; width=&quot;15%&quot;&gt;
