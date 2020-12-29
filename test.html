@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <title>府城奇聞錄</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="google-site-verification" content="hBuROPi3MacdibffQVZ5Aty4Al6HYvWOIXPR5e2NUhg" />
-<meta name="google-site-verification" content="5py8HE93N0D9zAzEXgjfqqoKsvtQg4HS-JD9r9Taj3M" />
+
+
 <!--
 
 SugarCube (v2.31.1): A free (gratis and libre) story format.
@@ -421,7 +421,65 @@ body[data-tags~="start"]{
 }
 .phone > div[data-piece12] {
   background-position: 100% 100%;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* 特定片段產生連結網址開始 */
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*預載圖片*/
+(function () {
+    'use strict';
+    // v1.0.0
+    // preload images prior to story startup
+
+    function preloadImage (url, cb) {
+        var img = new Image();
+        img.onload = cb;
+        img.onerror = cb;
+        img.src = url;
+    }
+
+    function preloadAll (urls, cb) {
+        var loaded = 0;
+        var toBeLoaded = urls.length;
+        urls.forEach( function (url) {
+            preloadImage( url, function () {
+                loaded++;
+                if (loaded === toBeLoaded) {
+                    cb();
+                }
+            });
+        });
+    }
+
+    function isInit () {
+        return State.length <= 0;
+    }
+
+
+    function preload () {
+        var list = [].slice.call(arguments).flatten();
+        var id = isInit() ? LoadScreen.lock() : false;
+        preloadAll( list, function () {
+            if (id) {
+                LoadScreen.unlock(id);
+            }
+        });
+        return id;
+    }
+
+    setup.preload = preload;
+    setup.preload.force = false;
+
+    /* <<preload imageUrls...>> */
+    Macro.add('preload', {
+        handler : function () {
+            if (!isInit() && !setup.preload.force) {
+                return this.error("Attempting to preload images outside of `StoryInit` or similar can cause performance issues. Set `setup.preload.force` to `true` if you want to do it anyway.");
+            }
+            preload(this.args.flatten().filter( function (url) {
+                return typeof url === 'string';
+            }));
+        }
+    });
+}());
+
+/* 特定片段產生連結網址開始 */
 if ("onhashchange" in window) {  // event supported
 	window.onhashchange = function () {
 		hashChanged();
@@ -1311,8 +1369,8 @@ window.hashStr = function(txt) {
 &lt;&lt;set $textGroup to 1&gt;&gt;
 &lt;&lt;set $rit to 1&gt;&gt;
 
-/*音檔*/
-&lt;&lt;cacheaudio &quot;bibi&quot; &quot;mp3|https://drive.google.com/uc?id=1N8dCDAHqt8-yIsWRwQsBThE_GWt_sMj4&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="PassageHeader" tags="noreturn" position="700,1200" size="100,100"></tw-passagedata><tw-passagedata pid="86" name="PassageFooter" tags="" position="700,1100" size="100,100">
+/*預載圖片*/
+&lt;&lt;preload &#39;img/bosshead.png&#39; &#39;img/brand.png&#39; &#39;img/card.png&#39; &#39;img/cathead.png&#39; &#39;img/detect1.jpg&#39; &#39;img/detect2.jpg&#39; &#39;img/detect3.jpg&#39; &#39;img/detect4.jpg&#39; &#39;img/detect5.jpg&#39; &#39;img/detect6.jpg&#39; &#39;img/detect7.jpg&#39; &#39;img/fan.png&#39; &#39;img/ghosthead.png&#39; &#39;img/godhead.png&#39; &#39;img/hat.png&#39; &#39;img/hsiaofanhead.png&#39; &#39;img/lichinghead.png&#39; &#39;img/zhininghead.png&#39; &#39;img/logo.png&#39;&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="PassageHeader" tags="noreturn" position="700,1200" size="100,100"></tw-passagedata><tw-passagedata pid="86" name="PassageFooter" tags="" position="700,1100" size="100,100">
 
 &lt;&lt;if tags().includes(&#39;QR&#39;)&gt;&gt;&lt;u&gt;@@color:DarkSeaGreen;提醒：如果找不到QRCODE，可能是找錯地方囉！如果確定地點無誤，那麼到@@@@color:Aquamarine;祈願榕樹@@@@color:DarkSeaGreen;許願，就會出現了喔~@@&lt;/u&gt;&lt;&lt;/if&gt;&gt;
 
@@ -1341,8 +1399,7 @@ window.hashStr = function(txt) {
 &lt;/table&gt;</tw-passagedata><tw-passagedata pid="89" name="第二章0" tags="autosave noheader" position="1250,500" size="100,100">&lt;&lt;set $title2 to 1&gt;&gt;
 @@.center;
 &lt;h1&gt;第二章&lt;/h1&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=
-1SUAkJTPm62iWhf_IqHCSVojg84tXF3ma&quot; width=&quot;100%&quot;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1SUAkJTPm62iWhf_IqHCSVojg84tXF3ma&quot; width=&quot;100%&quot;&gt;
 @@
 &lt;table&gt;
 小凡從日記碎片中看見信義街殘破的景象，他明白日記碎片所產生的影像就是奶奶在日記中所書寫的內容，難道奶奶的失蹤並不單純？似乎與信義街隱藏的祕密有關。
@@ -1681,7 +1738,7 @@ window.hashStr = function(txt) {
 小凡拜別女鬼之後，起身尋找下一片碎片時，頓時，烏雲密佈，下起大雨，小凡著急地找地方躲雨時，與一位少女擦身而過……
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;看你的模樣不像是旅客，手裡還拿著一本日記？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1693,14 +1750,14 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;碎片？莫非是剛才四散的光芒，我還以為……不過你似乎正在苦惱，要不把事情說來聽聽？
 或許我能以在地人的身份給你一點意見，對了，我叫蘇子寧，叫我子寧，請多指教。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 小凡將剛才發生的事情[[向子寧說了一遍|第二關2]]。</tw-passagedata><tw-passagedata pid="109" name="第二關2" tags="" position="1250,750" size="100,100">&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;原來這個碎片可以讀取日記作者的記憶，想不到信義街以前發生過這樣的事情……
 連身為在地人的我都不清楚，搞不好，李青姐姐會知其一二。&lt;/em&gt;&lt;/p&gt;
@@ -1713,7 +1770,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;嘿嘿嘿，我可是子寧呢！
 走，我們去@@color:Aquamarine;白日夢工廠@@。&lt;/em&gt;&lt;/p&gt;
@@ -1734,13 +1791,13 @@ window.hashStr = function(txt) {
 小凡和子寧到了『白日夢工廠』，遇見身在工廠裡的算命師李青，李青了解小凡來到信義街的用意，她認為日記碎片和信義街最近的不平靜有關，可以藉由某種儀式去占卜信義街的未來。
 &lt;&lt;notify&gt;&gt;小凡得到寫著「白日夢工廠」的日記碎片及1塊不明圖騰！&lt;&lt;/notify&gt;&gt;
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;李青姊姊也不知道信義街發生的事情。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/lichinghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;嗯……如果翻閱古文獻或許能略知一二，但具體是什麼，還是得依靠你們，我現在會啟動@@color:Aquamarine;儀式@@，只要你們虔誠，@@color:Aquamarine;儀式@@會回應你們。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1805,7 +1862,7 @@ window.hashStr = function(txt) {
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;</tw-passagedata><tw-passagedata pid="118" name="第二關關卡1F" tags="noreturn" position="1250,400" size="100,100">&lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/lichinghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;不是這個神明，再想想看！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1823,7 +1880,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;小凡，你看見了什麼？臉色這麼差！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1835,7 +1892,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;儀式……搞不懂。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1847,14 +1904,14 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/lichinghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;儀式、巨大的東西？
 莫非是『無支祁』，難道水禍又要來臨嗎？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;水禍……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1862,13 +1919,13 @@ window.hashStr = function(txt) {
 小凡扛不住日記碎片帶給他的壓力，忽然昏了過去。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;小凡！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1kWwyHG8ENBmiR6UBMSP-c-iEo4hA7I4m&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/lichinghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;李青&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;子寧，妳先帶小凡去屎溝墘客廳休息，
 我大概知道日記碎片和信義街的連結，
@@ -1890,7 +1947,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;難道法器的位置剛好與日記碎片重疊？
 我們可以利用這點找出法器和碎片。
@@ -1909,7 +1966,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;確實，我們想了一個方法，利用假的法器誘騙無支祁，然後，由我執行儀式，但我太輕忽無支祁的力量，儀式失敗了……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1921,7 +1978,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我不知道她是什麼時候知道整個儀式的內容，她代替我，執行了儀式。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1960,7 +2017,7 @@ window.hashStr = function(txt) {
 真的要看答案嗎？不再思考一下？
 &lt;&lt;linkreplace &quot;對我要看答案&quot;&gt;&gt;
 三個道具的位置在地圖上標示「廢棄電桿」、「勵園門柱」、「崇福宮」之處，請到這三個地方掃描QRcode便可通關。
-&lt;img src=&quot;https://drive.google.com/uc?id=1_qZpfzubl0MfKfV5ND_2z7ose9bLUFiz&quot; width=&quot;100%&quot;&gt;
+&lt;img src=&quot;img/answer.jpg&quot; width=&quot;100%&quot;&gt;
 &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="129" name="第三關3" tags="" position="1375,1000" size="100,100">@@.center;
 &lt;img src=&quot;https://drive.google.com/uc?id=10BSE8XSKBKxpNGn6C-v_omNKf_vH8Tgp&quot; width=&quot;100%&quot;&gt;
 @@
@@ -1972,13 +2029,13 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;是、是嗎……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1fMtM_TTWprSu5meG_F3hLB4zxpqK3IBO&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/godhead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;玄天上帝&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;不過竟然已經蒐齊了法器，只要明天進行@@color:Aquamarine;儀式@@，就能平定水禍。
 小凡，請你好好保管法器。&lt;/em&gt;&lt;/p&gt;
@@ -2002,7 +2059,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我就是你們想要阻止的無支祁～
 想不到吧，當你找齊法器的同時，也解開了我的封印！
@@ -2016,7 +2073,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;……&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2034,7 +2091,7 @@ window.hashStr = function(txt) {
 子寧幻化成熟悉的身影，竟然是貓咪怪盜。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;少年，你現在才知道嗎？
 子寧一直是我們妖的伙伴，哈哈哈哈。&lt;/em&gt;&lt;/p&gt;
@@ -2054,7 +2111,7 @@ window.hashStr = function(txt) {
 假設玩家在甕城角，子寧已經移動頂合源角，玩家必須預判子寧下一步移動的方位，選擇合發角的位置，才能追上子寧。</tw-passagedata><tw-passagedata pid="134" name="第四關2" tags="autosave" position="1500,625" size="100,100">在妖氣儀的指引下，小凡終於找到子寧和無支祁，不過他們似乎發生爭執，只見子寧將@@color:Aquamarine;三樣法器@@對準@@color:Aquamarine;無支祁@@……
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;想不到一直是妳背叛我。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2067,7 +2124,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;可笑，難道妳忘記上次儀式的事情嗎？
 該不會妳已經忘記那個人了！&lt;/em&gt;&lt;/p&gt;
@@ -2080,7 +2137,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我怎麼可能會說，笨蛋！
 我才不要被封印，我要無惡不作！&lt;/em&gt;&lt;/p&gt;
@@ -2098,13 +2155,13 @@ window.hashStr = function(txt) {
 @@
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1fMtM_TTWprSu5meG_F3hLB4zxpqK3IBO&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/godhead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;玄天上帝&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;大膽妖孽！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;可惡，掃興的神明，沒關係，
 反正明天，信義街將會湧入大水，
@@ -2137,7 +2194,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;你看出了什麼端倪？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2146,7 +2203,7 @@ window.hashStr = function(txt) {
 </tw-passagedata><tw-passagedata pid="138" name="第五關3" tags="" position="1625,875" size="100,100">隔天，小凡和子寧來到集福宮，並把儀式的事情說給玄天上帝聽，話還沒說完，無支祁就已經降臨在集福宮前，此刻風雨大起。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1fMtM_TTWprSu5meG_F3hLB4zxpqK3IBO&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/godhead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;玄天上帝&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;小凡趕緊啟動儀式，不然大水又會降臨。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2158,13 +2215,13 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;好，是這樣拼嗎？&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;可笑的儀式！不可能阻止我！&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2212,7 +2269,7 @@ window.hashStr = function(txt) {
 剛才倒地的八爺似乎得到某種神祕力量的加持，一口氣打倒了無支祁，扭轉了局勢。
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;怎麼可能……嗚嗚嗚，我得趕緊逃走。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2224,13 +2281,13 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;快把那個人的線索說出來。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1Uav-jVpuE16_J0R_J2r7gHupKUUx_rB7&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/bosshead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;無支祁&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;我怎麼可能輕易把她的訊息告訴妳！
 不然，我給妳一點提示吧……
@@ -2249,7 +2306,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;很有可能，畢竟她好不容易擺脫家庭的束縛，當然會四處晃晃。
 況且，街與街的距離並不遠，走路就會到啦。&lt;/em&gt;&lt;/p&gt;
@@ -2263,7 +2320,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;別忘記還有無支祁，祂可不會輕易放過我們。
 也得把祂找出來，避免祂禍害其他街區。&lt;/em&gt;&lt;/p&gt;
@@ -2276,7 +2333,7 @@ window.hashStr = function(txt) {
 &lt;/div&gt;
 
 &lt;div class=&quot;say&quot;&gt;
-&lt;img src=&quot;https://drive.google.com/uc?id=1w3yseDtOTlRZWJL-6XIOwCadx9p4-qZF&quot; width=&quot;15%&quot;&gt;
+&lt;img src=&quot;img/zhininghead.png&quot; width=&quot;15%&quot;&gt;
 &lt;p&gt;子寧&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;當然，樂意之至。&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -2355,7 +2412,7 @@ $(document).one(&quot;:passagerender&quot;, function (ev) {
 	});
 });
 &lt;&lt;/script&gt;&gt;
-</tw-passagedata><tw-passagedata pid="154" name="圖騰1" tags="" position="100,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰1&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1AZPFhdWd5Oxvr4FQubJWaByUuQmVKkrL&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="155" name="圖騰2" tags="" position="200,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰2&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1uEDsywNIBpKmXCB0pVmdhD4MMAULk3cf&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="156" name="圖騰3" tags="" position="300,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰3&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1N7tGeoz5EECbm70_AygkJuTSFSkKbia4&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="157" name="圖騰4" tags="" position="100,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰4&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1BmzoAdUb9dkx_0no9uyCUkyK0IQmmXGE&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="158" name="圖騰5" tags="" position="200,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰5&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1v4lLB0su09wJYkPLy1crx-UyJxYpxmEF&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="159" name="圖騰6" tags="" position="300,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰6&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1wwiKI4ypfqzMpiSt2BmA4VoStTbvEQsH&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="160" name="圖騰7" tags="" position="100,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰7&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1uqbT7rVEVGRN0XaKP1GWwrIelr_9z73O&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="161" name="圖騰8" tags="" position="200,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰8&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1x2clwA2glFkA-7L1HFNdjMF9lgMmKTFf&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="162" name="圖騰9" tags="" position="300,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰9&#39;) &gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1so33-EJdDMAUsXqwSbPZGq_W2HaysqEP&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="163" name="work" tags="noreturn" position="500,500" size="100,100">&lt;h2&gt;@@color:DarkGoldenRod;街密小組@@&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="154" name="圖騰1" tags="" position="100,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰1&#39;) &gt;&gt;&lt;img src=&quot;img/piece1.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="155" name="圖騰2" tags="" position="200,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰2&#39;) &gt;&gt;&lt;img src=&quot;img/piece2.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="156" name="圖騰3" tags="" position="300,200" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰3&#39;) &gt;&gt;&lt;img src=&quot;img/piece3.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="157" name="圖騰4" tags="" position="100,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰4&#39;) &gt;&gt;&lt;img src=&quot;img/piece4.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="158" name="圖騰5" tags="" position="200,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰5&#39;) &gt;&gt;&lt;img src=&quot;img/piece5.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="159" name="圖騰6" tags="" position="300,300" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰6&#39;) &gt;&gt;&lt;img src=&quot;img/piece6.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="160" name="圖騰7" tags="" position="100,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰7&#39;) &gt;&gt;&lt;img src=&quot;img/piece7.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="161" name="圖騰8" tags="" position="200,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰8&#39;) &gt;&gt;&lt;img src=&quot;img/piece8.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="162" name="圖騰9" tags="" position="300,400" size="100,100">&lt;&lt;if $face.has(&#39;不明圖騰9&#39;) &gt;&gt;&lt;img src=&quot;img/piece9.jpg&quot; width=&quot;100%&quot; &gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="163" name="work" tags="noreturn" position="500,500" size="100,100">&lt;h2&gt;@@color:DarkGoldenRod;街密小組@@&lt;/h2&gt;
 *&lt;strong&gt;關卡顧問&lt;/strong&gt;：羅士哲／台南塾
 *&lt;strong&gt;文本顧問&lt;/strong&gt;：陳志軒／台南社區大學
 *&lt;strong&gt;程式顧問&lt;/strong&gt;：張雅婷／三知餘文化
