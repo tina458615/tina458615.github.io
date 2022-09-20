@@ -751,7 +751,6 @@ tw-passage[tags="center"] {
 #speech {
   background:rgba(94,123,139,0.7);
   color:#fff;
-  width: 90%;
   border-radius: 10px;
   padding: 15px 25px;
   text-align:center;
@@ -804,30 +803,30 @@ body {
 
 /*自訂背景*/
 body[data-tags~="ch0"]{
-  background-image: url("https://drive.google.com/uc?id=1oMhbsB6sKGYQw015BMXGTvw9xYY7du-Y");
+  background-image: url("media/img/序章背景.jpg");
 }
 body[data-tags~="ch1"]{
-  background-image: url("https://drive.google.com/uc?id=1muvXqlbtqsE-NgAdsYUogIjSSIlLyu3e");
+  background-image: url("media/img/第一章背景.jpg");
 }
 body[data-tags~="ch2"]{
-  background-image: url("https://drive.google.com/uc?id=1T0PqNbh7_ZRkFVakagl7xGNdFNnFafbt");
+  background-image: url("media/img/第二章背景.jpg");
 }
 body[data-tags~="ch3"]{
-  background-image: url("https://drive.google.com/uc?id=1xGjsLEatvFsunn6TNqt9O3JA-70Ciftr");
+  background-image: url("media/img/第三章背景.jpg");
 }
 body[data-tags~="ch4"]{
-  background-image: url("https://drive.google.com/uc?id=1KHdS0UcSbwpsLDfmQiK3CSgfao9WK_Fk");
+  background-image: url("media/img/第四章背景.jpg");
 }
 body[data-tags~="ch5"]{
-  background-image: url("https://drive.google.com/uc?id=1Rj74rilCPIlsWLtgIVa4bvu-YnY9_ohf");
+  background-image: url("media/img/終章背景.jpg");
 }
 
 #passages {
   margin:auto;
   margin-bottom: 5%;
   padding:2em;
-  width: 85%;
   max-width: 500px;
+  width: 75%;
   display:inline-block;
   text-shadow:#595959 0px 1px 1px;
   background: rgba(255, 255, 255, 0.75);
@@ -835,7 +834,6 @@ body[data-tags~="ch5"]{
   border-radius: 8px;
     /* Text formatting */
   color: black;
-  font-family:'Noto Sans TC'!important;
 }
 
 
@@ -1116,6 +1114,11 @@ width: 60%;
 }
 
 
+
+@media screen and (max-width: 1136px)
+#story {
+    margin-right: 1.5em;
+}
 
 
 /* checkboxPlus widget - Start */
@@ -2522,7 +2525,7 @@ Macro.add('ScrollTo', {
 
 /* 介面中文化開始 */
 !function(){l10nStrings.identity="遊戲",l10nStrings.aborting="終止",l10nStrings.cancel="取消",l10nStrings.close="關閉",l10nStrings.ok="確認",l10nStrings.errorTitle="錯誤",l10nStrings.errorNonexistentPassage='段落"{passage}"不存在',l10nStrings.errorSaveMissingData="存檔缺少必須的數據，可能被讀取的文件不是存檔或存檔被損壞",l10nStrings.errorSaveIdMismatch="保存{identity}是錯誤的",l10nStrings._warningIntroLacking="你的瀏覽器可能損壞或者被禁用",l10nStrings._warningOutroDegraded="，所以{identity}在受限模式中運行。你可以繼續運行，但是一些內容可能不能正確工作。",l10nStrings.warningNoWebStorage="{_warningIntroLacking} Web Storage API {_warningOutroDegraded}",l10nStrings.warningDegraded="{_warningIntroLacking} {identity}需要的功能 {_warningOutroDegraded}",l10nStrings.debugViewTitle="調適模式",l10nStrings.debugViewToggle="切換調適模式",l10nStrings.uiBarToggle="打開/關閉導航欄",l10nStrings.uiBarBackward="後退",l10nStrings.uiBarForward="前進",l10nStrings.uiBarJumpto="跳到{identity}的歷史紀錄中的某一點",l10nStrings.jumptoTitle="跳到",l10nStrings.jumptoTurn="轉到",l10nStrings.jumptoUnavailable="目前沒有跳躍點…",l10nStrings.savesTitle="存檔/讀檔",l10nStrings.savesDisallowed="在這個段落中不允許存檔",l10nStrings.savesEmptySlot="— 插槽空 —",l10nStrings.savesIncapable="{_warningIntroLacking}支持存檔所需的功能，因此本次遊戲的存檔功能已被禁用",l10nStrings.savesLabelAuto="自動存檔",l10nStrings.savesLabelDelete="刪除",l10nStrings.savesLabelExport="另存為……",l10nStrings.savesLabelImport="讀取……",l10nStrings.savesLabelLoad="讀取",l10nStrings.savesLabelClear="全部刪除",l10nStrings.savesLabelSave="保存",l10nStrings.savesLabelSlot="插槽",l10nStrings.savesSavedOn="保存在：",l10nStrings.savesUnavailable="未找到存檔插槽…",l10nStrings.savesUnknownDate="未知",l10nStrings.settingsTitle="設置",l10nStrings.settingsOff="關閉",l10nStrings.settingsOn="開啟",l10nStrings.settingsReset="重置為默認值",l10nStrings.restartTitle="重新開始",l10nStrings.restartPrompt="你確定要重新開始嗎？未保存的進度將會丟失。",l10nStrings.shareTitle="分享",l10nStrings.autoloadTitle="自動保存",l10nStrings.autoloadCancel="前往最初的段落",l10nStrings.autoloadOk="讀取自動存檔",l10nStrings.autoloadPrompt="有一個自動存檔，讀取它還是前往最初的段落？",l10nStrings.macroBackText="返回",l10nStrings.macroReturnText="返回"}();
-/* 介面中文化結束 */</script><tw-tag name="CSS" color="purple"></tw-tag><tw-tag name="noreturn" color="red"></tw-tag><tw-tag name="center" color="yellow"></tw-tag><tw-tag name="noheader" color="green"></tw-tag><tw-tag name="notransition" color="orange"></tw-tag><tw-passagedata pid="1" name="StoryInit" tags="noreturn" position="325,200" size="100,100">&lt;&lt;set $width to 50&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryMenu" tags="noreturn" position="325,0" size="100,100">&lt;!-- 側邊欄顯示的文字在此編輯，此頁面加入連結內容 --&gt;
+/* 介面中文化結束 */</script><tw-tag name="CSS" color="purple"></tw-tag><tw-tag name="noreturn" color="red"></tw-tag><tw-tag name="center" color="yellow"></tw-tag><tw-tag name="noheader" color="green"></tw-tag><tw-tag name="notransition" color="orange"></tw-tag><tw-passagedata pid="1" name="StoryInit" tags="noreturn" position="325,200" size="100,100">&lt;&lt;set $width to 75&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryMenu" tags="noreturn" position="325,0" size="100,100">&lt;!-- 側邊欄顯示的文字在此編輯，此頁面加入連結內容 --&gt;
 &lt;&lt;link &quot;選擇章節&quot;&gt;&gt;&lt;&lt;run slideWin(&quot;章節選擇&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;製作人員&quot;&gt;&gt;
 	&lt;&lt;script&gt;&gt;
@@ -2530,7 +2533,7 @@ Macro.add('ScrollTo', {
 		Dialog.wiki(Story.get(&quot;credits&quot;).processText());
 		Dialog.open();
 	&lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryBanner" tags="noreturn" position="425,0" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1N6ey-6R81y4Yv9wYH-q8OT-vFojKG2ha&quot; width=&quot;100%&quot;&gt;</tw-passagedata><tw-passagedata pid="4" name="StorySubtitle" tags="noreturn" position="425,200" size="100,100">(副標題)</tw-passagedata><tw-passagedata pid="5" name="StoryAuthor" tags="noreturn" position="425,300" size="100,100">中西區公所x台南社大</tw-passagedata><tw-passagedata pid="6" name="StoryCaption" tags="noreturn" position="325,100" size="100,100">&lt;!-- 側邊欄顯示的文字在此編輯，此頁面加入非連結內容，會顯示於「StoryMenu」內容之下 --&gt;</tw-passagedata><tw-passagedata pid="7" name="開始頁面" tags="center ch0 ch0-1" position="900,0" size="100,100">&lt;&lt;timed 1s t8n&gt;&gt;&lt;div class=&quot;font-2&quot;&gt;&lt;h3&gt;//為著愛情，不知雨水冷～
+&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryBanner" tags="noreturn" position="425,0" size="100,100">&lt;img src=&quot;media/img/logo.png&quot; width=&quot;100%&quot;&gt;</tw-passagedata><tw-passagedata pid="4" name="StorySubtitle" tags="noreturn" position="425,200" size="100,100">(副標題)</tw-passagedata><tw-passagedata pid="5" name="StoryAuthor" tags="noreturn" position="425,300" size="100,100">中西區公所x台南社大</tw-passagedata><tw-passagedata pid="6" name="StoryCaption" tags="noreturn" position="325,100" size="100,100">&lt;!-- 側邊欄顯示的文字在此編輯，此頁面加入非連結內容，會顯示於「StoryMenu」內容之下 --&gt;</tw-passagedata><tw-passagedata pid="7" name="開始頁面" tags="center ch0 ch0-1" position="900,0" size="100,100">&lt;&lt;timed 1s t8n&gt;&gt;&lt;div class=&quot;font-2&quot;&gt;&lt;h3&gt;//為著愛情，不知雨水冷～
 彼款感是，初戀的熱情～//&lt;/h3&gt;&lt;/div&gt;
 
 [[下一頁|雜技團裡大騷動01]]
@@ -3515,26 +3518,26 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=19ROxRPA3I65RFr0cYatKGL2WGACbWxRn&quot; @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/時月音.png&quot; @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;為什麼你看起來那麼開心？&quot;
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1oTf8khsEOUbUotL2pG4YVTFLmpg5bSM1&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;因為是第一次，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許福齡.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;因為是第一次，
 第一次兩人約會，
 第一次一起看雜技團。&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=19ROxRPA3I65RFr0cYatKGL2WGACbWxRn&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;真是，盡說些亂七八糟的胡話，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;真是，盡說些亂七八糟的胡話，
 不過，我真的很期待，你看你看，
 那隻巨大、像貓的動物，
 莫非是名為獅子的動物？&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1oTf8khsEOUbUotL2pG4YVTFLmpg5bSM1&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;哇，真的耶，怎麼那麼大？
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許福齡.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;哇，真的耶，怎麼那麼大？
 我越來越期待今天的表演。&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1eGAsMalykOzjeuZGECIw5SC8_GIIy1u1&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;喂！年輕人，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/售票員.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;喂！年輕人，
 輪到你們買票了，
 你是沒看到後面有一堆人在排隊膩！&quot;
 &lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;&lt;&lt;replace &#39;#continue&#39;&gt;&gt;&lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;&lt;&lt;timed 1s t8n&gt;&gt;就是這個「膩」把許福齡從幻想的泡泡中拉回到現實，兩人紅著臉快步踏入雜技團的大棚子裡，紫雲雜技團的表演果然不同凡響，現場有美麗的歌手唱戲、各種絢爛的魔術秀，月英和福齡兩人陷入在雜技團的魔幻世界中。&lt;&lt;/timed&gt;&gt;
@@ -3547,12 +3550,12 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=19ROxRPA3I65RFr0cYatKGL2WGACbWxRn&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;福齡你看，
 終於輪到獅子的表演。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1oTf8khsEOUbUotL2pG4YVTFLmpg5bSM1&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;不用那麼驚訝啦，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許福齡.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;不用那麼驚訝啦，
 我聽人家說獅子就是大一點的貓咪，
 牠正打算跳過火圈......&quot;
 &lt;&lt;replace &#39;#next&#39;&gt;&gt;[[繼續|雜技團裡大騷動03]]&lt;&lt;/replace&gt;&gt;
@@ -3569,7 +3572,7 @@ html[data-debug-view] .debug.hidden .debug {
 
 還有一張他與母親合照的相片，照片背後寫了一首詩。
 
-&lt;img src=&quot;https://drive.google.com/uc?id=1gtpIhOlhQWnzOuKaF2Qcke2TGJOkXMF7&quot;  width=&quot;100%&quot;&gt;
+&lt;img src=&quot;media/img/老照片.png&quot;  width=&quot;100%&quot;&gt;
 
 
 	&lt;/div&gt;\
@@ -3578,11 +3581,7 @@ html[data-debug-view] .debug.hidden .debug {
 [[進行解謎|聖獸亂像關卡01]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="聖獸亂像關卡01" tags="center ch1 noheader" position="1325,50" size="100,100">@@color:#4E7D96;&lt;h2&gt;解讀老照片後的詩句&lt;/h2&gt;@@
 
-兌彩必求石獅公
-悅財淝豐新港墘
-門弓指西老古石
-聚首湊成沁意連
-@@(詩句會再替換成照片圖)@@
+&lt;img src=&quot;media/img/老照片背面.png&quot;  width=&quot;100%&quot;&gt;
 
 這張⽗親與⺟親合照的照片，背後的詩句想必與他們當年遊賞的地點有關吧。但這⾸詩所指的，究竟是什麼地⽅呢？
 
@@ -3590,12 +3589,12 @@ html[data-debug-view] .debug.hidden .debug {
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請依據照片上的詩句，猜出⽗⺟親當年約會遊賞的地點，前往該處。@@&lt;/div&gt;
 @@(會再增加「觀看提示」內容)@@
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入⽗⺟親當年約會地點：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
+請輸入⽗⺟親當年約會地點：&lt;&lt;textbox &#39;$answer&#39; &#39;兌悅門&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
 	&lt;&lt;set $answer to $answer.trim().toLowerCase()&gt;&gt;
-	  &lt;&lt;if $answer is &#39;兌悅⾨&#39;&gt;&gt;
+	  &lt;&lt;if $answer is &#39;兌悅門&#39;&gt;&gt;
 		&lt;&lt;goto &quot;聖獸亂像02&quot;&gt;&gt;
 	  &lt;&lt;else&gt;&gt;
         &lt;&lt;script&gt;&gt;
@@ -3612,27 +3611,27 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1-pdTux8Sm8Nv7-0srs_zDZo0EJFpdHCm&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/石獅公.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;年輕人，你怎麼會有那顆寶玉？&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;咦？等等，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;咦？等等，
 神、神像怎麼突然說話？
 難道是台南太陽太大，
 我被曬得頭昏眼昏。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1-pdTux8Sm8Nv7-0srs_zDZo0EJFpdHCm&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;哼哼哼哼，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/石獅公.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;哼哼哼哼，
 我總算尋得大聖爺口中所說的浮靈子，
 玄天上帝絕對沒想到祂七星劍上的浮靈子，
 會落在一位毛髮小兒之手，
 小鬼！趕緊把浮靈子交出來，
 免得吃苦頭。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;呀！快跑快跑，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;呀！快跑快跑，
 得找一個地方避難，
 什麼玄天上帝、浮靈子.....&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1-pdTux8Sm8Nv7-0srs_zDZo0EJFpdHCm&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;[[下一頁|聖獸亂像關卡02]]&lt;&lt;/replace&gt;&gt;
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/石獅公.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;[[下一頁|聖獸亂像關卡02]]&lt;&lt;/replace&gt;&gt;
 &quot;別跑！&quot;
 
 &lt;&lt;/ctp&gt;&gt;
@@ -3647,7 +3646,7 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1gpsw302Usmast2q1mVl_cLCNCf_ZBnp0&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/？.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &quot;年輕人，請不要訝異，
 這正是你手中浮靈子的力量，
 這份力量恰巧喚醒了廟裡的聖獸，
@@ -3658,7 +3657,7 @@ html[data-debug-view] .debug.hidden .debug {
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;span id=&#39;continue&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="31" name="聖獸亂像04" tags="center ch1" position="1200,450" size="100,100">&lt;&lt;timed 40ms t8n&gt;&gt;&lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &quot;浮靈子現，聖獸歸位。&quot;
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;&lt;&lt;replace &#39;#continue&#39;&gt;&gt;
 我唸出神祕聲音教導我的咒語，配合相對應的儀式，聖獸發出各種微妙的叫聲，回到廟裡彩繪與雕刻中，方才聲音的主人站在我面前，此人，不，此神正是石獅公所提到的玄天上帝。
@@ -3669,7 +3668,7 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1NsleqzVtflZaGdcnE3DEvSdoC29s-Nyj&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/玄天上帝.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;想不到當年的少年少女，
 他們的子嗣又重回到老古石街，
@@ -3679,12 +3678,12 @@ html[data-debug-view] .debug.hidden .debug {
 莫非有什麼目的，有求於我？&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;玄天上帝大人，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;玄天上帝大人，
 祢知道我父母嗎？
 如果知道，請告訴我，
 我母親時月英的去處！&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1NsleqzVtflZaGdcnE3DEvSdoC29s-Nyj&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;include &quot;聖獸亂像05-1&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;人不照天理，天不照甲子，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/玄天上帝.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;include &quot;聖獸亂像05-1&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;人不照天理，天不照甲子，
 愚蠢的戰爭製造太多悲劇，
 我無法洩漏天機給你，
 但你藉著手裡那顆浮靈子，
@@ -3711,12 +3710,12 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;各位聖獸們，我叫許牧尋，請問你們是否曾經看見我的母親時月英，這是她年輕的照片。&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mL5UJdZdTL9KBrUe13AO782LSoFlZYdt&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;是那位有著美麗歌聲的少女呀，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/聖獸群.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;是那位有著美麗歌聲的少女呀，
 你說她是你的母親，
 她發生了什麼事？&quot;
 
@@ -3726,30 +3725,30 @@ html[data-debug-view] .debug.hidden .debug {
 聖獸露出難過的表情。//
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mL5UJdZdTL9KBrUe13AO782LSoFlZYdt&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;因為我們平時都待在金安宮裡，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/聖獸群.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;因為我們平時都待在金安宮裡，
 如果要問時月英的下落，
 我們想只有喜歡到處雲遊四方的麒麟老大才會清楚。&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;太好了，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;太好了，
 麒麟老大在金安宮嗎？&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mL5UJdZdTL9KBrUe13AO782LSoFlZYdt&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;不在。&quot;
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/聖獸群.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;不在。&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;那我該怎麼辦？&quot;
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;那我該怎麼辦？&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mL5UJdZdTL9KBrUe13AO782LSoFlZYdt&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;麒麟老大的靈力可比我們強上百倍，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/聖獸群.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;麒麟老大的靈力可比我們強上百倍，
 光靠一般聖獸歸位的儀式，
 是無法將麒麟歸位，
 但如果用金安宮的『混天元型二十八卦鎖』.....&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;祢們是說，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;祢們是說，
 那個近似香爐的機關？&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mL5UJdZdTL9KBrUe13AO782LSoFlZYdt&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;別小看這個香爐，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/聖獸群.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;別小看這個香爐，
 祢看看上頭的麒麟擺飾，
 這可是專門為麒麟設計的鎖，
 只要能解開機關上的暗號，
@@ -3792,13 +3791,13 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;麒麟老大，不知道祢雲遊四方，
 可曾見過我的母親時月英。&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1O9hmr8uhzPOCcBM1YMj1V_x9fjJXP3yf&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;唉，我堂堂麒麟被這破鎖鎖住，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/麒麟子.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;唉，我堂堂麒麟被這破鎖鎖住，
 你又是那位有著美麗歌聲少女的孩子，
 我只能認栽。&quot;
 
@@ -3822,7 +3821,7 @@ html[data-debug-view] .debug.hidden .debug {
 &lt;&lt;linkreplace &quot;進行解謎&quot;&gt;&gt;
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請拿出道具包中的3號紙袋，取出其中的紙牌，配合聆聽⾳樂，排出紙牌的正確順序。即可從⿃卦的暗號中，推算出下個地
 點。@@&lt;/div&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/IwpyjWZ0UAY&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe src=&quot;https://player.vimeo.com/video/249625865?h=c65c5c7c26&quot; width=&quot;100%&quot; height=&quot;480&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 @@(會再增加「觀看提示」內容)@@
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
 請輸入下一個地點：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
@@ -3850,16 +3849,16 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1gpsw302Usmast2q1mVl_cLCNCf_ZBnp0&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/？.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;是協助玄天上帝，
 幫助聖獸歸位的少年嗎？&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;是，我是許牧尋，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;是，我是許牧尋，
 我來找我的母親。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1cjmphGb0-L5WTldVkJR1pcIIVMcmQQqq&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/白文鳥.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;
 &quot;牧尋，你尋找母親的事情已經在街區裡傳開，
 我們這些聖獸都被你的精神給感動，
 我們會幫助你尋找母親，
@@ -3874,9 +3873,9 @@ html[data-debug-view] .debug.hidden .debug {
 成為了浮靈子新的主人。//
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;祢希望我找到偷走浮靈子的兇手。&quot;
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;祢希望我找到偷走浮靈子的兇手。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1cjmphGb0-L5WTldVkJR1pcIIVMcmQQqq&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/白文鳥.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;
 &quot;是的，我相信浮靈子不單純是帶著你尋找母親，
 應該也有著屬於它的使命，
 我誠懇的拜託你，
@@ -3887,9 +3886,9 @@ html[data-debug-view] .debug.hidden .debug {
 我似乎明白什麼。//
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;我答應祢。&quot;
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;我答應祢。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1cjmphGb0-L5WTldVkJR1pcIIVMcmQQqq&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/白文鳥.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;
 &quot;謝謝你，我來告訴你，
 讓我歸位的儀式。
 在媽祖樓廟門前，
@@ -3897,10 +3896,10 @@ html[data-debug-view] .debug.hidden .debug {
 請你告訴我，那份心願是什麼？&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;我又沒有讀心術，
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;我又沒有讀心術，
 我怎麼可能會知道十多年前母親所許下的心願！&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1cjmphGb0-L5WTldVkJR1pcIIVMcmQQqq&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;你一定會知道，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/白文鳥.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;你一定會知道，
 如果你真的理解你的母親，
 和你為什麼來到台南的理由，
 回到那份真心，
@@ -3912,7 +3911,7 @@ html[data-debug-view] .debug.hidden .debug {
 &lt;span id=&#39;next&#39;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;ctpAdvance &quot;testID&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;span id=&#39;continue&#39;&gt;&lt;/span&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="鳥卦關卡01" tags="center ch3 noheader" position="2125,50" size="100,100">@@color:#4E7D96;&lt;h2&gt;母親的心願是什麼&lt;/h2&gt;@@
 
-&lt;img src=&quot;media/img/對聯.jpg&quot; width=&quot;80%&quot;&gt;
+&lt;img src=&quot;media/img/對聯.jpg&quot; width=&quot;100%&quot;&gt;
 母親當年所許下的心願就在這副對聯中！
 
 &lt;&lt;linkreplace &quot;進行解謎&quot;&gt;&gt;
@@ -3959,13 +3958,13 @@ html[data-debug-view] .debug.hidden .debug {
 
 [[下一頁|遺忘之歌02]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="遺忘之歌02-1" tags="center ch4" position="2300,125" size="100,100">&lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;&lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name1&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name1&#39;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;對話ID1&quot;&gt;&gt;
 &quot;大聖爺，母親所哼的曲子，
 雖然不是很完整，
 但我應該可以幫得上忙。&quot;
 &lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name1&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mc2gM6tEygC2V6EHj5rmolsPQMdCzIGz&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;好，俺老孫就信你一次，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name1&#39;&gt;&gt;&lt;img src=&quot;media/img/大聖爺.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;好，俺老孫就信你一次，
 年輕人，由你來彈奏琵琶。&quot;
 &lt;&lt;replace &#39;#next1&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#continue1&#39;&gt;&gt;&lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;[[下一頁|遺忘之歌02.5]]&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/ctp&gt;&gt;
@@ -3998,12 +3997,12 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;大聖爺祢為何要偷走浮靈子？&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mc2gM6tEygC2V6EHj5rmolsPQMdCzIGz&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;俺老孫什麼都不知道！
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/大聖爺.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;俺老孫什麼都不知道！
 獅子暴衝這件事，
 我全部都不知道，
 咦！完蛋了吱吱吱吱。&quot;
@@ -4011,7 +4010,7 @@ html[data-debug-view] .debug.hidden .debug {
 &lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 //大聖爺說溜嘴後，才勉為其難地向我和母親道歉。//
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mc2gM6tEygC2V6EHj5rmolsPQMdCzIGz&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;老孫也不是故意，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/大聖爺.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;老孫也不是故意，
 只是聽說有雜技團在老古石街，
 俺就興沖沖地跟了過去，
 見到很多動物.....&quot;
@@ -4021,11 +4020,11 @@ html[data-debug-view] .debug.hidden .debug {
 想說，七星劍上浮靈子有著神祕的力量，
 就.....上帝公不要生俺老孫的氣。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;祢想藉浮靈子的力量，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;祢想藉浮靈子的力量，
 讓雜技團的動物成為祢的好朋友，
 結果，不小心讓獅子暴衝、聖獸甦醒？&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mc2gM6tEygC2V6EHj5rmolsPQMdCzIGz&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;include &quot;遺忘之歌03-1&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;不要再說了，俺老孫知錯。&quot;
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/大聖爺.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;include &quot;遺忘之歌03-1&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;&quot;不要再說了，俺老孫知錯。&quot;
 &lt;&lt;/ctp&gt;&gt;
 &lt;span id=&#39;next&#39;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;ctpAdvance &quot;testID&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;span id=&#39;continue&#39;&gt;&lt;/span&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -4036,7 +4035,7 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;&lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mJLXd2HcpoJbsl81CVxsCf9JR7PJSi-y&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/老年時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &quot;這首曲子，我有印象，
 是福齡曾經唱給我聽的，
 這首歌是？&quot;&lt;&lt;replace &#39;#continue1&#39;&gt;&gt;
@@ -4053,12 +4052,9 @@ html[data-debug-view] .debug.hidden .debug {
 
 &lt;&lt;timed 2s t8n&gt;&gt;&lt;h3&gt;&lt;div class=&quot;font-2&quot;&gt;//為著愛情 不知雨水冷
 這款敢是 初戀的熱情～//&lt;/div&gt;&lt;/h3&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 3s t8n&gt;&gt;&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Le81z47tyY8&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;&lt;/timed&gt;&gt;
 
-&lt;&lt;timed 3s t8n&gt;&gt;&lt;&lt;button &#39;終章&#39; &#39;結尾01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/timed&gt;&gt;
-
-&lt;iframe width=&quot;420&quot; height=&quot;315&quot;
-src=&quot;https://www.youtube.com/embed/DgFFiN50_us&quot;&gt;
-&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="54" name="結尾01" tags="center ch5 ch5-1" position="2800,0" size="100,100">&lt;&lt;timed 1s t8n&gt;&gt;琵琶發出的音色，令時月英有所觸動，她隨著我彈奏的曲子哼唱，整個人陷入到她曾經與父親許福齡的回憶中，她記憶中的曲子正是許石的「初戀日記」，也是母親一直哼給我聽的那首歌。
+&lt;&lt;timed 4s t8n&gt;&gt;&lt;&lt;button &#39;終章&#39; &#39;結尾01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="結尾01" tags="center ch5 ch5-1" position="2800,0" size="100,100">&lt;&lt;timed 1s t8n&gt;&gt;琵琶發出的音色，令時月英有所觸動，她隨著我彈奏的曲子哼唱，整個人陷入到她曾經與父親許福齡的回憶中，她記憶中的曲子正是許石的「初戀日記」，也是母親一直哼給我聽的那首歌。
 
 [[下一頁|結尾01.5]]
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="結尾02" tags="center ch5" position="2800,250" size="100,100">&lt;&lt;timed 40ms t8n&gt;&gt;我總算找到母親，便於母親一一向四聯境的聖獸與神明道別，我還特別跟大聖爺說，不要害怕寂寞，我每個月都會回來台南找祂，祂可要準備當年西天取經的故事說給我聽，見大聖爺拍拍胸脯的表情，我想以後應該不會有聖獸甦醒的風波了。
@@ -4069,19 +4065,19 @@ src=&quot;https://www.youtube.com/embed/DgFFiN50_us&quot;&gt;
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mJLXd2HcpoJbsl81CVxsCf9JR7PJSi-y&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/老年時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &quot;這是福齡跟我求婚時，所唱的歌呀。&quot;
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;&lt;&lt;replace &#39;#continue&#39;&gt;&gt;見到母親美麗的笑容，我想起文學家葉石濤說的話，台南果真是一個適於人們，做夢、幹活、戀愛、結婚、悠然過日子的好地方。
 
-&lt;img src=&quot;https://drive.google.com/uc?id=1eY325Gi5VnPICGDoN-zOD5g89gJ-01ub&quot;  width=100% &gt;
+&lt;img src=&quot;media/img/結局圖.png&quot;  width=100% &gt;
 
 &lt;&lt;timed 2s t8n&gt;&gt;&lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;【END】&lt;&lt;/timed&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;/div&gt;
 &lt;span id=&#39;continue&#39;&gt;&lt;/span&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 @@#bottomElement;@@</tw-passagedata><tw-passagedata pid="56" name="結尾01.5" tags="center ch5" position="2800,125" size="100,100">&lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mJLXd2HcpoJbsl81CVxsCf9JR7PJSi-y&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/老年時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &quot;這首曲子我怎麼會忘記呢？
 好累，感覺好像很多事情都忘了做，
 我怎麼會在這裡？這裡是？
@@ -4097,25 +4093,25 @@ src=&quot;https://www.youtube.com/embed/DgFFiN50_us&quot;&gt;
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;
 &lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;媽媽，是我呀，牧尋。&quot;
 
 &lt;&lt;ctpNext clear t8n&gt;&gt;
-&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mc2gM6tEygC2V6EHj5rmolsPQMdCzIGz&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;來者何人？
+&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/大聖爺.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;來者何人？
 竟敢侵門踏戶，
 打擾俺老孫，
 速速報上名來。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1GiP0sAgnMTMU4Mw7Wve_CUh--jgW5nZL&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;抱歉，我太激動，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許牧尋.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;抱歉，我太激動，
 我是許牧尋，
 我來台南尋找失散的母親，
 如今，我找到母親，
 不免得太過激動。&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mc2gM6tEygC2V6EHj5rmolsPQMdCzIGz&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;小子，你說你是時月英的兒子？&quot;
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/大聖爺.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;小子，你說你是時月英的兒子？&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1mJLXd2HcpoJbsl81CVxsCf9JR7PJSi-y&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;兒子？我不認識你呀？&quot;
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/老年時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;兒子？我不認識你呀？&quot;
 
 &lt;&lt;ctpNext t8n&gt;&gt;&lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &#39;#continue&#39;&gt;&gt;&lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;&lt;&lt;timed 1s t8n&gt;&gt;母親的話打斷我激動的情緒，我才冷靜下來，聽大聖爺娓娓道來。&lt;&lt;/timed&gt;&gt;
 
@@ -4126,7 +4122,7 @@ src=&quot;https://www.youtube.com/embed/DgFFiN50_us&quot;&gt;
 &lt;&lt;/ctp&gt;&gt;
 &lt;span id=&#39;next&#39;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;ctpAdvance &quot;testID&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;span id=&#39;continue&#39;&gt;&lt;/span&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-@@#bottomElement;@@</tw-passagedata><tw-passagedata pid="58" name="unlock" tags="center ch0 noheader" position="700,0" size="100,100">&lt;img src=&quot;https://drive.google.com/uc?id=1N6ey-6R81y4Yv9wYH-q8OT-vFojKG2ha&quot; width=&quot;80%&quot;&gt;
+@@#bottomElement;@@</tw-passagedata><tw-passagedata pid="58" name="unlock" tags="center ch0 noheader" position="700,0" size="100,100">&lt;img src=&quot;media/img/logo.png&quot; width=&quot;80%&quot;&gt;
 @@(需正確的遊戲LOGO圖片進行替換)@@
 
 (請輸入遊戲開通密碼)
@@ -4152,7 +4148,7 @@ $(document).one(&quot;:passagerender&quot;, function (ev) {
 	});
 });
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="StoryDisplayTitle" tags="noreturn" position="425,100" size="100,100"></tw-passagedata><tw-passagedata pid="60" name="聖獸亂像06" tags="ch1 center" position="1200,700" size="100,100">&lt;&lt;timed 1s t8n&gt;&gt;&lt;h3&gt;&lt;div class=&quot;font-2&quot;&gt;//溫純情話 不敢講出嘴～
-看伊每次 純情來對阮～//&lt;/div&gt;&lt;/h3&gt;
+看伊每次 純情來對阮～//&lt;/div&gt;&lt;/h3&gt;&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 2s t8n&gt;&gt;
 一段記憶，在廟埕，少年第一次遇見少女，少女哼著一首，我熟悉卻已經遺忘的歌。
@@ -4170,12 +4166,12 @@ https://reurl.cc/leNDV9</tw-passagedata><tw-passagedata pid="63" name="雜技團
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;好不容易，現場恢復該有的秩序，獅子被拖回帳篷內，雜技團團長正不斷向各位觀眾道歉。
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;&lt;div id=&#39;speech&#39;&gt;
-&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=19ROxRPA3I65RFr0cYatKGL2WGACbWxRn&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
+&lt;span id=&#39;name&#39;&gt;&lt;img src=&quot;media/img/時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;/span&gt;
 &lt;&lt;ctp &quot;testID&quot;&gt;&gt;
 &quot;剛才到底是......
 福齡你沒事吧？&quot;
 
-&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;https://drive.google.com/uc?id=1oTf8khsEOUbUotL2pG4YVTFLmpg5bSM1&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;我也沒有事，
+&lt;&lt;ctpNext clear t8n&gt;&gt;&lt;&lt;replace &#39;#name&#39;&gt;&gt;&lt;img src=&quot;media/img/許福齡.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;&lt;&lt;/replace&gt;&gt;&quot;我也沒有事，
 好像是這一顆寶玉保護了我們。&quot;
 &lt;&lt;replace &#39;#next&#39;&gt;&gt;&lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;&lt;&lt;replace &#39;#continue&#39;&gt;&gt;&lt;&lt;ScrollTo &quot;bottomElement&quot; false&gt;&gt;兩人對於未知的寶玉感到好奇，明白寶玉蘊藏一股神祕的力量，此後，這顆寶玉成為兩人結合的重要信物。
 
@@ -4204,7 +4200,7 @@ https://reurl.cc/leNDV9</tw-passagedata><tw-passagedata pid="63" name="雜技團
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;⽞天上帝以⿔蛇為跤⼒，地圖上是否有哪間廟宇，有⿔或蛇的印記呢？@@&lt;/div&gt;
 @@(會再增加「觀看提示」內容)@@
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入避難地點：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
+請輸入避難地點：&lt;&lt;textbox &#39;$answer&#39; &#39;集福宮&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
@@ -4221,13 +4217,14 @@ https://reurl.cc/leNDV9</tw-passagedata><tw-passagedata pid="63" name="雜技團
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
 &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="圖片連結整理" tags="" position="700,125" size="100,100">LOGO
-&lt;img src=&quot;https://drive.google.com/uc?id=1N6ey-6R81y4Yv9wYH-q8OT-vFojKG2ha&quot; width=&quot;80%&quot;&gt;
+&lt;img src=&quot;media/img/logo.png&quot; width=&quot;80%&quot;&gt;
+media/img/烏龜.png
 
 售票員
-&lt;img src=&quot;https://drive.google.com/uc?id=1eGAsMalykOzjeuZGECIw5SC8_GIIy1u1&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;
+&lt;img src=&quot;media/img/售票員.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;
 
 時月英(老)
-&lt;img src=&quot;https://drive.google.com/uc?id=1mJLXd2HcpoJbsl81CVxsCf9JR7PJSi-y&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;</tw-passagedata><tw-passagedata pid="68" name="聖獸亂像關卡03解謎" tags="center ch1 noheader" position="1325,475" size="100,100">@@color:#4E7D96;&lt;h2&gt;聖獸歸位&lt;/h2&gt;@@
+&lt;img src=&quot;media/img/老年時月音.png&quot;  @style=&quot;&#39;width: &#39; + $width + &#39;%;&#39;&quot;&gt;</tw-passagedata><tw-passagedata pid="68" name="聖獸亂像關卡03解謎" tags="center ch1 noheader" position="1325,475" size="100,100">@@color:#4E7D96;&lt;h2&gt;聖獸歸位&lt;/h2&gt;@@
 
 &lt;table&gt;
 	&lt;tr&gt;
@@ -4236,9 +4233,9 @@ https://reurl.cc/leNDV9</tw-passagedata><tw-passagedata pid="63" name="雜技團
         &lt;td&gt;&lt;img src=&quot;media/img/大象.png&quot; width=&quot;80%&quot;&gt;&lt;/td&gt;
      &lt;/tr&gt;
      &lt;tr&gt;
-		&lt;td&gt;&lt;div id=&quot;inv-烏龜&quot; class=&quot;invItem&quot; draggable=&quot;true&quot; ondragstart=&quot;dragInv(event)&quot;&gt;烏龜(拖拉我)&lt;/div&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;div id=&quot;inv-麒麟&quot; class=&quot;invItem&quot; draggable=&quot;true&quot; ondragstart=&quot;dragInv(event)&quot;&gt;麒麟(拖拉我)&lt;/div&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;div id=&quot;inv-大象&quot; class=&quot;invItem&quot; draggable=&quot;true&quot; ondragstart=&quot;dragInv(event)&quot;&gt;大象(拖拉我)&lt;/div&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;div id=&quot;inv-烏龜&quot; class=&quot;invItem&quot; draggable=&quot;true&quot; ondragstart=&quot;dragInv(event)&quot;&gt;烏龜(玄天上帝)&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;div id=&quot;inv-麒麟&quot; class=&quot;invItem&quot; draggable=&quot;true&quot; ondragstart=&quot;dragInv(event)&quot;&gt;麒麟(兵將小弟甲)&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;div id=&quot;inv-大象&quot; class=&quot;invItem&quot; draggable=&quot;true&quot; ondragstart=&quot;dragInv(event)&quot;&gt;大象(縛大將)&lt;/div&gt;&lt;/td&gt;
      &lt;/tr&gt;
  &lt;/table&gt;
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請將聖獸拖曳到對應神明的名字(黃底處)，讓他回到主⼈的⾝邊！@@&lt;/div&gt;
