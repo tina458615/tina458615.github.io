@@ -2825,15 +2825,7 @@ width: 60%;
 &lt;&lt;if $title2&gt;&gt;[[第二章|鎖聖獸01]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title3&gt;&gt;[[第三章|鳥卦01]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $title4&gt;&gt;[[第四章|遺忘之歌01]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $title5&gt;&gt;[[終章|結尾01]]&lt;&lt;/if&gt;&gt;
-
-@@(以下是測試用連結)@@
-[[序章|開始頁面]]
-[[第一章|聖獸亂像01]]
-[[第二章|鎖聖獸01]]
-[[第三章|鳥卦01]]
-[[第四章|遺忘之歌01]]
-[[終章|結尾01]]</tw-passagedata><tw-passagedata pid="17" name="credits" tags="" position="0,100" size="100,100">工作人員名單</tw-passagedata><tw-passagedata pid="18" name="*Widgets" tags="noreturn widget" position="125,0" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name="頁面樣式編輯CSS碼" tags="" position="425,400" size="100,100">/*定義顏色*/
+&lt;&lt;if $title5&gt;&gt;[[終章|結尾01]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="credits" tags="" position="0,100" size="100,100">工作人員名單</tw-passagedata><tw-passagedata pid="18" name="*Widgets" tags="noreturn widget" position="125,0" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name="頁面樣式編輯CSS碼" tags="" position="425,400" size="100,100">/*定義顏色*/
 :root {
   /* (default) light mode */
   --bg: #fff;
@@ -3902,12 +3894,12 @@ html[data-debug-view] .debug.hidden .debug {
 &lt;&lt;linkreplace &quot;開始解謎&quot;&gt;&gt;&lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請找出藏在圖片中的字。右邊為上聯，左邊為下聯，連在⼀起⼀共有八字。在廟⼝看會更清楚哦。@@&lt;/div&gt;
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入⺟親許下的心願（8個字）：&lt;&lt;textbox &#39;$answer&#39; &#39;風調雨順國泰⺠安&#39; autofocus&gt;&gt;
+請輸入⺟親許下的心願（8個字）：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
 	&lt;&lt;set $answer to $answer.trim().toLowerCase()&gt;&gt;
-	  &lt;&lt;if $answer is &#39;風調雨順國泰⺠安&#39;&gt;&gt;
+	  &lt;&lt;if $answer is &#39;風調雨順國泰民安&#39;&gt;&gt;
 		&lt;&lt;goto &quot;鳥卦02&quot;&gt;&gt;
 	  &lt;&lt;else&gt;&gt;
         &lt;&lt;script&gt;&gt;
@@ -3919,14 +3911,14 @@ html[data-debug-view] .debug.hidden .debug {
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;鳥卦關卡01提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="鳥卦02" tags="center ch3" position="2000,125" size="100,100">&lt;&lt;timed 40ms t8n&gt;&gt;國泰民安⋯⋯母親的心願如此簡單，一想起因戰爭失聯的母親和玄天上帝說過的話，這份心願要實現是如此困難，戰爭奪走太多東西。&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="45" name="鳥卦02" tags="center ch3" position="2000,125" size="100,100">&lt;&lt;timed 40ms t8n&gt;&gt;國泰民安⋯⋯母親的心願如此簡單，一想起因戰爭失聯的母親和玄天上帝說過的話，這份心願要實現是如此困難，戰爭奪走太多東西。&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;linkreplace &#39;繼續&#39; t8n&gt;&gt;白文鳥散發光芒，飛了起來，隨後化成一道光束，似乎是指引某個地方，我趕緊對照地圖，這是四聯境的最後一間廟宇-普濟殿。
 
@@ -4207,14 +4199,14 @@ media/img/烏龜.png
  &lt;/table&gt;
 
 [[重置配對|聖獸亂像關卡03解謎]]｜[[進行歸位|聖獸亂像關卡03解謎結果]]
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;聖獸亂像關卡03提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="神明選擇" tags="" position="0,700" size="100,100">&lt;&lt;silently&gt;&gt;
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="69" name="神明選擇" tags="" position="0,700" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if not $clueimage&gt;&gt;
   &lt;&lt;set $choicesCount to -1&gt;&gt;
   &lt;&lt;set $choices to [&quot;兵將小弟甲&quot;, &quot;兵將小弟乙&quot;, &quot;兵將小弟丙&quot;, &quot;辛元帥&quot;, &quot;蕭聖者&quot;, &quot;縛大將&quot;, &quot;林府千歲&quot;, &quot;馬府將軍&quot;, &quot;上帝公&quot;]&gt;&gt;
@@ -4235,7 +4227,7 @@ media/img/烏龜.png
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="鎖聖獸關卡01解謎" tags="center ch2 noheader" position="1825,175" size="100,100">@@color:#4E7D96;&lt;h2&gt;把金安宮的聖獸歸位&lt;/h2&gt;@@
 
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請抬頭看看廟宇天花板的圖畫，來把這些圖板歸回原位吧(請利用下拉式選單變換圖畫)。@@&lt;/div&gt;
-@@答案從左上到下~右上到下為61857243@@&lt;&lt;set _classes = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;]&gt;&gt;
+&lt;&lt;set _classes = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;]&gt;&gt;
 &lt;span style=&#39;background-color:red;&#39;&gt;廟門&lt;/span&gt;
  &lt;table&gt;
 	&lt;tr&gt;
@@ -4360,14 +4352,14 @@ media/img/烏龜.png
 &lt;&lt;/script&gt;&gt;
 
 [[完成歸位|鎖聖獸關卡01解謎結果]]
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;鎖聖獸關卡01提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="floor6" tags="" position="1700,950" size="100,100">&lt;img src=&quot;media/img/f6.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="73" name="floor7" tags="" position="1600,1050" size="100,100">&lt;img src=&quot;media/img/f7.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="74" name="floor8" tags="" position="1700,1050" size="100,100">&lt;img src=&quot;media/img/f8.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="75" name="floor5" tags="" position="1600,950" size="100,100">&lt;img src=&quot;media/img/f5.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="76" name="floor4" tags="" position="1700,850" size="100,100">&lt;img src=&quot;media/img/f4.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="77" name="floor3" tags="" position="1600,850" size="100,100">&lt;img src=&quot;media/img/f3.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="78" name="floor2" tags="" position="1700,750" size="100,100">&lt;img src=&quot;media/img/f2.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="79" name="floor1" tags="" position="1600,750" size="100,100">&lt;img src=&quot;media/img/f1.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="80" name="鎖聖獸關卡01解謎結果" tags="center ch2 noheader" position="1825,75" size="100,100">&lt;&lt;if $class1 is &quot;6&quot; and $class2 is &quot;1&quot; and $class3 is &quot;8&quot; and $class4 is &quot;5&quot; and $class5 is &quot;7&quot; and $class6 is &quot;2&quot; and $class7 is &quot;4&quot; and $class8 is &quot;3&quot; &gt;&gt;
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="72" name="floor6" tags="" position="1700,950" size="100,100">&lt;img src=&quot;media/img/f6.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="73" name="floor7" tags="" position="1600,1050" size="100,100">&lt;img src=&quot;media/img/f7.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="74" name="floor8" tags="" position="1700,1050" size="100,100">&lt;img src=&quot;media/img/f8.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="75" name="floor5" tags="" position="1600,950" size="100,100">&lt;img src=&quot;media/img/f5.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="76" name="floor4" tags="" position="1700,850" size="100,100">&lt;img src=&quot;media/img/f4.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="77" name="floor3" tags="" position="1600,850" size="100,100">&lt;img src=&quot;media/img/f3.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="78" name="floor2" tags="" position="1700,750" size="100,100">&lt;img src=&quot;media/img/f2.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="79" name="floor1" tags="" position="1600,750" size="100,100">&lt;img src=&quot;media/img/f1.png&quot; width=&quot;90%&quot;&gt;</tw-passagedata><tw-passagedata pid="80" name="鎖聖獸關卡01解謎結果" tags="center ch2 noheader" position="1825,75" size="100,100">&lt;&lt;if $class1 is &quot;6&quot; and $class2 is &quot;1&quot; and $class3 is &quot;8&quot; and $class4 is &quot;5&quot; and $class5 is &quot;7&quot; and $class6 is &quot;2&quot; and $class7 is &quot;4&quot; and $class8 is &quot;3&quot; &gt;&gt;
 		歸位成功！&lt;&lt;timed 2s t8n&gt;&gt;&lt;&lt;goto &#39;鎖聖獸03&#39;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;
 	歸位錯誤，[[重新嘗試|鎖聖獸關卡01解謎]]
@@ -4408,14 +4400,14 @@ media/img/烏龜.png
 &lt;/section&gt;
 
 [[重置歌詞|遺忘之歌關卡02解謎]]｜[[完成組合|遺忘之歌關卡02解謎結果]]
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;遺忘之歌關卡02提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="遺忘之歌關卡02解謎結果" tags="center ch4 noheader" position="2625,550" size="100,100">&lt;&lt;if not $correct.includes(false)&gt;&gt;
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="82" name="遺忘之歌關卡02解謎結果" tags="center ch4 noheader" position="2625,550" size="100,100">&lt;&lt;if not $correct.includes(false)&gt;&gt;
     組合成功！&lt;&lt;timed 2s t8n&gt;&gt;&lt;&lt;goto &#39;遺忘之歌04&#39;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;
     組合錯誤，[[重新嘗試|遺忘之歌關卡02解謎]]
@@ -4428,15 +4420,15 @@ media/img/烏龜.png
 
 請參照⾦安宮中的⼆⼗八星宿香爐，將二十八星宿鎖轉到正確的位置，咒語即會依順時針⽅向顯現。八卦卦形，請參照歌訣：
 
-「乾三連，坤六斷，震仰盂，艮覆碗，離中虛，坎中滿，兌上缺，巽下斷」@&lt;/div&gt;
+「乾三連，坤六斷，震仰盂，艮覆碗，離中虛，坎中滿，兌上缺，巽下斷」@@&lt;/div&gt;
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入降伏麒麟的咒語：&lt;&lt;textbox &#39;$answer&#39; &#39;⾦靈顯安&#39; autofocus&gt;&gt;
+請輸入降伏麒麟的咒語：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
 	&lt;&lt;set $answer to $answer.trim().toLowerCase()&gt;&gt;
-	  &lt;&lt;if $answer is &#39;⾦靈顯安&#39;&gt;&gt;
+	  &lt;&lt;if $answer is &#39;金靈顯安&#39;&gt;&gt;
 		&lt;&lt;goto &quot;鎖聖獸04&quot;&gt;&gt;
 	  &lt;&lt;else&gt;&gt;
         &lt;&lt;script&gt;&gt;
@@ -4447,19 +4439,19 @@ media/img/烏龜.png
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;鎖聖獸關卡02提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="鎖聖獸關卡03解謎" tags="center ch2 noheader" position="1825,550" size="100,100">@@color:#4E7D96;&lt;h2&gt;解開鳥卦的暗號&lt;/h2&gt;@@
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="85" name="鎖聖獸關卡03解謎" tags="center ch2 noheader" position="1825,550" size="100,100">@@color:#4E7D96;&lt;h2&gt;解開鳥卦的暗號&lt;/h2&gt;@@
 
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請拿出道具包中的3號紙袋，取出其中的紙牌，配合[[聆聽⾳樂|https://player.vimeo.com/video/249625865?h=c65c5c7c26]]，排出紙牌的正確順序。即可從⿃卦的暗號中，推算出下個地點。@@&lt;/div&gt;
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入下一個地點：&lt;&lt;textbox &#39;$answer&#39; &#39;媽祖樓&#39; autofocus&gt;&gt;
+請輸入下一個地點：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
@@ -4475,20 +4467,20 @@ media/img/烏龜.png
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;鎖聖獸關卡03提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="遺忘之歌關卡01解謎" tags="center ch4 noheader" position="2625,300" size="100,100">@@color:#4E7D96;&lt;h2&gt;從普濟殿裡蒐集兇手的線索，並推理出兇手是誰？&lt;/h2&gt;@@
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="86" name="遺忘之歌關卡01解謎" tags="center ch4 noheader" position="2625,300" size="100,100">@@color:#4E7D96;&lt;h2&gt;從普濟殿裡蒐集兇手的線索，並推理出兇手是誰？&lt;/h2&gt;@@
 
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請取出4號迷宮圖紙，從打星星處出發，設法取回三種不同的法寶。請注意，若走到其中⼀個⾨，則視為抵達終點。能順利取得三個寶物的路線，抵達的終點，便是聲⾳的⽅向。請走⾄該處，輸入⾨上⽅所寫的兩個字。
 圖紙上的兩條虛線，是可以摺的哦。試著摺摺看再走吧。@@&lt;/div&gt;
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入⾨上⽅的兩個字（從左到右）：&lt;&lt;textbox &#39;$answer&#39; &#39;隱陀&#39; autofocus&gt;&gt;
+請輸入⾨上⽅的兩個字（從左到右）：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
@@ -4504,21 +4496,21 @@ media/img/烏龜.png
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;遺忘之歌關卡01提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="聖獸亂像關卡01解謎" tags="center ch1 noheader" position="1425,50" size="100,100">@@color:#4E7D96;&lt;h2&gt;解讀老照片後的詩句&lt;/h2&gt;@@
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="87" name="聖獸亂像關卡01解謎" tags="center ch1 noheader" position="1425,50" size="100,100">@@color:#4E7D96;&lt;h2&gt;解讀老照片後的詩句&lt;/h2&gt;@@
 
 &lt;img src=&quot;media/img/老照片背面.png&quot;  width=&quot;100%&quot;&gt;
 
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;請依據照片上的詩句，猜出⽗⺟親當年約會遊賞的地點，前往該處。@@&lt;/div&gt;
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入⽗⺟親當年約會地點：&lt;&lt;textbox &#39;$answer&#39; &#39;兌悅門&#39; autofocus&gt;&gt;
+請輸入⽗⺟親當年約會地點：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
@@ -4534,14 +4526,15 @@ media/img/烏龜.png
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;聖獸亂像關卡01提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="聖獸亂像關卡01提示" tags="" position="1425,575" size="100,100">詩句中提到了許多的地名，譬如新港墘、老古⽯等等。
+&lt;&lt;/link&gt;&gt;
+*/</tw-passagedata><tw-passagedata pid="88" name="聖獸亂像關卡01提示" tags="" position="1425,575" size="100,100">詩句中提到了許多的地名，譬如新港墘、老古⽯等等。
 但有⼀個地名，橫著讀讀不出來，要直得讀才看得⾒哦！
 
 &lt;&lt;linkreplace &#39;還是不知道，給我更多提示吧！&#39; t8n&gt;&gt;
@@ -4551,7 +4544,7 @@ media/img/烏龜.png
 &lt;div class=&quot;font-1&quot;&gt;@@color:darkslategrey;⽞天上帝以⿔為跤⼒，地圖上是否有哪間廟宇，有⿔的印記呢？@@&lt;/div&gt;
 
 &lt;&lt;set $answer to &#39;&#39;&gt;&gt;
-請輸入避難地點：&lt;&lt;textbox &#39;$answer&#39; &#39;集福宮&#39; autofocus&gt;&gt;
+請輸入避難地點：&lt;&lt;textbox &#39;$answer&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;span id=&#39;textbox-reply&#39;&gt;&lt;/span&gt;
 &lt;span id=&#39;textbox-submit&#39;&gt;\
   &lt;&lt;button &#39;輸 入&#39;&gt;&gt;
@@ -4567,14 +4560,14 @@ media/img/烏龜.png
 	  &lt;&lt;/if&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/span&gt;
-
+/*
 &lt;&lt;link &#39;給點提示吧...&#39;&gt;&gt;
     &lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;關卡提示&quot;);
         Dialog.wiki(Story.get(&quot;聖獸亂像關卡02提示&quot;).processText());
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
-&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="聖獸亂像關卡02提示" tags="" position="1425,675" size="100,100">⿔就是有四隻腳⼜有殼的，沒有翅膀，提示很明顯了吧。
+&lt;&lt;/link&gt;&gt;*/</tw-passagedata><tw-passagedata pid="90" name="聖獸亂像關卡02提示" tags="" position="1425,675" size="100,100">⿔就是有四隻腳⼜有殼的，沒有翅膀，提示很明顯了吧。
 (補地圖上的烏龜圖示)
 
 &lt;&lt;linkreplace &#39;還是不知道，給我更多提示吧！&#39; t8n&gt;&gt;
