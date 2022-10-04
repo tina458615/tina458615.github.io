@@ -173,6 +173,16 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 	z-index: 1;
 }
 
+
+/* 隱藏側邊欄 */
+body[data-tags~="no-side-bar"] #ui-bar {
+	display: none;
+}
+body[data-tags~="no-side-bar"] #ui-bar~#story {
+    margin-left: 2em;
+}
+
+
 /* 圖片交錯動畫 */
 .macro-crossfade {
 	position: relative;
@@ -4192,7 +4202,7 @@ html[data-debug-view] .debug.hidden .debug {
 &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/ctp&gt;&gt;
 &lt;span id=&#39;next&#39;&gt;&lt;&lt;link &quot;繼續&quot;&gt;&gt;&lt;&lt;ctpAdvance &quot;testID&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
-&lt;span id=&#39;continue&#39;&gt;&lt;/span&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="unlock" tags="center ch0 noheader" position="700,0" size="100,100">&lt;img src=&quot;media/img/logo.png&quot; width=&quot;80%&quot;&gt;
+&lt;span id=&#39;continue&#39;&gt;&lt;/span&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="unlock" tags="center ch0 noheader no-side-bar" position="700,0" size="100,100">&lt;img src=&quot;media/img/logo.png&quot; width=&quot;80%&quot;&gt;
 @@(需正確的遊戲LOGO圖片進行替換)@@
 
 (請輸入遊戲開通密碼)
