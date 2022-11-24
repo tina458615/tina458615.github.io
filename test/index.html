@@ -955,6 +955,29 @@ $(document).on(':passageend', function () { hashChanged(); });
 &lt;/table&gt;
 &lt;/div&gt;
 
+&lt;div id=&quot;audioBox&quot;&gt;
+&lt;&lt;script&gt;&gt;
+(function () {
+window.onload = function(){ 
+var arr = [&quot;media/sounds/1臺南市客家文化會館.mp3&quot;, &quot;media/sounds/片頭.mp3&quot;];               //把需要播放的歌曲从后往前排，这里已添加两首音乐，可继续添加多个音乐 
+var myAudio = new Audio(); 
+myAudio.preload = true; 
+myAudio.controls = true; 
+myAudio.src = arr.pop();         //每次读数组最后一个元素 
+myAudio.addEventListener(&#39;ended&#39;, playEndedHandler, false); 
+myAudio.play(); 
+document.getElementById(&quot;audioBox&quot;).appendChild(myAudio); 
+myAudio.loop = false;//禁止循环，否则无法触发ended事件 
+function playEndedHandler(){ 
+myAudio.src = arr.pop(); 
+myAudio.play(); 
+console.log(arr.length); 
+!arr.length &amp;&amp; myAudio.removeEventListener(&#39;ended&#39;,playEndedHandler,false);//只有一个元素时解除绑定 
+} 
+}
+  }
+ &lt;&lt;/script&gt;&gt;&lt;/div&gt;
+
 &lt;&lt;button &#39;返回景點選單&#39;&gt;&gt;&lt;&lt;goto &#39;景點選擇&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 &lt;div class=&quot;google-maps&quot;&gt;
