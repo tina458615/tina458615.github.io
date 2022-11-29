@@ -779,7 +779,34 @@ input, select, textarea {
     clip-path: polygon(0 23px, 100% 23px, 100% 75px, 0 75px);
   }
 }
-/*動態效果整合*/</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*Animate.css*/
+/*動態效果整合*/</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*多首歌曲播放*/
+/*參考https://www.796t.com/content/1523074956.html*/
+postdisplay['play-multiple-audio'] = function () {
+//刷新頁面就執行
+var arr = [];
+arr[0] = "media/sounds/" + passage() + ".mp3"; //播放和passage檔名相同的音檔
+arr[1] = "media/sounds/片頭.mp3";
+//預設陣列中已有開場音檔，再把需要播放的景點導覽新增到陣列裡
+//需要播放的音檔從後往前排
+var myAudio = new Audio(); 
+myAudio.preload = true; 
+myAudio.controls = true; 
+myAudio.src = arr.pop(); //每次讀陣列最後一個元素
+myAudio.addEventListener('ended', playEndedHandler, false); 
+myAudio.pause();
+var target;
+target = document.getElementById('audioBox');
+$(target).append(myAudio);
+myAudio.loop = false;//禁止循環，不然無法觸發ended事件 
+function playEndedHandler(){ 
+myAudio.src = arr.pop(); 
+myAudio.play(); 
+console.log(arr.length); 
+!arr.length && myAudio.removeEventListener('ended',playEndedHandler,false);//只有一個元素時解除綁定 
+} 
+}
+
+/*Animate.css*/
 importStyles("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css")
 
 
@@ -939,44 +966,11 @@ $(document).on(':passageend', function () { hashChanged(); });
 &lt;span style=&#39;color:#e17900;font-weight:bold;&#39;&gt;阿琴妹：&lt;/span&gt;好有趣喔。我覺得還有一個更特別的，進來這裡聽到很多人說客家話，如果聽不懂的人，還以為是到了外國呢！真好玩。
 &lt;/div&gt;
 
-&lt;!--&lt;div style=&quot;background-color:white;&quot;&gt;
-&lt;strong&gt;【聆聽客語導覽】&lt;/strong&gt;
-&lt;audio controls=&quot;controls&quot; style=&quot;width:300px;&quot;&gt;
-  &lt;source src=&quot;media/sounds/臺南市客家文化會館.mp3&quot;&gt;
-&lt;/audio&gt;
-
-&lt;/div&gt;--&gt;
 &lt;div style=&quot;background-color:white;&quot;&gt;
 &lt;strong&gt;【聆聽客語導覽】&lt;/strong&gt;
-&lt;table style=&quot;width:100%;&quot;&gt;
-&lt;td&gt;&lt;&lt;link [img[media/img/play.png]]&gt;&gt;&lt;&lt;playlist &quot;臺南市客家文化會館&quot; play&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;&lt;link [img[media/img/pause.png]]&gt;&gt;&lt;&lt;playlist &quot;臺南市客家文化會館&quot; pause&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;&lt;link [img[media/img/stop.png]]&gt;&gt;&lt;&lt;playlist &quot;臺南市客家文化會館&quot; stop&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/td&gt;
-&lt;/table&gt;
-&lt;/div&gt;
+&lt;div id=&quot;audioBox&quot;&gt;&lt;/div&gt;
 
-&lt;div id=&quot;audioBox&quot;&gt;
-&lt;&lt;script&gt;&gt;
-(function () {
-window.onload = function(){ 
-var arr = [&quot;media/sounds/1臺南市客家文化會館.mp3&quot;, &quot;media/sounds/片頭.mp3&quot;];               //把需要播放的歌曲从后往前排，这里已添加两首音乐，可继续添加多个音乐 
-var myAudio = new Audio(); 
-myAudio.preload = true; 
-myAudio.controls = true; 
-myAudio.src = arr.pop();         //每次读数组最后一个元素 
-myAudio.addEventListener(&#39;ended&#39;, playEndedHandler, false); 
-myAudio.play(); 
-document.getElementById(&quot;audioBox&quot;).appendChild(myAudio); 
-myAudio.loop = false;//禁止循环，否则无法触发ended事件 
-function playEndedHandler(){ 
-myAudio.src = arr.pop(); 
-myAudio.play(); 
-console.log(arr.length); 
-!arr.length &amp;&amp; myAudio.removeEventListener(&#39;ended&#39;,playEndedHandler,false);//只有一个元素时解除绑定 
-} 
-}
-  }
- &lt;&lt;/script&gt;&gt;&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;&lt;button &#39;返回景點選單&#39;&gt;&gt;&lt;&lt;goto &#39;景點選擇&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
@@ -2581,7 +2575,7 @@ console.log(arr.length);
 
 /*音訊匯入*/
 &lt;&lt;cacheaudio &quot;片頭&quot; &quot;media/sounds/片頭.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;1臺南市客家文化會館&quot; &quot;media/sounds/1臺南市客家文化會館.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;1臺南市客家文化會館&quot; &quot;media/sounds/臺南市客家文化會館.mp3&quot;&gt;&gt;
 
 &lt;&lt;createplaylist &quot;臺南市客家文化會館&quot;&gt;&gt;
 	&lt;&lt;track &quot;片頭&quot;&gt;&gt;
