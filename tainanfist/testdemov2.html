@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="府城謎拳雛形v6" startnode="6" creator="Twine" creator-version="2.6.2" format="SugarCube" format-version="2.36.1" ifid="2AC7FFE6-4787-4918-8961-4466A7EBC28E" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@charset "UTF-8";
+	<tw-storydata name="府城謎拳雛形v6" startnode="6" creator="Twine" creator-version="2.8.0" format="SugarCube" format-version="2.36.1" ifid="2AC7FFE6-4787-4918-8961-4466A7EBC28E" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@charset "UTF-8";
 /* 自訂樣式： 字型 */
 /* 思源黑體&思源宋體 */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap");
@@ -247,6 +247,14 @@ body.restbg {
     font-family: --titlefont;;
 }
 
+/* 章節0繼續按鈕位置(標籤title) */
+.title .passage #storylink {
+ width: 100%;
+ position: absolute;
+ bottom: 8vh;
+ transform: translate(-50%, -50%); 
+}
+
 /* 藥籤關卡 */
 /* 電視 */
 #tv {
@@ -336,13 +344,17 @@ body.restbg {
 #speech {
   text-align: center;
   max-width: 400px;
-  background-color: rgb(241 199 188 / 56%);
   padding: 15px;
   margin: 0 auto;
-  border-radius: 20px 0 20px 0;
   box-shadow: 3px 3px 5px 2px #CCC;
-  color: #3b3b3b;
+  border-radius: 15px;
+  /*
+  color: var(--white);
+  background: rgb(68 106 107 / 80%) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAG0lEQVQYV2P8//+/FCMj4zMGJMCIzIGxKRQEAJgPBAbJqUVTAAAAAElFTkSuQmCC) repeat;
+  border: 3px var(--color5) solid;
+  */
 }
+
 
 /* #story：故事區塊 */
 #story {
@@ -3595,7 +3607,7 @@ Macro.add('message', {
 	/* Macros. */
 	l10nStrings.macroBackText   = '返回';
 	l10nStrings.macroReturnText = '返回';
-})();</script><tw-tag name="don&#39;t-edit" color="red"></tw-tag><tw-tag name="edit" color="green"></tw-tag><tw-tag name="maybe-don&#39;t-change" color="blue"></tw-tag><tw-tag name="ui" color="blue"></tw-tag><tw-tag name="system" color="red"></tw-tag><tw-passagedata pid="1" name="StoryInterface" tags="don&#39;t-edit nobr" position="0,425" size="100,100">&lt;header&gt;
+})();</script><tw-tag name="don&#39;t-edit" color="red"></tw-tag><tw-tag name="edit" color="green"></tw-tag><tw-tag name="maybe-don&#39;t-change" color="blue"></tw-tag><tw-tag name="ui" color="blue"></tw-tag><tw-tag name="system" color="red"></tw-tag><tw-tag name="title" color="orange"></tw-tag><tw-passagedata pid="1" name="StoryInterface" tags="don&#39;t-edit nobr" position="0,425" size="100,100">&lt;header&gt;
 &lt;div class=&quot;decoration-i&quot;&gt;✦&lt;/div&gt;
 &lt;div class=&quot;decoration-ii&quot;&gt;✦&lt;/div&gt;
 &lt;div class=&quot;decoration-iii&quot;&gt;✦&lt;/div&gt;
@@ -4090,7 +4102,7 @@ Normal text. Normal text. Normal text. Normal text. Normal text. //emphasised te
 等你恢復意識後，天地門的代理掌門，你的大師姐千歲，出現在你面前，你著急地向千歲詢問「天地門的狀況」。
 &lt;&lt;ctpNext clear&gt;&gt;
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「天地門的狀況⋯⋯我們的師兄弟們及隱藏天地門拳法的拳譜都被那位神祕刀客給帶走，我也是好不容易才將你從烈火之中救出來。」&lt;/i&gt;
 &lt;/div&gt;
 &lt;&lt;ctpNext clear&gt;&gt;
@@ -4342,7 +4354,7 @@ _contents
 &lt;&lt;set $mission to &quot;挑戰「天地門的試煉」&quot;&gt;&gt;
 &lt;&lt;set $location to &quot;天后宮/明寧靖王朱術桂府邸&quot;&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「每一位加入天地門的拳師，都必須通過試煉，才能算是合格的拳師。」&lt;/i&gt;
 
 你點點頭，走向了順風耳。
@@ -4359,7 +4371,7 @@ _contents
 你喊著無支歧的名字，將刀刺入無支歧的胸口，此刻，無支歧憤怒地看著你，他沒有想大自己的野心會到此為止。
 &lt;&lt;ctpNext clear&gt;&gt;
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;bosshead.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;bosshead.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「想不到⋯⋯我無支歧會淪落到這一步。青暝蛇大人，我還是失敗了。」&lt;/i&gt;
 &lt;/div&gt;
 &lt;&lt;ctpNext clear&gt;&gt;
@@ -4433,7 +4445,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你、沒有事吧⋯⋯」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
@@ -4441,7 +4453,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「天地門已經不存在了⋯⋯不管是師兄弟⋯⋯我們天地門的拳譜被那位神祕刀客給帶走，我也好不容易才將你從烈火之中救出來。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
@@ -4449,7 +4461,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「拳師的試煉需要由神明來考核，每位拳師的試煉都不同，我來幫你算算。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 10&gt;&gt;\
@@ -4457,7 +4469,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 11&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「王、寧、府、靖，這四個字，似乎就是試煉的場所。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 12&gt;&gt;\
@@ -4472,7 +4484,7 @@ _contents
 
 &lt;span id=&#39;storylink&#39;&gt;&lt;&lt;link &#39;繼續&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;include &#39;序章1內文&#39;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="38" name="其他版面範本" tags="" position="600,100" size="100,100">&lt;!-- 角色對話版面 --&gt;
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「來者何人？」&lt;/i&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="第一章1" tags="center autosave" position="1300,100" size="100,100">&lt;&lt;set $story to 1&gt;&gt;\
 &lt;h1&gt;【第一章】天地門的試煉&lt;/h1&gt;
 
@@ -4484,7 +4496,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;神祕人影.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;神祕人影.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「來者何人？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
@@ -4492,17 +4504,17 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「（趕緊說明來意）順風耳大人，清兵攻破天地門，只有我們倖存。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「天地門之事，吾等已知，聽汝聲，應是代理掌門千歲小姐。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「是。此次前來叨擾，是想帶門生前來接受拳師試煉。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
@@ -4513,7 +4525,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「拳師的拳法來自於府城的萬物，屏氣凝神，感受到全身的氣流，把手張開，感受天地門的拳法。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第一章關卡1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="41" name="第一章關卡1" tags="center autosave" position="1300,500" size="100,100">&lt;h1&gt;【關卡】找出「天地門的暗號」&lt;/h1&gt;
@@ -4589,7 +4601,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「記得天地門的暗號是：『天地門興』，之後遇到同門直接說出暗號即可。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
@@ -4597,7 +4609,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「府城是由人神妖三者維持在一個平衡，但最近有人試圖打破這個平衡，令精怪闖入廟宇，神明就算神通廣大，也難以接受一次又一次的騷擾，吾等也擔憂，平靜的府城究竟發生了什麼事？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
@@ -4605,7 +4617,7 @@ _contents
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「這裡是天后宮的練武房，整個房間就是一本拳譜，你必須理解房間裡的機關，才能習得天地門的拳法。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第一章關卡2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="46" name="第一章關卡2" tags="center autosave" position="1300,600" size="100,100">&lt;h1&gt;【關卡】找到破解機關的方法&lt;/h1&gt;
@@ -4772,7 +4784,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;img src=&quot;https://drive.google.com/uc?id=1WPQWH6XIXgQW_S5TV1-cpC4FKezZcGZm&quot; width=&quot;90%&quot;&gt;/* &lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt; */
 &lt;i&gt;「你們到底是誰？為什麼要拼命追趕我們。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
@@ -4780,7 +4792,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你們快走，這邊交由我來處理。關於精怪和刀客的事情，得去詢問關聖帝君，趕緊走、快走！」&lt;/i&gt;&lt;/div&gt;\
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第一章關卡3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="51" name="第一章關卡3" tags="center autosave" position="1300,700" size="100,100">&lt;h1&gt;【關卡】趕去關聖帝君的廟宇&lt;/h1&gt;
@@ -4834,7 +4846,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「想不到是天地門的拳師，感謝你們秉力相助。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
@@ -4842,12 +4854,12 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「不好，這箭上塗抹精怪的毒物，如果不趕緊治療，毒物萬一蔓延，關聖帝君大人就……，要不，我們趕緊撤退，此地不能久留。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「想不到我關羽英明一世⋯⋯」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
@@ -4855,7 +4867,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「可惡，又來一隻。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;\
@@ -4863,7 +4875,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 10&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你想要用精怪的毒來對付怪鳥，真不愧是拳師，完全不按照牌理出牌。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 11&gt;&gt;\
@@ -4885,7 +4897,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「太好了。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
@@ -4893,7 +4905,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「想不到依靠你這位新手拳師幫助，總算解決武廟的危機。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
@@ -4938,7 +4950,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你問到關於府城裡出沒許多精怪的原因和刀客的真實身份，其實我也不是很清楚實際的狀況，但前陣子我跟『府城猴子』一起探查了隱藏在府城的封印，關於『奇寺百廟』⋯⋯是『精怪之王』的封印。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
@@ -4957,28 +4969,28 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「我有點擔心『府城猴子』的安危，可以勞煩你去看看『府城猴子』的狀況嗎？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 你點頭，接受關聖帝君的請託。
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第二章關卡3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="60" name="神祕的刀客" tags="" position="2000,300" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你說那位身上有『鳳凰花香氣』的刀客嗎？就是他帶領精怪闖入武廟，想要搶奪我們身上的『廟鑰』，好在你們及時趕到，但我看到刀客身上似乎有『清朝的官印』。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;奇寺百廟&#39;, &#39;精怪之王&#39;, &#39;神祕的刀客&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="61" name="奇寺百廟" tags="" position="2100,300" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「奇寺百廟，正是封印精怪之王的陣法，由數把『廟鑰』形成極為複雜的封印。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;奇寺百廟&#39;, &#39;精怪之王&#39;, &#39;神祕的刀客&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="62" name="精怪之王" tags="" position="2200,300" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;關聖帝君.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你身為拳師應該明白，府城是由人神妖三者共處的世界，妖代表精怪，曾經有一只精怪破壞了府城的安寧，由神明與拳師聯手封印這只大精怪。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;奇寺百廟&#39;, &#39;精怪之王&#39;, &#39;神祕的刀客&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第二章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
@@ -5018,7 +5030,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「並沒有看見大聖爺的蹤跡，難道⋯⋯」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
@@ -5029,7 +5041,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「難道大聖爺的失蹤和這三面壁畫有關。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
@@ -5073,7 +5085,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「猴靈樹王公，是在萬福庵前的老榕樹⋯⋯那不剛才刀客和精怪駐足的地方嗎？我們晚了一步。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
@@ -5084,7 +5096,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「想不到還有天地門的餘孽。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
@@ -5092,7 +5104,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你怎麼會以為你的拳可以打敗我？你所施展的拳法，只不是『臨摹』！」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
@@ -5100,7 +5112,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「千歲，快走！」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 10&gt;&gt;\
@@ -5110,7 +5122,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 11&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「陳天南掌門！」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 12&gt;&gt;\
@@ -5120,7 +5132,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 13&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;神祕的聲音.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;神祕的聲音.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「年輕人，我被精怪封印在大榕樹中，如果你能解開我的封印，我願意將拳法傳授於你。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 14&gt;&gt;\
@@ -5128,7 +5140,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 15&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;神祕的聲音.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;神祕的聲音.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「很好，我來告訴你解開封印的辦法。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第三章關卡2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="69" name="第三章關卡2" tags="autosave center" position="2700,800" size="100,100">&lt;h1&gt;【關卡】解開神祕聲音的封印&lt;/h1&gt;
@@ -5167,27 +5179,27 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;齊天大聖.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;齊天大聖.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「奇怪，怎麼康元帥還沒來？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「大聖爺，請問康元帥找您有甚麼事情？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;齊天大聖.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;齊天大聖.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「是這樣的，我之前跟開基靈祐宮的玄天上帝出去玩，不小心把我的頭箍和玄天上帝的通天冠搞混了。之前康元帥把我的頭箍還回來了，但忘記把留在我這邊的通天冠拿回去。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「若大聖爺不嫌棄，我們可以幫您還回去。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;齊天大聖.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;齊天大聖.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「太好了，你就幫我把通天冠還到開基靈祐宮那邊。那裡靠近赤崁樓，或許可以知道清兵的一些動靜。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;前往開基靈祐宮&#39; &#39;第三章4&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="72" name="第三章關卡3" tags="autosave center" position="2700,1000" size="100,100">&lt;h1&gt;【關卡】將通天冠調整正確的位置&lt;/h1&gt;
@@ -5215,21 +5227,21 @@ $(document).ready(function() {
 &lt;div id=&#39;story&#39;&gt;&lt;&lt;include &#39;第四章1內文&#39;&gt;&gt;&lt;/div&gt;
 
 &lt;span id=&#39;storylink&#39;&gt;&lt;&lt;button &#39;繼續&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第四章1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="74" name="齊天大聖" tags="" position="2900,300" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「我很訝異，你竟然能接受大聖爺的力量，這正是拳師的境界，能與神對話，接受神明的力量，並以『拳』展示。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;齊天大聖&#39;, &#39;陳天南&#39;, &#39;清朝政府&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="75" name="陳天南" tags="" position="3000,300" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「陳天南⋯⋯我原本是不想讓你捲入天地門的權力糾紛，其實天地門共分為八個直屬堂口，每一個堂口都有一位掌門，八位掌門就負責保護精怪之王的『廟鑰』，只是沒想到陳天南掌門竟與精怪合作，夥同清朝政府⋯⋯你找到的官印就能證明陳天南掌門與清朝政府的關係。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;齊天大聖&#39;, &#39;陳天南&#39;, &#39;清朝政府&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="76" name="清朝政府" tags="" position="3100,300" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「其實我不清楚清朝政府和精怪間的關係，但陳天南掌門一定是用了什麼理由說服了清朝政府，不然怎麼會讓精怪加入清兵的行列。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;齊天大聖&#39;, &#39;陳天南&#39;, &#39;清朝政府&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束詢問&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
@@ -5248,12 +5260,12 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「目前屬下已經得到天地門其中一個堂口的拳譜，也找到隱藏在萬福庵的廟鑰，只要蒐集其餘的廟鑰，就能找到陳永華先生遺留在府城的寶樣。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;官員.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;官員.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「很好很好，只要能得到逆賊們的寶藏，我們就能掌握整個府城。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
@@ -5261,12 +5273,12 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「陳天南，你不要說謊了！」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「來者何人！」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
@@ -5274,7 +5286,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你們人類的拳，是無法傷害我。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 10&gt;&gt;\
@@ -5282,7 +5294,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 11&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你覺得陳天南掌門有問題，但我們要怎麼那些異相？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 12&gt;&gt;\
@@ -5290,7 +5302,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 13&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;保生大帝.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;保生大帝.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「我明白你的意思，我有一法可以幫助你。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第四章關卡1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="78" name="第四章關卡1" tags="autosave center" position="3600,500" size="100,100">&lt;h1&gt;【關卡】找出陳天南的真相&lt;/h1&gt;
@@ -5316,7 +5328,7 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;無支歧.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;無支歧.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「好不容易走到這一步，能削弱天地門的勢力，藉由清朝政府協助我無支歧解開精怪之王的封印，卻被你們給打亂，看我如何收拾你。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
@@ -5341,12 +5353,12 @@ $(document).ready(function() {
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;無支歧.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;無支歧.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「別以為事情就會結束，精怪之王的封印已經開始鬆動，府城陷入永無止盡的黑暗，只是時間的問題，哈哈哈哈哈哈。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「看來整件事並沒有結束，我們必須連結天地門其餘的堂口，一起商量對策。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
@@ -5433,28 +5445,28 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;div id=&#39;story&#39;&gt;&lt;&lt;include &#39;第五章1內文&#39;&gt;&gt;&lt;/div&gt;
 
 &lt;span id=&#39;storylink&#39;&gt;&lt;&lt;button &#39;繼續&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第五章1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="86" name="海漾風華" tags="" position="3900,200" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「聽市場的人說，最近這邊有古厝翻新，或許我們可以到那裡投宿，我們可以過去看看。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;海漾風華&#39;, &#39;阿婆布丁&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="87" name="肉臊飯" tags="" position="2400,300" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「那我們就去福泰飯桌吃飯，你不覺得點一碗肉臊飯很寂寞嗎？身為拳師當然還要加點魚肚湯、炸油條、蝦捲和白菜滷，多吃一點才會有力氣。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;八寶冰&#39;, &#39;棺材板&#39;, &#39;肉臊飯&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="88" name="棺材板" tags="" position="2400,400" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「棺材板是將炸吐司中間挖一個洞，填入類似奶油燉菜的料理，這道料理可以用刀叉來吃，我會建議在中間白醬的部份灑點胡椒，會讓味道不自於過於偏甜，你說你忘記帶胡椒粉，身為拳師隨身攜帶漢藥可是常識。你可以到赤崁棺材板那邊嘗到這份料理。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;八寶冰&#39;, &#39;棺材板&#39;, &#39;肉臊飯&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="89" name="八寶冰" tags="" position="2400,200" size="100,100">&lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「我知道現在很熱，但赤崁樓這間八寶冰只在晚上開，想想我曾經也跟掌門一起來享用過，通常我會加上一顆傳統布丁，在淋上滿滿的黑糖水，身為拳師即便要保持體重，也不能輕易錯過。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;八寶冰&#39;, &#39;棺材板&#39;, &#39;肉臊飯&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
@@ -5462,7 +5474,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="90" name="阿婆布丁" tags="" position="3900,300" size="100,100">正當你思考該如何挑選阿婆布丁的大小，你看見千歲選擇像碗公一樣大的布丁。
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「身為拳師，只能挑選巨無霸布丁，除此之外，沒有第二個選擇。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;if _ask.includesAll(&#39;海漾風華&#39;, &#39;阿婆布丁&#39;)&gt;&gt;\
 &lt;&lt;link &#39;繼續選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;link &#39;結束選擇&amp;gt;&amp;gt;&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息3內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/replace&gt;&gt;\
@@ -5502,7 +5514,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「枝仔冰城幾乎是每位拳師小時候的回憶，我每次來都會以大雞腿飯加上芋仔聖代，這樣的組合拳度過府城炎熱的午後，雖然吃過豐富的午食，我還是能再吃一個雞腿飯。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
@@ -5579,7 +5591,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「還是讓你給發現了⋯⋯不知道你是否發現⋯⋯其實我知道陳天南掌門被精怪附身的事情，因為我們就是在這裡對抗無支岐。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
@@ -5587,7 +5599,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「因為我的心軟，才會導致整個天地門堂口的消失⋯⋯我今天就是要修復被吳支岐破壞，關於精怪之王的封印，你願意幫助我嗎？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
@@ -5664,42 +5676,42 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;next&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;開始遊戲&#39; &#39;序章1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
-&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="106" name="第一章0" tags="center nofooter bg2" position="1300,0" size="100,100">&lt;&lt;set $location to &#39;天后宮/明寧靖王朱術桂府邸（台南市中西區永福路二段227巷18號）&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第一章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
+&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="106" name="第一章0" tags="center nofooter bg2 title" position="1300,0" size="100,100">&lt;&lt;set $location to &#39;天后宮/明寧靖王朱術桂府邸（台南市中西區永福路二段227巷18號）&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第一章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;h1&gt;第一章&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;
 &lt;&lt;next&gt;&gt;&lt;h1&gt;天地門的試煉&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續&#39; &#39;第一章1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
-&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="107" name="第二章0" tags="center nofooter bg3" position="1800,0" size="100,100">&lt;&lt;set $location to &#39;祀典武廟&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第二章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
+&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="107" name="第二章0" tags="center nofooter bg3 title" position="1800,0" size="100,100">&lt;&lt;set $location to &#39;祀典武廟&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第二章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;h1&gt;第二章&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;
 &lt;&lt;next&gt;&gt;&lt;h1&gt;刮骨療毒&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續&#39; &#39;第二章1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
-&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="108" name="第三章0" tags="center nofooter bg4" position="2700,0" size="100,100">&lt;&lt;set $location to &#39;萬福庵&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第三章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
+&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="108" name="第三章0" tags="center nofooter bg4 title" position="2700,0" size="100,100">&lt;&lt;set $location to &#39;萬福庵&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第三章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;h1&gt;第三章&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;
 &lt;&lt;next&gt;&gt;&lt;h1&gt;府城的猴子&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續&#39; &#39;第三章1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
-&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="109" name="第四章0" tags="center nofooter bg5" position="3600,0" size="100,100">&lt;&lt;set $location to &#39;興濟宮&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第四章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
+&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="109" name="第四章0" tags="center nofooter bg5 title" position="3600,0" size="100,100">&lt;&lt;set $location to &#39;興濟宮&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;第四章&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;h1&gt;第四章&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;
 &lt;&lt;next&gt;&gt;&lt;h1&gt;天地拳師&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續&#39; &#39;第四章1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
-&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="110" name="第五章0" tags="center nofooter bg6" position="4200,0" size="100,100">&lt;&lt;set $location to &#39;鴨母寮古厝&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;後日談&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
+&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="110" name="第五章0" tags="center nofooter bg6 title" position="4200,0" size="100,100">&lt;&lt;set $location to &#39;鴨母寮古厝&#39;&gt;&gt;&lt;&lt;notify&gt;&gt;後日談&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;h1&gt;後日談&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;
 &lt;&lt;next&gt;&gt;&lt;h1&gt;花神機關&lt;/h1&gt;
 &lt;&lt;next&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續&#39; &#39;第五章1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
-&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="111" name="片刻休息0" tags="center nofooter restbg" position="2400,0" size="100,100">&lt;&lt;notify&gt;&gt;~片刻休息~&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
+&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="111" name="片刻休息0" tags="center nofooter restbg title" position="2400,0" size="100,100">&lt;&lt;notify&gt;&gt;~片刻休息~&lt;&lt;/notify&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;h1&gt;片刻休息&lt;/h1&gt;&lt;&lt;/timed&gt;&gt;
 
 
@@ -5729,7 +5741,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="113" name="第三章關卡2.5" tags="autosave center" position="2700,900" size="100,100">&lt;h1&gt;【關卡】解開神祕聲音的封印&lt;/h1&gt;
 
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;神祕的聲音.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;神祕的聲音.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「五百年前，我也被如來呀在五指山下，祂所授於我的拳法⋯⋯如今五百年後，在府城裡，我將傳授於你，請大聲喊出我的名字⋯⋯」&lt;/i&gt;&lt;/div&gt;
 
 &lt;&lt;linkreplace &#39;輸入名字&#39;&gt;&gt;
@@ -6000,7 +6012,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「上帝爺在嗎？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
@@ -6010,7 +6022,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「有可能，難怪康元帥沒有過來。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
@@ -6023,7 +6035,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「師弟你看，『靈』字中間的三個口，最左邊的口在發光。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
@@ -6031,7 +6043,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「我想想……師弟，你走到廟的正面，不覺得這三個口是對應廟的三個大門嗎？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 10&gt;&gt;\
@@ -6039,7 +6051,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 11&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「師弟，你看一下，這裡有個解說廟宇改建歷史的木牌？或許通天冠擺放位置的暗示就在上面。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 12&gt;&gt;\
@@ -6055,27 +6067,27 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「是汝將吾解救出來嗎？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「（和你一起）上帝爺好！」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 4&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「唉，可惜我遭奸人陷害，他竟然串通清兵，用咒術將我封印，擄走我的兵將。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「上帝爺，敢問對方是？」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「天地門掌門陳天南。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
@@ -6083,12 +6095,12 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;玄天上帝.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「我依稀記得他們說要去興濟宮，那裡有一座清廷的官廳。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 9&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
-&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;50%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「師弟，走，我們趕快去興濟宮。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 10&gt;&gt;\
