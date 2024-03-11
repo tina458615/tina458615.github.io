@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="府城謎拳雛形v6" startnode="6" creator="Twine" creator-version="2.6.2" format="SugarCube" format-version="2.36.1" ifid="2AC7FFE6-4787-4918-8961-4466A7EBC28E" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@charset "UTF-8";
+	<tw-storydata name="府城謎拳雛形v6" startnode="6" creator="Twine" creator-version="2.8.0" format="SugarCube" format-version="2.36.1" ifid="2AC7FFE6-4787-4918-8961-4466A7EBC28E" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@charset "UTF-8";
 /* 匯入Animate.css  */
 importStyles("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css")
 /* 自訂樣式： 字型 */
@@ -363,6 +363,13 @@ body.scene05 {
   background-repeat: no-repeat;
   background-position: center;
 }
+body.bossscene {
+  background-image: url("media/img/bossscene.jpg");
+  min-height: 100vh;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 /* 小知識補充 */
 #tips {
@@ -532,14 +539,19 @@ area:focus {
 body {
   margin: 0;
   color: var(--black);
+  /*
   background-color: var(--white);
+  */
+  background-color: #f7f2e7;
   font-family: "Noto Sans TC", sans-serif;
   font-weight: bold;
   /* 背景圖樣式 */
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: center;
+  /*
   background-image: url(https://lh3.googleusercontent.com/d/1bpBjo3ivnoWouRQHYFzUUpu_fYrHKrOy);
+  */
 }
 
 .fab, .fas {
@@ -3474,6 +3486,62 @@ window.slideWin = function (dir) {
 		delete variables()["#macro-ctp-dump"];
 	});
 })();
+
+/* twine-user-script #4: "Live Update" */
+(function () {
+	"use strict";
+
+	$(document).on(":liveupdate", function () {
+		$(".macro-live").trigger(":liveupdateinternal");
+	});
+
+	Macro.add(['update', 'upd'], {
+		handler: function handler() {
+			$(document).trigger(":liveupdate");
+		}
+	});
+
+	Macro.add(['live', 'l', 'lh'], {
+		skipArgs: true,
+		handler: function handler() {
+			if (this.args.full.length === 0) {
+				return this.error('no expression specified');
+			}
+			try {
+				var statement = this.args.full;
+				var result = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+				if (result !== null) {
+					var lh = this.name === "lh";
+					var $el = $("<span></span>").addClass("macro-live").wiki(lh ? Util.escape(result) : result).appendTo(this.output);
+					$el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+						var out = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+						$el.empty().wiki(lh ? Util.escape(out) : out);
+					}));
+				}
+			} catch (ex) {
+				return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+			}
+		}
+	});
+
+	Macro.add(['liveblock', 'lb'], {
+		tags: null,
+		handler: function handler() {
+			try {
+				var content = this.payload[0].contents.trim();
+				if (content) {
+					var $el = $("<span></span>").addClass("macro-live macro-live-block").wiki(content).appendTo(this.output);
+					$el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+						$el.empty().wiki(content);
+					}));
+				}
+			} catch (ex) {
+				return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+			}
+		}
+	});
+})();
+
 /* twine-user-script #4: "fading-macro-set.js" */
 // fading macro set, by chapel; for SugarCube 2
 // version 1.1.0
@@ -5908,9 +5976,10 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;else&gt;&gt;
 弱點錯誤，再試一次？&lt;br&gt;&lt;br&gt;&lt;&lt;link &#39;返回&gt;&gt;&#39; &#39;第三章關卡2-1&#39;&gt;&gt;&lt;&lt;run Dialog.close()&gt;&gt;&lt;&lt;/link&gt;&gt;
 (木剋土，土剋水，水剋火，火剋金，金剋木)
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="第四章關卡2-1" tags="autosave center" position="3825,1250" size="100,100">&lt;&lt;if $random is undefined&gt;&gt;&lt;&lt;set $random to random(1,5)&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="第四章關卡2-1" tags="autosave center" position="3825,1250" size="100,100">&lt;&lt;set $random to random(1,5)&gt;&gt;&lt;&lt;set _hp to 3&gt;&gt;
 &lt;div id=&quot;speech&quot;&gt;\
     &lt;&lt;= &quot;&lt;img src=&#39;&quot; + setup.ImagePath + &quot;無支歧&quot; + $random +&quot;.png&#39; width=&#39;50%&#39;&gt;&quot;&gt;&gt;
+    &lt;i&gt;&lt;&lt;if _hp is 3&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _hp is 2&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _hp is 1&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/i&gt;
     &lt;i&gt;「受死吧！」&lt;/i&gt;
 &lt;/div&gt;
 
@@ -6314,16 +6383,16 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;button &quot;開始遊戲&quot; &quot;序章0-1&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="144" name="第一章2-0" tags="autosave nofooter center tvscene" position="1275,200" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;img src=&quot;media/img/scene01.png&quot; width=&quot;320px&quot;&gt;&lt;div id=&#39;scene&#39;&gt;\
 @@.delayed;你打出的掌法，在空間發出一陣強風！@@
 @@.delayed;&lt;&lt;button &quot;繼續&quot; &quot;第一章2&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;@@
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="145" name="第二章3-0" tags="autosave nofooter center scene02" position="1700,300" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;div id=&#39;scene&#39;&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="145" name="第二章3-0" tags="autosave nofooter center tvscene" position="1700,300" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;img src=&quot;media/img/scene02.png&quot; width=&quot;320px&quot;&gt;&lt;div id=&#39;scene&#39;&gt;\
 @@.delayed;你搭配的療藥，化散關聖帝君背上的毒瘡！@@
 @@.delayed;&lt;&lt;button &quot;繼續&quot; &quot;第二章3&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;@@
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="146" name="第三章3-0" tags="autosave center nofooter scene03" position="2600,300" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;div id=&#39;scene&#39;&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="146" name="第三章3-0" tags="autosave center nofooter tvscene" position="2600,300" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;img src=&quot;media/img/scene03.png&quot; width=&quot;320px&quot;&gt;&lt;div id=&#39;scene&#39;&gt;\
 @@.delayed;「齊天大聖！」&lt;br&gt;你手中燃燒著一股力量，這股力量消滅了萬福庵出沒的精怪@@
 @@.delayed;&lt;&lt;button &quot;繼續&quot; &quot;第三章3&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;@@
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="147" name="第四章2-0" tags="autosave center nofooter scene04" position="3500,200" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;div id=&#39;scene&#39;&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="147" name="第四章2-0" tags="autosave center nofooter tvscene" position="3500,200" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;img src=&quot;media/img/scene04.png&quot; width=&quot;320px&quot;&gt;&lt;div id=&#39;scene&#39;&gt;\
 @@.delayed;藉由保生大帝的力量，陳天南的身體開始發生變化，化為「精怪．無支歧」@@
 @@.delayed;&lt;&lt;button &quot;繼續&quot; &quot;第四章2&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;@@
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="148" name="預告0" tags="autosave center nofooter scene05" position="4475,100" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;div id=&#39;scene&#39;&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="148" name="預告0" tags="autosave center nofooter tvscene" position="4475,100" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;img src=&quot;media/img/scene05.png&quot; width=&quot;320px&quot;&gt;&lt;div id=&#39;scene&#39;&gt;\
 @@.delayed;未完待續...@@
 @@.delayed;&lt;&lt;button &quot;觀看遊戲預告&quot; &quot;預告&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;@@
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="149" name="序章關卡提示" tags="" position="1000,600" size="100,100">@@color:red;好像不是喔，再試一次？@@
