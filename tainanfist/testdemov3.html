@@ -5924,7 +5924,22 @@ Llogo.png</tw-passagedata><tw-passagedata pid="85" name="第五章1" tags="autos
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="116" name="第四章關卡2-1" tags="autosave center" position="3825,1250" size="100,100">&lt;&lt;set $random to random(1,5)&gt;&gt;&lt;&lt;set _hp to 3&gt;&gt;
 &lt;div id=&quot;speech&quot;&gt;\
     &lt;&lt;= &quot;&lt;img src=&#39;&quot; + setup.ImagePath + &quot;無支歧&quot; + $random +&quot;.png&#39; width=&#39;50%&#39;&gt;&quot;&gt;&gt;
-    &lt;i&gt;&lt;&lt;if _hp is 3&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _hp is 2&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _hp is 1&gt;&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/i&gt;
+    &lt;i&gt;&lt;&lt;if _hp is 3&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _hp is 2&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if _hp is 1&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;/i&gt;
     &lt;i&gt;「受死吧！」&lt;/i&gt;
 &lt;/div&gt;
 
