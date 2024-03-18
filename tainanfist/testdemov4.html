@@ -298,7 +298,7 @@ body.bg4 {
   background-repeat: no-repeat;
 }
 body.bg5 {
-  background-image: url("https://lh3.googleusercontent.com/d/14fzcSHPJpA57fDKVgKTx-DxHXiJ3O_ri");
+  background-image: url("https://lh3.googleusercontent.com/d/1Oa1DKwPHUNVPFZ6qIbismByYcShU3qht");
   display: flex;
   min-height: 100vh;
   background-size: auto 100%;
@@ -306,6 +306,14 @@ body.bg5 {
   background-repeat: no-repeat;
 }
 body.bg6 {
+  background-image: url("https://lh3.googleusercontent.com/d/14fzcSHPJpA57fDKVgKTx-DxHXiJ3O_ri");
+  display: flex;
+  min-height: 100vh;
+  background-size: auto 100%;
+  background-color: #fdfcfa;
+  background-repeat: no-repeat;
+}
+body.bg7 {
   background-image: url("https://lh3.googleusercontent.com/d/1g0_CSXdOcae3e0bDVZCtaO6Gvfu-vB4X");
   display: flex;
   min-height: 100vh;
@@ -4365,14 +4373,10 @@ Normal text. Normal text. Normal text. Normal text. Normal text. //emphasised te
   └&lt;&lt;link &#39;【第四章關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;第四章關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【第四章關卡2】&#39;&gt;&gt;&lt;&lt;goto &#39;第四章關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-  &lt;&lt;link &#39;【片刻休息-枝仔冰城】&#39;&gt;&gt;&lt;&lt;goto &#39;片刻休息2&#39;&gt;&gt;&lt;&lt;/link&gt;&gt;
-  
   &lt;&lt;link &#39;【第五章】&#39;&gt;&gt;&lt;&lt;goto &#39;第五章0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【第五章關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;第五章關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【第五章關卡2】&#39;&gt;&gt;&lt;&lt;goto &#39;第五章關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-&lt;&lt;link &#39;【片刻休息-鴨母寮古厝】&#39;&gt;&gt;&lt;&lt;goto &#39;片刻休息3&#39;&gt;&gt;&lt;&lt;/link&gt;&gt;
-  
   &lt;&lt;link &#39;【後日談】&#39;&gt;&gt;&lt;&lt;goto &#39;第六章0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【後日談關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;第六章關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【後日談關卡2】&#39;&gt;&gt;&lt;&lt;goto &#39;第六章關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -4565,7 +4569,7 @@ _contents
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="PassageHeader" tags="noreturn" position="100,525" size="100,100"></tw-passagedata><tw-passagedata pid="26" name="PassageDone" tags="noreturn" position="200,525" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="PassageReady" tags="noreturn" position="300,525" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="角色資訊" tags="noreturn stat-passage nobr center" position="200,100" size="100,100">&lt;div style=&#39;padding: 0 5%;&#39;&gt;
 &lt;div class=&quot;box&quot;&gt;
 &lt;h3&gt;神祕刀客&lt;/h3&gt;
-&lt;&lt;htmlimg &quot;神祕刀客.png&quot; &quot;80%&quot;&gt;&gt;
+&lt;&lt;htmlimg &quot;刀客.png&quot; &quot;80%&quot;&gt;&gt;
 &lt;hr  style=&quot;border-color: #f5e3d3;&quot;&gt;
 &lt;i&gt;你追逐的目標，搗毀天地門的兇手。&lt;/i&gt;
 &lt;/div&gt;
@@ -5240,7 +5244,7 @@ _contents
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set _inputtext to _inputtext.trim()&gt;&gt;
 	&lt;&lt;if _inputtext is &#39;座西朝東&#39; or _inputtext is &#39;坐西朝東&#39;&gt;&gt;
-		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;擺放位置正確！&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第四章2&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;擺放位置正確！&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第四章2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 			&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;
 			&lt;&lt;run Dialog.wiki(Story.get(&#39;第四章關卡1提示&#39;).processText())&gt;&gt;
@@ -5381,7 +5385,7 @@ _contents
 
 你繼續跟隨千歲的腳步，尋找其他的拳師。
 
-&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續挑戰後日談&#39; &#39;第六章0&#39;&gt;&gt;&lt;&lt;set $restchoice to &#39;3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續挑戰後日談&#39; &#39;第六章0&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="79" name="圖片彙整" tags="noreturn" position="0,1400" size="100,100">&lt;h2&gt;遊戲LOGO&lt;/h2&gt;
 &lt;&lt;include &quot;遊戲LOGO&quot;&gt;&gt;
 ----
@@ -5795,13 +5799,13 @@ Llogo.png</tw-passagedata><tw-passagedata pid="80" name="第六章1" tags="autos
 排列正確，成功啟動機關！&lt;br&gt;&lt;br&gt;&lt;&lt;link &#39;繼續&gt;&gt;&#39; &#39;第六章3&#39;&gt;&gt;&lt;&lt;run Dialog.close()&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;else&gt;&gt;
 排列錯誤，再試一次？(正確答案是：宋朝、唐朝、宋朝、漢朝、唐朝、春秋、晉朝、晉朝、晉朝、明朝、唐朝、宋朝)
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="110" name="第五章關卡1-2" tags="autosave center" position="4100,500" size="100,100">&lt;h2 class=&quot;fancy&quot;&gt;遊戲關卡&lt;/h2&gt;&lt;h1&gt;求藥籤第一步&lt;/h1&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="110" name="第五章關卡1-2" tags="autosave center tvscene" position="4100,500" size="100,100">&lt;h2 class=&quot;fancy&quot;&gt;遊戲關卡&lt;/h2&gt;&lt;h1&gt;求藥籤第一步&lt;/h1&gt;
 &lt;div id=&#39;tv&#39;&gt;
 &lt;table&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;&lt;htmlimg &quot;香.png&quot; &quot;80%&quot;&gt;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;&lt;htmlimg &quot;金紙.png&quot; &quot;80%&quot;&gt;&gt;&lt;/td&gt;
-&lt;td&gt;&lt;&lt;htmlimg &quot;水果.png&quot; &quot;80%&quot;&gt;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;&lt;htmlimg &quot;香.png&quot; &quot;100%&quot;&gt;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;&lt;htmlimg &quot;金紙.png&quot; &quot;100%&quot;&gt;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;&lt;htmlimg &quot;水果.png&quot; &quot;100%&quot;&gt;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;&lt;checkboxPlus &quot;$check1&quot; &quot;&quot;&gt;&gt;&lt;/td&gt;
@@ -6157,6 +6161,8 @@ Llogo.png</tw-passagedata><tw-passagedata pid="80" name="第六章1" tags="autos
 &lt;ol id=&#39;story&#39;&gt;
 &lt;li&gt;遊戲程式透過網頁瀏覽器來運作，建議使用@@color:green;chrome瀏覽器@@。遊玩過程中須保持網路連線，@@color:red;請勿點擊網頁瀏覽器上一頁@@，避免跳出遊戲程式。&lt;/li&gt;
 &lt;li&gt;遊戲解謎過程會需要搭配@@color:green;遊戲地圖@@使用，根據遊戲程式中的提示號碼，找到地圖上對應文鳥情報局編號之內容。&lt;br&gt;&lt;img src=&quot;media/img/編號說明.png&quot; height=&quot;50px&quot;&gt;&lt;/li&gt;
+&lt;li&gt;遊戲中看到如下的連結與按鈕，可點擊進行互動操作。
+&lt;&lt;link &#39;連結&#39;&gt;&gt;&lt;&lt;/link&gt;&gt;　　&lt;span style=&quot;display: inline-block; width: 150px&quot;&gt;&lt;&lt;button &#39;按鈕&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;使用手機執行遊戲程式時，點擊上側 &lt;img style= &quot;display: inline;&quot; src=&quot;media/img/close.png&quot; height=&quot;20px&quot;&gt; 開啟@@color:green;遊戲功能列@@，功能列中各個按鈕的功能如下。&lt;br&gt;&lt;img src=&quot;media/img/功能列表.png&quot; height=&quot;150px&quot;&gt;&lt;/li&gt;
 &lt;li&gt;點擊功能列中 &lt;img style= &quot;display: inline;&quot; src=&quot;media/img/setting.png&quot; height=&quot;20px&quot;&gt; 可以進行文字字體、文字大小與開關通知的設定。&lt;/li&gt;
 &lt;li&gt;功能列中的 &lt;img style= &quot;display: inline;&quot; src=&quot;media/img/save.png&quot; height=&quot;20px&quot;&gt; 可以儲存遊戲進度； &lt;img style= &quot;display: inline;&quot; src=&quot;media/img/restart.png&quot; height=&quot;20px&quot;&gt; 則可以清除所有遊戲資料，從頭開始遊戲。&lt;/li&gt;
@@ -6433,19 +6439,14 @@ A為&quot;一(1)&quot;、B為&quot;三(3)&quot;、C為&quot;祀(4)&quot;、D為&
 
 對照@@color:green;廟中立柱的實際顏色@@，找出被汙染的立柱復原顏色。
 
-&lt;&lt;button &#39;復原立柱&#39; &#39;第四章關卡2-1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="164" name="第四章關卡2-1" tags="autosave center" position="3700,800" size="100,100">&lt;&lt;if $colorchoice is 5&gt;&gt;
-&lt;&lt;goto &#39;第四章關卡2-1判斷&#39;&gt;&gt;
-&lt;&lt;else&gt;&gt;
-&lt;h1&gt;第 $colorchoice 根立柱&lt;/h1&gt;
+&lt;&lt;button &#39;復原立柱&#39; &#39;第四章關卡2-1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="164" name="第四章關卡2-1" tags="autosave center" position="3700,800" size="100,100">&lt;&lt;if $colorchoice is 5&gt;&gt;&lt;&lt;goto &#39;第四章關卡2-1判斷&#39;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;h1&gt;第 $colorchoice 根立柱&lt;/h1&gt;
 &lt;&lt;set $random to random(1,5)&gt;&gt;&lt;&lt;= &quot;&lt;img src=&#39;&quot; + setup.ImagePath + &quot;立柱&quot; + $random +&quot;.png&#39; width=&#39;50%&#39;&gt;&quot;&gt;&gt;
 
 &lt;&lt;button &#39;保留顏色&#39; &#39;第四章關卡2-1&#39;&gt;&gt;&lt;&lt;if $random is 4&gt;&gt;&lt;&lt;set $rightcolor += 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $colorchoice += 1&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 &lt;&lt;button &#39;刮除汙染&#39; &#39;第四章關卡2-1&#39;&gt;&gt;&lt;&lt;if $random isnot 4&gt;&gt;&lt;&lt;set $rightcolor += 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $colorchoice += 1&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="165" name="第四章關卡2-1判斷" tags="center" position="3800,800" size="100,100">&lt;&lt;if $rightcolor is 4&gt;&gt;
-復原成功，解開封印！&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第四章3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;else&gt;&gt;
-復原錯誤，再試一次？
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="165" name="第四章關卡2-1判斷" tags="center" position="3800,800" size="100,100">&lt;&lt;if $rightcolor is 4&gt;&gt;復原成功，解開封印！&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第四章3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;else&gt;&gt;復原錯誤，再試一次？
 
 &lt;&lt;linkappend &#39;觀看提示&#39;&gt;&gt;
 從實際觀察可知，廟中立柱的顏色是黑色，非黑色的立柱就是被汙染的立柱！
