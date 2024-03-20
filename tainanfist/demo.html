@@ -4347,7 +4347,7 @@ Normal text. Normal text. Normal text. Normal text. Normal text. //emphasised te
   └&lt;&lt;link &#39;【第二章關卡2】&#39;&gt;&gt;&lt;&lt;goto &#39;第二章關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【第二章關卡3】&#39;&gt;&gt;&lt;&lt;goto &#39;第二章關卡3&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   
-  &lt;&lt;link &#39;【片刻休息-午時】&#39;&gt;&gt;&lt;&lt;goto &#39;片刻休息1&#39;&gt;&gt;&lt;&lt;/link&gt;&gt;
+  &lt;&lt;link &#39;【片刻休息-午食】&#39;&gt;&gt;&lt;&lt;goto &#39;片刻休息1&#39;&gt;&gt;&lt;&lt;/link&gt;&gt;
   
   &lt;&lt;link &#39;【第三章】&#39;&gt;&gt;&lt;&lt;goto &#39;第三章0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【第三章關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;第三章關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -4361,6 +4361,8 @@ Normal text. Normal text. Normal text. Normal text. Normal text. //emphasised te
   &lt;&lt;link &#39;【第五章】&#39;&gt;&gt;&lt;&lt;goto &#39;第五章0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【第五章關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;第五章關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【第五章關卡2】&#39;&gt;&gt;&lt;&lt;goto &#39;第五章關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &#39;【片刻休息-鴨母寮古厝】&#39;&gt;&gt;&lt;&lt;goto &#39;片刻休息3&#39;&gt;&gt;&lt;&lt;/link&gt;&gt;
 
   &lt;&lt;link &#39;【後日談】&#39;&gt;&gt;&lt;&lt;goto &#39;第六章0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【後日談關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;第六章關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -5517,8 +5519,8 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
 &lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你不覺得了鹹的食物，就會想要吃甜的嗎？你看，那不是有名的阿婆布丁，這可是古早作法，只用了雞蛋做的布丁，淋上焦糖醬，可是非常厲害的，如果真的很愛，請一定要買『巨無霸布丁』。」&lt;/i&gt;&lt;/div&gt;
 
-&lt;&lt;button &#39;你選擇「火屬性/垃圾麵」&#39;&gt;&gt;&lt;&lt;run _ask.pushUnique(&#39;垃圾麵&#39;)&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;垃圾麵&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="片刻休息1" tags="autosave center" position="2500,100" size="100,100">&lt;&lt;set $story to 1&gt;&gt;&lt;&lt;set $location to &#39;午時&#39;&gt;&gt;\
-&lt;h2 class=&quot;fancy&quot;&gt;片刻休息&lt;/h2&gt;&lt;h1&gt;午時&lt;/h1&gt;
+&lt;&lt;button &#39;你選擇「火屬性/垃圾麵」&#39;&gt;&gt;&lt;&lt;run _ask.pushUnique(&#39;垃圾麵&#39;)&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;垃圾麵&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="片刻休息1" tags="autosave center" position="2500,100" size="100,100">&lt;&lt;set $story to 1&gt;&gt;&lt;&lt;set $location to &#39;午食&#39;&gt;&gt;\
+&lt;h2 class=&quot;fancy&quot;&gt;片刻休息&lt;/h2&gt;&lt;h1&gt;午食&lt;/h1&gt;
 &lt;div id=&#39;story&#39;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;/div&gt;
 
 &lt;span id=&#39;storylink&#39;&gt;&lt;&lt;button &#39;繼續&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;片刻休息1內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="86" name="片刻休息1內文" tags="" position="2600,100" size="100,100">&lt;&lt;if $story is 1&gt;&gt;&lt;&lt;set _ask to []&gt;&gt;\
