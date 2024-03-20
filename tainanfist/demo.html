@@ -204,6 +204,31 @@ importStyles("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.m
   box-sizing: border-box;
 }
 
+/* 遊戲載入畫面 */
+.hzbarbkg {  /* default class for all horizontal bar backgrounds */
+  position: relative;
+  text-align: center;
+  height: 30px;
+  left: 25%;
+  width: 50%;
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 10;
+  visibility: visible;
+  border: 1px solid black;
+  box-shadow: 2px 3px 6px 0 rgba(0,0,0,0.2);
+}
+.hzbar {  /* default class for all horizontal bars */
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	height: 30px;
+	background-color: #7abf70;
+	border-radius: 5px;
+	z-index: 20;
+	transition: linear width 0.1s, background-color 1s;
+}
+
 /* 咒令關卡介面 */
 #spell {
   width: 360px;
@@ -2681,6 +2706,33 @@ importScripts("https://cdn.jsdelivr.net/npm/wheelnav@1.7.1/js/dist/wheelnav.min.
 
 /*設置favicon*/
 $(document.head).append("<link rel='icon' href='media/img/favicon.png'>");
+
+/* 遊戲載入畫面 */
+$("#init-loading").css({ animation: "none", border: "none", width: "100%", height: "100%" });
+$("#init-loading").empty().append('<div style="text-align: center; text-indent: inherit;"><img src="media/img/logo2.png" width="100%"><br>遊戲載入中..<br><br><br><div class="hzbarbkg"><div id="hzloadingbar" class="hzbar" style="background-color: #7abf70; width: 0%;"></div></div></div>');
+
+/* Lock the load screen, show load progress,
+   and unlock the load screen at loadPct > 100. */
+var lockID = LoadScreen.lock();
+setup.loadProgress = function (loadPct) {
+	if (loadPct > 100) {
+		/* Unlock the loading screen and restore it to normal. */
+		LoadScreen.unlock(lockID);
+		$("#init-loading").empty().append('<div>遊戲載入中...</div>');
+		$("#init-loading").css({ animation: "", border: "", width: "", height: "" });
+	} else {
+		/* Add progress to the progress bar. */
+		$("#hzloadingbar").css("width", loadPct + "%");
+	}
+}
+
+function updateProgress(pct) {
+	setup.loadProgress(pct);
+	if (pct <= 100) {
+		setTimeout(updateProgress, 200, pct + 5);  /* Wait 0.2 seconds. */
+	}
+}
+setTimeout(updateProgress, 200, 5);  // Wait 0.2 seconds.
 
 <!-- 置入google分析 -->
 /* 在<head>元素中置入google分析的script程式碼 */
