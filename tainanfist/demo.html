@@ -3726,6 +3726,13 @@ Macro.add('message', {
         }
       }).catch(function () {
         console.error("Failed to preload image:", url);
+        // 如果圖片加載失敗，也視為加載完成，以便結束載入畫面
+        loaded++;
+        var loadPct = (loaded / toBeLoaded) * 100;
+        progressCallback(loadPct);
+        if (loaded === toBeLoaded) {
+          progressCallback(100); // 設定載入畫面進度為100%
+        }
       });
     });
   }
