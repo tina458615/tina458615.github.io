@@ -3699,48 +3699,54 @@ Macro.add('message', {
   // v1.0.0
   // preload images prior to story startup
 
-  var loadTimer; // 定義全域變數用於存儲載入進度更新的計時器
-
-  function preloadImage(url, cb) {
-    var img = new Image();
-    img.onload = cb;
-    img.onerror = cb;
-    img.src = url;
+  function preloadImage(url) {
+    return new Promise(function(resolve, reject) {
+      var img = new Image();
+      img.onload = function() {
+        resolve();
+      };
+      img.onerror = function() {
+        reject();
+      };
+      img.src = url;
+    });
   }
 
-  function preloadAll(urls, cb) {
+  function preloadAll(urls, progressCallback) {
     var loaded = 0;
     var toBeLoaded = urls.length;
-    if (toBeLoaded === 0) {
-      throw new Error("No URLs to preload!");
-    }
+
     urls.forEach(function (url) {
-      preloadImage(url, function () {
+      preloadImage(url).then(function () {
         loaded++;
         var loadPct = (loaded / toBeLoaded) * 100;
-        updateProgress(loadPct);
+        progressCallback(loadPct);
         if (loaded === toBeLoaded) {
-          clearTimeout(loadTimer); // 當preload.js執行完畢後停止載入進度更新計時器
-          cb();
+          progressCallback(100); // 設定載入畫面進度為100%
         }
+      }).catch(function () {
+        console.error("Failed to preload image:", url);
       });
     });
   }
 
-  function isInit() {
-    return State.length <= 0;
-  }
-
   function preload() {
-    var list = [].slice.call(arguments).flatten();
-    var id = isInit() ? LoadScreen.lock() : false;
-    preloadAll(list, function () {
-      if (id) {
-        LoadScreen.unlock(id);
+    var list = [].slice.call(arguments).flat();
+    var lockID = LoadScreen.lock();
+
+    // 生成載入畫面
+    $("#init-loading").css({ animation: "none", border: "none", width: "100%", height: "100%" });
+    $("#init-loading").empty().append('<div style="text-align: center; text-indent: inherit;">遊戲載入中..<br><br><br><div class="hzbarbkg"><div id="hzloadingbar" class="hzbar" style="background-color: #7abf70; width: 0%;"></div></div></div>');
+
+    preloadAll(list, function (loadPct) {
+      if (loadPct >= 100) {
+        LoadScreen.unlock(lockID);
+        $("#init-loading").empty().append('<div>遊戲載入中...</div>');
+        $("#init-loading").css({ animation: "", border: "", width: "", height: "" });
+      } else {
+        $("#hzloadingbar").css("width", loadPct + "%");
       }
-      updateProgress(100); // 設定載入畫面進度為100%
     });
-    return id;
   }
 
   setup.preload = preload;
@@ -3748,39 +3754,15 @@ Macro.add('message', {
 
   /* <<preload imageUrls...>> */
   Macro.add('preload', {
-    handler: function () {
-      if (!isInit() && !setup.preload.force) {
+    handler: function() {
+      if (!State.length <= 0 && !setup.preload.force) {
         return this.error("Attempting to preload images outside of `StoryInit` or similar can cause performance issues. Set `setup.preload.force` to `true` if you want to do it anyway.");
       }
-      preload(this.args.flatten().filter(function (url) {
+      preload(this.args.flat().filter(function(url) {
         return typeof url === 'string';
       }));
     }
   });
-
-  // 載入畫面功能的語法
-  $("#init-loading").css({ animation: "none", border: "none", width: "100%", height: "100%" });
-  $("#init-loading").empty().append('<div style="text-align: center; text-indent: inherit;">遊戲載入中..<br><br><br><div class="hzbarbkg"><div id="hzloadingbar" class="hzbar" style="background-color:red; width: 0%;"></div></div></div>');
-  var lockID = LoadScreen.lock();
-  setup.loadProgress = function (loadPct) {
-    if (loadPct > 100) {
-      /* Unlock the loading screen and restore it to normal. */
-      LoadScreen.unlock(lockID);
-      $("#init-loading").empty().append('<div>遊戲載入中...</div>');
-      $("#init-loading").css({ animation: "", border: "", width: "", height: "" });
-    } else {
-      /* Add progress to the progress bar. */
-      $("#hzloadingbar").css("width", loadPct + "%");
-    }
-  };
-
-  function updateProgress(pct) {
-    setup.loadProgress(pct);
-    if (pct < 100) {
-      loadTimer = setTimeout(updateProgress, 200, pct + 5); /* Wait 0.2 seconds. */
-    }
-  }
-  setTimeout(updateProgress, 200, 5); // Wait 0.2 seconds.
 
 }());
 
