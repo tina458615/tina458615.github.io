@@ -6105,7 +6105,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set _inputtext to _inputtext.trim()&gt;&gt;
 	&lt;&lt;if _inputtext is &#39;石崇&#39;&gt;&gt;
-		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確，&lt;&lt;button &#39;繼續&#39; &#39;第六章關卡3-3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確。&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第六章關卡3-3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;
         &lt;&lt;run Dialog.wiki(Story.get(&#39;第六章關卡3-2提示&#39;).processText())&gt;&gt;
@@ -6120,26 +6120,11 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
 
 &lt;&lt;linkreplace &#39;輸入花神姓名&#39;&gt;&gt;\
 &lt;div id=&#39;supportercode-form&#39;&gt;\
-@@color:red;鄭成功逝世月分@@的花神：&lt;&lt;textbox &#39;_inputtext&#39; &#39;&#39; autofocus&gt;&gt; \
-&lt;span id=&#39;supportercode-error&#39;&gt;&lt;/span&gt;
-&lt;&lt;button &#39;輸入&#39;&gt;&gt;
-	&lt;&lt;set _inputtext to _inputtext.trim()&gt;&gt;
-	&lt;&lt;if _inputtext is &#39;鐘馗&#39;&gt;&gt;
-		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確，[[完成封印&gt;&gt;|第六章3]]。&lt;&lt;/replace&gt;&gt;
-	&lt;&lt;else&gt;&gt;
-		&lt;&lt;replace &#39;#supportercode-error&#39;&gt;&gt;&lt;br&gt;@@color:red;好像不是喔，再試一次？@@&lt;&lt;/replace&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
-&lt;&lt;/button&gt;&gt;\
-&lt;/div&gt;
-&lt;&lt;/linkreplace&gt;&gt;
-
-&lt;&lt;linkreplace &#39;輸入花神姓名&#39;&gt;&gt;\
-&lt;div id=&#39;supportercode-form&#39;&gt;\
 鄭成功逝世月分的花神（兩個字）：&lt;&lt;textbox &#39;_inputtext&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set _inputtext to _inputtext.trim()&gt;&gt;
 	&lt;&lt;if _inputtext is &#39;鍾馗&#39;&gt;&gt;
-		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確，&lt;&lt;button &#39;完成封印&#39; &#39;第六章3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確。&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;完成封印&#39; &#39;第六章3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;
         &lt;&lt;run Dialog.wiki(Story.get(&#39;第六章關卡3-3提示&#39;).processText())&gt;&gt;
@@ -6508,7 +6493,7 @@ A為&quot;一(1)&quot;、B為&quot;三(3)&quot;、C為&quot;祀(4)&quot;、D為&
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set _inputtext1 to _inputtext1.trim()&gt;&gt;&lt;&lt;set _inputtext2 to _inputtext2.trim()&gt;&gt;
 	&lt;&lt;if _inputtext1 is &#39;4&#39; &amp; _inputtext2 is &#39;張麗華&#39;&gt;&gt;
-		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確，&lt;&lt;button &#39;繼續&#39; &#39;第六章關卡3-2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確。&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第六章關卡3-2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;
         &lt;&lt;run Dialog.wiki(Story.get(&#39;第六章關卡3-1提示&#39;).processText())&gt;&gt;
