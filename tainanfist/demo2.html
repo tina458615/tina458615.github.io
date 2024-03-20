@@ -3699,6 +3699,8 @@ Macro.add('message', {
   // v1.0.0
   // preload images prior to story startup
 
+  var loadTimer; // 定義全域變數用於存儲載入進度更新的計時器
+
   function preloadImage(url, cb) {
     var img = new Image();
     img.onload = cb;
@@ -3718,6 +3720,7 @@ Macro.add('message', {
         var loadPct = (loaded / toBeLoaded) * 100;
         updateProgress(loadPct);
         if (loaded === toBeLoaded) {
+          clearTimeout(loadTimer); // 當preload.js執行完畢後停止載入進度更新計時器
           cb();
         }
       });
@@ -3757,7 +3760,7 @@ Macro.add('message', {
 
   // 載入畫面功能的語法
   $("#init-loading").css({ animation: "none", border: "none", width: "100%", height: "100%" });
-  $("#init-loading").empty().append('<div style="text-align: center; text-indent: inherit;">遊戲載入中..<br><br><br><div class="hzbarbkg"><div id="hzloadingbar" class="hzbar" style="background-color: #7abf70; width: 0%;"></div></div></div>');
+  $("#init-loading").empty().append('<div style="text-align: center; text-indent: inherit;">遊戲載入中..<br><br><br><div class="hzbarbkg"><div id="hzloadingbar" class="hzbar" style="background-color:red; width: 0%;"></div></div></div>');
   var lockID = LoadScreen.lock();
   setup.loadProgress = function (loadPct) {
     if (loadPct > 100) {
@@ -3774,7 +3777,7 @@ Macro.add('message', {
   function updateProgress(pct) {
     setup.loadProgress(pct);
     if (pct < 100) {
-      setTimeout(updateProgress, 200, pct + 5); /* Wait 0.2 seconds. */
+      loadTimer = setTimeout(updateProgress, 200, pct + 5); /* Wait 0.2 seconds. */
     }
   }
   setTimeout(updateProgress, 200, 5); // Wait 0.2 seconds.
