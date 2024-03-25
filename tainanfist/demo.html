@@ -307,6 +307,19 @@ importStyles("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.m
   margin-inline: auto;
 }
 
+/* boss戰選單表格 */
+#bossfight { 
+  width:100%;
+  border:1px dashed #000;
+  text-align:center;
+  border-collapse:collapse;
+} 
+#bossfight td { 
+  width:49%;
+  border:1px dashed #000;
+  padding:10px;
+}
+
 /* 自訂樣式： 特定樣式自訂tag */
 /* "notran"標籤：取消進入新passage的過渡動畫 */
 .passage.notran {
@@ -5194,29 +5207,29 @@ _contents
 此時，一只小猴子爬上千歲的肩膀，好奇地逗弄著伴隨在千歲身邊的白文鳥。
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 6&gt;&gt;\
-你和千歲潛入萬福庵中，並沒有看見大聖爺，小猴子指著萬福庵上的五面壁畫。
+你和千歲潛入萬福庵中，並沒有看見大聖爺，小猴子指著萬福庵上的三面壁畫。
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
 &lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
-&lt;i&gt;「難道大聖爺和這五面壁畫有關。」&lt;/i&gt;&lt;/div&gt;
+&lt;i&gt;「難道大聖爺和這三面壁畫有關。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 8&gt;&gt;\
 小猴子用力的點點頭。
 
-你盤坐在主殿前，仔細觀察這五面壁畫。
+你盤坐在主殿前，仔細觀察這三面壁畫。
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第三章關卡1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="60" name="第三章關卡1" tags="autosave center" position="2900,700" size="100,100">&lt;h2 class=&quot;fancy&quot;&gt;遊戲關卡&lt;/h2&gt;&lt;h1&gt;找出大聖爺的蹤跡&lt;/h1&gt;
-@@color:crimson;你發現清兵佔領萬福庵，並且似乎在四處挖東西。你看到萬福庵的五張壁畫隱隱發光。@@
+@@color:crimson;你發現清兵佔領萬福庵，並且似乎在四處挖東西。小猴子指著的三張壁畫隱隱發光。@@
 
-思考壁畫中的故事，依照發生順序排列壁畫，找出齊天大聖被封印的地點。
+你想到西遊記的情節，看來關鍵在於齊天大聖曾經的對手！
 
-&lt;&lt;button &#39;排列壁畫&#39; &#39;第三章關卡1-1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="第三章2" tags="autosave center" position="2900,200" size="100,100">&lt;&lt;set $story to 1&gt;&gt;&lt;&lt;set $location to &#39;萬福庵&#39;&gt;&gt;
+&lt;&lt;button &#39;輸入對手名字&#39; &#39;第三章關卡1-1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="第三章2" tags="autosave center" position="2900,200" size="100,100">&lt;&lt;set $story to 1&gt;&gt;&lt;&lt;set $location to &#39;萬福庵&#39;&gt;&gt;
 &lt;h2 class=&quot;fancy&quot;&gt;第三章&lt;/h2&gt;&lt;h1&gt;府城的猴子&lt;/h1&gt;
 &lt;div id=&#39;story&#39;&gt;&lt;&lt;include &#39;第三章2內文&#39;&gt;&gt;&lt;/div&gt;
 
 &lt;span id=&#39;storylink&#39;&gt;&lt;&lt;button &#39;繼續&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章2內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="62" name="第三章2內文" tags="" position="3000,200" size="100,100">&lt;&lt;if $story is 1&gt;&gt;\
-五面壁畫指引你到「猴靈樹王公」。
+三面壁畫指引你到「猴靈樹王公」。
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
@@ -5834,22 +5847,32 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
 &lt;&lt;button &#39;返回&#39; &#39;第三章關卡2-1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="107" name="第五章關卡2-1" tags="autosave center bossscene nofooter" position="4275,1250" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;&lt;if $hp is 0&gt;&gt;&lt;&lt;goto &#39;第五章3&#39;&gt;&gt;
 &lt;&lt;else&gt;&gt;&lt;&lt;set $random to random(1,5)&gt;&gt;
-&lt;div id=&quot;speech&quot; style=&quot;background-color: rgb(247 242 231 / 90%);&quot;&gt;\
+&lt;div id=&quot;speech&quot; style=&quot;background-color: rgb(247 242 231 / 90%);&quot;&gt;
     &lt;&lt;= &quot;&lt;img src=&#39;&quot; + setup.ImagePath + &quot;無支歧&quot; + $random +&quot;.png&#39; width=&#39;90%&#39;&gt;&quot;&gt;&gt;
-    &lt;i&gt;&lt;&lt;if $hp is 3&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;&lt;tr&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $hp is 2&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;&lt;tr&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $hp is 1&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;&lt;tr&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;/i&gt;
-    &lt;i&gt;&lt;em&gt;選擇克制無支歧屬性的@@color:green;藥材@@&lt;/em&gt;&lt;/i&gt;
-    &lt;i&gt;&lt;&lt;listbox &quot;$med&quot;&gt;&gt;
-                &lt;&lt;option &quot;沒藥&quot; 5&gt;&gt;
-                &lt;&lt;option &quot;冰片&quot; 3&gt;&gt;
-                &lt;&lt;option &quot;兒茶&quot; 1&gt;&gt;
-                &lt;&lt;option &quot;血竭&quot; 2&gt;&gt;
-                &lt;&lt;option &quot;乳香&quot; 4&gt;&gt;
-            &lt;&lt;/listbox&gt;&gt;&lt;/i&gt;
-      &lt;i&gt;&lt;/i&gt;
-      &lt;i&gt;&lt;&lt;button &#39;攻擊&#39;&gt;&gt;
-          &lt;&lt;if $med == $random&gt;&gt;&lt;&lt;set $hp -= 1&gt;&gt;&lt;&lt;goto &#39;第五章關卡2-1&#39;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;&lt;&lt;run Dialog.wiki(Story.get(&#39;第五章關卡2提示&#39;).processText())&gt;&gt;&lt;&lt;run Dialog.open()&gt;&gt;&lt;&lt;/if&gt;&gt;
-      &lt;&lt;/button&gt;&gt;&lt;/i&gt;
-&lt;/div&gt;
+    &lt;i&gt;&lt;&lt;if $hp is 3&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;&lt;tr&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $hp is 2&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;&lt;tr&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;@@color:crimson;攻擊成功！@@&lt;&lt;/if&gt;&gt;&lt;&lt;if $hp is 1&gt;&gt;&lt;table style=&#39;width: 120px;margin: auto;&#39;&gt;&lt;tr&gt;&lt;td&gt;&lt;&lt;htmlimg &quot;hp.png&quot; &quot;20px&quot;&gt;&gt;&lt;br&gt;@@color:crimson;就差最後一擊！@@&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;&lt;/if&gt;&gt;&lt;/i&gt;
+    &lt;i&gt;&lt;table id=&quot;bossfight&quot;&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;em&gt;選擇@@color:red;剋制無支歧屬性@@的@@color:green;拳法@@&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;listbox &quot;$fist&quot;&gt;&gt;
+                        &lt;&lt;option &quot;金龍拳&quot; 1&gt;&gt;
+                        &lt;&lt;option &quot;木虎拳&quot; 2&gt;&gt;
+                        &lt;&lt;option &quot;水猴拳&quot; 3&gt;&gt;
+                        &lt;&lt;option &quot;火馬拳&quot; 4&gt;&gt;
+                        &lt;&lt;option &quot;土兔拳&quot; 5&gt;&gt;
+                    &lt;&lt;/listbox&gt;&gt;
+                &lt;/td&gt;
+                &lt;td&gt;&lt;em&gt;選擇@@color:red;與拳法屬性相生@@的@@color:green;藥材@@&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;listbox &quot;$med&quot;&gt;&gt;
+                        &lt;&lt;option &quot;乳香&quot; 5&gt;&gt;
+                        &lt;&lt;option &quot;兒茶&quot; 3&gt;&gt;
+                        &lt;&lt;option &quot;沒藥&quot; 1&gt;&gt;
+                        &lt;&lt;option &quot;冰片&quot; 2&gt;&gt;
+                        &lt;&lt;option &quot;血竭&quot; 4&gt;&gt;
+                    &lt;&lt;/listbox&gt;&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;&lt;/i&gt;
+    &lt;i&gt;&lt;&lt;button &#39;攻擊&#39;&gt;&gt;
+        &lt;&lt;if $med == $random &amp; $fist == $random&gt;&gt;&lt;&lt;set $hp -= 1&gt;&gt;&lt;&lt;goto &#39;第五章關卡2-1&#39;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;&lt;&lt;run Dialog.wiki(Story.get(&#39;第五章關卡2提示&#39;).processText())&gt;&gt;&lt;&lt;run Dialog.open()&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;/button&gt;&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="108" name="第五章關卡1-2" tags="autosave center tvscene nofooter" position="4100,500" size="100,100">&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;&lt;h2 class=&quot;fancy&quot; style=&quot;position: relative;  z-index: 5;&quot;&gt;求藥籤第一步&lt;/h2&gt;
 &lt;div id=&#39;tv&#39;&gt;
 &lt;table&gt;
@@ -6340,26 +6363,24 @@ A為&quot;一(1)&quot;、B為&quot;三(3)&quot;、C為&quot;祀(4)&quot;、D為&
 （請關閉視窗再次輸入答案）
 
 &lt;&lt;linkappend &#39;觀看提示&#39;&gt;&gt;
-兒茶屬金，血竭屬木，冰片屬水，乳香屬火，沒藥屬土
+五行相生：木生火，火生土，土生金，金生水，水生木
+五行相剋：木剋土，土剋水，水剋火，火剋金，金剋木
 
-&lt;&lt;linkreplace &#39;告訴我正確答案&#39;&gt;&gt;&lt;&lt;if $random is 1&gt;&gt;無支歧屬性為木，相剋藥材為兒茶&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 2&gt;&gt;無支歧屬性為土，相剋藥材為血竭&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 3&gt;&gt;無支歧屬性為火，相剋藥材為冰片&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 4&gt;&gt;無支歧屬性為金，相剋藥材為乳香&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 5&gt;&gt;無支歧屬性為水，相剋藥材為沒藥&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="152" name="第三章關卡1-1" tags="center autosave nofooter" position="3000,700" size="100,100">&lt;&lt;set _options = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;]&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;@@color:crimson;思考壁畫中的故事，將五面壁畫依照發生時間進行排序，找出齊天大聖被封印的地點。@@
+&lt;&lt;linkreplace &#39;告訴我正確答案&#39;&gt;&gt;&lt;&lt;if $random is 1&gt;&gt;無支歧屬性為木，相剋拳法為金龍拳，相生藥材為沒藥&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 2&gt;&gt;無支歧屬性為土，相剋拳法為木虎拳，相生藥材為冰片&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 3&gt;&gt;無支歧屬性為火，相剋拳法為水猴拳，相生藥材為兒茶&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 4&gt;&gt;無支歧屬性為金，相剋拳法為火馬拳，相生藥材為血竭&lt;&lt;/if&gt;&gt;&lt;&lt;if $random is 5&gt;&gt;無支歧屬性為水，相剋拳法為土兔拳，相生藥材為乳香&lt;&lt;/if&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="152" name="第三章關卡1-1" tags="center autosave nofooter" position="3000,700" size="100,100">&lt;&lt;set _options = [&quot;二郎神&quot;, &quot;牛魔王&quot;, &quot;鐵扇公主&quot;, &quot;白骨精&quot;, &quot;沙悟淨&quot;, &quot;如來佛&quot;]&gt;&gt;&lt;&lt;run clearContent(&quot;decoration-separator&quot;)&gt;&gt;@@color:crimson;小猴子指著的三張壁畫，正好都是大聖爺與對手戰鬥的故事。@@
 
+從壁畫找出對手的名字，與小猴子一起找出齊天大聖的下落！
 &lt;div id=&#39;supportercode-form&#39; style=&#39;margin: 0 auto;max-width: 400px;&#39;&gt;
 ----
 壁畫1：&lt;&lt;listbox &quot;$class1&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;br&gt;&lt;&lt;htmlimg &quot;wall1.jpg&quot; &quot;70%&quot;&gt;&gt;
 ----
-壁畫2：&lt;&lt;listbox &quot;$class2&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;br&gt;&lt;&lt;htmlimg &quot;wall2.jpg&quot; &quot;70%&quot;&gt;&gt;	
-----
 壁畫3：&lt;&lt;listbox &quot;$class3&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;br&gt;&lt;&lt;htmlimg &quot;wall3.jpg&quot; &quot;70%&quot;&gt;&gt;	
 ----
 壁畫4：&lt;&lt;listbox &quot;$class4&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;br&gt;&lt;&lt;htmlimg &quot;wall4.jpg&quot; &quot;70%&quot;&gt;&gt;	
-----
-壁畫5：&lt;&lt;listbox &quot;$class5&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;br&gt;&lt;&lt;htmlimg &quot;wall5.jpg&quot; &quot;70%&quot;&gt;&gt;
 
-&lt;&lt;button &#39;排列壁畫&#39;&gt;&gt;
-	&lt;&lt;if $class1 is &#39;3&#39; &amp; $class2 is &#39;5&#39; &amp; $class3 is &#39;4&#39; &amp; $class4 is &#39;1&#39; &amp; $class5 is &#39;2&#39;&gt;&gt;
-		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;排列正確，成功找出齊天大聖被封印的地點！&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第三章2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
+&lt;&lt;button &#39;確定名字&#39;&gt;&gt;
+	&lt;&lt;if $class1 is &#39;白骨精&#39; &amp; $class3 is &#39;沙悟淨&#39; &amp; $class4 is &#39;二郎神&#39;&gt;&gt;
+		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確，成功找出齊天大聖的下落！&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第三章2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 			&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;
 			&lt;&lt;run Dialog.wiki(Story.get(&#39;第三章關卡1提示&#39;).processText())&gt;&gt;
