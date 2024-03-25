@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="府城謎拳-天地無門" startnode="6" creator="Twine" creator-version="2.8.0" format="SugarCube" format-version="2.36.1" ifid="2AC7FFE6-4787-4918-8961-4466A7EBC28E" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@charset "UTF-8";
+	<tw-storydata name="府城謎拳-天地無門" startnode="6" creator="Twine" creator-version="2.6.2" format="SugarCube" format-version="2.36.1" ifid="2AC7FFE6-4787-4918-8961-4466A7EBC28E" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@charset "UTF-8";
 /* 匯入Animate.css  */
 importStyles("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 /* 自訂樣式： 字型 */
@@ -4942,17 +4942,27 @@ _contents
 你解開了機關，此時你感受到「天地門的拳法」正在你體內運行。
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
-此時，你聽見千歲的叫喊聲，只見天后宮出現一群兵馬，是燒毀天地門的那群人。
+&lt;div id=&quot;speech&quot;&gt;\
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
+&lt;i&gt;「天地門的拳法共有五種招式，五個招式對應五行！」&lt;/i&gt;&lt;/div&gt;\
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 3&gt;&gt;\
+&lt;div id=&quot;speech&quot;&gt;\
+&lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
+&lt;i&gt;「這裡可以學到四種招式，分別為@@color:green;土兔拳@@、@@color:green;金龍拳@@、@@color:green;火馬拳@@、@@color:green;木虎拳@@。剩下一個@@color:green;水猴拳@@，你要到其他地方才能學成，要到......」&lt;/i&gt;&lt;/div&gt;\
+&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if $story is 4&gt;&gt;\
+此時，你聽見千歲的叫喊聲，只見天后宮出現一群兵馬，是燒毀天地門的那群人。
+&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if $story is 5&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
 &lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你們到底是誰？為什麼要拼命追趕我們。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;\
-&lt;&lt;if $story is 4&gt;&gt;\
+&lt;&lt;if $story is 6&gt;&gt;\
 千歲的話聲剛落，兵馬化作無數醜陋的精怪，將你們團團圍住。
 &lt;&lt;/if&gt;&gt;\
-&lt;&lt;if $story is 5&gt;&gt;\
+&lt;&lt;if $story is 7&gt;&gt;\
 &lt;div id=&quot;speech&quot;&gt;\
 &lt;&lt;htmlimg &quot;順風耳.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「你們快走，這邊交由我來處理。關於精怪和刀客的事情，得去詢問關聖帝君，趕緊走、快走！」&lt;/i&gt;&lt;/div&gt;\
@@ -6399,7 +6409,7 @@ A為&quot;一(1)&quot;、B為&quot;三(3)&quot;、C為&quot;祀(4)&quot;、D為&
 &lt;div id=&#39;story&#39;&gt;&lt;&lt;include &#39;第三章4內文&#39;&gt;&gt;&lt;/div&gt;
 
 &lt;span id=&#39;storylink&#39;&gt;&lt;&lt;button &#39;繼續&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#story&#39;&gt;&gt;&lt;&lt;include &#39;第三章4內文&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="158" name="第三章4內文" tags="" position="3000,400" size="100,100">&lt;&lt;if $story is 1&gt;&gt;&lt;&lt;set _ask to []&gt;&gt;\
-你施展出相剋屬性的拳法，陳天南硬生生吃下你的拳，原本想要起身反抗，不過方才的拳似乎擾亂陳天南的內力。
+你施展出@@color:red;相剋@@屬性的拳法，陳天南硬生生吃下你的拳，原本想要起身反抗，不過方才的拳似乎擾亂陳天南的內力。
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $story is 2&gt;&gt;\
 陳天南見狀，知道自身的狀態不敵你，身邊又有孫悟空搗亂，便趕緊逃走。
@@ -6526,13 +6536,13 @@ A為&quot;一(1)&quot;、B為&quot;三(3)&quot;、C為&quot;祀(4)&quot;、D為&
 &lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="171" name="第六章關卡3-1" tags="autosave center" position="4700,925" size="100,100">第一道封印修復程序，需要@@color:green;國姓爺上陸月分@@的花神來配合啟動。
 
 &lt;div id=&#39;supportercode-form&#39;&gt;\
-國姓爺上陸月分（參考石碑背後的月份）：&lt;&lt;textbox &#39;_inputtext1&#39; &#39;&#39; autofocus&gt;&gt;
-配合的花神姓名（三個字）：&lt;&lt;textbox &#39;_inputtext2&#39; &#39;&#39; autofocus&gt;&gt;
-@@color:red;小提醒：月份填入數字即可，姓名注意不要輸入異體字。@@
+國姓爺上陸月分（參考石碑背後的月份）：&lt;&lt;listbox &quot;$inputtext1&quot;&gt;&gt;&lt;&lt;option &quot;1&quot; 1&gt;&gt;&lt;&lt;option &quot;2&quot; 2&gt;&gt;&lt;&lt;option &quot;3&quot; 3&gt;&gt;&lt;&lt;option &quot;4&quot; 4&gt;&gt;&lt;&lt;option &quot;5&quot; 5&gt;&gt;&lt;&lt;option &quot;6&quot; 6&gt;&gt;&lt;&lt;option &quot;7&quot; 7&gt;&gt;&lt;&lt;option &quot;8&quot; 8&gt;&gt;&lt;&lt;option &quot;9&quot; 9&gt;&gt;&lt;&lt;option &quot;10&quot; 10&gt;&gt;&lt;&lt;option &quot;11&quot; 11&gt;&gt;&lt;&lt;option &quot;12&quot; 12&gt;&gt;&lt;&lt;/listbox&gt;&gt;
+配合的花神姓名（三個字）：&lt;&lt;textbox &#39;$inputtext2&#39; &#39;&#39; autofocus&gt;&gt;
+@@color:red;小提醒：姓名注意不要輸入異體字。@@
 
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
-	&lt;&lt;set _inputtext1 to _inputtext1.trim()&gt;&gt;&lt;&lt;set _inputtext2 to _inputtext2.trim()&gt;&gt;
-	&lt;&lt;if _inputtext1 is &#39;4&#39; &amp; _inputtext2 is &#39;張麗華&#39;&gt;&gt;
+	&lt;&lt;set $inputtext2 to $inputtext2.trim()&gt;&gt;
+	&lt;&lt;if $inputtext1 is 4 &amp; $inputtext2 is &#39;張麗華&#39;&gt;&gt;
 		&lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;輸入正確。&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;第六章關卡3-2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;
