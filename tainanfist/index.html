@@ -6467,7 +6467,7 @@ A為&quot;一(1)&quot;、B為&quot;三(3)&quot;、C為&quot;祀(4)&quot;、D為&
 
 對照@@color:green;廟中立柱的實際顏色@@，找出被汙染的立柱復原顏色。
 
-&lt;&lt;button &#39;復原立柱&#39; &#39;第四章關卡2-1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="162" name="第四章關卡2-1" tags="autosave center" position="3700,800" size="100,100">&lt;&lt;if $colorchoice is 5&gt;&gt;&lt;&lt;goto &#39;第四章關卡2-1判斷&#39;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;h1&gt;第 $colorchoice 根立柱&lt;/h1&gt;
+&lt;&lt;button &#39;復原立柱&#39; &#39;第四章關卡2-1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="162" name="第四章關卡2-1" tags="autosave center" position="3700,800" size="100,100">&lt;&lt;if $rightcolor is 5&gt;&gt;&lt;&lt;goto &#39;第四章關卡2-1判斷&#39;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;h1&gt;第 $colorchoice 根立柱&lt;/h1&gt;
 &lt;&lt;set $random to random(1,5)&gt;&gt;&lt;&lt;= &quot;&lt;img src=&#39;&quot; + setup.ImagePath + &quot;立柱&quot; + $random +&quot;.png&#39; width=&#39;50%&#39;&gt;&quot;&gt;&gt;
 
 &lt;&lt;button &#39;保留顏色&#39; &#39;第四章關卡2-1&#39;&gt;&gt;&lt;&lt;if $random is 4&gt;&gt;&lt;&lt;set $rightcolor += 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $colorchoice += 1&gt;&gt;&lt;&lt;/button&gt;&gt;
