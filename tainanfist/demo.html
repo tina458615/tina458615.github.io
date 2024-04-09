@@ -4390,7 +4390,7 @@ Normal text. Normal text. Normal text. Normal text. Normal text. //emphasised te
 &lt;/div&gt;
 &lt;&lt;next&gt;&gt;&lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;繼續&#39; &#39;序章0-2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;9</tw-passagedata><tw-passagedata pid="19" name="選擇章節" tags="noreturn" position="100,100" size="100,100">&lt;div style=&#39;text-align: left; padding: 0 5%;&#39;&gt;
+&lt;span id=&#39;storylink&#39;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="19" name="選擇章節" tags="noreturn" position="100,100" size="100,100">&lt;div style=&#39;text-align: left; padding: 0 5%;&#39;&gt;
   &lt;&lt;link &#39;【序章】&#39;&gt;&gt;&lt;&lt;goto &#39;序章1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【序章關卡】&#39;&gt;&gt;&lt;&lt;goto &#39;序章關卡&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
   
@@ -4805,7 +4805,7 @@ _contents
 
 首先要點出@@color:red;天地門成立的天干@@。
 （提示：請點選手掌上的時間）
-&lt;span style=&#39;background-color:#f9f989;&#39;&gt;&lt;span class=&quot;sc-icon sc-lightbulb&quot;&gt;&lt;/span&gt;&lt;&lt;link &#39;小知識：天地門簡史&#39;&gt;&gt;
+&lt;span style=&#39;background-color:#f9f989;&#39;&gt;&lt;span class=&quot;sc-icon sc-lightbulb&quot;&gt;&lt;/span&gt;&lt;&lt;link &#39;小知識：天地門簡史(點選)&#39;&gt;&gt;
   &lt;&lt;run Dialog.setup(&quot;小知識&quot;)&gt;&gt;
   &lt;&lt;run Dialog.wiki(Story.get(&#39;天地門簡史&#39;).processText())&gt;&gt;
   &lt;&lt;run Dialog.open()&gt;&gt;
@@ -4830,7 +4830,7 @@ _contents
 
 接著要點出@@color:red;天地門成立的地支@@。
 （提示：請點選手掌上的時間）
-&lt;span style=&#39;background-color:#f9f989;&#39;&gt;&lt;span class=&quot;sc-icon sc-lightbulb&quot;&gt;&lt;/span&gt;&lt;&lt;link &#39;小知識：天地門簡史&#39;&gt;&gt;
+&lt;span style=&#39;background-color:#f9f989;&#39;&gt;&lt;span class=&quot;sc-icon sc-lightbulb&quot;&gt;&lt;/span&gt;&lt;&lt;link &#39;小知識：天地門簡史(點選)&#39;&gt;&gt;
   &lt;&lt;run Dialog.setup(&quot;小知識&quot;)&gt;&gt;
   &lt;&lt;run Dialog.wiki(Story.get(&#39;天地門簡史&#39;).processText())&gt;&gt;
   &lt;&lt;run Dialog.open()&gt;&gt;
@@ -4907,15 +4907,15 @@ _contents
 &lt;i&gt;「來，給你提示圖，把剩下的動物找出來，我教你拳法。」&lt;/i&gt;&lt;/div&gt;
 &lt;&lt;replace &#39;#storylink&#39;&gt;&gt;&lt;&lt;button &#39;挑戰關卡&#39; &#39;第一章關卡2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="40" name="第一章關卡2" tags="center autosave" position="1375,600" size="100,100">&lt;h2 class=&quot;fancy&quot;&gt;遊戲關卡&lt;/h2&gt;&lt;h1&gt;找到破解機關的方法&lt;/h1&gt;
-@@color:crimson;從天后宮裡，關於「動物」的線索，找到破解機關的方法。@@
+@@color:crimson;從天后宮裡，關於「生肖」的線索，找到破解機關的方法。@@
 
 根據@@color:green;遊戲地圖的1-2@@，
-找出「動物」的線索，並依照平面圖的順序排列。
+找出「生肖」的線索，並依照平面圖的順序排列。
 
 &lt;&lt;linkreplace &#39;輸入答案&#39;&gt;&gt;
 &lt;div id=&#39;supportercode-form&#39;&gt;\
 編號①的動物（共1字）：&lt;&lt;textbox &#39;_inputtext1&#39; &#39;&#39; autofocus&gt;&gt;
-編號②的動物（共1字）：&lt;&lt;textbox &#39;_inputtext2&#39; &#39;&#39; autofocus&gt;&gt;
+編號②的動物（共1字，牆壁）：&lt;&lt;textbox &#39;_inputtext2&#39; &#39;&#39; autofocus&gt;&gt;
 編號③的動物（共1字）：&lt;&lt;textbox &#39;_inputtext3&#39; &#39;&#39; autofocus&gt;&gt;
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $inputtext1 to _inputtext1.trim()&gt;&gt;
@@ -5175,7 +5175,7 @@ _contents
 住處名稱：&lt;&lt;textbox &#39;_inputtext&#39; &#39;&#39; autofocus&gt;&gt; \
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set _inputtext to _inputtext.trim()&gt;&gt;
-	&lt;&lt;if _inputtext is &#39;萬福庵&#39;&gt;&gt;
+	&lt;&lt;if _inputtext is &#39;萬福庵&#39; or _inputtext is &#39;首貳境萬福庵&#39;&gt;&gt;
       &lt;&lt;replace &#39;#supportercode-form&#39;&gt;&gt;恭喜找到『府城猴子』住處！&lt;br&gt;&lt;br&gt;&lt;&lt;button &#39;繼續&#39; &#39;片刻休息0&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;set $restchoice to &#39;1&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
 		&lt;&lt;run Dialog.setup(&quot;輸入錯誤&quot;)&gt;&gt;
@@ -5428,6 +5428,7 @@ _contents
 @@color:crimson;借用保生大帝的神力，找出陳天南的真相@@
 
 興濟宮主祀保生大帝，請你排列興濟宮的求藥籤步驟。
+@@color:red;小提醒：請看廟裡的告示牌，或詢問廟方人員。@@
 
 &lt;&lt;button &#39;開始求藥籤&#39; &#39;第五章關卡1-2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="73" name="第五章2" tags="autosave center" position="4100,200" size="100,100">&lt;&lt;set $story to 1&gt;&gt;&lt;&lt;set $location to &#39;興濟宮&#39;&gt;&gt;\
 &lt;h2 class=&quot;fancy&quot;&gt;第五章&lt;/h2&gt;&lt;h1&gt;天地拳師&lt;/h1&gt;
@@ -5609,7 +5610,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
 &lt;div id=&quot;speech&quot;&gt;\
 &lt;&lt;htmlimg &quot;千歲.png&quot; &quot;90%&quot;&gt;&gt;
 &lt;i&gt;「身為拳師飲食當然要均衡，拳師體內蘊含五行能量，金木水火土，所以飲食也要兼顧五行，我先提供五行的飲食建議，你就依照你的食量，斟酌用餐，不過在府城，還要在意體重⋯⋯胖一點比較可愛啦。」&lt;/i&gt;
-&lt;span style=&#39;background-color:#f9f989;&#39;&gt;&lt;span class=&quot;sc-icon sc-lightbulb&quot;&gt;&lt;/span&gt;&lt;&lt;link &#39;小知識&#39;&gt;&gt;
+&lt;span style=&#39;background-color:#f9f989;&#39;&gt;&lt;span class=&quot;sc-icon sc-lightbulb&quot;&gt;&lt;/span&gt;&lt;&lt;link &#39;小知識(點選)&#39;&gt;&gt;
   &lt;&lt;run Dialog.setup(&quot;小知識&quot;)&gt;&gt;
   &lt;&lt;run Dialog.wiki(Story.get(&#39;府城人肥胖比&#39;).processText())&gt;&gt;
   &lt;&lt;run Dialog.open()&gt;&gt;
@@ -5711,6 +5712,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
 
 @@color:crimson;你拿著廟鑰，發現廟前的石碑隱隱發著光。@@
 石碑上的文字就是啟動的密令，將廟鑰靠近石碑後並說出密令，就能開始修復封印。
+@@color:red;小提醒：找不到石碑可詢問廟方人員。@@
 
 &lt;&lt;linkreplace &#39;輸入啟動密令&#39;&gt;&gt;\
 &lt;div id=&#39;supportercode-form&#39;&gt;\
@@ -5861,7 +5863,7 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
                         &lt;&lt;option &quot;土兔拳&quot; 5&gt;&gt;
                     &lt;&lt;/listbox&gt;&gt;
                 &lt;/td&gt;
-                &lt;td&gt;&lt;em&gt;選擇@@color:red;與拳法屬性相生@@的@@color:green;藥材@@&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;listbox &quot;$med&quot;&gt;&gt;
+                &lt;td&gt;&lt;em&gt;選擇@@color:red;與拳法五行相生@@的@@color:green;藥材@@&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;&lt;listbox &quot;$med&quot;&gt;&gt;
                         &lt;&lt;option &quot;乳香&quot; 5&gt;&gt;
                         &lt;&lt;option &quot;兒茶&quot; 3&gt;&gt;
                         &lt;&lt;option &quot;沒藥&quot; 1&gt;&gt;
@@ -5984,10 +5986,10 @@ Llogo.png</tw-passagedata><tw-passagedata pid="79" name="第六章1" tags="autos
 &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="117" name="第五章關卡1-19" tags="autosave center" position="4075,1150" size="100,100">&lt;h2 class=&quot;fancy&quot;&gt;遊戲關卡&lt;/h2&gt;&lt;h1&gt;找出陳天南的真相&lt;/h1&gt;
 &lt;div id=&#39;supportercode-form&#39;&gt;\
-到@@color:green;運籤的籤櫃@@中找出@@color:green;靈籤第四十二首籤詩@@，分析內容。
-@@color:red;小提醒：請勿直接拿取靈籤，建議翻閱廟內籤詩本閱讀靈籤內容。@@
+請翻閱廟內的籤詩本，找出@@color:green;運籤@@第四十二首籤詩，分析內容。請注意不是@@color:red;藥籤@@，而是@@color:red;運籤@@。
+@@color:red;小提醒：請勿直接拿取籤詩，若不知道籤詩本放在哪裡，可詢問廟方人員。@@
 
-在靈籤第四十二首籤詩寫到一種動物，提示了廟中有一尊屬於該動物的神明，可以解開真相！
+在運籤第四十二首籤詩寫到一種動物，提示了廟中有一尊屬於該動物的神明，可以解開真相！
 
 該動物為（一個字）：&lt;&lt;textbox &#39;_inputtext&#39; &#39;&#39; autofocus&gt;&gt;
 
@@ -6600,7 +6602,8 @@ A為&quot;一(1)&quot;、B為&quot;三(3)&quot;、C為&quot;祀(4)&quot;、D為&
     &lt;&lt;= &quot;&lt;img src=&#39;&quot; + setup.ImagePath + &quot;五指山&quot; + $random +&quot;.png&#39; width=&#39;50%&#39;&gt;&quot;&gt;&gt;
     &lt;i&gt;陳天南襲來！&lt;/i&gt;
 &lt;/div&gt;
-@@color:crimson;白牆的顏色代表其法力所屬的五行之力，從五行的相生相剋，思考並選擇克制陳天南的五行拳法。@@
+@@color:crimson;五行都有各自的代表色，剛才陳天南碰到白牆時受傷，代表白色所屬的五行克制陳天南所屬的五行。
+請參考遊戲地圖五行的相生相剋圖，畫上箭頭，選擇克制陳天南的五行拳法。@@
 &lt;&lt;nobr&gt;&gt;
     &lt;map name=&quot;infographic&quot;&gt;
         &lt;area target=&quot;&quot; alt=&quot;木&quot; title=&quot;木&quot;  onclick=&quot;$.wiki(&#39;&lt;&lt;goto &amp;quot;第三章關卡3判斷&amp;quot;&gt;&gt;&lt;&lt;set $number to  &amp;quot;3&amp;quot;&gt;&gt;&#39;)&quot; coords=&quot;370,259,430,320&quot; shape=&quot;rect&quot; /&gt;
