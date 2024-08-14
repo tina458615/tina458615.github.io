@@ -3063,7 +3063,7 @@ EX.
 &lt;div id=&quot;choicebutton&quot;&gt;
 &lt;&lt;button &#39;留在台灣，為未來生活努力打拼&#39; &#39;ch01_end&#39;&gt;&gt;&lt;&lt;set $ch1result to &#39;success01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &#39;離開台灣，多一個身分多一層保障&#39; &#39;ch01_end&#39;&gt;&gt;&lt;&lt;set $ch1result to &#39;success02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="ch01_end" tags="center autosave" position="1500,300" size="100,100">&lt;div id=&quot;screen&quot;&gt;&lt;&lt;nobr&gt;&gt;&lt;div class=&quot;card&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="ch01_end" tags="center autosave" position="1500,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;div class=&quot;card&quot;&gt;
     &lt;img src=&quot;media/img/player.jpg&quot; alt=&quot;Person&quot; class=&quot;card_image&quot;&gt;
     &lt;p class=&quot;card_name&quot;&gt;小明&lt;/p&gt;
     &lt;div class=&quot;grid-container&quot;&gt;
@@ -3084,8 +3084,8 @@ EX.
     &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch1result is &#39;success01&#39; or &#39;success02&#39;&gt;&gt;留在台灣&lt;&lt;else&gt;&gt;離開台灣&lt;&lt;/if&gt;&gt;&lt;/span&gt;
     &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $applyresult is &#39;success&#39;&gt;&gt;移民成功&lt;&lt;else&gt;&gt;移民失敗&lt;&lt;/if&gt;&gt;&lt;/span&gt;
     &lt;/div&gt;
-&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;/div&gt;
-&lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;#card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 【體驗結束】</tw-passagedata><tw-passagedata pid="27" name="ch02_1" tags="centerbutton" position="900,600" size="100,100">請選擇要從歌單中刪除哪首歌
 
