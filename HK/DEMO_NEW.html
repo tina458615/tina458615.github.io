@@ -1874,24 +1874,59 @@ importScripts("https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js")
 		console.log(err);
 	});
 
-/* 自訂巨集<<captureScreen>>：特定id的div區塊截圖（預設為#screen） */
-importScripts("https://html2canvas.hertzen.com/dist/html2canvas.js")
+/* 使用html2canvas將特定id的<div>區塊截圖並儲存成圖片 */
+// 匯入html2canvas
+importScripts("https://html2canvas.hertzen.com/dist/html2canvas.js");
+
+// 新增自訂巨集<<captureScreen>>
 Macro.add('captureScreen', {
-  handler: function() {
-    var screenID = this.args[0] || "#screen";
+	handler: function() {
+	try {
+		var screenID = this.args[0] || "#screen"; // 預設id為#screen的<div>區塊
 
-    html2canvas(document.querySelector(screenID)).then(canvas => {
-      var image = canvas.toDataURL("image/png");
+		// 創建一個覆蓋層來顯示提示文字
+		var overlay = document.createElement('div');
+		overlay.style.position = 'fixed';
+		overlay.style.top = '0';
+		overlay.style.left = '0';
+		overlay.style.width = '100%';
+		overlay.style.height = '100%';
+		overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+		overlay.style.color = 'white';
+		overlay.style.display = 'flex';
+		overlay.style.justifyContent = 'center';
+		overlay.style.alignItems = 'center';
+		overlay.style.zIndex = '1000';
+		overlay.innerText = '產生圖片中...';
+		document.body.appendChild(overlay);
 
-      var fileName = "screenshot_" + Date.now() + ".png";
-
-      var link = document.createElement("a");
-      link.href = image;
-      link.download = fileName;
-      link.click();
-    });
-  }
+		// 開始截圖過程
+		html2canvas(document.querySelector(screenID)).then(canvas => {
+		var image = canvas.toDataURL("image/png");
+		var fileName = "screenshot_" + Date.now() + ".png";
+		var link = document.createElement("a");
+		link.href = image;
+		link.download = fileName;
+		link.click();
+		
+		// 移除覆蓋層
+		document.body.removeChild(overlay);
+		}).catch(error => {
+		console.error("截圖過程中發生錯誤: ", error.toString());
+		// 移除覆蓋層
+		document.body.removeChild(overlay);
+		});
+		
+	} catch (error) {
+		console.error("發生錯誤: ", error.toString());
+		// 如果錯誤發生在截圖之前，移除覆蓋層
+		if (overlay && document.body.contains(overlay)) {
+		document.body.removeChild(overlay);
+		}
+	}
+	}
 });
+
 
 /* 將twine變數數值儲存到google表單 */
 window.inputsheet = function() {
@@ -3085,7 +3120,7 @@ EX.
     &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $applyresult is &#39;success&#39;&gt;&gt;移民成功&lt;&lt;else&gt;&gt;移民失敗&lt;&lt;/if&gt;&gt;&lt;/span&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;#card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;.card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 【體驗結束】</tw-passagedata><tw-passagedata pid="27" name="ch02_1" tags="centerbutton" position="900,600" size="100,100">請選擇要從歌單中刪除哪首歌
 
