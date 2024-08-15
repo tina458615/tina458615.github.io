@@ -211,10 +211,10 @@ body.loading-page {
 #choicebutton {
   display: flex;
   justify-content: space-around;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 #choicebutton button {
-  margin: 5px;
   width: 48%;
   max-width: 40vw;
 }
@@ -262,7 +262,12 @@ body.loading-page {
 }
 
 /* 標題圖片 */
-.titleimage {
+#title-container .titleimage {
+  height: 6vh;
+  max-height: 200px;
+}
+
+#start-title .titleimage {
   width: 60vw;
   max-width: 350px;
 }
@@ -919,7 +924,6 @@ or
 
 /* ui dialog boxes */
 /* base */
-
 #ui-dialog-body {
   background-color: var(--bg1);
   border: solid 1.5px var(--text);
@@ -3063,7 +3067,19 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;start-menu&quot;&gt;
 &lt;&lt;button &quot;體驗一（居留申請）&quot; &quot;ch03_1&quot;&gt;&gt;&lt;&lt;set $chapter to &quot;體驗1名字&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;體驗二（歌單）&quot; &quot;ch02_1&quot;&gt;&gt;&lt;&lt;set $chapter to &quot;體驗2名字&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="17" name="遊戲標題" tags="" position="25,0" size="100,100">&lt;img src=&quot;media/img/exhibitionlogo.png&quot; class=&quot;titleimage&quot;&gt;</tw-passagedata><tw-passagedata pid="18" name="遊戲副標題" tags="" position="125,0" size="100,100">互動體驗</tw-passagedata><tw-passagedata pid="19" name="遊戲開始選單" tags="nobr" position="225,0" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.autosave.ok() and Save.autosave.has()&gt;&gt;&lt;&lt;button &quot;繼續體驗&quot;&gt;&gt;&lt;&lt;run Save.autosave.load()&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="17" name="遊戲標題" tags="" position="25,0" size="100,100">&lt;img src=&quot;media/img/exhibitionlogo.png&quot; class=&quot;titleimage&quot;&gt;</tw-passagedata><tw-passagedata pid="18" name="遊戲副標題" tags="" position="125,0" size="100,100">互動體驗</tw-passagedata><tw-passagedata pid="19" name="遊戲開始選單" tags="nobr" position="225,0" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.autosave.ok() and Save.autosave.has()&gt;&gt;&lt;&lt;button &quot;繼續體驗&quot;&gt;&gt;
+  &lt;&lt;script&gt;&gt;
+    Save.browser.auto.load(0)
+    .then(() =&gt; {
+      Engine.show();
+    })
+    .catch(error =&gt; {
+      /* Failure.  Handle the error. */
+      console.error(error);
+      UI.alert(error);
+    });
+  &lt;&lt;/script&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;button &quot;開始體驗&quot; &quot;selectmenu&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;載入存檔&quot;&gt;&gt;&lt;&lt;run UI.saves();&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;設定&quot;&gt;&gt;&lt;&lt;run UI.settings();&gt;&gt;&lt;&lt;/button&gt;&gt;
