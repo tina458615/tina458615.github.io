@@ -213,9 +213,11 @@ body.loading-page {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 10px;
+  align-content: center;
+  align-items: center;
 }
 #choicebutton button {
-  width: 48%;
+  width: 45%;
   max-width: 40vw;
 }
 
@@ -1884,6 +1886,34 @@ importScripts("https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js")
 		console.log(err);
 	});
 
+// 监听 class 变化的函数
+function observeClassChanges(targetNode) {
+    const observer = new MutationObserver(mutationsList => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                // 检查是否包含 "saves" class
+                if (targetNode.classList.contains('saves')) {
+                    // 改变 #ui-dialog-titlebar 的样式
+                    document.querySelector('#ui-dialog-titlebar').style.display = 'block';
+                } else {
+                    // 如果 "saves" 被移除，可以恢复原状
+                    document.querySelector('#ui-dialog-titlebar').style.display = 'none';
+                }
+            }
+        }
+    });
+
+    // 开始观察目标节点
+    observer.observe(targetNode, { attributes: true });
+}
+
+// 获取 #ui-dialog-body 元素并开始观察
+const dialogBody = document.querySelector('#ui-dialog-body');
+if (dialogBody) {
+    observeClassChanges(dialogBody);
+}
+
+
 /* 使用html2canvas將特定id的<div>區塊截圖並儲存成圖片 */
 // 匯入html2canvas
 importScripts("https://html2canvas.hertzen.com/dist/html2canvas.js");
@@ -3153,7 +3183,7 @@ EX.
             &lt;div class=&quot;playlist-text&quot;&gt;
                 &lt;img src=&quot;media/img/playlistlogo/spotify.png&quot; alt=&quot;logo&quot; id=&quot;spotify-logo&quot;&gt;
 
-                &lt;h2&gt;這個世界很美好合輯&lt;/h2&gt;
+                &lt;h2&gt;這個世界很美好&lt;/h2&gt;
 
                 &lt;p class=&quot;playlist-author&quot;&gt;建立by小明&lt;/p&gt;
             &lt;/div&gt;
@@ -3239,7 +3269,7 @@ EX.
             &lt;div class=&quot;playlist-text&quot;&gt;
                 &lt;img src=&quot;media/img/playlistlogo/spotify.png&quot; alt=&quot;logo&quot; id=&quot;spotify-logo&quot;&gt;
 
-                &lt;h2&gt;這個世界很美好合輯&lt;/h2&gt;
+                &lt;h2&gt;這個世界很美好&lt;/h2&gt;
 
                 &lt;p class=&quot;playlist-author&quot;&gt;建立by小明&lt;/p&gt;
             &lt;/div&gt;
@@ -3302,8 +3332,9 @@ EX.
 &lt;&lt;button &quot;繼續&quot;&quot;ch02_3&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="ch03_1" tags="autosave" position="900,1200" size="100,100">你知道臺灣身分證的第一個英文代碼代表甚麼嗎？
 
 &lt;&lt;timed 2s t8n&gt;&gt;代表你出生的縣市，你可以上網找，或者自己就是。
-&lt;&lt;next&gt;&gt;那你知道，如果你出生在台南市，
-&lt;&lt;next&gt;&gt;你的身分證字號會是？
+&lt;&lt;next&gt;&gt;
+那你知道，如果你出生在台南市，你的身分證字號會是？
+&lt;&lt;next&gt;&gt;
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
 &lt;&lt;button &#39;A&#39; &#39;ch03_2&#39;&gt;&gt;&lt;&lt;set $answer to false&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &#39;B&#39; &#39;ch03_2&#39;&gt;&gt;&lt;&lt;set $answer to false&gt;&gt;&lt;&lt;/button&gt;&gt;
@@ -3322,14 +3353,12 @@ HF是港澳居民居留證的身分代碼。
 但你知道從HF變成一個英文字母，需要花多大的心力嗎？
 
 &lt;&lt;timed 2s t8n&gt;&gt;你覺得港澳居民成為臺灣人，領到身分證字號，以下哪些管道是可以的？
-&lt;&lt;next&gt;&gt;&lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &#39;取得工作&#39; &#39;ch03_4_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &#39;投資臺灣（未完成）&#39; &#39;ch03_5_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &#39;依親（未完成）&#39; &#39;ch03_6_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;next&gt;&gt;
+&lt;span class=&#39;centerbutton&#39;&gt;&lt;&lt;button &#39;取得工作&#39; &#39;ch03_4_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;span class=&#39;centerbutton&#39;&gt;&lt;&lt;button &#39;投資臺灣（未完成）&#39; &#39;ch03_5_1&#39;&gt;&gt;&lt;/span&gt;&lt;&lt;/button&gt;&gt;
+&lt;span class=&#39;centerbutton&#39;&gt;&lt;&lt;button &#39;依親（未完成）&#39; &#39;ch03_6_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;
 @@color:red;（提醒，每一個選項都是一則故事）@@
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="ch03_4_1" tags="" position="1400,1000" size="100,200">你是一名來臺灣讀大學的香港人，畢業後希望留在臺灣，
-你決定在臺灣找工作，好取得居留證。
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="ch03_4_1" tags="" position="1400,1000" size="100,200">你是一名來臺灣讀大學的香港人，畢業後希望留在臺灣，你決定在臺灣找工作，好取得居留證。
 
 &lt;&lt;timed 2s t8n&gt;&gt;請問你應該選擇以下哪個工作？
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
@@ -3354,11 +3383,10 @@ HF是港澳居民居留證的身分代碼。
 
 &lt;span class=&#39;centerbutton&#39;&gt;&lt;&lt;button &quot;選擇其他管道&quot; &quot;ch03_3_0&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="ch03_3_0" tags="" position="1150,1325" size="100,100">假設你要從港澳居民成為臺灣人，領到身分證字號，你要利用以下哪個管道？
-&lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &#39;取得工作&#39; &#39;ch03_4_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &#39;投資臺灣（未完成）&#39; &#39;ch03_5_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &#39;依親（未完成）&#39; &#39;ch03_6_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="ch03_4_3" tags="autosave" position="1650,1050" size="100,100">這時你想到自己在香港有考潛水執照，又想到臺灣四面環海，工作一定很好找。
+
+&lt;span class=&#39;centerbutton&#39;&gt;&lt;&lt;button &#39;取得工作&#39; &#39;ch03_4_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;
+&lt;span class=&#39;centerbutton&#39;&gt;&lt;&lt;button &#39;投資臺灣（未完成）&#39; &#39;ch03_5_1&#39;&gt;&gt;&lt;/span&gt;&lt;&lt;/button&gt;&gt;
+&lt;span class=&#39;centerbutton&#39;&gt;&lt;&lt;button &#39;依親（未完成）&#39; &#39;ch03_6_1&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="39" name="ch03_4_3" tags="autosave" position="1650,1050" size="100,100">這時你想到自己在香港有考潛水執照，又想到臺灣四面環海，工作一定很好找。
 
 &lt;&lt;timed 2s t8n&gt;&gt;很幸運的，你一家潛水公司願意僱用你，但還是無法申請到居留證，你覺得是甚麼問題？
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
@@ -3416,18 +3444,14 @@ HF是港澳居民居留證的身分代碼。
         &lt;&lt;switch $ch3result&gt;&gt;
           &lt;&lt;case &quot;failure01&quot;&gt;&gt;
           你回到香港，放棄移民的打算。
-          &lt;&lt;case &quot;failure02&quot;&gt;&gt;
-          小明回到香港，放棄移民的打算。
           &lt;&lt;case &quot;success01&quot;&gt;&gt;
           你留在台灣，繼續等待申請結果。
-          &lt;&lt;case &quot;success02&quot;&gt;&gt;
-          小明沒有待在台灣，反而回到香港生活。
         &lt;&lt;/switch&gt;&gt;
       &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
     &lt;/div&gt;
     &lt;div class=&quot;grid-tag&quot;&gt;
-    &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39; or &#39;success02&#39;&gt;&gt;爭取移民&lt;&lt;else&gt;&gt;放棄移民&lt;&lt;/if&gt;&gt;&lt;/span&gt;
-    &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $applyresult is &#39;success&#39;&gt;&gt;留在台灣&lt;&lt;else&gt;&gt;離開台灣&lt;&lt;/if&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39;&gt;&gt;爭取移民&lt;&lt;else&gt;&gt;放棄移民&lt;&lt;/if&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39;&gt;&gt;留在台灣&lt;&lt;else&gt;&gt;離開台灣&lt;&lt;/if&gt;&gt;&lt;/span&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;.card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
