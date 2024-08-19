@@ -1893,6 +1893,7 @@ importScripts("https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js")
 		console.log(err);
 	});
 
+/* 存檔UI保留標題列 */
 // 监听 class 变化的函数
 function observeClassChanges(targetNode) {
     const observer = new MutationObserver(mutationsList => {
@@ -1921,7 +1922,6 @@ if (dialogBody) {
 }
 
 
-/* 使用html2canvas將特定id的<div>區塊截圖並儲存成圖片 */
 // 匯入html2canvas
 importScripts("https://html2canvas.hertzen.com/dist/html2canvas.js");
 
@@ -1948,20 +1948,26 @@ Macro.add('captureScreen', {
 		document.body.appendChild(overlay);
 
 		// 開始截圖過程
-		html2canvas(document.querySelector(screenID)).then(canvas => {
-		var image = canvas.toDataURL("image/png");
-		var fileName = "screenshot_" + Date.now() + ".png";
-		var link = document.createElement("a");
-		link.href = image;
-		link.download = fileName;
-		link.click();
-		
-		// 移除覆蓋層
-		document.body.removeChild(overlay);
+		html2canvas(document.querySelector(screenID), {
+			useCORS: true, // 允许跨域资源加载
+			backgroundColor: null, // 保持原始背景色
+			imageTimeout: 0, // 防止加载图像时超时
+			scale: 1, // 确保不会缩放
+			logging: true // 启用日志以查看详细信息
+		}).then(canvas => {
+			var image = canvas.toDataURL("image/png");
+			var fileName = "screenshot_" + Date.now() + ".png";
+			var link = document.createElement("a");
+			link.href = image;
+			link.download = fileName;
+			link.click();
+			
+			// 移除覆蓋層
+			document.body.removeChild(overlay);
 		}).catch(error => {
-		console.error("截圖過程中發生錯誤: ", error.toString());
-		// 移除覆蓋層
-		document.body.removeChild(overlay);
+			console.error("截圖過程中發生錯誤: ", error.toString());
+			// 移除覆蓋層
+			document.body.removeChild(overlay);
 		});
 		
 	} catch (error) {
