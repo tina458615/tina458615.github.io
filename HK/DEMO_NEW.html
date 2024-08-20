@@ -238,7 +238,7 @@ body.loading-page {
 }
 .card_image {
   width: 65%;
-  border-radius: 50%;
+  border-radius: 30px;
   border: 5px solid #234b5f;
 }
 .grid-container {
@@ -1311,7 +1311,7 @@ html.indicator .special-choice-item a::after, html.indicator .flirt-choice-item 
 
   #passages {
     padding: 0.5em 0em;
-    min-height: 83vh;
+    max-height: 72vh;
     margin: 0.5em 0em;
     width: 100%;
   }
@@ -2052,12 +2052,12 @@ if (dialogBody) {
 // 顯示儲存的時間<<DisplaySavedTime>>
 State.setVar("$Time", 0);  // 初始化時間為0秒
 State.setVar("$SavedTime", null);  // 初始化儲存的時間
-
+/*
 Setting.addToggle("timeFormat", {
   label: "Use 24 hour time?",
   default: true  // 預設使用24小時制
 });
-
+*/
 Macro.add("DisplayTime", {
   skipArgs: false,
   handler: function () {
@@ -3271,6 +3271,8 @@ Set up your profile, stats and meters, and other relevant information here!
 /* ChapelR Meter Macro set up */
 /* these stat meter set ups are purely examples and do not need to be used */
 
+&lt;&lt;preload &#39;media/img/bgloading.png&#39; &#39;media/img/exhibitionlogo.png&#39; &#39;media/img/floathouse.png&#39; &#39;media/img/organization.png&#39; &#39;media/img/player1.jpg&#39; &#39;media/img/player2.jpg&#39; &#39;media/img/tool.png&#39; &#39;media/img/playlistlogo/add.png&#39; &#39;media/img/playlistlogo/ellipsis.png&#39; &#39;media/img/playlistlogo/next.png&#39; &#39;media/img/playlistlogo/play-arrow.png&#39; &#39;media/img/playlistlogo/play-button.png&#39; &#39;media/img/playlistlogo/previous.png&#39; &#39;media/img/playlistlogo/spotify.png&#39;&gt;&gt;
+
 &lt;&lt;set $friendly = 50&gt;&gt;
 &lt;&lt;set $max_friendly = 100&gt;&gt;
 
@@ -3401,7 +3403,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="ch01_2" tags="" position="1025,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;div class = &quot;quiz-title&quot;&gt;
 &lt;div class=&quot;quizcount&quot; &gt;&lt;i class=&quot;fa-solid fa-file-lines&quot;&gt;&lt;/i&gt;$quizcount&lt;/div&gt;
 &lt;div class=&quot;clock&quot;&gt;&lt;i class=&quot;fa-solid fa-clock&quot;&gt;&lt;/i&gt;&lt;span class=&#39;showtime&#39;&gt;&lt;&lt;ResetTime&gt;&gt;&lt;&lt;DisplayTime&gt;&gt;&lt;/span&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;quiz-content&quot; &gt;&lt;div class = &quot;subtitle&quot;&gt;試題內容&lt;/div&gt;&lt;div id=&quot;quiz&quot; &gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="ch01_end" tags="center autosave" position="1800,300" size="100,100">&lt;&lt;if $answer1 is true and $answer2 is true &gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;div class=&quot;card&quot;&gt;\
+&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;quiz-content&quot; &gt;&lt;div class = &quot;subtitle&quot;&gt;試題內容&lt;/div&gt;&lt;div id=&quot;quiz&quot; &gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="ch01_end" tags="center autosave nofooter" position="1800,300" size="100,100">&lt;&lt;if $answer1 is true and $answer2 is true &gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;div class=&quot;card&quot;&gt;\
     &lt;img src=&quot;media/img/player2.jpg&quot; class=&quot;card_image&quot;&gt;
     &lt;div class=&quot;grid-container&quot;&gt;\
       &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;grid-quizresult&quot;&gt;
@@ -3409,7 +3411,7 @@ Set up your profile, stats and meters, and other relevant information here!
         &lt;span class=&quot;error&quot;&gt;答錯題數&lt;br&gt;$error&lt;/span&gt;
       &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
       &lt;div class=&quot;grid-time&quot;&gt;&lt;span class=&quot;timetitle&quot;&gt;花費時間&lt;/span&gt;&lt;span class=&quot;timescore&quot;&gt;&lt;&lt;DisplaySavedTime&gt;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;/div&gt;
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;button &quot;觀看解答&quot;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;解答&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(Story.get(&#39;quizanswer&#39;).processText())&gt;&gt;
@@ -3688,7 +3690,7 @@ HF是港澳居民居留證的身分代碼。
 &lt;&lt;timed 2s t8n&gt;&gt;你嘆口氣，開始重新熟悉自己的家鄉。
 
 &lt;&lt;choiceitem &quot;ch03_4_end&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="ch03_4_end" tags="autosave center" position="2400,1050" size="100,100">&lt;div class=&quot;card&quot;&gt;\
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="ch03_4_end" tags="autosave center nofooter" position="2400,1050" size="100,100">&lt;div class=&quot;card&quot;&gt;\
     &lt;img src=&quot;media/img/player1.jpg&quot; class=&quot;card_image&quot;&gt;
     &lt;div class=&quot;grid-container&quot;&gt;\
       &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;grid-text&quot;&gt;
@@ -3702,7 +3704,7 @@ HF是港澳居民居留證的身分代碼。
       &lt;div class=&quot;grid-tag&quot;&gt;
         &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;爭取移民&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;放棄移民&lt;&lt;/if&gt;&gt;&lt;/span&gt;
         &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;留在台灣&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;離開台灣&lt;&lt;/if&gt;&gt;&lt;/span&gt;
-      &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;&lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;/div&gt;
 &lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;.card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 【體驗結束】
