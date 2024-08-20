@@ -3401,7 +3401,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="ch01_2" tags="" position="1025,300" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;div class = &quot;quiz-title&quot;&gt;
 &lt;div class=&quot;quizcount&quot; &gt;&lt;i class=&quot;fa-solid fa-file-lines&quot;&gt;&lt;/i&gt;$quizcount&lt;/div&gt;
 &lt;div class=&quot;clock&quot;&gt;&lt;i class=&quot;fa-solid fa-clock&quot;&gt;&lt;/i&gt;&lt;span class=&#39;showtime&#39;&gt;&lt;&lt;ResetTime&gt;&gt;&lt;&lt;DisplayTime&gt;&gt;&lt;/span&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;quiz-content&quot; &gt;&lt;div class = &quot;subtitle&quot;&gt;試題內容&lt;/div&gt;&lt;div id=&quot;quiz&quot; &gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="ch01_end" tags="center autosave" position="1800,300" size="100,100">&lt;div class=&quot;card&quot;&gt;\
+&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;div class=&quot;quiz-content&quot; &gt;&lt;div class = &quot;subtitle&quot;&gt;試題內容&lt;/div&gt;&lt;div id=&quot;quiz&quot; &gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="ch01_end" tags="center autosave" position="1800,300" size="100,100">&lt;&lt;if $answer1 is true and $answer2 is true &gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;div class=&quot;card&quot;&gt;\
     &lt;img src=&quot;media/img/player2.jpg&quot; class=&quot;card_image&quot;&gt;
     &lt;div class=&quot;grid-container&quot;&gt;\
       &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;grid-quizresult&quot;&gt;
@@ -3776,20 +3776,14 @@ HF是港澳居民居留證的身分代碼。
 &lt;div id=&quot;choicebutton&quot;&gt;
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Q4" tags="" position="1650,300" size="100,100">&lt;&lt;if $answer is 1&gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $quizcount to &#39;第四題&#39;&gt;&gt;這是問題四，可以複選答案（A、B為正解）
-&lt;&lt;checkboxPlus &quot;_answer1&quot; &quot;A&quot;&gt;&gt;
-&lt;&lt;checkboxPlus &quot;_answer2&quot; &quot;B&quot;&gt;&gt;
-&lt;&lt;checkboxPlus &quot;_answer3&quot; &quot;C&quot;&gt;&gt;
-&lt;&lt;checkboxPlus &quot;_answer4&quot; &quot;D&quot;&gt;&gt;
+&lt;&lt;checkboxPlus &quot;$answer1&quot; &quot;A&quot;&gt;&gt;
+&lt;&lt;checkboxPlus &quot;$answer2&quot; &quot;B&quot;&gt;&gt;
+&lt;&lt;checkboxPlus &quot;$answer3&quot; &quot;C&quot;&gt;&gt;
+&lt;&lt;checkboxPlus &quot;$answer4&quot; &quot;D&quot;&gt;&gt;
 @@color:#890000;（請翻閱高中課本p.10作答）@@
 
 &lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &#39;輸入&#39;&gt;&gt;
-    &lt;&lt;if _answer1 is &quot;A&quot; and _answer2 is &quot;B&quot; &gt;&gt;
-		&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;SaveTime&gt;&gt;&lt;&lt;goto &#39;ch01_end&#39;&gt;&gt;
-	&lt;&lt;else&gt;&gt;
-		&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;SaveTime&gt;&gt;&lt;&lt;goto &#39;ch01_end&#39;&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
-&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;輸入&#39;&gt;&gt;&lt;&lt;SaveTime&gt;&gt;&lt;&lt;goto &#39;ch01_end&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="54" name="quizanswer" tags="" position="1150,400" size="100,100">&lt;span style =&#39;text-align: center;&#39;&gt;&lt;h1&gt;試題解答&lt;/h1&gt;&lt;/span&gt;
 &lt;div style=&#39;padding: 0 5%;&#39;&gt;\
 &lt;li&gt;第一題答案是：？？&lt;/li&gt;
