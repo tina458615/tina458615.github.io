@@ -3774,14 +3774,8 @@ HF是港澳居民居留證的身分代碼。
 @@color:#890000;（請翻閱高中課本p.10作答）@@
 
 &lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &#39;輸入&#39;&gt;&gt;
-    &lt;&lt;if $answer is 1 &gt;&gt;
-		&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
-	&lt;&lt;else&gt;&gt;
-		&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
-	&lt;&lt;/if&gt;&gt;
-&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Q4" tags="" position="1650,300" size="100,100">&lt;&lt;set $quizcount to &#39;第四題&#39;&gt;&gt;這是問題四，可以複選答案（A、B為正解）
+&lt;&lt;button &#39;輸入&#39;&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="53" name="Q4" tags="" position="1650,300" size="100,100">&lt;&lt;if $answer is 1&gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $quizcount to &#39;第四題&#39;&gt;&gt;這是問題四，可以複選答案（A、B為正解）
 &lt;&lt;checkboxPlus &quot;_answer1&quot; &quot;A&quot;&gt;&gt;
 &lt;&lt;checkboxPlus &quot;_answer2&quot; &quot;B&quot;&gt;&gt;
 &lt;&lt;checkboxPlus &quot;_answer3&quot; &quot;C&quot;&gt;&gt;
