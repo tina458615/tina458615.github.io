@@ -2160,7 +2160,7 @@ Macro.add('captureScreen', {
 			useCORS: true, // 允许跨域资源加载
 			backgroundColor: null, // 保持原始背景色
 			imageTimeout: 0, // 防止加载图像时超时
-			scale: 1, // 确保不会缩放
+			scale: 2, // 提高缩放比例以提升图片清晰度
 			logging: true // 启用日志以查看详细信息
 		}).then(canvas => {
 			var image = canvas.toDataURL("image/png");
