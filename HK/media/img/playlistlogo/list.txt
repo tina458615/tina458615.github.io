@@ -1,1 +1,0 @@
-<<preload  'media/img/add.png' 'media/img/ellipsis.png' 'media/img/next.png' 'media/img/play-arrow.png' 'media/img/play-button.png' 'media/img/previous.png' 'media/img/spotify.png'>> 
