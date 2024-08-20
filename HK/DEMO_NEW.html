@@ -3266,12 +3266,13 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;set $story to 1&gt;&gt;
 &lt;&lt;set $correct to 0&gt;&gt;
 &lt;&lt;set $error to 0&gt;&gt;
+&lt;&lt;set $songselect to false&gt;&gt;
 
 
 /* ChapelR Meter Macro set up */
 /* these stat meter set ups are purely examples and do not need to be used */
 
-&lt;&lt;preload &#39;media/img/bgloading.png&#39; &#39;media/img/exhibitionlogo.png&#39; &#39;media/img/floathouse.png&#39; &#39;media/img/organization.png&#39; &#39;media/img/player1.jpg&#39; &#39;media/img/player2.jpg&#39; &#39;media/img/tool.png&#39; &#39;media/img/playlistlogo/add.png&#39; &#39;media/img/playlistlogo/ellipsis.png&#39; &#39;media/img/playlistlogo/next.png&#39; &#39;media/img/playlistlogo/play-arrow.png&#39; &#39;media/img/playlistlogo/play-button.png&#39; &#39;media/img/playlistlogo/previous.png&#39; &#39;media/img/playlistlogo/spotify.png&#39;&gt;&gt;
+&lt;&lt;preload &#39;media/img/bgloading.png&#39; &#39;media/img/exhibitionlogo.png&#39; &#39;media/img/floathouse.png&#39; &#39;media/img/organization.png&#39; &#39;media/img/player.jpg&#39; &#39;media/img/player1.jpg&#39; &#39;media/img/player2.jpg&#39; &#39;media/img/tool.png&#39; &#39;media/img/playlistlogo/add.png&#39; &#39;media/img/playlistlogo/ellipsis.png&#39; &#39;media/img/playlistlogo/next.png&#39; &#39;media/img/playlistlogo/play-arrow.png&#39; &#39;media/img/playlistlogo/play-button.png&#39; &#39;media/img/playlistlogo/previous.png&#39; &#39;media/img/playlistlogo/spotify.png&#39;&gt;&gt;
 
 &lt;&lt;set $friendly = 50&gt;&gt;
 &lt;&lt;set $max_friendly = 100&gt;&gt;
@@ -3438,8 +3439,6 @@ Set up your profile, stats and meters, and other relevant information here!
                 &lt;img src=&quot;media/img/playlistlogo/spotify.png&quot; alt=&quot;logo&quot; id=&quot;spotify-logo&quot;&gt;
 
                 &lt;h2&gt;這個世界很美好&lt;/h2&gt;
-
-                &lt;p class=&quot;playlist-author&quot;&gt;建立by小明&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
@@ -3512,7 +3511,7 @@ Set up your profile, stats and meters, and other relevant information here!
 
     &lt;/div&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;button &quot;完成選擇&quot; &quot;ch02_3&quot;&gt;&gt;&lt;&lt;run inputsheet()&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="ch02_3" tags="autosave" position="1150,600" size="100,100">&lt;&lt;run readsheet()&gt;&gt;&lt;i class=&quot;fa-solid fa-square-check&quot; style=&quot;color: #17e917;&quot;&gt;&lt;/i&gt;是你的選擇
+&lt;&lt;button &quot;完成選擇&quot;&gt;&gt;&lt;&lt;if $songselect is false&gt;&gt;&lt;&lt;run alert(&quot;你還沒有選擇！&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;run inputsheet()&gt;&gt;&lt;&lt;goto &quot;ch02_3&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="ch02_3" tags="autosave" position="1150,600" size="100,100">&lt;&lt;run readsheet()&gt;&gt;&lt;i class=&quot;fa-solid fa-square-check&quot; style=&quot;color: #17e917;&quot;&gt;&lt;/i&gt;是你的選擇
 點擊歌名觀看歌曲故事。
     
 &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;Spotify-container&quot;&gt;
@@ -3524,8 +3523,6 @@ Set up your profile, stats and meters, and other relevant information here!
                 &lt;img src=&quot;media/img/playlistlogo/spotify.png&quot; alt=&quot;logo&quot; id=&quot;spotify-logo&quot;&gt;
 
                 &lt;h2&gt;這個世界很美好&lt;/h2&gt;
-
-                &lt;p class=&quot;playlist-author&quot;&gt;建立by小明&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
 
