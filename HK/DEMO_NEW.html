@@ -1015,7 +1015,7 @@ or
 }
 
 #ui-dialog-titlebar {
-  display: none;
+  color: white;
 }
 
 #ui-dialog-body ul.buttons {
@@ -2019,6 +2019,7 @@ importScripts("https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js")
 
 /* 存檔UI保留標題列 */
 // 监听 class 变化的函数
+/*
 function observeClassChanges(targetNode) {
     const observer = new MutationObserver(mutationsList => {
         for (let mutation of mutationsList) {
@@ -2044,6 +2045,7 @@ const dialogBody = document.querySelector('#ui-dialog-body');
 if (dialogBody) {
     observeClassChanges(dialogBody);
 }
+*/
 
 
 // 時鐘系統
@@ -3393,7 +3395,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;button &quot;設定&quot;&gt;&gt;&lt;&lt;run UI.settings();&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;特展資訊&quot;&gt;&gt;
   &lt;&lt;script&gt;&gt;
-    Dialog.setup(&quot;credits&quot;,&quot;credits&quot;);
+    Dialog.setup(&quot;特展資訊&quot;);
     Dialog.wiki(Story.get(&quot;credits&quot;).processText());
     Dialog.open();
   &lt;&lt;/script&gt;&gt;
@@ -3424,7 +3426,7 @@ Set up your profile, stats and meters, and other relevant information here!
 【體驗結束】
 &lt;&lt;button &quot;關於特展&quot;&gt;&gt;
   &lt;&lt;script&gt;&gt;
-    Dialog.setup(&quot;credits&quot;,&quot;credits&quot;);
+    Dialog.setup(&quot;特展資訊&quot;);
     Dialog.wiki(Story.get(&quot;credits&quot;).processText());
     Dialog.open();
   &lt;&lt;/script&gt;&gt;
@@ -3707,7 +3709,7 @@ HF是港澳居民居留證的身分代碼。
 【體驗結束】
 &lt;&lt;button &quot;關於特展&quot;&gt;&gt;
   &lt;&lt;script&gt;&gt;
-    Dialog.setup(&quot;credits&quot;,&quot;credits&quot;);
+    Dialog.setup(&quot;特展資訊&quot;);
     Dialog.wiki(Story.get(&quot;credits&quot;).processText());
     Dialog.open();
   &lt;&lt;/script&gt;&gt;
