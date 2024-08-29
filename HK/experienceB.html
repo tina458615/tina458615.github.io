@@ -258,6 +258,7 @@ body.loading-page {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .grid-tag .result1 {
   background-color: #eb196e;
@@ -534,6 +535,14 @@ body.loading-page {
 
 .rate {
   margin-left: 30px;
+  background-color: #38975a;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+.rate a.link-internal {
+  color: white;
+  opacity: 0.8;
 }
 
 .song-track {
@@ -3273,7 +3282,7 @@ Set up your profile, stats and meters, and other relevant information here!
 /* ChapelR Meter Macro set up */
 /* these stat meter set ups are purely examples and do not need to be used */
 
-&lt;&lt;preload &#39;media/img/bgloading.png&#39; &#39;media/img/exhibitionlogo.png&#39; &#39;media/img/floathouse.png&#39; &#39;media/img/organization.png&#39; &#39;media/img/player.jpg&#39; &#39;media/img/player1.jpg&#39; &#39;media/img/player2.jpg&#39; &#39;media/img/tool.png&#39; &#39;media/img/playlistlogo/add.png&#39; &#39;media/img/playlistlogo/ellipsis.png&#39; &#39;media/img/playlistlogo/next.png&#39; &#39;media/img/playlistlogo/play-arrow.png&#39; &#39;media/img/playlistlogo/play-button.png&#39; &#39;media/img/playlistlogo/previous.png&#39; &#39;media/img/playlistlogo/spotify.png&#39;&gt;&gt;
+&lt;&lt;preload &#39;media/img/bgloading.png&#39; &#39;media/img/exhibitionlogo.png&#39; &#39;media/img/floathouse.png&#39; &#39;media/img/organization.png&#39; &#39;media/img/player.jpg&#39; &#39;media/img/player1.jpg&#39; &#39;media/img/player2.jpg&#39; &#39;media/img/player3.jpg&#39; &#39;media/img/tool.png&#39; &#39;media/img/playlistlogo/add.png&#39; &#39;media/img/playlistlogo/ellipsis.png&#39; &#39;media/img/playlistlogo/next.png&#39; &#39;media/img/playlistlogo/play-arrow.png&#39; &#39;media/img/playlistlogo/play-button.png&#39; &#39;media/img/playlistlogo/previous.png&#39; &#39;media/img/playlistlogo/spotify.png&#39; &#39;media/img/item01.png&#39; &#39;media/img/item02.png&#39; &#39;media/img/item03.png&#39; &#39;media/img/item04.png&#39; &#39;media/img/item05.png&#39; &#39;media/img/item06.png&#39;&gt;&gt;
 
 &lt;&lt;set $friendly = 50&gt;&gt;
 &lt;&lt;set $max_friendly = 100&gt;&gt;
@@ -4185,9 +4194,8 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;button &quot;完成選擇（可複選）&quot; &quot;ch02_5&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="ch02_5" tags="" position="1400,600" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
     &lt;&lt;button &#39;確定選擇&#39; &#39;ch02_end&#39;&gt;&gt;&lt;&lt;set $answer to true&gt;&gt;&lt;&lt;/button&gt;&gt;
     &lt;&lt;button &#39;修改選擇&#39; &#39;ch02_4&#39;&gt;&gt;&lt;&lt;set $answer to false&gt;&gt;&lt;&lt;/button&gt;&gt;
-    &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;run readsheet()&gt;&gt;&lt;i class=&quot;fa-solid fa-square-check&quot; style=&quot;color: #17e917;&quot;&gt;&lt;/i&gt;是你的選擇。
-    
+    &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;\
+&lt;&lt;run readsheet()&gt;&gt;&lt;i class=&quot;fa-solid fa-square-check&quot; style=&quot;color: #17e917;&quot;&gt;&lt;/i&gt;是你的選擇。    
 &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;Spotify-container&quot;&gt;
     &lt;div class=&quot;top-container black-top&quot;&gt;
         &lt;!-- First section --&gt;
@@ -4252,12 +4260,12 @@ HFXXX是港澳居民居留證的身分代碼。
     &lt;div class=&quot;grid-container&quot;&gt;\
       &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;grid-quizresult&quot;&gt;
         &lt;div class=&quot;grid-time&quot;&gt;&lt;span class=&quot;timetitle&quot;&gt;拿掉的行李箱物品&lt;/span&gt;&lt;/div&gt;
-      &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-       &lt;div class=&quot;grid-tag&quot;&gt;
+      &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;\
+       &lt;div class=&quot;grid-tag&quot;&gt;\
         &lt;&lt;if $item1&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;蘋果徽章&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item2&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;「勇敢的台灣人」T恤&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item3&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;「SAVE12 HKYOUTHS」T恤&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item4&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;繪本&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item5&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;臺灣意象護照套&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item6&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;盥洗包&lt;/span&gt;&lt;&lt;/if&gt;&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;grid-time&quot;&gt;&lt;span class=&quot;timetitle&quot;&gt;刪除的歌曲&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;grid-tag&quot;&gt;
+      &lt;div class=&quot;grid-time&quot;&gt;&lt;span class=&quot;timetitle&quot;&gt;刪除的歌曲&lt;/span&gt;&lt;/div&gt;\
+      &lt;div class=&quot;grid-tag&quot;&gt;\
         &lt;&lt;if $songselectA&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;島嶼天光&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectB&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;是有種人&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectC&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;家明&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectD&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;十年&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectE&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;可惜不是你&lt;/span&gt;&lt;&lt;/if&gt;&gt;
       &lt;/div&gt;&lt;/div&gt;
 &lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;/div&gt;
