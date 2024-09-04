@@ -3406,7 +3406,7 @@ Set up your profile, stats and meters, and other relevant information here!
   &lt;&lt;/script&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 
-&lt;span style=&#39;font-size: 0.8em;&#39;&gt;（實境體驗製作單位：街密小組）&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if not tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="ch01_1" tags="autosave" position="900,300" size="100,100">你是在香港求學的學生，準備擔任青年大使參加內地交流計劃。
+&lt;span style=&#39;font-size: 0.8em;&#39;&gt;（實境體驗製作單位：街密小組）&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="ch01_1" tags="autosave" position="900,300" size="100,100">你是在香港求學的學生，準備擔任青年大使參加內地交流計劃。
 為了測試你是否有資格，接下來將進相關試驗，準備好之後點擊「開始測驗」按鈕。
 
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
@@ -3888,7 +3888,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;choiceitem &quot;ch03_6_end&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Q1" tags="" position="1500,300" size="100,100">&lt;&lt;set $quizcount to &#39;第一題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;領土是一個國家構成的必要條件之一，要判斷兩地之間的關係是否歸屬於某主權國家的領土，會從「血緣關係」、「語言系統」、「文化傳承」、「政府管轄權」、「駐軍權力」、「經濟管轄權」來確認。請根據前述說明，判斷以下敘述是否正確。
 
 &lt;strong&gt;香港自古以來是中國的一部分，即使在鴉片戰爭後被英國佔領，但仍然是中國的領土。&lt;/strong&gt;
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第7頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
@@ -3903,7 +3903,7 @@ HFXXX是港澳居民居留證的身分代碼。
   &lt;&lt;option &quot;大愛者治港&quot; 2&gt;&gt;
   &lt;&lt;option &quot;愛國者治港&quot; 3&gt;&gt;
 &lt;&lt;/listbox&gt;&gt;的原則，由中央從限制層面主導進行完善香港特區的選舉制度。
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第43頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
@@ -3927,7 +3927,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;checkboxPlus &quot;$answer1&quot; &quot;2019年「修立風波」弱化青年人的守法意識&quot;&gt;&gt;
 &lt;&lt;checkboxPlus &quot;$answer2&quot; &quot;外部勢力介入香港事務&quot;&gt;&gt;
 &lt;&lt;checkboxPlus &quot;$answer3&quot; &quot;堵塞香港在國家安全方面的漏洞&quot;&gt;&gt;
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第65頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
@@ -3948,7 +3948,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;li&gt;&lt;strong&gt;政府機關官員小明&lt;/strong&gt;收受賄賂，非法批准外資企業進入中國關鍵產業領域。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;繪本創作家小華&lt;/strong&gt;在香港出版兒童繪本，內容涉及2019年「反送中」運動的影射。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;網紅小美&lt;/strong&gt;大肆推廣並宣傳慶祝耶穌受難節、萬聖節、聖誕節等西方節日。&lt;/li&gt;
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第70頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
@@ -3961,7 +3961,7 @@ HFXXX是港澳居民居留證的身分代碼。
     var myDiv = document.getElementById(&#39;passages&#39;);
     myDiv.scrollTop = 0;
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Q5" tags="" position="2000,300" size="100,100">&lt;&lt;set $quizcount to &#39;第五題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;2020年香港行政長官林鄭月娥根據《香港基本法》簽署經立法會通過的《@@color:#008977;&lt;u&gt; （請輸入答案） &lt;/u&gt;@@》，為奏唱、保護及推廣國歌訂定條文，訂定涉及不當使用國歌，或公開、故意、意圖侮辱國歌行為之罪行。
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港）》第192頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
