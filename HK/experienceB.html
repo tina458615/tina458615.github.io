@@ -379,6 +379,7 @@ body.loading-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 48vh;
 }
 
 /* First Section*/
@@ -403,12 +404,12 @@ body.loading-page {
 .playlist-info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
     padding: 15px;
 }
 
 .playlist-info img {
-    width: 100%;
+    max-height: 15vh;
+    width: auto;
     border-radius: 20px;
 }
 
@@ -3415,7 +3416,7 @@ Set up your profile, stats and meters, and other relevant information here!
   &lt;&lt;/script&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 
-&lt;span style=&#39;font-size: 0.8em;&#39;&gt;（實境體驗製作單位：街密小組）&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if not tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="ch01_1" tags="autosave" position="900,300" size="100,100">你是在香港求學的學生，準備擔任青年大使參加內地交流計劃。
+&lt;span style=&#39;font-size: 0.8em;&#39;&gt;（實境體驗製作單位：街密小組）&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="ch01_1" tags="autosave" position="900,300" size="100,100">你是在香港求學的學生，準備擔任青年大使參加內地交流計劃。
 為了測試你是否有資格，接下來將進相關試驗，準備好之後點擊「開始測驗」按鈕。
 
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
@@ -3454,7 +3455,9 @@ Set up your profile, stats and meters, and other relevant information here!
   &lt;&lt;/script&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 
-實境體驗製作單位：街密小組</tw-passagedata><tw-passagedata pid="24" name="ch02_1" tags="centerbutton" position="900,600" size="100,100">你準備返回香港，因為擔心入境前會被關「小黑屋」，因此開始檢查行李箱中是否有不妥的物品。
+實境體驗製作單位：街密小組</tw-passagedata><tw-passagedata pid="24" name="ch02_1" tags="centerbutton" position="900,600" size="100,100">&lt;center&gt;&lt;strong&gt;你準備返回香港續護照、探親。&lt;/strong&gt;&lt;/center&gt;
+因為擔心入境前會被關「小黑屋」，因此開始檢查行李箱中是否有不妥的物品。
+
 下面是你準備放進行李箱的物品，請選擇@@color:#890000;覺得最不妥要拿掉的@@。
 
 &lt;&lt;choiceitem &quot;ch02_2&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="error" tags="" position="25,550" size="100,100">操作失敗！
@@ -4120,7 +4123,6 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;button &#39;回去香港&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;failure01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/center&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="ch02_4" tags="centerbutton" position="1275,600" size="100,100">你檢查到手機裡建立的歌曲播放清單，請選擇@@color:#890000;覺得不妥要刪除的歌曲@@。
-
 &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;Spotify-container&quot;&gt;
     &lt;div class=&quot;top-container black-top&quot;&gt;
         &lt;!-- First section --&gt;
@@ -4205,11 +4207,7 @@ HFXXX是港澳居民居留證的身分代碼。
 
     &lt;/div&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;button &quot;完成選擇（可複選）&quot; &quot;ch02_5&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="ch02_5" tags="" position="1400,600" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
-    &lt;&lt;button &#39;確定選擇&#39; &#39;ch02_end&#39;&gt;&gt;&lt;&lt;set $answer to true&gt;&gt;&lt;&lt;/button&gt;&gt;
-    &lt;&lt;button &#39;修改選擇&#39; &#39;ch02_4&#39;&gt;&gt;&lt;&lt;set $answer to false&gt;&gt;&lt;&lt;/button&gt;&gt;
-    &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;\
-&lt;&lt;run readsheet()&gt;&gt;&lt;i class=&quot;fa-solid fa-square-check&quot; style=&quot;color: #17e917;&quot;&gt;&lt;/i&gt;是你的選擇。    
+&lt;&lt;button &quot;完成選擇（可複選）&quot; &quot;ch02_5&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="ch02_5" tags="" position="1400,600" size="100,100">&lt;&lt;run readsheet()&gt;&gt;&lt;i class=&quot;fa-solid fa-square-check&quot; style=&quot;color: #17e917;&quot;&gt;&lt;/i&gt;是你的選擇。    
 &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;Spotify-container&quot;&gt;
     &lt;div class=&quot;top-container black-top&quot;&gt;
         &lt;!-- First section --&gt;
@@ -4269,18 +4267,22 @@ HFXXX是港澳居民居留證的身分代碼。
         &lt;/div&gt;
 
     &lt;/div&gt;
-&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="ch02_end" tags="autosave nofooter center" position="1525,600" size="100,100">&lt;div class=&quot;card&quot;&gt;\
+&lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
+    &lt;&lt;button &#39;確定選擇&#39; &#39;ch02_end&#39;&gt;&gt;&lt;&lt;set $answer to true&gt;&gt;&lt;&lt;/button&gt;&gt;
+    &lt;&lt;button &#39;修改選擇&#39; &#39;ch02_4&#39;&gt;&gt;&lt;&lt;set $answer to false&gt;&gt;&lt;&lt;/button&gt;&gt;
+    &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="ch02_end" tags="autosave nofooter center" position="1525,600" size="100,100">&lt;div class=&quot;card&quot;&gt;\
     &lt;img src=&quot;media/img/player3.jpg&quot; class=&quot;card_image&quot;&gt;
     &lt;div class=&quot;grid-container&quot;&gt;\
       &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;grid-quizresult&quot;&gt;
         &lt;div class=&quot;grid-time&quot;&gt;&lt;span class=&quot;timetitle&quot;&gt;拿掉的行李箱物品&lt;/span&gt;&lt;/div&gt;
       &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;\
        &lt;div class=&quot;grid-tag&quot;&gt;\
-        &lt;&lt;if $item1&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;蘋果徽章&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item2&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;「勇敢的台灣人」T恤&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item3&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;「SAVE12 HKYOUTHS」T恤&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item4&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;繪本&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item5&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;臺灣意象護照套&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item6&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;盥洗包&lt;/span&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $item1&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;蘋果徽章&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item2&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;「勇敢的台灣人」T恤&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item3&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;「SAVE12 HKYOUTHS」T恤&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item4&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;繪本&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item5&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;臺灣意象護照套&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item6&gt;&gt;&lt;span class=&quot;result1&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;盥洗包&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $item1 is false and $item2 is false and $item3 is false and $item4 is false and $item5 is false and $item6 is false&gt;&gt;@@color:#890000;你沒有拿掉任何物品。@@&lt;&lt;/if&gt;&gt;
       &lt;/div&gt;
       &lt;div class=&quot;grid-time&quot;&gt;&lt;span class=&quot;timetitle&quot;&gt;刪除的歌曲&lt;/span&gt;&lt;/div&gt;\
       &lt;div class=&quot;grid-tag&quot;&gt;\
-        &lt;&lt;if $songselectA&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;島嶼天光&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectB&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;是有種人&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectC&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;家明&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectD&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;十年&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectE&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;可惜不是你&lt;/span&gt;&lt;&lt;/if&gt;&gt;
+        &lt;&lt;if $songselectA&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;島嶼天光&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectB&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;是有種人&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectC&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;家明&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectD&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;十年&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectE&gt;&gt;&lt;span class=&quot;result2&quot;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;可惜不是你&lt;/span&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $songselectA is false and $songselectB is false and $songselectC is false and $songselectD is false and $songselectE is false&gt;&gt;@@color:#890000;你沒有刪除任何歌曲。@@&lt;&lt;/if&gt;&gt;
       &lt;/div&gt;&lt;/div&gt;
 &lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;/div&gt;
 &lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;.card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
@@ -4295,7 +4297,7 @@ HFXXX是港澳居民居留證的身分代碼。
   &lt;&lt;/script&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 
-實境體驗製作單位：街密小組</tw-passagedata><tw-passagedata pid="87" name="ch02_2" tags="centerbutton" position="1025,600" size="100,100">請選擇@@color:#890000;覺得最不妥要從行李箱拿掉的@@。
+實境體驗製作單位：街密小組</tw-passagedata><tw-passagedata pid="87" name="ch02_2" tags="centerbutton" position="1025,600" size="100,100">選擇@@color:#890000;覺得不妥要從行李箱拿掉的（可複選）@@。
 &lt;table style=&#39;width: 100%; text-align: center;&#39;&gt;
     &lt;tr&gt;
         &lt;th&gt;&lt;&lt;checkboxPlus &quot;$item1&quot; &quot;蘋果徽章&quot;&gt;&gt;&lt;br&gt;&lt;img src=&quot;media/img/item01.png&quot; width=&quot;49%&quot;&gt;&lt;/th&gt;

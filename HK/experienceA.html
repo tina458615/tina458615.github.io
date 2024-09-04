@@ -3585,20 +3585,20 @@ HFXXX是港澳居民居留證的身分代碼。
     &lt;img src=&quot;media/img/player1.jpg&quot; class=&quot;card_image&quot;&gt;
     &lt;div class=&quot;grid-container&quot;&gt;\
       &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;grid-text&quot;&gt;
-        &lt;&lt;switch $ch3result&gt;&gt;
+        &lt;&lt;switch $ch3result1&gt;&gt;
         &lt;&lt;case &quot;failure01&quot;&gt;&gt;
-        你回到香港，放棄移民的打算。
+        你選擇用@@color:#890000;工作居留@@定居台灣。&lt;br&gt;最後你回到香港，放棄移民的打算。
         &lt;&lt;case &quot;failure02&quot;&gt;&gt;
-        你去其他國家，放棄移民的打算。
+        你選擇用@@color:#890000;工作居留@@定居台灣。&lt;br&gt;最後你去其他國家，放棄移民台灣的打算。
         &lt;&lt;case &quot;success01&quot;&gt;&gt;
-        你留在台灣，成功通過定居申請。
+        你選擇用@@color:#890000;工作居留@@定居台灣。&lt;br&gt;最後你留在台灣，成功通過定居申請。
         &lt;&lt;case &quot;success02&quot;&gt;&gt;
-        你留在台灣，定居甚麼的就隨緣了。
+        你選擇用@@color:#890000;工作居留@@定居台灣。&lt;br&gt;最後你留在台灣，定居甚麼的就隨緣了。
         &lt;&lt;/switch&gt;&gt;
       &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
       &lt;div class=&quot;grid-tag&quot;&gt;
-        &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;成功移民&lt;&lt;elseif $ch3result is &#39;success02&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;佛系移民&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;放棄移民&lt;&lt;/if&gt;&gt;&lt;/span&gt;
-        &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39; or &#39;success02&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;留在台灣&lt;&lt;elseif $ch3result is &#39;failure01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;回到香港&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;去其他國家&lt;&lt;/if&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch3result1 is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;成功移民&lt;&lt;elseif $ch3result1 is &#39;success02&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;佛系移民&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;放棄移民&lt;&lt;/if&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $ch3result1 is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;留在台灣&lt;&lt;elseif $ch3result1 is &#39;success02&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;留在台灣&lt;&lt;elseif $ch3result1 is &#39;failure01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;回到香港&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;去其他國家&lt;&lt;/if&gt;&gt;&lt;/span&gt;
       &lt;/div&gt;&lt;/div&gt;
       &lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;/div&gt;
 &lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;.card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
@@ -3721,10 +3721,8 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;timed 2s t8n&gt;&gt;再過一段時間，政府傳來通知，說需要再觀察一年。
 &lt;&lt;next&gt;&gt;
 這時你有點迷惘，聽說很多在舊制提交申請的案件，都被要求再觀察多⼀年，但並未述明原因。
-
 &lt;&lt;next&gt;&gt;
 有⼈認為跟從新制做法比較有誠意，加⼤通過的機率。
-
 &lt;&lt;next&gt;&gt;
 雖然目前公司有賺錢，但生意也不會一帆風順。你決定：
 
@@ -3744,7 +3742,6 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;timed 2s t8n&gt;&gt;移⺠署進度，甚⾄請⺠意代表詢問，都沒有任何下文。
 &lt;&lt;next&gt;&gt;
 於是你上網找，詢問那些取得居留證明的友人，到底還要準備那些文件，才能通過。
-
 &lt;&lt;next&gt;&gt;
 其中「持續投資及營運實績證明⽂件」，有網友說需要把單據正副本全部都準備好，你也⾺上準備。
 
@@ -3761,7 +3758,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;button &#39;移⺠去其他國家&#39; &#39;ch03_5_7&#39;&gt;&gt;&lt;&lt;set $answer to true&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &#39;都已經準備這麼多資料了，還是再等等&#39; &#39;ch03_5_7&#39;&gt;&gt;&lt;&lt;set $answer to false&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="ch03_5_7" tags="" position="2025,1650" size="100,100">&lt;&lt;if $answer is true&gt;&gt;&lt;&lt;set $ch3result to &#39;failure01&#39;&gt;&gt;你帶著孩⼦@@color:#890000;前往新的國家@@，重新適應新的環境。孩⼦顯得有點悶悶不樂。
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="ch03_5_7" tags="" position="2025,1650" size="100,100">&lt;&lt;if $answer is true&gt;&gt;&lt;&lt;set $ch3result2 to &#39;failure01&#39;&gt;&gt;你帶著孩⼦@@color:#890000;前往新的國家@@，重新適應新的環境。孩⼦顯得有點悶悶不樂。
 
 &lt;&lt;timed 2s t8n&gt;&gt;他說：「我⼜要重新認識朋友了。我想回香港／臺灣。」
 
@@ -3769,7 +3766,7 @@ HFXXX是港澳居民居留證的身分代碼。
 
 &lt;&lt;choiceitem &quot;ch03_5_end&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;else&gt;&gt;&lt;&lt;set $ch3result to &#39;success01&#39;&gt;&gt;你@@color:#890000;通過定居申請@@了！
+&lt;&lt;else&gt;&gt;&lt;&lt;set $ch3result2 to &#39;success01&#39;&gt;&gt;你@@color:#890000;通過定居申請@@了！
 
 &lt;&lt;timed 2s t8n&gt;&gt;你也不清楚，自己為甚麼可以留在這裡。
 
@@ -3785,16 +3782,16 @@ HFXXX是港澳居民居留證的身分代碼。
     &lt;img src=&quot;media/img/player1.jpg&quot; class=&quot;card_image&quot;&gt;
     &lt;div class=&quot;grid-container&quot;&gt;\
       &lt;&lt;nobr&gt;&gt;&lt;div class=&quot;grid-text&quot;&gt;
-        &lt;&lt;switch $ch3result&gt;&gt;
+        &lt;&lt;switch $ch3result2&gt;&gt;
         &lt;&lt;case &quot;failure01&quot;&gt;&gt;
-        你放棄移民的打算，帶著孩子回到香港。
+        你選擇用@@color:#890000;投資移民@@定居台灣。&lt;br&gt;最後你放棄移民的打算，帶著孩子回到香港。
         &lt;&lt;case &quot;success01&quot;&gt;&gt;
-        你獲得居留證明，順利移民台灣。
+        你選擇用@@color:#890000;投資移民@@定居台灣。&lt;br&gt;最後你獲得居留證明，順利移民台灣。
         &lt;&lt;/switch&gt;&gt;
       &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
       &lt;div class=&quot;grid-tag&quot;&gt;
-        &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;成功移民&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;⼆次移⺠&lt;&lt;/if&gt;&gt;&lt;/span&gt;
-        &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $ch3result is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;留在台灣&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;離開台灣&lt;&lt;/if&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;result1&quot;&gt;&lt;&lt;if $ch3result2 is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;成功移民&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;⼆次移⺠&lt;&lt;/if&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;result2&quot;&gt;&lt;&lt;if $ch3result2 is &#39;success01&#39;&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;留在台灣&lt;&lt;else&gt;&gt;&quot;&quot;&quot;#&quot;&quot;&quot;離開台灣&lt;&lt;/if&gt;&gt;&lt;/span&gt;
       &lt;/div&gt;&lt;/div&gt;
       &lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;/div&gt;
 &lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;.card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
@@ -3838,7 +3835,7 @@ HFXXX是港澳居民居留證的身分代碼。
 
 實境體驗製作單位：街密小組</tw-passagedata><tw-passagedata pid="62" name="ch03_6_2" tags="" position="1525,1950" size="100,100">你生下女兒，這是鐵一般的事實，所以你覺得申請應該很快就會通過。
 
-&lt;&lt;timed 2s t8n&gt;&gt;但過了好幾個月，突然收到我的申請需要補上「生涯規劃」。
+&lt;&lt;timed 2s t8n&gt;&gt;但過了好幾個月，突然收到你的申請需要補上「生涯規劃」。
 &lt;&lt;next&gt;&gt;
 你在網路上詢問其他港人，他們說補上自己的生活照，證明自己長居臺灣，和女兒也有保持聯繫，也很能適應臺灣的生活。
 
@@ -3847,7 +3844,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;checkboxPlus &quot;$answer2&quot; &quot;日常生活照&quot;&gt;&gt;
 
 &lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &quot;繼續&quot;&gt;&gt;&lt;&lt;if $answer1 is false and $answer2 is false&gt;&gt;&lt;&lt;run alert(&quot;你還沒有選擇！&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &#39;ch03_6_3&#39;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;繼續（可複選）&quot;&gt;&gt;&lt;&lt;if $answer1 is false and $answer2 is false&gt;&gt;&lt;&lt;run alert(&quot;你還沒有選擇！&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &#39;ch03_6_3&#39;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="ch03_6_3" tags="" position="1650,1950" size="100,100">補充資料後，案件狀況依舊是審核中，未有消息。經過半年後，又是要求補充生涯規劃。
 
@@ -3865,20 +3862,17 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;checkboxPlus &quot;$answer3&quot; &quot;志工證明&quot;&gt;&gt;
 
 &lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &quot;繼續&quot;&gt;&gt;&lt;&lt;if $answer1 is false and $answer2 is false and $answer3 is false&gt;&gt;&lt;&lt;run alert(&quot;你還沒有選擇！&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &#39;ch03_6_4&#39;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &quot;繼續（可複選）&quot;&gt;&gt;&lt;&lt;if $answer1 is false and $answer2 is false and $answer3 is false&gt;&gt;&lt;&lt;run alert(&quot;你還沒有選擇！&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &#39;ch03_6_4&#39;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="ch03_6_4" tags="" position="1775,1950" size="100,100">你在博物館擔任志工，接觸人群之餘，也學了許多新知識，這時你覺得自己似乎開始了第二人生。
 
 &lt;&lt;timed 2s t8n&gt;&gt;但案件依然是審核中，這讓你十分焦慮不安，因為你完全不知道一個退休老人到底需要多詳細的生涯規劃！
 &lt;&lt;next&gt;&gt;
 到底政府需要你證明甚麼！這時你在網上看到類似的個案，知道政府原來也很著重老人的財政，有沒有能力可以應付未來的醫療開支。
-
 &lt;&lt;next&gt;&gt;
 你從來沒有擔心過財政問題，沒想到卻可能成為定局的障礙。有人建議，買一棟房子既能顯示財力，也能顯示你留臺的決心！
-
 &lt;&lt;next&gt;&gt;
 你看著自己的銀行帳戶，買下一間子不成問題，但買房子是很慎重的事情，自己還沒有決定想落腳在甚麼縣市。
-
 &lt;&lt;next&gt;&gt;
 你很喜歡臺灣，每次去移民署申請資料，窗口都很熱心和客氣，但房子買下去，會達成願望嗎？
 你會如何選擇？
@@ -4036,7 +4030,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="75" name="ch03_4_1_1_3" tags="" position="1675,1000" size="100,100">其他工作薪水完全沒有大企業的高。
 
-&lt;&lt;timed 2s t8n&gt;&gt;而且新創公司，因為資本和營業額不夠沒辦法幫我申請工作證。
+&lt;&lt;timed 2s t8n&gt;&gt;而且新創公司，因為資本和營業額不夠沒辦法幫你申請工作證。
 
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
 &lt;&lt;button &#39;先有工作再說&#39; &#39;ch03_4_1_1_2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
@@ -4044,21 +4038,21 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="76" name="ch03_4_1_1_4" tags="" position="1825,825" size="100,100">你看見每年的分紅，還是決定辛苦一點 ，先撐過5年。
 
-&lt;&lt;timed 2s t8n&gt;&gt;5年後，我申請定居。
+&lt;&lt;timed 2s t8n&gt;&gt;5年後，你申請定居。
 &lt;&lt;next&gt;&gt;
 因為工作繁忙，幾乎沒有出國，工資也超過基本工資二倍。
 
 &lt;&lt;next&gt;&gt;
-我的申請很快獲得通過。
-&lt;&lt;set $ch3result to &#39;success01&#39;&gt;&gt;
+你的申請很快獲得通過。
+&lt;&lt;set $ch3result1 to &#39;success01&#39;&gt;&gt;
 &lt;&lt;choiceitem &quot;ch03_4_end&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="77" name="ch03_4_1_1_5" tags="" position="1825,1000" size="100,100">即使用了移民署提供1年的覓職期留台，仍未找到合適的工作。
 
 &lt;&lt;timed 2s t8n&gt;&gt;你決定離開台灣，放棄移民。
 
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &#39;去其他國家&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;failure02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &#39;回去香港&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;failure01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;去其他國家&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;failure02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;回去香港&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;failure01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="ch03_4_1_2_1" tags="" position="1650,1250" size="100,100">因為是研究領域相關，屬於專門性工作，可以透過評點制留下來。
 
@@ -4067,7 +4061,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;choiceitem &quot;ch03_4_1_2_3&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="79" name="ch03_4_1_2_2" tags="" position="1650,1375" size="100,100">但是公司資本和營業額都不夠，無法聘請外國人。
 
-&lt;&lt;timed 2s t8n&gt;&gt;而且也沒有申請政府的新創事業單位，所以我無法取得這份工作！
+&lt;&lt;timed 2s t8n&gt;&gt;而且也沒有申請政府的新創事業單位，所以你無法取得這份工作！
 
 &lt;&lt;choiceitem &quot;ch03_4_1_2_3&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="ch03_4_1_2_3" tags="" position="1800,1325" size="100,100">這時候看到學校聘請行政人員，薪水比較少，但卻很穩定。 
@@ -4077,9 +4071,9 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;button &#39;接受&#39; &#39;ch03_4_1_2_4&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &#39;拒絕&#39; &#39;ch03_4_1_2_5&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="81" name="ch03_4_1_2_4" tags="" position="1950,1250" size="100,100">勞動部拒絕我的工作證申請，原因是這份工作非專門性或技術性工作！
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="81" name="ch03_4_1_2_4" tags="" position="1950,1250" size="100,100">勞動部拒絕你的工作證申請，原因是這份工作非專門性或技術性工作！
 
-&lt;&lt;timed 2s t8n&gt;&gt;最後我與人事部討論工作內容，做出調動，符合勞動部要求，方能核發工作證。
+&lt;&lt;timed 2s t8n&gt;&gt;最後你與人事部討論工作內容，做出調動，符合勞動部要求，方能核發工作證。
 
 &lt;&lt;choiceitem &quot;ch03_4_1_2_6&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="ch03_4_1_2_5" tags="" position="1950,1375" size="100,100">找到學校研究助理，薪水4萬多；也因為是研究領域相關，屬於專門性工作，可以透過評點制留下來。
@@ -4089,26 +4083,25 @@ HFXXX是港澳居民居留證的身分代碼。
 你決定......
 
 &lt;center&gt;
-&lt;&lt;button &#39;留在台灣繼續工作，定居就隨緣吧&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;success02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;留在台灣繼續工作，定居就隨緣吧&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;success02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
-&lt;&lt;button &#39;去其他國家&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;failure02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;去其他國家&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;failure02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
-&lt;&lt;button &#39;回去香港&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;failure01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;回去香港&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;failure01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/center&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="ch03_4_1_2_6" tags="" position="2100,1250" size="100,100">工作雖然穩定，也有升遷渠道，但是薪水升幅太少了。
 
 &lt;&lt;timed 2s t8n&gt;&gt;昨天才得知工作了10多年的資深主管，薪水才5萬。
 &lt;&lt;next&gt;&gt;
-而5年後我定居門檻之一是當年度基本工資二倍，怎麼可能在5年內做到！
-
+而5年後你定居門檻之一是當年度基本工資二倍，怎麼可能在5年內做到！
 &lt;&lt;next&gt;&gt;
 你決定......
 &lt;center&gt;
-&lt;&lt;button &#39;留在台灣繼續工作，定居就隨緣吧&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;success02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;留在台灣繼續工作，定居就隨緣吧&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;success02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
-&lt;&lt;button &#39;去其他國家&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;failure02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;去其他國家&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;failure02&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 
-&lt;&lt;button &#39;回去香港&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result to &#39;failure01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;回去香港&#39; &#39;ch03_4_end&#39;&gt;&gt;&lt;&lt;set $ch3result1 to &#39;failure01&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/center&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="ch02_4" tags="centerbutton" position="1275,600" size="100,100">你檢查到手機裡建立的歌曲播放清單，請選擇@@color:#890000;覺得不妥要刪除的歌曲@@。
 

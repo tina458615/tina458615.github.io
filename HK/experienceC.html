@@ -852,6 +852,9 @@ select {
   width: 10em;
   border: solid 1px var(--text);
 }
+select.macro-listbox {
+  color: #438baf;
+}
 
 input[type=text] {
   border: solid 1px var(--text);
@@ -3407,7 +3410,8 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;/button&gt;&gt;
 
 &lt;span style=&#39;font-size: 0.8em;&#39;&gt;（實境體驗製作單位：街密小組）&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if not tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;img src=&quot;media/img/organization.png&quot; class=&quot;footerimage&quot;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="ch01_1" tags="autosave" position="900,300" size="100,100">你是在香港求學的學生，準備擔任青年大使參加內地交流計劃。
-為了測試你是否有資格，接下來將進相關試驗，準備好之後點擊「開始測驗」按鈕。
+
+為了測試你是否有資格，接下來將進行相關試驗，準備好之後點擊「開始測驗」按鈕。
 
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
 &lt;&lt;button &#39;開始測驗&#39; &#39;ch01_2&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;
@@ -3634,8 +3638,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;li&gt;體驗過程中請勿點擊網頁瀏覽器上一頁，避免跳出程式而影響體驗。&lt;/li&gt;
 &lt;li&gt;程式內建自動存檔功能，若因故關閉網頁，只需重新掃描互動體驗QRcode，選擇「繼續體驗」或「載入存檔」匯入存檔紀錄。&lt;/li&gt;
 &lt;/div&gt;
-&lt;div id=&quot;start-menu&quot;&gt;&lt;&lt;button &quot;下一頁&quot; &quot;guide2&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="48" name="quiz" tags="" position="1150,300" size="100,100">&lt;&lt;set $passage to Story.get(&quot;Q&quot; + $story)&gt;&gt;
-&lt;&lt;print $passage.text&gt;&gt;
+&lt;div id=&quot;start-menu&quot;&gt;&lt;&lt;button &quot;下一頁&quot; &quot;guide2&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="48" name="quiz" tags="" position="1150,300" size="100,100">&lt;&lt;set $passage to Story.get(&quot;Q&quot; + $story)&gt;&gt;&lt;&lt;print $passage.text&gt;&gt;
 /*
 &lt;&lt;include `passage() + &quot;_nl&quot;`&gt;&gt;
 */</tw-passagedata><tw-passagedata pid="49" name="填空題" tags="" position="1300,100" size="100,100">&lt;&lt;set $quizcount to &#39;第一題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;這是問題一，需要輸入正確答案（A為正解）
@@ -3697,7 +3700,7 @@ HFXXX是港澳居民居留證的身分代碼。
 
 *&lt;&lt;if $testresult.includes(&#39;2&#39;)&gt;&gt;&lt;span style=&quot;background-color: #2aa7ab; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答對&lt;/span&gt;&lt;&lt;else&gt;&gt;&lt;span style=&quot;background-color: #eb196e; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答錯&lt;/span&gt;&lt;&lt;/if&gt;&gt;第二題答案：愛國者治港
 
-*&lt;&lt;if $testresult.includes(&#39;3&#39;)&gt;&gt;&lt;span style=&quot;background-color: #2aa7ab; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答對&lt;/span&gt;&lt;&lt;else&gt;&gt;&lt;span style=&quot;background-color: #eb196e; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答錯&lt;/span&gt;&lt;&lt;/if&gt;&gt;第三題答案：&lt;br&gt;2019年「修立風波」弱化青年人的守法意識、外部勢力介入香港事務、堵塞香港在國家安全方面的漏洞
+*&lt;&lt;if $testresult.includes(&#39;3&#39;)&gt;&gt;&lt;span style=&quot;background-color: #2aa7ab; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答對&lt;/span&gt;&lt;&lt;else&gt;&gt;&lt;span style=&quot;background-color: #eb196e; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答錯&lt;/span&gt;&lt;&lt;/if&gt;&gt;第三題答案：&lt;br&gt;2019年「修例風波」弱化青年人的守法意識、外部勢力介入香港事務、堵塞香港在國家安全方面的漏洞
 
 *&lt;&lt;if $testresult.includes(&#39;4&#39;)&gt;&gt;&lt;span style=&quot;background-color: #2aa7ab; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答對&lt;/span&gt;&lt;&lt;else&gt;&gt;&lt;span style=&quot;background-color: #eb196e; padding: 5px; color: white; font-size: 0.8em;&quot;&gt;答錯&lt;/span&gt;&lt;&lt;/if&gt;&gt;第四題答案：小華
 
@@ -3894,7 +3897,7 @@ HFXXX是港澳居民居留證的身分代碼。
 &lt;&lt;choiceitem &quot;ch03_6_end&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Q1" tags="" position="1500,300" size="100,100">&lt;&lt;set $quizcount to &#39;第一題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;領土是一個國家構成的必要條件之一，要判斷兩地之間的關係是否歸屬於某主權國家的領土，會從「血緣關係」、「語言系統」、「文化傳承」、「政府管轄權」、「駐軍權力」、「經濟管轄權」來確認。請根據前述說明，判斷以下敘述是否正確。
 
 &lt;strong&gt;香港自古以來是中國的一部分，即使在鴉片戰爭後被英國佔領，但仍然是中國的領土。&lt;/strong&gt;
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第7頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
@@ -3902,14 +3905,15 @@ HFXXX是港澳居民居留證的身分代碼。
 
 &lt;&lt;nobr&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;
 &lt;&lt;button &#39;是&#39;&gt;&gt;&lt;&lt;run $testresult.pushUnique(&#39;1&#39;)&gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &#39;非&#39;&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;否&#39;&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &#39;無從判斷&#39;&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="Q2" tags="" position="1625,300" size="100,100">&lt;&lt;set $quizcount to &#39;第二題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;香港的的選舉制度包含行政長官和立法會的產生辦法，為了確保選舉制度符合「一國兩制」的方針，確保&lt;&lt;listbox &quot;$answer&quot;&gt;&gt;
+  &lt;&lt;option &quot;（點擊選擇答案）&quot; 0&gt;&gt;
   &lt;&lt;option &quot;愛港者治港&quot; 1&gt;&gt;
   &lt;&lt;option &quot;大愛者治港&quot; 2&gt;&gt;
   &lt;&lt;option &quot;愛國者治港&quot; 3&gt;&gt;
 &lt;&lt;/listbox&gt;&gt;的原則，由中央從限制層面主導進行完善香港特區的選舉制度。
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第43頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
@@ -3917,23 +3921,25 @@ HFXXX是港澳居民居留證的身分代碼。
 
 &lt;div id=&quot;choicebutton&quot;&gt;
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
-    &lt;&lt;if $answer is 3 &gt;&gt;
-		&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;run $testresult.pushUnique(&#39;2&#39;)&gt;&gt;
+	&lt;&lt;if $answer is 0 &gt;&gt;
+		&lt;&lt;run alert(&quot;你還沒有選擇！&quot;)&gt;&gt;
+    &lt;&lt;elseif $answer is 3 &gt;&gt;
+		&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;run $testresult.pushUnique(&#39;2&#39;)&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;else&gt;&gt;
-		&lt;&lt;set $error to $error + 1&gt;&gt;
+		&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
-    &lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;script&gt;&gt;
     var myDiv = document.getElementById(&#39;passages&#39;);
     myDiv.scrollTop = 0;
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="Q3" tags="" position="1750,300" size="100,100">&lt;&lt;set $quizcount to &#39;第三題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;《香港國安法》的出現是因為……
+@@color:#890000;（可複選）@@
 
-&lt;&lt;checkboxPlus &quot;$answer1&quot; &quot;2019年「修立風波」弱化青年人的守法意識&quot;&gt;&gt;
+&lt;&lt;checkboxPlus &quot;$answer1&quot; &quot;2019年「修例風波」弱化青年人的守法意識&quot;&gt;&gt;
 &lt;&lt;checkboxPlus &quot;$answer2&quot; &quot;外部勢力介入香港事務&quot;&gt;&gt;
 &lt;&lt;checkboxPlus &quot;$answer3&quot; &quot;堵塞香港在國家安全方面的漏洞&quot;&gt;&gt;
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第65頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
@@ -3946,28 +3952,37 @@ HFXXX是港澳居民居留證的身分代碼。
     var myDiv = document.getElementById(&#39;passages&#39;);
     myDiv.scrollTop = 0;
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="Q4" tags="" position="1875,300" size="100,100">&lt;&lt;set $quizcount to &#39;第四題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;&lt;&lt;listbox &quot;$answer&quot;&gt;&gt;
+  &lt;&lt;option &quot;（點擊選擇答案）&quot; 0&gt;&gt;
   &lt;&lt;option &quot;小明&quot; 1&gt;&gt;
   &lt;&lt;option &quot;小華&quot; 2&gt;&gt;
   &lt;&lt;option &quot;小美&quot; 3&gt;&gt;
 &lt;&lt;/listbox&gt;&gt;的行為觸犯了四類嚴重危害國家安全的罪行：分裂國家罪、顛覆國家政權罪、恐怖活動罪、勾結外國或境外勢力危害國家安全罪。
-
+----
 &lt;li&gt;&lt;strong&gt;政府機關官員小明&lt;/strong&gt;收受賄賂，非法批准外資企業進入中國關鍵產業領域。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;繪本創作家小華&lt;/strong&gt;在香港出版兒童繪本，內容涉及2019年「反送中」運動的影射。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;網紅小美&lt;/strong&gt;大肆推廣並宣傳慶祝耶穌受難節、萬聖節、聖誕節等西方節日。&lt;/li&gt;
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港》第70頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
 &lt;&lt;/link&gt;&gt;@@
 
 &lt;div id=&quot;choicebutton&quot;&gt;
-&lt;&lt;button &#39;輸入&#39;&gt;&gt;&lt;&lt;if $answer is 2&gt;&gt;&lt;&lt;run $testresult.pushUnique(&#39;4&#39;)&gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;button &#39;輸入&#39;&gt;&gt;
+  &lt;&lt;if $answer is 0 &gt;&gt;
+    &lt;&lt;run alert(&quot;你還沒有選擇！&quot;)&gt;&gt;
+  &lt;&lt;elseif $answer is 2&gt;&gt;
+    &lt;&lt;run $testresult.pushUnique(&#39;4&#39;)&gt;&gt;&lt;&lt;set $correct to $correct + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+    &lt;&lt;set $error to $error + 1&gt;&gt;&lt;&lt;set $story to $story + 1&gt;&gt;&lt;&lt;replace &#39;#quiz&#39;&gt;&gt;&lt;&lt;include &#39;quiz&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;script&gt;&gt;
     var myDiv = document.getElementById(&#39;passages&#39;);
     myDiv.scrollTop = 0;
 &lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Q5" tags="" position="2000,300" size="100,100">&lt;&lt;set $quizcount to &#39;第五題&#39;&gt;&gt;&lt;&lt;update&gt;&gt;2020年香港行政長官林鄭月娥根據《香港基本法》簽署經立法會通過的《@@color:#008977;&lt;u&gt; （請輸入答案） &lt;/u&gt;@@》，為奏唱、保護及推廣國歌訂定條文，訂定涉及不當使用國歌，或公開、故意、意圖侮辱國歌行為之罪行。
-@@color:#890000;&lt;&lt;link &#39;觀看提示&#39;&gt;&gt;
+@@color:#890000;&lt;&lt;link &#39;點擊觀看提示&#39;&gt;&gt;
 &lt;&lt;run Dialog.setup(&quot;提示&quot;)&gt;&gt;
 &lt;&lt;run Dialog.wiki(&quot;參考《公民與社會發展科　主題一「一國兩制」下的香港）》第192頁。&quot;)&gt;&gt;
 &lt;&lt;run Dialog.open()&gt;&gt;
