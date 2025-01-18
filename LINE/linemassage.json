@@ -1,18 +1,21 @@
-"messages": [
-  {
-  "type": "text",
-  "text": "如果未來無法大幅減少全球二氧化碳及其他溫室氣體排放，全球暖化的幅度與工業革命時期相比，將在21世紀末超過幾℃？",
-    "buttons": [
-      {
-        "title": "2℃~4℃",
-        "type": "postback",
-        "value": "module-bUshy0jH8"
-      },
-      {
-        "title": "15℃~20℃",
-        "type": "postback",
-        "value": "module-0zZEDaS8r"
-      }
-    ]
-  }
-]
+{
+  "to": "<user_id>",
+  "messages": [
+    {
+    "type": "text",
+    "text": "如果未來無法大幅減少全球二氧化碳及其他溫室氣體排放，全球暖化的幅度與工業革命時期相比，將在21世紀末超過幾℃？",
+      "buttons": [
+        {
+          "title": "2℃~4℃",
+          "type": "postback",
+          "value": "module-bUshy0jH8"
+        },
+        {
+          "title": "15℃~20℃",
+          "type": "postback",
+          "value": "module-0zZEDaS8r"
+        }
+      ]
+    }
+  ]
+}
