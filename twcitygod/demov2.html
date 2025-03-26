@@ -3099,7 +3099,7 @@ window.slideWin = function (dir) {
             animation: "none", border: "none", width: "100%", height: "100%"
         }).empty().append(`
             <div style="text-align: center; text-indent: inherit;">
-                <img src="media/img/logo2.png" width="100%"><br>
+                <img src="media/img/loadscreen.png" width="100%"><br>
                 遊戲載入中..<br><br><br>
                 <div class="hzbarbkg">
                     <div id="hzloadingbar" class="hzbar" style="background-color: #7abf70; width: 0%;"></div>
@@ -3558,7 +3558,7 @@ Macro.add("VNText", {
         var textBoxId = options.textBoxId || "dialogue-box"; // 對話框容器ID
         var animationType = options.animation || "fade-in";
         var delay = options.delay !== undefined ? Number(options.delay) : 100;
-        var duration = options.duration !== undefined ? Number(options.duration) : 1200;
+        var duration = options.duration !== undefined ? Number(options.duration) : 1000;
         console.log("動畫類型:", animationType, "背景圖片:", bgImage, "延遲:", delay, "持續時間:", duration);
 
         // === 2. 讀取 Passage 內容 ===
