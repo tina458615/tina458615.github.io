@@ -2266,17 +2266,17 @@ importScripts("https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js")
 Setting.addHeader("變更設定");
 
 /* font type */
-var settingFontNames = ["黑體", "宋體", "內海字體"];
+var settingFontNames = ["黑體", "宋體", "芫荽字體"];
 var settingFontHandler = function () {
   var $html = $("html");
   
   $html.removeClass("Noto-Sans-TC-font Noto-Serif-TC-font Iansui-font");
   
   switch (settings.font) {
-    case "Noto Sans TC":
+    case "黑體":
       $html.addClass("Noto-Sans-TC-font");
        break;
-    case "Noto Serif TC":
+    case "宋體":
       $html.addClass("Noto-Serif-TC-font");
       break;
     case "芫荽字體":
@@ -4123,19 +4123,7 @@ if you search strings localization in the Sugarcube 2 Documentation, it will lea
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 &lt;&lt;button &quot;開新遊戲&quot; &quot;guide1&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="start-menu" tags="start-menu noreturn nobr nofooter" position="600,200" size="100,100">&lt;&lt;fadein 1s&gt;&gt;&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.browser.auto.isEnabled() and Save.browser.auto.has(0)&gt;&gt;&lt;&lt;button &quot;繼續遊玩&quot;&gt;&gt;
-  &lt;&lt;script&gt;&gt;
-    Save.browser.auto.load(0)
-    .then(() =&gt; {
-      Engine.show();
-    })
-    .catch(error =&gt; {
-      /* Failure.  Handle the error. */
-      console.error(error);
-      UI.alert(error);
-    });
-  &lt;&lt;/script&gt;&gt;
-&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="start-menu" tags="start-menu noreturn nobr nofooter" position="600,200" size="100,100">&lt;&lt;fadein 1s&gt;&gt;
     &lt;div id=&quot;start-title&quot;&gt;&lt;&lt;include &#39;遊戲標題&#39;&gt;&gt;&lt;/div&gt;
     &lt;div id=&quot;start-subtitle&quot;&gt;&lt;&lt;include &#39;遊戲副標題&#39;&gt;&gt;&lt;/div&gt;
     &lt;div id=&quot;start-menu&quot;&gt;&lt;&lt;include &#39;遊戲開始選單&#39;&gt;&gt;&lt;/div&gt;
