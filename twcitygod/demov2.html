@@ -4197,7 +4197,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;set $ending to []&gt;&gt;
 
 /* 關卡 */
-&lt;&lt;set $answer = []&gt;&gt;
+
 
 /* ChapelR Meter Macro set up */
 /* these stat meter set ups are purely examples and do not need to be used */
@@ -4570,6 +4570,7 @@ _contents
 &lt;span class=&quot;levelinput&quot;&gt;&lt;&lt;listbox &quot;_answer1&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;和&lt;&lt;listbox &quot;_answer2&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;/span&gt;
 
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
+	&lt;&lt;set $answer = []&gt;&gt;
 	&lt;&lt;set $answer to $answer.concat(_answer1, _answer2)&gt;&gt;
 	&lt;&lt;if $answer.includes(&quot;考功司&quot;) and $answer.includes(&quot;學政司&quot;)&gt;&gt;
 		&lt;&lt;goto &#39;ch2關卡1破關&#39;&gt;&gt;
