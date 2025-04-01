@@ -2352,2248 +2352,2045 @@ html.indicator .special-choice-item a::after, html.indicator .flirt-choice-item 
     padding: 12vw;
   }
 
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">@charset "UTF-8";
-/* IMPORT FONTS
-comment --
-webfont import
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* IMPORT */
+/* comment -- 
+this fontawesome kit is what allows the icons to be used. you can visit fontawesome.com to look at other free icons you might want to use anywhere else in this template. 
+
+this fontawesome kit link is my own - i recommend signing up to fontawesome.com and generating your own kit so you can manage your own icons. fontawesome kits also allow for you to upload your own custom icons! replace the link below with your own and continue to use the icons as normal
 */
 
-/* 思源黑體&思源宋體 */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400&display=swap");
-/* 日文：Yuji Syuku */
-@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap");
-/* 點陣字體 DotGothic16 */
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
-/* 芫荽字體 Iansui */
-@import url('https://fonts.googleapis.com/css2?family=Iansui&display=swap');
-/* LXGW WenKai TC */
-@import url('https://fonts.googleapis.com/css2?family=Iansui&family=LXGW+WenKai+TC&display=swap');
-/* 楷體字體 https://fonts.googleapis.com/earlyaccess/cwtexkai.css */
-@font-face {
-  font-family: 'cwTeXKai';
-  font-style: normal;
-  font-weight: 500;
-  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
-  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
-}
-/* 圓體字體 https://fonts.googleapis.com/earlyaccess/cwtexyen.css */
-@font-face {
-  font-family: 'cwTeXYen';
-  font-style: normal;
-  font-weight: 500;
-  src: url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot);
-  src: url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot?#iefix) format('embedded-opentype'),
-       url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff2) format('woff2'),
-       url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff) format('woff'),
-       url(https://fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.ttf) format('truetype');
-}
-/* 內海字體 https://github.com/max32002/naikaifont */
-@font-face {
-  font-family: 'naikaifont';
-  src: url(https://cdn.jsdelivr.net/gh/max32002/naikaifont@1.0/webfont/NaikaiFont-Regular-Lite.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/max32002/naikaifont@1.89/webfont/NaikaiFont-Regular.woff2) format("woff2");
-}
-/* 其他字型 */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
-@import url('https://fonts.cdnfonts.com/css/open-dyslexic');
+importScripts('https://kit.fontawesome.com/c52ca0dc98.js');
+// 匯入Animate.css
+importStyles("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css")
+// WebFont Loader ：匯入google字型
+importScripts("https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js")
+	.then(function () {
+		/* Code that depends on the script goes here. */
+  		WebFont.load({
+      google: {
+        families: ["Noto Sans TC", "Noto Serif TC", "Yuji Syuku", "DotGothic16", "Iansui", "LXGW WenKai TC"]
+      }
+  });
+	})
+	.catch(function (err) {
+		/* There was an error loading the script, log it to the console. */
+		console.log(err);
+	});
+
+/*設置favicon*/
+$(document.head).append("<link rel='icon' href='media/img/favicon.png'>");
+
+/* 在<head>元素中置入google分析的script程式碼 */
+// 創建 <script> 元素
+var scriptElement = document.createElement("script");
+// 設置 <script> 元素的屬性
+scriptElement.async = true;
+scriptElement.src = "https://www.googletagmanager.com/gtag/js?id="; //替換成自己專案的GA追蹤碼
+// 創建用於嵌入代碼的 <script> 元素
+var codeElement = document.createElement("script");
+// 設置 <script> 元素的內容
+codeElement.innerHTML = "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-K1D02YD84S');";
+// 將 <script> 元素添加到 <head> 元素中
+document.head.appendChild(scriptElement);
+document.head.appendChild(codeElement);
 
-
-/* root 
-comment --
-set up your css variables here!
-*/
-:root {  
-  --bg1: #ffffff;
-  --titlebg: #874e8a;
-  --title: white;
-  --text: #3b3b3b;
-  --btn: #8c8c8c;
-
-  --bg2: #ddd;
-  --text_light: #111;
-
-  /* fonts */
-  --fontbody: 'Noto Sans TC', sans-serif;
-  --font_01: 'Noto Sans TC', serif;
-  --font_02: 'Noto Serif TC', sans-serif;
-  --font_03: 'DotGothic16', sans-serif;
-  --font_04: 'Yuji Syuku', sans-serif;
-  --font_05: 'Iansui', cursive;
-  --font_06: 'cwTeXYen';
-}
-
-
-/* custom style
-- tag
-*/
-
-/* "notran"標籤：取消進入新passage的過渡動畫 */
-.passage.notran {
-	transition: none;
-  opacity: 1;
-}
-
-/* "center"標籤：頁面文字置中 */
-tw-passage[tags="center"] {
-  text-align: center;
-}
-.center.passage {
-  text-align: center;
-}
-
-/* "title"標籤：章節0 */
-/* 繼續按鈕位置 */
-.title .passage #diarylink {
-  width: 100%;
-  max-width: 400px;
-  position: absolute;
-  bottom: 8vh;
-  transform: translate(-50%, -50%); 
-}
-
-.title .passage #storylink {
-  width: 100%;
-  max-width: 400px;
-  position: absolute;
-  bottom: 8vh;
-  transform: translate(-50%, -50%); 
-}
-
-/* "nonav"標籤：隱藏標題選單 */
-body.nonav #title-bar, body.nonav #nav {
-  display: none !important;
-}
-
-/* 單按鈕 */
-.one .passage button {
-  min-width: 150px;
-}
-
-/* "bg+數字"標籤：自訂背景 */
-body.start-menu {
-  background-image: url("media/img/bgloading_pc.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
-}
-
-body.diary {
-  background-image: url("media/img/diarybg.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-body.black {
-  background-color: #0e0808;
-}
-body.black #nav a {
-  color: var(--bg1) !important;
-}
-
-/* "centerbutton"標籤：按鈕置中 */
-.centerbutton button {
-  width: 90%;
-  display: block;
-  margin: 0 auto;
-}
-
-
-/* custom style
-- div/span/button
-*/
-
-/* 左右選擇按鈕 */
-#choicebutton {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-content: center;
-  align-items: center;
-}
-#choicebutton button {
-  width: 45%;
-  max-width: 40vw;
-  background-image: unset !important;
-  background-color: var(--btn);
-}
-
-/* 標題 */
-/* 主要標題框 */
-.title-box  {
-  position: relative;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  color: #433915;
-  text-align: center;
-  margin: 0 0 10px 0;
-  background-image: url(media/img/title_bg.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  aspect-ratio: 500 / 136;
-  min-width: 180px;
-  font-family: var(--font_06);
-  font-size: 1.2em;
-}
-
-/* 關卡輸入區塊 */
-.levelinput {
-  font-family: var(--font_06);
-  font-size: 1.2em;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-
-/* 結果資訊卡 */
-.card {
-  background-image: url(media/img/cardbg.png);
-  background-position: center;
-  background-size: cover;
-  color: white;
-  padding: 20px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.card_image {
-  width: 80%;
-}
-.grid-container {
-  font-size: 1.2em;
-  background-color: rgb(255 255 255 / 51%);
-  border-radius: 5px;
-  padding: 20px;
-}
-.grid-name{
-  font-size: 1.3em;
-  color: var(--titlebg);
-  font-size: 1.3em;
-  color: var(--titlebg);
-  font-family: 'Yuji Syuku';
-}
-.grid-text {
-  color: #3b3b3b;
-  font-size: 0.9em;
-  font-family: 'LXGW WenKai TC';
-}
-.grid-tag {
-  font-size: 0.7em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.grid-tag .result1 {
-  background-color: #eb196e;
-  padding: 5px;
-}
-.grid-tag .result2 {
-  background-color: #2aa7ab;
-  padding: 5px;
-}
-
-/* 遊戲提示視窗 */
-.tipdialog {
-  width: 101vw;
-  height: 101vh;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.tipcontent {
-  width: 90%;
-  max-width: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  aspect-ratio: 486 / 431;
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.tiptext {
-  width: 80%;
-  margin-top: 40%;
-  color: white;
-}
-
-.tipcontent button {
-  display: block;
-  width: 100px !important;
-  margin: 20px auto 10px;
-  padding: 8px 0;
-  background-color: #e74c3c !important;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-.tipcontent button:hover {
-  background: #c0392b;
-}
-.tipcontent #choicebutton {
-  width: 80% !important;
-}
-
-
-/* custom style 
-custom animation
-*/
-
-/* 破關畫面 */
-.slide-container {
-  perspective: 1000px;
-  width: 80%;
-  margin: 0 auto;
-}
-.scale-in-center {
-	-webkit-animation: scale-in-center 1s cubic-bezier(0.785, 0.135, 0.150, 0.860) both;
-	        animation: scale-in-center 1s cubic-bezier(0.785, 0.135, 0.150, 0.860) both;
-}
-/* ----------------------------------------------
- * Generated by Animista on 2025-3-15 22:11:54
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation scale-in-center
- * ----------------------------------------
- */
- @-webkit-keyframes scale-in-center {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 1;
-  }
-}
-@keyframes scale-in-center {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
-/* custom style
-- 算盤
-*/
-.abacusguide {
-  height: 18vh;
-  border: solid 2px #c0bc93;
-  margin: auto;
-  display: block;
-}
-
-#abacus {
-  /* background-image: url(media/img/算盤背景-解鎖前.png); */
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-}
-#abacus #left, #abacus #right {
-  font-size: 1.5em;
-  background-color: #808080e0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#myAbacusContainer {
-  height: 35vh;
-}
-
-/* 對聯直書 */
-.abacus-vertical-writing {
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
-  color: white;
-  letter-spacing: 0.2em;
-}
-
-/* custom style
-- <<VNText>>
-*/
-
-/* 🌟 VNText 文字顯示區塊（旁白模式） */
-
-/* 核心區塊 */
-#vn-text-main {
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-/* 旁白模式 */
-.vn-diary-container {
-  font-family: 'naikaifont';
-  position: absolute;
-  width: 400px;
-  max-height: 80vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1em;
-  line-height: 1.6;
-  overflow: auto;
-  padding: 50px;
-  box-sizing: border-box;
-  aspect-ratio: 8 / 10;
-  border-radius: 10px;
-  box-shadow: #00000080 3px 3px 6px 2px;
-}
-
-/* 旁白模式插圖 */
-.vn-diary-container .vn-text img {
-  margin-bottom: 10px;
-}
-.diaryimage {
-  width: 80%;
-  border-radius: 5px;
-  box-shadow: 3px 3px 6px 4px #939393bd;
-  margin-bottom: 1em;
-  margin: auto;
-  display: block;
-}
-
-/* 獨白模式 */
-.vn-os-container {
-  height: 50vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-family: 'Yuji Syuku';
-  color: var(--bg1);
-  font-size: 1.2em;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-}
-.vn-os-container .vn-dialogue {
-  text-align: center;
-}
-.vn-os-container .vn-buttons {
-  display: flex;
-  justify-content: center;
-}
-.vn-os-container .vn-buttons button:only-child {
-  margin-left: unset;
-  background-image: unset;
-  margin-top: 20px;
-}
-
-/* 角色對話模式 */
-.vn-speech-container {
-  position: relative;
-  background-image: none !important;
-  width: 90%;
-  height: auto;
-  background-color: #e5e5e5 !important;
-  border-radius: 15px;
-  border: solid 2px #bababa;
-  padding: 15px 15px 5px 15px;
-  margin-top: 1vh;
-  aspect-ratio: 100 / 55;
-}
-
-/* 🎭 角色立繪區域 */
-#vn-character {
-  position: relative;   /* 讓子元素絕對定位的參考 */
-  width: 100%;          /* 或依需求設定固定寬度 */
-  margin-bottom: 20px;  /* 與下方對話框留點空隙 */
-  box-sizing: border-box;
-  aspect-ratio: 1920 / 1080;
-  background-size: cover;
-  background-position: center;
-}
-
-#vn-character > span {
-  position: absolute;   /* 子元素疊放 */
-  top: 0; left: 0;      /* 都貼在上方、左方 */
-  width: 100%;          /* 讓圖片等寬 */
-}
-
-#vn-character img {
-  width: 100%;          /* 圖片等寬 */
-  display: block;       /* 避免 inline 元素底部留白 */
-}
-
-#characterimg {
-  z-index: 2;           /* 角色立繪在上面 */
-}
-
-/* 🎤 角色名稱 */
-.vn-name {
-  font-family: "LXGW WenKai TC", cursive;
-  font-weight: bold;
-  text-align: left;
-  font-size: 1.2em;
-  color: #4a4a4a;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  margin-bottom: 0.5em;
-}
-
-/* 💬 對話區域 */
-.vn-dialogue {
-  text-align: left;
-  margin-top: 0.5em;
-  min-height: 3em;
-}
-
-/* 文字樣式 */
-.vn-text {
-  display: inline-block;
-  margin: 0px;
-}
-
-/* 🎮 按鈕容器 */
-.vn-buttons {
-  display: flex;
-  width: 100%;
-  align-items: flex-end;
-}
-
-/* 先將按鈕的 margin 歸零 */
-.vn-buttons button {
-  margin: 0;
-}
-
-/* 只有一顆按鈕時（:only-child），讓它靠右 */
-.vn-buttons button:only-child {
-  margin-left: auto; /* 將唯一按鈕推到右邊 */
-}
-
-/* 有兩顆按鈕時：
-   - 第一顆 (first-child) 靠左
-   - 第二顆 (last-child) 靠右
-*/
-.vn-buttons button:first-child:not(:only-child) {
-  margin-right: auto;
-}
-.vn-buttons button:last-child:not(:only-child) {
-  margin-left: auto;
-}
-
-/* 按鈕基本樣式 */
-.vn-buttons button, 
-#vn-next-dialogue button, 
-#vn-continue button, 
-#vn-history button {
-  color: white;
-  padding: 18px;
-  font-size: 0.9em;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  font-family: var(--font_05);
-  background-color: unset;
-  background-image: url(media/img/button_bg.png);
-  background-size: cover;
-  background-position: center center;
-}
-
-/* 下一頁按鈕 - 無角色名模式 */
-.vn-next-page {
-  background: none;
-  color: var(--bg1);
-}
-
-/* 對話模式下一頁按鈕 */
-.vn-next-dialogue {
-  background: none !important;
-  -webkit-text-stroke: 1px black !important;
-  color: white !important;
-}
-
-/* 繼續按鈕 */
-.vn-continue button,
-#vn-continue button {
-  background: none !important;
-  color: var(--text) !important;
-  padding: 10px !important;
-}
-
-.vn-next-dialogue:hover, .vn-continue:hover, .vn-next-page:hover {
-  background: none !important;
-  border: none !important;
-  text-shadow: 2px 2px 3px #6e6e6e;
-  color: black !important;
-}
-
-/* 對話回顧按鈕 */
-.vn-history-button,
-#vn-history button {
-  background: #d68858 !important;
-  color: white !important;
-  padding: 5px !important;
-}
-
-.vn-history-button:hover,
-#vn-history button:hover {
-  background: #f0a679 !important;
-  border: solid 2px #cdcdcd  !important;
-  color: black !important;
-}
-
-/* 自定義按鈕容器 */
-#vn-next-dialogue,
-#vn-continue,
-#vn-history {
-  display: inline-block;
-  margin: 5px;
-}
-
-/* 對話歷史容器 */
-.vn-history-container {
-  position: fixed;
-  width: 70%;
-  height: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  overflow-y: auto;
-  text-align: left;
-}
-
-/* 歷史對話文字 */
-.vn-history-text {
-  white-space: pre-line;
-  color: #333;
-  margin: 10px 0;
-}
-
-/* 關閉按鈕 */
-.vn-history-close {
-  display: block;
-  width: 100px;
-  margin: 20px auto 10px;
-  padding: 8px 0;
-  background: #e74c3c;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.vn-history-close:hover {
-  background: #c0392b;
-}
-
-/* 分隔線 */
-.vn-history-container hr {
-  border: 0;
-  height: 1px;
-  background: #e0e0e0;
-  margin: 10px 0;
-}
-
-/* 🎞 動畫效果：淡入 */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn var(--duration, 2s) ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* 🎞 動畫效果：打字機效果 */
-.wipe-in {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 1;
-  width: 0;
-  animation: typewriter var(--duration, 2s) steps(30, end) forwards;
-}
-
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-/* 🎞 動畫效果：逐行擦除顯示 */
-.wipe-reveal {
-  opacity: 0;
-  clip-path: inset(0 100% 0 0);
-  animation: wipeReveal var(--duration, 2s) ease-in-out forwards;
-}
-
-@keyframes wipeReveal {
-  0% { 
-    clip-path: inset(0 100% 0 0);
-    opacity: 0;
-  }
-  50% { 
-    clip-path: inset(0 0% 0 0);
-    opacity: 1;
-  }
-  100% { 
-    clip-path: inset(0 0% 0 0);
-    opacity: 1;
-  }
-}
-
-/* 動畫效果：OS打字 */
-.text-wipe-in {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 1;
-  width: 0;
-  animation: typing 2s steps(26, end) forwards;
-}
-@keyframes typing {
-  0% {
-      width: 0;
-  }
-  100% {
-      width: 26ch;
-   }
-}
-
-
-/* custom style
-- interface 
-*/
-
-/* console-title bar */
-/* title image */
-#title-container .titleimage {
-  height: 6vh;
-  max-height: 200px;
-}
-
-#start-title .titleimage {
-  height: 15vh;
-  max-width: 350px;
-}
-
-/* footer */
-.footerimage {
-  height: 3vh;
-}
-
-#footer button {
-  border-radius: 10px;
-  position: relative;
-  bottom: 5vh;
-}
-
-
-/* custom style
-- custom macro 
-*/
-
-/* notify */
-#notify {
-  position : fixed;
-  display: block;
-  color: var(--text_light);
-  background-color: var(--bg2);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  width: 15vw;
-  right: -25em; 
-  top : 5em;
-  padding: 0.7em 3em 0.7em 4em;
-  text-align: center;
-  -webkit-transition : right 0.5s;
-  -moz-transition : right 0.5s;
-  -o-transition : right 0.5s;
-  transition : right 0.5s;
-}
-
-#notify.open { 
-  right: 0; 
-}
-
-
-/* click-to-proceed */
-.--macro-ctp-hidden {
-	display: none;
-}
-
-.--macro-ctp-t8n {
-	animation: macro-ctp-t8n 400ms ease-in;
-}
-
-@keyframes macro-ctp-t8n {
-	from { opacity: 0; }
-	to { opacity: 1; }
-}
-
-
-/* crossfade */
-.macro-crossfade {
-	position: relative;
-}
-
-.macro-crossfade > .macro-crossfade-image {
-	width: 100%;
-}
-
-.macro-crossfade > .macro-crossfade-image:not([src]) {
-	visibility: hidden;
-}
-
-.macro-crossfade > .macro-crossfade-image:last-of-type {
-	position: absolute;
-	top: 0; left: 0;
-}
-
-
-/* loading screen */
-.hzbarbkg {  /* default class for all horizontal bar backgrounds */
-  position: relative;
-  text-align: center;
-  height: 30px;
-  left: 25%;
-  width: 50%;
-  background-color: #fff;
-  border-radius: 5px;
-  z-index: 10;
-  visibility: visible;
-  border: 1px solid black;
-  box-shadow: 2px 3px 6px 0 rgba(0,0,0,0.2);
-}
-.hzbar {  /* default class for all horizontal bars */
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	height: 30px;
-	background-color: #7abf70;
-	border-radius: 5px;
-	z-index: 20;
-	transition: linear width 0.1s, background-color 1s;
-}
-
-
-/* SlideWin styling v1.0 */
-body.slideWin {
-	overflow: hidden;
-}
-#slideWin {
-	position: fixed;
-	top: 0;
-	-webkit-transform: translateX(-101vw);
-	   -moz-transform: translateX(-101vw);
-		-ms-transform: translateX(-101vw);
-		 -o-transform: translateX(-101vw);
-			transform: translateX(-101vw);
-	stroke-width: 101px;  /* Used for animation trick on the transform property. */
-	width: 80.1vw;
-	height: calc(100vh - 30px);
-	padding: 30px 10vw;
-	overflow: hidden auto;
-	background-color: rgba(17, 17, 17, 0.97);
-	line-height: 1.75;
-	z-index: 100;
-}
-#slideWin:focus {
-	outline: none;
-}
-#slideWinContent {
-	position: relative;
-	top: -46px;
-	padding: 24px;
-	background-color: #222;
-}
-.ur {  /* Upper-right "close" button */
-	position: sticky;
-	top: 10px;
-	left: calc(80.1vw - 56px);
-	width: 26px;
-	height: 26px;
-	margin: 10px;
-	color: black;
-	cursor: pointer;
-	line-height: 14px;
-	-webkit-box-shadow: 1px 3px 0px 0px grey;
-	   -moz-box-shadow: 1px 3px 0px 0px grey;
-			box-shadow: 1px 3px 0px 0px grey;
-	border: 1px solid #5F5F5F;
-	border-collapse: separate;
-	font-weight: bold;
-	background-color: #FFFFFF;
-	-webkit-border-radius: 13px;
-	   -moz-border-radius: 13px;
-			border-radius: 13px;
-	z-index: 101;
-}
-.ur:hover {
-	background-color: #FFFFFF;
-	border-color: #5F5F5F;
-}
-.ur:focus, .ur:hover {
-	outline: transparent;
-	-webkit-animation: pulsing-glow-white 1s linear infinite alternate;
-	   -moz-animation: pulsing-glow-white 1s linear infinite alternate;
-		 -o-animation: pulsing-glow-white 1s linear infinite alternate;
-			animation: pulsing-glow-white 1s linear infinite alternate;
-}
-.ur:active {
-	top: 2px;
-	-webkit-box-shadow: none !important;
-	   -moz-box-shadow: none !important;
-			box-shadow: none !important;
-}
-@-webkit-keyframes pulsing-glow-white {
-	0% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-	}
-	100% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-	}
-}
-@-moz-keyframes pulsing-glow-white {
-	0% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-		   -moz-box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-	}
-	100% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-		   -moz-box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-	}
-}
-@-o-keyframes pulsing-glow-white {
-	0% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-	}
-	100% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-	}
-}
-@keyframes pulsing-glow-white {
-	0% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-		   -moz-box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 20px rgb(255, 255, 255), inset 0 2px 10px rgb(255, 255, 255);
-	}
-	100% {
-		-webkit-box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-		   -moz-box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-				box-shadow: 1px 3px 0px 0px grey, 0 2px 5px rgba(255, 255, 255, 0), inset 0 2px 5px rgb(26, 3, 3);
-	}
-}
-
-
-/* checkboxPlus widget - Start */
-input[type="checkbox"].cbhidden {
-	display: none;
-}
-input[type="checkbox"] + label.chklabel {
-	padding: 4px 4px 4px 30px;
-	position: relative;
-	user-select: none;
-	cursor: pointer;
-}
-:focus > input[type="checkbox"] + label.chklabel::before {
-	border: #135BCF 2px solid;  /* Bright blue */
-	margin-left: 2px;
-	top: -1px;
-}
-input[type="checkbox"] + label.chklabel::before {
-	padding: 0 3px;
-	height: 15px;
-	width: 11px;
-	background: white;
-	border: 1px solid #999;  /* Gray */
-	border-radius: 5px;
-	content: ' ';
-	color: black;
-	line-height: 150%;
-	position: absolute;
-	text-align: center;
-	transform: translate(-130%, 20%);
-}
-input[type="checkbox"]:checked + label.chklabel::before {
-	content: '\2713';
-	font-weight: bold;
-	font-size: 78.75%;
-}
-input[type="checkbox"]:focus + label.chklabel::before {
-	border: #135BCF 2px solid;  /* Bright blue */
-	margin-left: 1px;
-}
-.chkbox {
-	display: inline-block;
-	margin: 0 10px 0 0;
-	line-height: 150%;
-}
-.chkbox:focus {
-	outline: 2px dotted #135BCF;  /* Bright blue */
-}
-/* checkboxPlus widget - End */
-
-/* Resizable element style */
-.resizable {
-	display: inline-block;
-	overflow: hidden;
-	line-height: 0;
-	resize: both;
-}
-.resizable img {
-	width: 100%;
-	height: 100%;
-}
-
-/* Area element style */
-area {
-	cursor: pointer;
-}
-area:focus {
-	outline: 2px solid black;
-}
-
-
-/* basics
-Common style options
-*/
-
-html {
-  height: 100%;
-}
-
-#container {
-  width: 100%;
-  height: 100%;
-}
-
-#header {
-  padding: 1vh 1vw;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 3vh;
-  text-align: center;
-}
-
-body {
-  color: var(--text);
-  font-family: var(--fontbody);
-  background-color: var(--bg1);
-}
-
-.logo {
-  display: flex;
-  margin: auto;
-  margin-top: 25vh;
-  justify-content: center;
-}
-
-.logo img {
-  width: 30%;
-  filter: grayscale(1);
-}
-
-.light-theme .logo img {
-  filter: grayscale(1) brightness(0.5);
-}
-
-.game-start-timed {
-  display: block;
-  margin: auto;
-  letter-spacing: 0.1em;
-  text-align: center;
-  transition: opacity 0.3s;
-}
-
-.game-start-timed:hover {
-  opacity: 0.5;
-}
-
-
-/* start menu */
-#start-title {
-  display: block;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 2em;
-  letter-spacing: 0.2em;
-}
-
-#start-subtitle {
-  display: block;
-  text-align: center;
-  font-size: 1.3em;
-  margin-bottom: 20px;
-}
-
-#start-menu {
-  display: flex;
-  grid-gap: 1vh;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-}
-
-#start-menu button {
-  width: 12em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background-color: var(--bg1);
-  border: solid 1px var(--text);
-}
-
-#start-menu button:hover {
-  background-color: var(--bg2);
-  color: var(--text_light);
-}
-
-.start-menu #passages {
-  margin-top: 50vh;
-  height: 100%;
-}
-
-.start-menu #nav {
-  display: none;
-}
-
-.start-menu #console {
-  height: 100%;
-}
-
-.start-menu #title-container {
-  display: none;
-}
-
-
-/* console */
-
-#console {
-  display: block;
-  width: 45vw;
-  height: 95vh;
-  margin: auto;
-  padding: 0em 2em;
-}
-
-#title-container {
-  font-size: 1.2em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.5em 0em;
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.title-item {
-}
-
-.chapter-item {
-  float: right;
-}
-
-
-
-/* passages */
-
-#passages {
-  max-height: 82vh;
-  width: 100%;
-  height: 100%;
-  max-width: 1000%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  margin: 1em auto;
-  box-sizing: border-box;
-  letter-spacing: 1px;
-}
-
-.passage {
-  line-height: 1.75;
-  text-align: justify;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-#passages::-webkit-scrollbar {
-  display: none;
-}
-
-
-/* navigation */
-
-.fa-icons:before {
-  display: none;
-}
-
-.fa-icons {
-  font-size: 1.2em;
-}
-
-#nav {
-  display: inline-flex;
-  width: 100%;
-  margin: auto;
-  justify-content: space-around;
-  margin-top: 1vh;
-  border-bottom: 1.5px solid #666;
-  border-top: 1.5px solid #666;
-  padding: 0.5em 0em;
-}
-
-#nav a {
-  color: var(--text);
-  opacity: 0.5;
-}
-
-#nav a:hover {
-  opacity: 1;
-  color: var(--text);
-}
-
-
-/* links, button, select, textbox, listbox, cycle */
-
-a {
-  color: #31b1bd;
-  opacity: 0.7;
-}
-
-a:hover {
-  color: #1e6066;
-  opacity: 1;
-  text-decoration: none;
-}
-
-input, select, textarea {
-  color: var(--text);
-}
-
-button {
-  color: var(--text);
-  background-color: var(--btn);
-  border: solid 1px var(--text);
-  font-family: var(--font_06);
-  font-size: 1.1em;
-}
-
-button:hover {
-  color: #e9e9e9;
-  background-color: #333;
-  border: solid 1px var(--text);
-}
-
-button:disabled {
-  background-color: transparent;
-  border: solid 1px var(--text);
-}
-
-select {
-  width: 10em;
-  border: solid 1px var(--text);
-  background-color: var(--bg);
-}
-select:hover {
- color: white;
-}
-
-input[type=text] {
-  border: solid 1px var(--text);
-}
-
-input[type=text]:hover {
-  color: var(--text_hover);
-  background-color: #333;
-}
-
-textarea {
-  width: 95%;
-  min-width: 300px;
-}
-
-.macro-cycle {
-  color: var(--text);
-  opacity: 0.5;
-}
-
-.macro-cycle:hover {
-  color: var(--text);
-  text-decoration: none;
-  opacity: 1;
-}
-
-.macro-cycle:after {
-  content: "↻";
-  padding-left: 0.3em;
-}
-
-
-/* headings, lists */
-
-h1, h2, h3 {
-  margin: 0;
-}
-
-li {
-  list-style-type: circle;
-  margin-bottom: -1.5em;
-}
-
-li::marker {
-  font-size: 18px;
-}
-
-
-/* choices styling */
-/* example code --
-
-<<nobr>><div class="choices">
-	<div class="choice-item">[[Choice|Passage]]</div>
-</div><</nobr>> 
-
-or
-
-<<nobr>><div class="choices">
-	<div class="choice-item"><<link "Choice" "Passage">><</link>></div>
-</div><</nobr>>
-
-*/
-
-.choices {
-  display: block;
-}
-
-.choice-item, .special-choice-item, .flirt-choice-item {
-  margin-bottom: 1.2em;
-}
-
-.choice-item a, .special-choice-item a, .flirt-choice-item a {
-  display: block;
-  margin: auto;
-  text-align: center;
-  transition: 0.2s;
-  letter-spacing: 0.1em;
-  padding: 0.1em 0.5em;
-  border: solid 1.5px var(--text);
-  color: var(--text);
-  text-decoration: none;
-  opacity: 1;
-}
-
-.choice-item:hover a, .special-choice-item:hover a, .flirt-choice-item:hover a {
-  color: var(--text_light);
-  background-color: var(--text);
-}
-
-.flirt-choice-item a::after {
-  content: '\f004';
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  font: normal normal normal 14px/1 FontAwesome;
-}
-
-.special-choice-item a::after {
-  content: '\f005';
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  font: normal normal normal 14px/1 FontAwesome;
-}
-
-
-/* profile */
-
-#stat-title {
-  display: flex;
-  text-transform: uppercase;
-  justify-content: space-between;
-}
-
-
-/* ui dialog boxes */
-
-/* base */
-#ui-dialog-body {
-  width: 100%;
-  background-color: var(--bg1);
-  border: solid 1.5px var(--text);
-  padding: 2em 1em;
-}
-
-#ui-dialog-title {
-  padding: .2em 2.5em .2em .5em;
-}
-
-#ui-dialog-close {
-  width: 2.5em;
-}
-
-#ui-dialog-titlebar {
-  width: 100%;
-  color: var(--title);
-  background-color: var(--titlebg);
-}
-
-#ui-dialog-body ul.buttons {
-  text-align: center;
-}
-
-#ui-dialog-body.settings h2[id|=header-heading] {
-  font-weight: normal;
-  font-size: 1.2em;
-}
-
-/* ui settings */
-
-#ui-dialog-body.settings div[id|=header-body] {
-  display: block;
-  text-align: center;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-size: 1em;
-  margin-bottom: 1.5em;
-}
-
-#ui-dialog-body.settings button {
-  width: 9em;
-}
-
-#ui-dialog-body.settings button[id|=setting-control] {
-  color: var(--text);
-  border: solid 1.5px var(--text);
-  background-color: transparent;
-}
-
-#ui-dialog-body.settings button[id|=setting-control]:hover {
-  color: var(--bg1);
-  background-color: var(--text);
-}
-
-#ui-dialog-body.settings button[id|=setting-control].enabled {
-  color: var(--text_light);
-  background-color: var(--bg2);
-  border: solid 1.5px var(--text);
-}
-
-#ui-dialog-body.settings button[id|=setting-control].enabled:hover {
-  color: var(--bg1);
-  background-color: var(--text);
-  border: solid 1.5px var(--text);
-}
-
-/* ui saves */
-
-#ui-dialog-body.saves {
-  padding: 2em 1em;
-}
-
-#ui-dialog-body.saves button {
-  width: 5em;
-}
-
-#ui-dialog-body.saves ul.buttons button {
-  width: 10em;
-  text-align: center;
-}
-
-#ui-dialog-body.restart ul.buttons button {
-  width: 6em;
-}
-
-#ui-dialog-body.saves>h2 {
-  background-color: var(--text);
-  color: var(--bg1);
-}
 
 /* settings */
+Setting.addHeader("變更設定");
 
-/* font types */
-html.Noto-Sans-TC-font:root {
-  --fontbody: var(--font_01);
-}
-html.Noto-Serif-TC-font:root {
-  --fontbody: var(--font_02);
-}
-html.Iansui-font:root {
-  --fontbody: var(--font_05);
-}
+/* font type */
+var settingFontNames = ["黑體", "宋體", "芫荽字體"];
+var settingFontHandler = function () {
+  var $html = $("html");
+  
+  $html.removeClass("Noto-Sans-TC-font Noto-Serif-TC-font Iansui-font");
+  
+  switch (settings.font) {
+    case "黑體":
+      $html.addClass("Noto-Sans-TC-font");
+       break;
+    case "宋體":
+      $html.addClass("Noto-Serif-TC-font");
+      break;
+    case "芫荽字體":
+      $html.addClass("Iansui-font");
+      break;
+  }
+};
+Setting.addList("font", {
+  label    : "設定文字字體",
+  list     :settingFontNames,
+  onInit   :settingFontHandler,
+  onChange :settingFontHandler
+});
 
 /* font size */
-
-html.fontsize-medium .passage {
-  font-size: 18px;
-}
-html.fontsize-large .passage {
-  font-size: 20px;
-}
-
-/* line height */
-
-html.lineheight-2 .passage {
-  line-height: 2;
-}
-html.lineheight-2-25 .passage {
-  line-height: 2.25;
-}
-
-/* transition */
-
-html.transition .passage {
-  webkit-transition: none;
-  -o-transition: none;
-  transition: none;
-}
-
-/* indicators */
-
-html.indicator .special-choice-item a::after, html.indicator .flirt-choice-item a::after {
-  content: none;
-}
+var settingFontSizeNames = ["小", "中", "大"];
+var settingFontSizeHandler = function () {
+  var $html = $("html");
+  
+  $html.removeClass("fontsize-medium fontsize-large");
+  
+  switch (settings.fontsize) {
+    case "中":
+      $html.addClass("fontsize-medium");
+      break;
+    case "大":
+      $html.addClass("fontsize-large");
+      break;
+  }
+};
+Setting.addList("fontsize", {
+  label    : "設定文字大小",
+  list     :settingFontSizeNames,
+  onInit   :settingFontSizeHandler,
+  onChange :settingFontSizeHandler
+});
 
 
-/* costum style
-- 文字動態效果 
+/* notifications */
+Setting.addToggle("notifs", {
+	label : "開啟／關閉通知",
+	default : true,
+});
+
+/* line height
+var settingLineHeight = ["1.75", "2", "2.25"];
+var settingLineHeightHandler = function () {
+	var $html = $("html");
+
+	$html.removeClass("lineheight-2 lineheight-2-25");
+
+	switch (settings.lineheight) {
+		case "2":
+			$html.addClass("lineheight-2");
+			break;
+		case "2.25":
+			$html.addClass("lineheight-2-25");
+			break;
+	}
+};
+Setting.addList("lineheight", {
+  label 	: "設定文字行高",
+  list		:settingLineHeight,
+  onInit	:settingLineHeightHandler,
+  onChange	:settingLineHeightHandler 
+});
 */
 
-/* 文字置中 */
-.center {
-	text-align: center;
-}
+/* colour schemes
+var settingThemeNames = ["Dark", "Light"];
+var settingThemeHandler = function () {
+	var $html = $("html");
 
-/* 逐行出現 */
-.delayed {
-    opacity: 0;
-}
+	$html.removeClass("light-theme");
 
-/* 文字陰影 */
-.shadow {
-	text-shadow: 0.08em 0.08em 0.08em #FFF;
-}
-
-/* 文字浮凸 */
-.emboss {
-	text-shadow: 0.08em 0.08em 0em #FFF;
-	color: black;
-}
-
-/* 文字模糊 */
-.blur {
-	color: transparent;
-	text-shadow: 0em 0em 0.08em #FFF;
-}
-
-/* 文字焦糊 */
-.blurrier {
-	color: transparent;
-	text-shadow: 0em 0em 0.2em #FFF;
-}
-.blurrier::selection {
-	background-color: transparent;
-	color: transparent;
-}
-.blurrier::-moz-selection {
-	background-color: transparent;
-	color: transparent;
-}
-
-/* 光暈效果 */
-.smear {
-	color: transparent;
-	text-shadow:
-		0em    0em 0.02em rgba(255,255,255,0.75),
-		-0.2em 0em 0.5em  rgba(255,255,255,0.5),
-		0.2em  0em 0.5em  rgba(255,255,255,0.5);
-}
-
-/* 文字鏡射 */
-.mirror {
-	display: inline-block;
-	transform: scaleX(-1);
-	-webkit-transform: scaleX(-1);
-}
-
-/* 文字上下顛倒 */
-.upside-down {
-	display: inline-block;
-	transform: scaleY(-1);
-	-webkit-transform: scaleY(-1);
-}
-
-/* 閃爍效果 */
-@-webkit-keyframes fade-in-out {
-	0%,
-	to {opacity: 0}
-	50% {opacity: 1}
-}
-@keyframes fade-in-out {
-	0%,
-	to {opacity: 0}
-	50% {opacity: 1}
-}
-.fade-in-out {
-	text-decoration: none;
-	animation: fade-in-out 2s ease-in-out infinite alternate;
-	-webkit-animation: fade-in-out 2s ease-in-out infinite alternate;
-}
-
-/* 上下抖動 */
-@-webkit-keyframes rumble {
-	50% {
-		-webkit-transform: translateY(-.2em);
-		transform: translateY(-.2em)
+	switch (settings.theme) {
+      case "Light":
+		$html.addClass("light-theme");
+		break;
 	}
-}
-@keyframes rumble {
-	50% {
-		-webkit-transform: translateY(-.2em);
-		transform: translateY(-.2em)
+};
+Setting.addList("theme", {
+	label    : "設定網頁主題",
+	list     : settingThemeNames,
+	onInit   : settingThemeHandler,
+	onChange : settingThemeHandler
+});
+*/
+
+/* fullscreen
+var settingFullscreenHandler = function () {
+	if (settings.fullscreen) {
+		Fullscreen.request();
 	}
-}
-.rumble {
-	-webkit-animation: rumble linear 0.1s 0s infinite;
-	animation: rumble linear 0.1s 0s infinite;
-	display:inline-block;
-}
-
-/* 左右抖動 */
-@-webkit-keyframes shudder {
-	50% {
-		-webkit-transform: translateX(0.2em);
-		transform: translateX(0.2em)
+	else {
+		Fullscreen.exit();
 	}
-}
-@keyframes shudder {
-	50% {
-		-webkit-transform: translateX(0.2em);
-		transform: translateX(0.2em)
+};
+Setting.addToggle("fullscreen", {
+  label    : "切換全螢幕",
+  default  : false,
+  onInit   : settingFullscreenHandler,
+  onChange : settingFullscreenHandler
+});
+*/
+
+/* autoname saves 
+Save.onSave.add( function (save, details) {
+    if (settings.autoname) {
+        save.title = State.variables.name + " - " + State.variables.chapter;
+    } else if (details.type == "autosave") {
+        save.title = "Autosave";
+    } else {
+        save.title = prompt("Enter Save Name:", save.title);
+}});
+Setting.addToggle("autoname", {
+    label       : "開啟／關閉自動存檔",
+    default     : true,
+});
+*/
+
+/* indicators 
+var settingIndicatorHandler = function () {
+	if (settings.indicator) {
+		$("html").removeClass("indicator");
 	}
-}
-.shudder {
-	-webkit-animation: shudder linear 0.1s 0s infinite;
-	animation: shudder linear 0.1s 0s infinite;
-	display: inline-block;
-}
+	else {
+		$("html").addClass("indicator");
+	}
+};
+Setting.addToggle("indicator", {
+	label: "開啟／關閉指示符號",
+	default: true,
+	onInit: settingIndicatorHandler,
+	onChange: settingIndicatorHandler
+});
+*/
 
-/* 彈出效果 */
-@-webkit-keyframes pulse {
-	0%  { -webkit-transform: scale(0, 0); transform: scale(0, 0) }
-	20% { -webkit-transform: scale(1.2, 1.2); transform: scale(1.2, 1.2) }
-	40% { -webkit-transform: scale(0.9, 0.9); transform: scale(0.9, 0.9) }
-	60% { -webkit-transform: scale(1.05, 1.05); transform: scale(1.05, 1.05) }
-	80% { -webkit-transform: scale(0.925, 0.925); transform:scale(0.925, 0.925) }
-	to  { -webkit-transform: scale(1, 1); transform: scale(1, 1) }
-}
-@keyframes pulse {
-	0%  { -webkit-transform: scale(0, 0); transform: scale(0, 0) }
-	20% { -webkit-transform: scale(1.2, 1.2); transform: scale(1.2, 1.2) }
-	40% { -webkit-transform: scale(0.9, 0.9); transform: scale(0.9, 0.9) }
-	60% { -webkit-transform: scale(1.05, 1.05); transform: scale(1.05, 1.05) }
-	80% { -webkit-transform: scale(0.925, 0.925); transform: scale(0.925, 0.925) }
-	to  { -webkit-transform: scale(1, 1); transform: scale(1, 1) }
-}
-.pulse {
-	-webkit-animation: pulse 0.8s;
-	animation: pulse 0.8s;
-	display: inline-block;
-}
-
-/* 喝醉效果 */
-.drunk {
-	animation: drunkCam 10s infinite alternate;
-	color: white;
-}
-@keyframes drunkCam {
-	0%  { filter: blur(0px); text-shadow: 0 0 0 grey; }
-	20% { filter: blur(1px); text-shadow: 8px 0 0 grey; }
-	24% { filter: blur(0px); text-shadow: 0 0 0 grey; }
-	26% { filter: blur(0px); text-shadow: 0 0 0 grey; }
-	28% { filter: blur(1px); text-shadow: 10px 0 0 grey; }
-	30% { filter: blur(0px); text-shadow: 0 0 0 grey; }
-	60% { filter: blur(1px); text-shadow: 5px 0 0 grey; }
-	62% { filter: blur(0px); text-shadow: 0 0 0 grey; }
-	65% { filter: blur(2px); text-shadow: 8px 0 0 grey; }
-	67% { filter: blur(0px); text-shadow: 0 0 0 grey; }
-	80% { filter: blur(0px); text-shadow: 8px 0 0 grey; }
-	85% { filter: blur(2px); text-shadow: 10px 0 0 grey; }
-	88% { filter: blur(1px); text-shadow: 5px 0 0 grey; }
-	90% { filter: blur(0px); text-shadow: 0 0 0 grey; }
-}
-
-/* 發抖效果 */
-/* The "clip" in ".glitch" is depreciated, so technically you should use the "clip-path" that's in ".glitchy" instead, however IE doesn't support "clip-path", and most browsers still support "clip". */
-.glitch {
-  color: white;
-  position: relative;
-}
-.glitch:before {
-  content: attr(data-text);
-  width: calc(100% + 0.5em);
-  position: absolute;
-  left: -9px;
-  text-shadow: 1px 0 blue;
-  top: -5px;
-  color: #FFD;
-  background: #111;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim-2 3s infinite linear alternate-reverse;
-  -webkit-animation: noise-anim-2 3s infinite linear alternate-reverse;
-}
-.glitch:after {
-  content: attr(data-text);
-  width: calc(100% + 0.5em);
-  position: absolute;
-  left: -5px;
-  text-shadow: -1px 0 red;
-  top: -5px;
-  color: #DFF;
-  background: #111;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim 2s infinite linear alternate-reverse;
-  -webkit-animation: noise-anim 2s infinite linear alternate-reverse;
-}
-@keyframes noise-anim {
-  0% {
-    clip: rect(80px, 9999px, 16px, 0);
-  }
-  5% {
-    clip: rect(94px, 9999px, 17px, 0);
-  }
-  10% {
-    clip: rect(9px, 9999px, 92px, 0);
-  }
-  15.0% {
-    clip: rect(37px, 9999px, 4px, 0);
-  }
-  20% {
-    clip: rect(53px, 9999px, 47px, 0);
-  }
-  25% {
-    clip: rect(99px, 9999px, 69px, 0);
-  }
-  30.0% {
-    clip: rect(15px, 9999px, 49px, 0);
-  }
-  35% {
-    clip: rect(83px, 9999px, 81px, 0);
-  }
-  40% {
-    clip: rect(55px, 9999px, 43px, 0);
-  }
-  45% {
-    clip: rect(28px, 9999px, 27px, 0);
-  }
-  50% {
-    clip: rect(64px, 9999px, 28px, 0);
-  }
-  55.0% {
-    clip: rect(76px, 9999px, 91px, 0);
-  }
-  60.0% {
-    clip: rect(29px, 9999px, 72px, 0);
-  }
-  65% {
-    clip: rect(70px, 9999px, 10px, 0);
-  }
-  70% {
-    clip: rect(5px, 9999px, 84px, 0);
-  }
-  75% {
-    clip: rect(46px, 9999px, 81px, 0);
-  }
-  80% {
-    clip: rect(7px, 9999px, 85px, 0);
-  }
-  85.0% {
-    clip: rect(17px, 9999px, 89px, 0);
-  }
-  90% {
-    clip: rect(41px, 9999px, 59px, 0);
-  }
-  95% {
-    clip: rect(53px, 9999px, 90px, 0);
-  }
-  100% {
-    clip: rect(10px, 9999px, 30px, 0);
-  }
-}
-@keyframes noise-anim-2 {
-  0% {
-    clip: rect(84px, 9999px, 3px, 0);
-  }
-  5% {
-    clip: rect(31px, 9999px, 69px, 0);
-  }
-  10% {
-    clip: rect(37px, 9999px, 33px, 0);
-  }
-  15.0% {
-    clip: rect(18px, 9999px, 6px, 0);
-  }
-  20% {
-    clip: rect(25px, 9999px, 87px, 0);
-  }
-  25% {
-    clip: rect(100px, 9999px, 8px, 0);
-  }
-  30.0% {
-    clip: rect(24px, 9999px, 87px, 0);
-  }
-  35% {
-    clip: rect(39px, 9999px, 16px, 0);
-  }
-  40% {
-    clip: rect(96px, 9999px, 25px, 0);
-  }
-  45% {
-    clip: rect(16px, 9999px, 100px, 0);
-  }
-  50% {
-    clip: rect(92px, 9999px, 76px, 0);
-  }
-  55.0% {
-    clip: rect(29px, 9999px, 40px, 0);
-  }
-  60.0% {
-    clip: rect(40px, 9999px, 39px, 0);
-  }
-  65% {
-    clip: rect(94px, 9999px, 44px, 0);
-  }
-  70% {
-    clip: rect(2px, 9999px, 78px, 0);
-  }
-  75% {
-    clip: rect(86px, 9999px, 50px, 0);
-  }
-  80% {
-    clip: rect(2px, 9999px, 46px, 0);
-  }
-  85.0% {
-    clip: rect(41px, 9999px, 71px, 0);
-  }
-  90% {
-    clip: rect(75px, 9999px, 15px, 0);
-  }
-  95% {
-    clip: rect(41px, 9999px, 8px, 0);
-  }
-  100% {
-    clip: rect(23px, 9999px, 75px, 0);
-  }
-}
-
-.glitchy {
-  color: white;
-  position: relative;
-}
-.glitchy:before {
-  content: attr(data-text);
-  width: calc(100% + 0.5em);
-  position: absolute;
-  left: -9px;
-  text-shadow: 1px 0 blue;
-  top: -5px;
-  color: #FFD;
-  background: #111;
-  overflow: hidden;
-  clip-path: polygon(0 0);
-  animation: noise-animY-2 3s infinite linear alternate-reverse;
-  -webkit-animation: noise-animY-2 3s infinite linear alternate-reverse;
-}
-.glitchy:after {
-  content: attr(data-text);
-  width: calc(100% + 0.5em);
-  position: absolute;
-  left: -5px;
-  text-shadow: -1px 0 red;
-  top: -5px;
-  color: #DFF;
-  background: #111;
-  overflow: hidden;
-  clip-path: polygon(0 0);
-  animation: noise-animY 2s infinite linear alternate-reverse;
-  -webkit-animation: noise-animY 2s infinite linear alternate-reverse;
-}
-@keyframes noise-animY {
-  0% {
-    clip-path: polygon(0 80px, 100% 80px, 100% 16px, 0 16px);
-  }
-  5% {
-    clip-path: polygon(0 94px, 100% 94px, 100% 17px, 0 17px);
-  }
-  10% {
-    clip-path: polygon(0 9px, 100% 9px, 100% 92px, 0 92px);
-  }
-  15.0% {
-    clip-path: polygon(0 37px, 100% 37px, 100% 4px, 0 4px);
-  }
-  20% {
-    clip-path: polygon(0 53px, 100% 53px, 100% 47px, 0 47px);
-  }
-  25% {
-    clip-path: polygon(0 99px, 100% 99px, 100% 69px, 0 69px);
-  }
-  30.0% {
-    clip-path: polygon(0 15px, 100% 15px, 100% 49px, 0 49px);
-  }
-  35% {
-    clip-path: polygon(0 83px, 100% 83px, 100% 81px, 0 81px);
-  }
-  40% {
-    clip-path: polygon(0 55px, 100% 55px, 100% 43px, 0 43px);
-  }
-  45% {
-    clip-path: polygon(0 28px, 100% 28px, 100% 27px, 0 27px);
-  }
-  50% {
-    clip-path: polygon(0 64px, 100% 64px, 100% 28px, 0 28px);
-  }
-  55.0% {
-    clip-path: polygon(0 76px, 100% 76px, 100% 91px, 0 91px);
-  }
-  60.0% {
-    clip-path: polygon(0 29px, 100% 29px, 100% 72px, 0 72px);
-  }
-  65% {
-    clip-path: polygon(0 70px, 100% 70px, 100% 10px, 0 10px);
-  }
-  70% {
-    clip-path: polygon(0 5px, 100% 5px, 100% 84px, 0 84px);
-  }
-  75% {
-    clip-path: polygon(0 46px, 100% 46px, 100% 81px, 0 81px);
-  }
-  80% {
-    clip-path: polygon(0 7px, 100% 7px, 100% 85px, 0 85px);
-  }
-  85.0% {
-    clip-path: polygon(0 17px, 100% 17px, 100% 89px, 0 89px);
-  }
-  90% {
-    clip-path: polygon(0 41px, 100% 41px, 100% 59px, 0 59px);
-  }
-  95% {
-    clip-path: polygon(0 53px, 100% 53px, 100% 90px, 0 90px);
-  }
-  100% {
-    clip-path: polygon(0 10px, 100% 10px, 100% 30px, 0 30px);
-  }
-}
-@keyframes noise-animY-2 {
-  0% {
-    clip-path: polygon(0 84px, 100% 84px, 100% 3px, 0 3px);
-  }
-  5% {
-    clip-path: polygon(0 31px, 100% 31px, 100% 69px, 0 69px);
-  }
-  10% {
-    clip-path: polygon(0 37px, 100% 37px, 100% 33px, 0 33px);
-  }
-  15.0% {
-    clip-path: polygon(0 18px, 100% 18px, 100% 6px, 0 6px);
-  }
-  20% {
-    clip-path: polygon(0 25px, 100% 25px, 100% 87px, 0 87px);
-  }
-  25% {
-    clip-path: polygon(0 100px, 100% 100px, 100% 8px, 0 8px);
-  }
-  30.0% {
-    clip-path: polygon(0 24px, 100% 24px, 100% 87px, 0 87px);
-  }
-  35% {
-    clip-path: polygon(0 39px, 100% 39px, 100% 16px, 0 16px);
-  }
-  40% {
-    clip-path: polygon(0 96px, 100% 96px, 100% 25px, 0 25px);
-  }
-  45% {
-    clip-path: polygon(0 16px, 100% 16px, 100% 100px, 0 100px);
-  }
-  50% {
-    clip-path: polygon(0 92px, 100% 92px, 100% 76px, 0 76px);
-  }
-  55.0% {
-    clip-path: polygon(0 29px, 100% 29px, 100% 40px, 0 40px);
-  }
-  60.0% {
-    clip-path: polygon(0 40px, 100% 40px, 100% 39px, 0 39px);
-  }
-  65% {
-    clip-path: polygon(0 94px, 100% 94px, 100% 44px, 0 44px);
-  }
-  70% {
-    clip-path: polygon(0 2px, 100% 2px, 100% 78px, 0 78px);
-  }
-  75% {
-    clip-path: polygon(0 86px, 100% 86px, 100% 50px, 0 50px);
-  }
-  80% {
-    clip-path: polygon(0 2px, 100% 2px, 100% 46px, 0 46px);
-  }
-  85.0% {
-    clip-path: polygon(0 41px, 100% 41px, 100% 71px, 0 71px);
-  }
-  90% {
-    clip-path: polygon(0 75px, 100% 75px, 100% 15px, 0 15px);
-  }
-  95% {
-    clip-path: polygon(0 41px, 100% 41px, 100% 8px, 0 8px);
-  }
-  100% {
-    clip-path: polygon(0 23px, 100% 23px, 100% 75px, 0 75px);
-  }
-}
-
-/* <<shake>>  */
-@-webkit-keyframes shakeanim {
-	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
-	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
-	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
-	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
-	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
-	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
-	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
-	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
-	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
-	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
-	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
-}
-@-o-keyframes shakeanim {
-	0% { -o-transform: translate(2px, 1px) rotate(0deg); }
-	10% { -o-transform: translate(-1px, -2px) rotate(-1deg); }
-	20% { -o-transform: translate(-3px, 0px) rotate(1deg); }
-	30% { -o-transform: translate(0px, 2px) rotate(0deg); }
-	40% { -o-transform: translate(1px, -1px) rotate(1deg); }
-	50% { -o-transform: translate(-1px, 2px) rotate(-1deg); }
-	60% { -o-transform: translate(-3px, 1px) rotate(0deg); }
-	70% { -o-transform: translate(2px, 1px) rotate(-1deg); }
-	80% { -o-transform: translate(-1px, -1px) rotate(1deg); }
-	90% { -o-transform: translate(2px, 2px) rotate(0deg); }
-	100% { -o-transform: translate(1px, -2px) rotate(-1deg); }
-}
-@keyframes shakeanim {
-	0% { transform: translate(2px, 1px) rotate(0deg); }
-	10% { transform: translate(-1px, -2px) rotate(-1deg); }
-	20% { transform: translate(-3px, 0px) rotate(1deg); }
-	30% { transform: translate(0px, 2px) rotate(0deg); }
-	40% { transform: translate(1px, -1px) rotate(1deg); }
-	50% { transform: translate(-1px, 2px) rotate(-1deg); }
-	60% { transform: translate(-3px, 1px) rotate(0deg); }
-	70% { transform: translate(2px, 1px) rotate(-1deg); }
-	80% { transform: translate(-1px, -1px) rotate(1deg); }
-	90% { transform: translate(2px, 2px) rotate(0deg); }
-	100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-.shake-block,
-.shake {
-	-webkit-animation-duration: 0.8s;
-	     -o-animation-duration: 0.8s;
-	        animation-duration: 0.8s;
-	-webkit-animation-iteration-count: infinite;
-	     -o-animation-iteration-count: infinite;
-	        animation-iteration-count: infinite;
-	-webkit-animation-name: shakeanim;
-	     -o-animation-name: shakeanim;
-	        animation-name: shakeanim;
-	-webkit-animation-timing-function: linear;
-	     -o-animation-timing-function: linear;
-	        animation-timing-function: linear;
-	-webkit-transform-origin: 50% 50%;
-	    -ms-transform-origin: 50% 50%;
-	     -o-transform-origin: 50% 50%;
-	        transform-origin: 50% 50%;
-}
-.shake-block {
-	display: block;
-}
-.shake {
-	display: inline-block;
-}
+/* passage transition 
+var settingTransitionHandler = function () {
+	if (settings.transition) {
+		$("html").removeClass("transition");
+	}
+	else {
+		$("html").addClass("transition");
+	}
+};
+Setting.addToggle("transition", {
+	label    : "開啟／關閉頁面過渡動畫",
+	default  : true,
+	onInit   : settingTransitionHandler,
+	onChange : settingTransitionHandler
+});
+*/
 
 
-/* RWD
- *tablet- 1024~750
- *mobile- 750~
+/* Tag script */
+/* noreturn */
+$(document).on(":passagestart", function() {
+	if (!tags().includes("noreturn")) {
+		// If it doesn't, then set $return to the current passage name.
+		State.variables.return = passage();
+	}
+});
+
+/* autosave */
+Config.saves.maxAutoSaves = 1;
+Config.saves.isAllowed = function (saveType) {
+	if (saveType === Save.Type.Auto) {
+		return tags().includes("autosave");
+	}
+
+	return true;
+};
+
+/* css animate script */
+/* delay */
+$(document).on(':passagerender', function (ev) {
+	// Find all elements containing the delayed class.
+	var elems = $(ev.content).find('.delayed');
+	// Appearance delay (in milliseconds) between each delayed text block.
+	var delay = 1000; // 1 second fade-in
+	if (elems.length > 0) {
+		elems.each(function (i) {
+			$(this)
+				.delay(delay * (i + 1))
+				.fadeTo(delay, 1);
+		});
+	}
+});
+
+
+/*! HiEv macros
+ *  Twine 2 / SugarCube 2 Sample Code
+ *  by HiEv
+ *  https://hiev-heavy-ind.com/Sample_Code/Sample_Code.html#Main%20Menu
  */
-/* tablet ui */
+/* Displaying Images in Twine */
+if (document.location.href.toLowerCase().includes("/temp/") || document.location.href.toLowerCase().includes("/private/") || hasOwnProperty.call(window, "storyFormat")) {
+	// Change this to the path where the HTML file is
+	// located if you want to run this from inside Twine.
+  	setup.Path = "C:/Users/user/Desktop/";  // Running inside Twine application(桌面media資料夾)
+} else { 
+	setup.Path = "";  // Running in a browser
+}
+setup.ImagePath = setup.Path + "media/img/";
+setup.SoundPath = setup.Path + "media/sounds/";
 
-@media only screen and (max-width: 1024px) {
-  #console {
-    width: 85vw;
-    height: 85vh;
-    padding: 1vh 5vw 3vh 5vw;
-  }
+/*! Image Map Resizer
+ *  Desc: Resize HTML imageMap to scaled image.
+ *  Copyright: (c) 2014-15 David J. Bradshaw - dave@bradshaw.net
+ *  License: MIT
+ *  Modified for use in Twine/SugarCube by: HiEv (2020) v1.0
+ */
+(function() {
+	function scaleImageMap() {
+		function resizeMap() {
+			function resizeAreaTag(cachedAreaCoords, idx) {
+				function scale(coord) {
+					var dimension = 1 === (isWidth = 1 - isWidth) ? "width" : "height";
+					return (padding[dimension] + Math.floor(Number(coord) * scalingFactor[dimension]));
+				}
 
-  body.start-menu {
-    background-image: url("media/img/bgloading.png");
-  }
+				var isWidth = 0;
+				areas[idx].coords = cachedAreaCoords.split(",").map(scale).join(",");
+			}
 
-  #ui-dialog-body, #ui-dialog-titlebar {
-    width: 70vw;
-  }
+			if (image) {
+				var scalingFactor = {
+					width: $(image).width() / image.naturalWidth,
+					height: $(image).height() / image.naturalHeight,
+				};
+				var padding = {
+					width: parseInt(
+						window.getComputedStyle(image, null).getPropertyValue("padding-left"),
+						10
+					),
+					height: parseInt(
+						window.getComputedStyle(image, null).getPropertyValue("padding-top"),
+						10
+					),
+				};
+				cachedAreaCoordsArray.forEach(resizeAreaTag);
+			}
+		}
+		function getCoords(e) {
+			// Normalize coord-string to csv format without any space chars
+			return e.coords.replace(/ *, */g, ",").replace(/ +/g, ",");
+		}
+		function debounce() {
+			clearTimeout(timer);
+			timer = setTimeout(resizeMap, 250);
+		}
+		function start() {
+			function setupMap () {
+				if ($("img").width()) {
+					resizeMap();
+				} else {
+					if (++tries < 100) {
+						setTimeout(setupMap, 20);
+					}
+				}
+			}
 
-  #ui-dialog-body.saves>:not(:first-child) {
-    display: inline-grid;
-    width: 100%;
-    padding-top: 0.5em;
-    margin-top: 0.5em;
-  }
+			var tries = 0;
+			if (image) {
+				setupMap();
+				var imo = $(context).find(".imageMapObserve");
+				if (imo.length) {
+					$(context).off("mouseup", ".imageMapObserve", resizeMap);
+					imo.on("mouseup", resizeMap);
+					if (window.ResizeObserver) {
+						new ResizeObserver(debounce).observe($(context)[0].querySelector(".imageMapObserve"));
+					}
+				}
+			}
+		}
+		function addEventListeners() {
+			if (image) {
+				image.addEventListener("load", resizeMap, false);  // Detect late image loads in IE11
+			}
+			window.addEventListener("focus", resizeMap, false);  // Cope with window being resized whilst on another tab
+			window.addEventListener("resize", debounce, false);
+			window.addEventListener("readystatechange", resizeMap, false);
+			document.addEventListener("fullscreenchange", resizeMap, false);
+			$("#ui-bar-toggle").click(debounce);
+		}
+		function beenHere() {
+			return "function" === typeof map._resize;
+		}
+		function getImg(name) {
+			return $(context).find('img[usemap="' + name + '"]')[0];
+		}
+		function setup() {
+			areas = map.getElementsByTagName("area");
+			cachedAreaCoordsArray = Array.prototype.map.call(areas, getCoords);
+			image = getImg("#" + map.name) || getImg(map.name);
+			map._resize = resizeMap;  // Bind resize method to HTML map element
+		}
+
+		var  /* jshint validthis:true */
+			map = this, areas = null,
+			cachedAreaCoordsArray = null,
+			image = null, timer = null;
+		if (!beenHere()) {
+			setup();
+			addEventListeners();
+			start();
+		} else {
+			var imo = $(context).find(".imageMapObserve");
+			if (imo.length) {
+				$(context).off("mouseup", ".imageMapObserve", resizeMap);
+				imo.on("mouseup", resizeMap);
+				if (window.ResizeObserver) {
+					new ResizeObserver(debounce).observe($(context)[0].querySelector(".imageMapObserve"));
+				}
+			}
+			map._resize();  // Already setup, so just resize map
+		}
+	}
+	function factory() {
+		function chkMap(element) {
+			if (!element.tagName) {
+				throw new TypeError("Object is not a valid DOM element");
+			} else if ("MAP" !== element.tagName.toUpperCase()) {
+				throw new TypeError("Expected <MAP> tag, found <" + element.tagName + ">.");
+			}
+		}
+		function init(element) {
+			if (element) {
+				chkMap(element);
+				scaleImageMap.call(element);
+				maps.push(element);
+			}
+		}
+
+		var maps;
+		return function imageMapResizeF(target) {
+			maps = [];  // Only return maps from this call
+			switch (typeof target) {
+				case "undefined":
+				case "string":
+					Array.prototype.forEach.call(context.querySelectorAll(target || "map"), init);
+					break;
+				case "object":
+					init(target);
+					break;
+				default:
+					throw new TypeError("Unexpected data type (" + typeof target + ").");
+			}
+			return maps;
+		};
+	}
+
+	var context = document;
+	if (typeof define === "function" && define.amd) {
+		define([], factory);
+	} else if (typeof module === "object" && typeof module.exports === "object") {
+		module.exports = factory();  // Node for browserfy
+	} else {
+		window.imageMapResize = factory();
+	}
+	if ("jQuery" in window) {
+		window.jQuery.fn.imageMapResize = function $imageMapResizeF() {
+			context = this.prevObject;
+			return this.filter("map").each(scaleImageMap).end();
+		};
+	}
+})();
+
+$(document).on(":passagerender", function (event) {
+	$(event.content).find("map").imageMapResize();
+});
+
+/* SlideWin v1.0 - Start */
+// Add the SlideWin window to the page.
+var el = document.createElement("div");
+el.id = "slideWin";
+el.setAttribute("role", "main");
+el.setAttribute("aria-labelledby", "slideTitle");
+document.body.appendChild(el);
+$(el).css({ transform: "translateX(-101vw)", "stroke-width": "101px" });
+// Allow the ESC key to hide the SlideWin window.
+$(document).on("keyup", function (event) {
+	if (($("#slideWin").css("stroke-width") !== "101px") && ((event.key === "Escape") || (event.key === "Esc"))) {
+		window.slideWin("hide");
+		return false;
+	}
+});
+// The slideWin() function.
+setup.slideWinHandler = [];
+window.slideWin = function (dir) {
+	if ($("#slideWin").css("stroke-width") !== "101px") {  // Hide slide window.
+		setup.slideWinPassage = undefined;
+		$("#slideWin").attr("tabindex", null);
+		$("#slideWin").animate(
+			{ "stroke-width": "101px" },  // Hack to get animation to work.
+			{	step: function (now, fx) { $(this).css("transform", "translateX(" + (-now) + "vw)"); },
+				complete: function () {
+					$("#slideWin").empty();
+					if (dir !== "hide") {
+						window.slideWin(dir);
+					}
+				},
+				duration: 500
+			},
+			"swing"
+		);
+		var handler;  // Remove event handlers.
+		while (setup.slideWinHandler.length) {
+			handler = setup.slideWinHandler.shift();
+			$(handler.selector).off(handler.event, "#slideWin", handler.function);
+		}
+		$("body").removeClass("slideWin");
+	} else {  // Show slide window.
+		setup.slideWinPassage = dir;
+		$("#slideWin").empty().attr("tabindex", 0).wiki('<button class="ur" onclick="slideWin(\'hide\')" tabindex="0" aria-label="Close Save/Load Window">X</button><div id="slideWinContent" tabindex="0"><<include "' + dir + '">></div>');
+		$("#slideWin p").each(function () {  // Remove any empty <p> elements.
+			if ($(this).text().trim() === "") {
+				$(this).remove();
+			} else {  // Strip <p> elements from around their contents.
+				$(this).children().unwrap();
+			}
+		});
+		$("#slideWin").delay(1).animate(  // Delay prevents animation stutter.
+			{ "stroke-width": "0" },  // Hack to get animation to work.
+			{	step: function (now, fx) { $(this).css("transform", "translateX(" + (-now) + "vw)"); },
+				complete: function () { $("body").addClass("slideWin"); },
+				duration: 500
+			},
+			"swing"
+		).focus();
+	}
+};
+/* SlideWin - End */
+
+/*! ChapelR macros
+ *  Chapel's Custom Macro Collection
+ *  by Chapel
+ *  https://macros.twinelab.net/
+ */
+/* contine */
+// continue.min.js, for SugarCube 2, by Chapel
+// v1.0.1, 2024-07-22, 336675ff2cabe5f729a5f30d86aa409cc8432726
+;!function(){"use strict";var n=["a",":button",'*[role="button"]',".continue-macro-ignore","#ui-bar","#ui-dialog"],t=0;function o(){$(document).on("click.continue-macro keyup.continue-macro",n.join(", "),(function(n){n.stopPropagation()}))}function e(){if(State.length>0)return!1;var t=[].slice.call(arguments).flat(1/0);return n=n.concat(t),!0}function c(n,o){var e=function(){var n="."+Date.now().toString(36)+"-"+t;return t++,n}();if(o&&"function"==typeof o){var c="click.continue-macro"+e;n&&(c=c+" keyup.continue-macro"+e),$(document).one(c,(function(){o.call(),$(document).off(e)}))}}prehistory["%%continue-expiration"]=function(){t=0},$(document).one(":passagerender",(function(){o()})),Macro.add("ignore",{handler:function(){if(!e(this.args))return this.error("the <<ignore>> macro should only be run from StoryInit or equivalent.")}}),Macro.add("cont",{tags:null,handler:function(){var n,t=this.args.includes("append"),o=this.args.includesAny("key","keypress","press","button"),e=this.payload[0].contents;t&&(n=$(document.createElement("span")).addClass("macro-"+this.name).appendTo(this.output)),c(o,this.createShadowWrapper((function(){t&&n&&n instanceof $?n.wiki(e):$.wiki(e)})))}}),setup.cont=c,setup.cont.ignore=e,setup.cont.reset=function(){var t=[].slice.call(arguments).flat(1/0);n=n.concat(t),$(document).off(".continue-macro"),o()},window.cont=window.cont||setup.cont}();
+// end continue.min.js
+
+/* fade-in fade-out */
+// fading-macro-set.min.js, for SugarCube 2, by Chapel
+// v1.1.0, 2024-07-22, 336675ff2cabe5f729a5f30d86aa409cc8432726
+;Macro.add("fadein",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=this.args.length>1?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).hide().delay(a).fadeIn(t)}}),Macro.add("fadeout",{tags:null,handler:function(){var t,a,s=$(document.createElement("span")),e=this.payload[0].contents;if(0===this.args.length)return this.error("no arguments given");t=Util.fromCssTime(this.args[0]),a=this.args.length>1?Util.fromCssTime(this.args[1]):0,s.wiki(e).addClass("macro-"+this.name).appendTo(this.output).delay(a).fadeOut(t)}});
+// end fading-macro-set.min.js
+
+/* notify */
+// notify.min.js, for SugarCube 2, by Chapel
+// v1.1.1, 2024-07-22, 336675ff2cabe5f729a5f30d86aa409cc8432726
+;!function(){var s=/\d+m?s$/;function a(s,a,e){"string"==typeof s&&("number"!=typeof a&&(a=!1),$(document).trigger({type:":notify",message:s,delay:a,class:e||""}))}$(document.body).append("<div id='notify'></div>"),$(document).on(":notify",(function(s){s.message&&"string"==typeof s.message&&(s.message.trim(),s.class?"string"==typeof s.class?s.class="open macro-notify "+s.class:Array.isArray(s.class)?s.class="open macro-notify "+s.class.join(" "):s.class="open macro-notify":s.class="open macro-notify",s.delay?("number"!=typeof s.delay&&(s.delay=Number(s.delay)),Number.isNaN(s.delay)&&(s.delay=2e3)):s.delay=2e3,$("#notify").empty().wiki(s.message).addClass(s.class),setTimeout((function(){$("#notify").removeClass()}),s.delay))})),Macro.add("notify",{tags:null,handler:function(){var e=this.payload[0].contents,t=!1,i=!1;if(this.args.length>0){var n=s.test(this.args[0]);"number"==typeof this.args[0]||n?(t=n?Util.fromCssTime(this.args[0]):this.args[0],i=this.args.length>1&&this.args.slice(1).flat(1/0)):i=this.args.flat(1/0).join(" ")}a(e,t,i)}}),setup.notify=a}();
+// end notify.min.js
+
+/* stat-meter */
+// meters.min.js, for SugarCube 2, by Chapel
+// v1.0.1, 2024-07-22, 336675ff2cabe5f729a5f30d86aa409cc8432726
+;!function(){"use strict";var t=!0,e=!1,s=!1,i={full:"#2ECC40",empty:"#FF4136",back:"#DDDDDD",height:"12px",width:"180px",animate:400,easing:"swing",text:"#111111",label:"",align:"center"},n=["center","left","right"],r=["swing","linear"];function a(t,e){return t&&"string"==typeof t&&(t=t.toLowerCase().trim())?t:e||""}function o(t){return t<.5?2*t*t:(4-2*t)*t-1}function l(t,e){if(!(this instanceof l))return new l(t,e);var s=clone(i);this.settings=Object.assign(s,t),this.settings.align=a(this.settings.align),this.settings.easing=a(this.settings.easing),n.includes(this.settings.align)||(this.settings.align="center"),r.includes(this.settings.easing)||(this.settings.easing="swing"),e=Number(e),Number.isNaN(e)&&(e=1),e=Math.clamp(e,0,1),this.value=e;var h=$(document.createElement("div")).addClass("chapel-meter").attr({"data-val":e,"data-label":this.settings.label}).css({position:"relative","background-color":this.settings.back,height:this.settings.height,width:this.settings.width,overflow:"hidden"}),g=$(document.createElement("div")).addClass("meter-label").css({top:0,right:0,"font-size":this.settings.height,"font-weight":"bold","line-height":"100%",width:"100%",height:"100%","vertical-align":"middle","text-align":this.settings.align,color:this.settings.text,"z-index":1,position:"relative",bottom:"100%"}).wiki(this.settings.label).appendTo(h),u=$(document.createElement("div")).addClass("meter-top").css({"background-color":this.settings.full,opacity:o(this.value),width:"100%",height:"100%","z-index":0}),c=$(document.createElement("div")).addClass("meter-bottom").css({position:"absolute",top:0,left:0,"background-color":this.settings.empty,opacity:1,width:100*this.value+"%",height:"100%","z-index":0}).append(u).appendTo(h);this.$element=h,this.$bars={top:u,bottom:c},this.$label=g,g.css("font-size",parseInt(h.css("height"),10)<parseInt($(".passage").css("font-size"),10)?h.css("height"):$(".passage").css("font-size")),g.css("line-height",h.css("height"))}Object.assign(l,{_list:new Map,is:function(t){return t instanceof l},has:function(t){return l._list.has(t)&&l.is(l._list.get(t))},get:function(t){return l.has(t)?l._list.get(t):null},del:function(t){l.has(t)&&l._list.delete(t)},add:function(t,s,i){if(!l.has(t)||e){Object.assign(s,{id:t});var n=new l(s,i);return l._list.set(t,n),n}console.error('Meter "'+t+'" already exists.')},_emit:function(t,e){l.is(t)&&t.$element.trigger({type:":"+e,meter:t})}}),Object.assign(l.prototype,{constructor:l,_label:function(t){var e=this;function s(){e.$label.empty().wiki(e.settings.label),e.$label.css("font-size",parseInt(e.$element.css("height"),10)<parseInt(e.$element.parent().css("font-size"),10)?e.$element.css("height"):e.$element.parent().css("font-size")),e.$label.css("line-height",e.$element.css("height"))}return t?setTimeout(s,Engine.minDomActionDelay):s(),this},_width:function(){var t=this;return this.$bars.bottom.animate({width:100*this.value+"%"},this.settings.animate,this.settings.easing,(function(){l._emit(t,"meter-animation-complete")})),this},_color:function(){return this.$bars.top.animate({opacity:o(this.value)},this.settings.animate,this.settings.easing),this},animate:function(){return l._emit(this,"meter-animation-start"),this._color()._width()._label()},val:function(t){return void 0!==t&&(t=Number(t),Number.isNaN(t)&&(t=1),t=Math.clamp(t,0,1),this.value=t,this.animate()),this.value},options:function(t){return t&&"object"==typeof t&&Object.assign(this.settings,t),this.settings},unwrap:function(){return this.$element[0]},place:function(t,e){var s=$(document.createElement("span"));return t instanceof jQuery||(t=$(t)),t[0]||console.warn("meter#place() -> no valid target"),e&&"object"==typeof e&&(e.classes&&(Array.isArray(e.classes)||"string"==typeof e.classes)&&s.addClass(e.classes),e.attr&&"object"==typeof e.attr&&s.attr(e.attr)),t.append(s.append(this.$element)),this._label(!0),this},on:function(t,e){return"function"!=typeof e?this:t&&"string"==typeof t&&t.trim()?(t=t.split(" ").map((function(t){return(t=t.split(".")[0])+".userland"})).join(" "),this.$element.on(t,e),this):this},one:function(t,e){return"function"!=typeof e?this:t&&"string"==typeof t&&t.trim()?(t=t.split(" ").map((function(t){return(t=t.split(".")[0])+".userland"})).join(" "),this.$element.one(t,e),this):this},off:function(t){return t=t&&"string"==typeof t&&t.trim()?t.split(" ").map((function(t){return(t=t.split(".")[0])+".userland"})).join(" "):".userland",this.$element.off(t),this},click:function(t,e){return this.$element.ariaClick(t,e),this},clone:function(){return new l(this.settings,this.value)},toJSON:function(){return JSON.reviveWrapper("new setup.Meter("+JSON.stringify(this.settings)+", "+this.value+")")}}),setup.Meter=l,t&&(window.Meter=window.Meter||l),Macro.add("newmeter",{tags:["colors","sizing","animation","label"],handler:function(){if(State.length>0&&!s)return this.error("The `<<newmeter>>` macro must be called in your `StoryInit` special passage. Seriously. No excuses. --Love, Chapel");if(this.args.length<1)return this.error("The `<<newmeter>>` macro requires at least one argument: a meter name.");var t=this.args[0],i=null,n=null,r=null,a=null;if("string"!=typeof t)return this.error("Invalid meter name.");if(t=t.trim(),l.has(t)&&!e)return this.error('Cannot clobber the existing meter "'+t+'".');this.payload.length&&(i=this.payload.find((function(t){return"colors"===t.name})),n=this.payload.find((function(t){return"sizing"===t.name})),r=this.payload.find((function(t){return"animation"===t.name})),a=this.payload.find((function(t){return"label"===t.name})));var o={};if(i){if(!i.args.length)return this.error("No arguments passed to the `<<colors>>` tag.");switch(i.args.length){case 1:o.empty=i.args[0],o.full="transparent";break;case 2:o.full=i.args[0],o.empty=i.args[1];break;default:o.full=i.args[0],o.empty=i.args[1],o.back=i.args[2]}}if(n){if(!n.args.length)return this.error("No arguments passed to the `<<sizing>>` tag.");o.width=n.args[0],n.args[1]&&(o.height=n.args[1])}if(r){if(!r.args.length)return this.error("No arguments passed to the `<<animation>>` tag.");if("boolean"!=typeof r.args[0]||r.args[0]){if("string"!=typeof r.args[0])return this.error("The argument to the `<<animation>>` tag should be `true`, `false`, or a valid CSS time value.");o.animate=Util.fromCssTime(r.args[0])}else o.animate=0;r.args[1]&&["swing","linear"].includes(r.args[1])&&(o.easing=r.args[1])}if(a){var h=a.args[0];if(!h||"string"!=typeof h)return this.error("The labelText argument for the `<<label>>` tag is required.");o.label=h.trim(),a.args[1]&&"string"==typeof a.args[1]&&(o.text=a.args[1]),a.args[2]&&"string"==typeof a.args[2]&&(o.align=a.args[2])}l.add(t,o,this.args[1])}}),Macro.add("showmeter",{handler:function(){if(this.args.length<1)return this.error("This macro requires at least one argument: the meter's name.");var t=this.args[0];if("string"!=typeof t)return this.error("Invalid meter name.");t=t.trim();var e=l.get(t);if(!e||!l.is(e))return this.error('The meter "'+t+'" does not exist.');"number"==typeof this.args[1]&&e.val(this.args[1]),e.place(this.output,{classes:"macro-"+this.name,attr:{id:"meter-"+Util.slugify(t)}})}}),Macro.add("updatemeter",{handler:function(){if(this.args.length<2)return this.error("This macro requires two arguments: the meter's name and a value.");var t=this.args[0];if("string"!=typeof t)return this.error("Invalid meter name.");t=t.trim();var e=l.get(t);if(!e||!l.is(e))return this.error('The meter "'+t+'" does not exist.');e.val(this.args[1])}})}();
+// end meters.min.js
+
+// message-macro.min.js, for SugarCube 2, by Chapel
+// v1.0.1, 2024-07-22, 336675ff2cabe5f729a5f30d86aa409cc8432726
+;setup.messageMacro={},setup.messageMacro.default="Help",Macro.add("message",{tags:null,handler:function(){var e=this.payload[0].contents,a=$(document.createElement("span")),s=$(document.createElement(this.args.includes("btn")?"button":"a")),t=$(document.createElement("span"));s.wiki(this.args.length>0&&"btn"!==this.args[0]?this.args[0]:setup.messageMacro.default).ariaClick(this.createShadowWrapper((function(){a.hasClass("open")?t.css("display","none").empty():t.css("display","block").wiki(e),a.toggleClass("open")}))),a.attr("id","macro-"+this.name+"-"+this.args.join("").replace(/[^A-Za-z0-9]/g,"")).addClass("message-text").append(s).append(t).appendTo(this.output)}});
+// end message-macro.min.js
+
+
+/*! Add-ons for SugarCube 2.x
+ * https://www.motoslave.net/sugarcube/2/
+ */
+
+// <<shake>> macro set for SugarCube 2.x
+// shake-macro-set.min.js
+!function(){"use strict";if("undefined"==typeof version||"undefined"==typeof version.title||"SugarCube"!==version.title||"undefined"==typeof version.major||version.major<2||"undefined"==typeof version.minor||version.minor<5)throw new Error("<<shake>> macro requires SugarCube 2.5.0 or greater, aborting load");Macro.add("shake",{tags:null,handler:function(){var duration=this.args.length>0?this.args[0]:1/0,shakeClass="shake";if(1/0!==duration)try{duration=Math.max(Engine.minDomActionDelay,Util.fromCssTime(duration))}catch(e){return this.error(e.message)}Config.debug&&this.debugView.modes({block:!0});var $wrapper=jQuery(document.createElement("span"));$wrapper.addClass("macro-"+this.name+" "+shakeClass).wiki(this.payload[0].contents).appendTo(this.output),1/0!==duration&&setTimeout(function(){$wrapper.removeClass(shakeClass)},Engine.minDomActionDelay+duration)}}),Macro.add(["shakescreen","shaketarget"],{handler:function(){var $targets,duration,shakeClass;if("shakescreen"===this.name)$targets=jQuery("#passages"),duration=this.args.length>0?this.args[0]:1/0,shakeClass="shake-block";else{if(0===this.args.length)return this.error("no selector specified");if($targets=jQuery(this.args[0]),0===$targets.length)return this.error('no elements matched the selector "'+this.args[0]+'"');duration=this.args.length>1?this.args[1]:1/0,shakeClass="block"===jQuery($targets[0]).css("display")?"shake-block":"shake"}if("stop"===duration)return void $targets.removeClass(shakeClass);if(1/0!==duration)try{duration=Math.max(Engine.minDomActionDelay,Util.fromCssTime(duration))}catch(e){return this.error(e.message)}$targets.addClass(shakeClass),1/0!==duration&&setTimeout(function(){$targets.removeClass(shakeClass)},Engine.minDomActionDelay+duration)}})}();
+
+
+/*! cycy-wrote-custom-macros
+ * by cyrusfirheir
+ * https://github.com/cyrusfirheir/cycy-wrote-custom-macros
+ */ 
+
+// Click to Proceed (CTP) v2
+// click-to-proceed.js, for SugarCube 2
+(() => {
+	"use strict";
+
+	$(document).on(":passageinit", () => {
+		CTP.Logs.forEach((_, id) => {
+			if (!CTP.Repository.get(id)?.persist) CTP.Logs.delete(id);
+		});
+		CTP.Repository.forEach(({ persist }, id) => {
+			if (!persist) CTP.Repository.delete(id);
+		});
+	});
+
+	var CTP = class _CTP {
+		constructor(id, persist = false) {
+			this.stack = [];
+			this.clears = [];
+			this.options = {};
+			if (!id?.trim()) throw new Error(`No ID specified!`);
+			this.id = id;
+			this.persist = persist;
+			_CTP.Repository.set(id, this);
+		}
+		static get Repository() {
+			if (!setup["@CTP/Repository"]) setup["@CTP/Repository"] = new Map();
+			return setup["@CTP/Repository"];
+		}
+		static get Logs() {
+			if (!variables()["@CTP/Logs"]) variables()["@CTP/Logs"] = new Map();
+			return variables()["@CTP/Logs"];
+		}
+		get log() {
+			if (!_CTP.Logs.get(this.id)) _CTP.Logs.set(this.id, { lastClear: -1, index: -1, seen: -1 });
+			return _CTP.Logs.get(this.id);
+		}
+		static getCTP(id) {
+			return _CTP.Repository.get(id);
+		}
+		add(content, options = {}) {
+			if (options.clear) this.clears.push(this.stack.length);
+			this.stack.push({
+				options,
+				content,
+				index: this.stack.length,
+				element: $()
+			});
+			return this;
+		}
+		print(index) {
+			const { content, options: iOpts } = this.stack[index];
+			const options = {
+				...this.options,
+				...iOpts
+			};
+			const element = $(document.createElement(options.element || "span")).addClass("--macro-ctp-hidden").attr({
+				"data-macro-ctp-id": this.id,
+				"data-macro-ctp-index": index
+			}).on("update-internal.macro-ctp", (event, firstTime) => {
+				if ($(event.target).is(element)) {
+					if (index === this.log.index) {
+						if (firstTime) {
+							if (typeof content === "string") element.wiki(content);
+							else element.append(content);
+							element.addClass(options.transition ? "--macro-ctp-t8n" : "");
+						}
+						element.removeClass("--macro-ctp-hidden");
+					} else {
+						if (index < this.log.seen) element.removeClass("--macro-ctp-t8n");
+						element.toggleClass("--macro-ctp-hidden", index > this.log.index || index < this.log.lastClear);
+					}
+				}
+			});
+			this.stack[index].element = element;
+			return element;
+		}
+
+		output() {
+			const wrapper = document.createDocumentFragment();
+			for (let i = 0; i < this.stack.length; i++) {
+				this.print(i).appendTo(wrapper);
+			}
+			return wrapper;
+		}
+
+		advance() {
+			if (this.log.index < this.stack.length - 1) {
+				this.log.index++;
+				const firstTime = this.log.index > this.log.seen;
+				this.log.seen = Math.max(this.log.seen, this.log.index);
+				this.log.lastClear = this.clears.slice().reverse().find((el) => el <= this.log.index) ?? -1;
+				$(document).trigger("update.macro-ctp", ["advance", this.id, this.log.index]);
+				this.stack.forEach(({ element }) => element.trigger("update-internal.macro-ctp", [firstTime, "advance", this.id, this.log.index]));
+			}
+			return this;
+		}
+
+		back() {
+			if (this.log.index > 0) {
+				this.log.index--;
+				this.log.lastClear = this.clears.slice().reverse().find((el) => el <= this.log.index) ?? -1;
+				$(document).trigger("update.macro-ctp", ["back", this.id, this.log.index]);
+				this.stack.forEach(({ element }) => element.trigger("update-internal.macro-ctp", [false, "back", this.id, this.log.index]));
+			}
+			return this;
+		}
+	};
+	window.CTP = CTP;
+
+	Macro.add("ctp", {
+		tags: ["ctpNext"],
+		handler() {
+			const id = this.args[0];
+			const persist = this.args.slice(1).includes("persist");
+			const ctp = new CTP(id, persist);
+			const _passage = passage();
+			this.payload.forEach(({ args, name, contents }) => {
+				const options = {};
+				if (args.includes("clear")) options.clear = true;
+				if (args.includesAny("t8n", "transition")) options.transition = true;
+				const elementArg = args.find((el) => el.startsWith("element:")) ?? "";
+				if (elementArg) options.element = elementArg.replace("element:", "");
+				if (name === "ctp") ctp.options = { ...options };
+				ctp.add(contents, options);
+			});
+			$(this.output).append(ctp.output());
+			
+			if (_passage === passage()) {
+				const i = Math.max(ctp.log.index, 0);
+				ctp.log.index = -1;
+				ctp.log.seen = -1;
+				while (ctp.log.index < i) ctp.advance();
+			}
+		}
+	});
+
+	Macro.add("ctpAdvance", {
+		handler() {
+			const id = this.args[0];
+			if (id) {
+				const ctp = CTP.getCTP(id);
+				if (ctp) ctp.advance();
+				else throw new Error(`No CTP with ID '${id}' found!`);
+			} else throw new Error(`No ID specified!`);
+		}
+	});
+
+	Macro.add("ctpBack", {
+		handler() {
+			const id = this.args[0];
+			if (id) {
+				const ctp = CTP.getCTP(id);
+				if (ctp) ctp.back();
+				else throw new Error(`No CTP with ID '${id}' found!`);
+			} else throw new Error(`No ID specified!`);
+		}
+	});
+})();
+
+
+// Live Update
+// live-update.js, for SugarCube 2
+(function () {
+	"use strict";
+
+	$(document).on(":liveupdate", function () {
+		$(".macro-live").trigger(":liveupdateinternal");
+	});
+
+	Macro.add(['update', 'upd'], {
+		handler: function handler() {
+			$(document).trigger(":liveupdate");
+		}
+	});
+
+	Macro.add(['live', 'l', 'lh'], {
+		skipArgs: true,
+		handler: function handler() {
+			if (this.args.full.length === 0) {
+				return this.error('no expression specified');
+			}
+			try {
+				var statement = this.args.full;
+				var result = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+				if (result !== null) {
+					var lh = this.name === "lh";
+					var $el = $("<span></span>").addClass("macro-live").wiki(lh ? Util.escape(result) : result).appendTo(this.output);
+					$el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+						var out = toStringOrDefault(Scripting.evalJavaScript(statement), null);
+						$el.empty().wiki(lh ? Util.escape(out) : out);
+					}));
+				}
+			} catch (ex) {
+				return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+			}
+		}
+	});
+
+	Macro.add(['liveblock', 'lb'], {
+		tags: null,
+		handler: function handler() {
+			try {
+				var content = this.payload[0].contents.trim();
+				if (content) {
+					var $el = $("<span></span>").addClass("macro-live macro-live-block").wiki(content).appendTo(this.output);
+					$el.on(":liveupdateinternal", this.createShadowWrapper(function (ev) {
+						$el.empty().wiki(content);
+					}));
+				}
+			} catch (ex) {
+				return this.error("bad evaluation: " + (_typeof(ex) === 'object' ? ex.message : ex));
+			}
+		}
+	});
+})();
+
+// Crossfade
+// crossfade.js, for SugarCube 2
+; (function () {
+	"use-strict";
+	var crossfade = {};
+
+	function crossfadeContainer(id) {
+		var image = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+		if (!id) throw new Error("No ID specified!");
+		var $el = $("<div />").addClass("macro-crossfade").attr("data-macro-crossfade-id", id);
+		var imgBack = $("<img />").addClass("macro-crossfade-image").attr("src", image).appendTo($el);
+		var imgFront = $("<img />").addClass("macro-crossfade-image").attr("src", image).appendTo($el);
+		return $el.get(0);
+	}
+	crossfade.container = crossfadeContainer;
+
+	function crossfadeSelector(id) {
+		return '.macro-crossfade[data-macro-crossfade-id="' + id + '"]';
+	}
+	crossfade.selector = crossfadeSelector;
+
+	function fade(element, img) {
+		var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 400;
+		if (!element) throw new Error("No element specified!");
+		var $el = $(element);
+		if (!$el.length) throw new Error(_typeof(element) === "string" ? 'No elements matched selector "' + selector + '"!' : 'Specified element not found!');
+		if (!$el.hasClass("macro-crossfade")) $el.addClass("macro-crossfade");
+		if ($el.children("img").length === 0) $("<img /><img />").addClass("macro-crossfade-image").appendTo($el);
+		var images = $el.children("img");
+		var backBefore = images.eq(0);
+		var frontBefore = images.eq(1);
+		img = img || null;
+		if (Number(frontBefore.css("opacity")) < 1) frontBefore.stop(true, true);
+		backBefore.attr("src", img).stop().fadeOut(0).appendTo(images.parent()).fadeIn(img ? duration : 0, function () {
+			var backAfter = images.eq(1);
+			if (img) {
+				backAfter.attr("src", img);
+			} else {
+				backAfter.fadeOut(duration, function () {
+					backAfter.attr("src", img).fadeIn(0);
+				});
+			}
+		});
+	}
+	crossfade.fade = fade;
+
+	Macro.add("crossfadecontainer", {
+		handler: function handler() {
+			var id = this.args[0];
+			var img = this.args[1];
+
+			try {
+				this.output.append(crossfadeContainer(id, img));
+			} catch (ex) {
+				return this.error(_typeof(ex) === 'object' ? ex.message : ex);
+			}
+		}
+	});
+
+	Macro.add("crossfade", {
+		handler: function handler() {
+			var _this$args$;
+			if (this.args.length === 0) return this.error("No ID specified!");
+			if (this.args.length === 1) return this.error("No image path specified!");
+			var selector = crossfadeSelector(this.args[0]);
+			if (!$(selector).length) return this.error('No "<<crossfadecontainer>>" with ID "' + this.args[0] + '" found!');
+			var img = this.args[1];
+			var duration = Util.fromCssTime((_this$args$ = this.args[2]) !== null && _this$args$ !== void 0 ? _this$args$ : "400ms");
+			fade(selector, img, duration);
+		}
+	});
+
+	setup.crossfade = crossfade;
+})();
+
+/* twine-user-script : <<preload>> + loadscreen */
+// 參考<<preload>>巨集的preload.js(for SugarCube 2, by Chapel)
+// https://github.com/ChapelR/custom-macros-for-sugarcube-2/blob/master/scripts/preload.js
+(function () {
+    'use strict';
+    // v1.1.0 + Custom Loadscreen UI Integration
+
+    function preloadImage(url, cb) {
+        var img = new Image();
+        img.onload = cb;
+        img.onerror = cb;
+        img.src = url;
+    }
+
+    function preloadAll(urls, progressCallback, cb) {
+        var loaded = 0;
+        var toBeLoaded = urls.length;
+        if (toBeLoaded === 0) {
+            throw new Error("No URLs to preload!");
+        }
+
+        urls.forEach(function (url) {
+            preloadImage(url, function () {
+                loaded++;
+                var loadPct = (loaded / toBeLoaded) * 100;
+                progressCallback(loadPct); // 更新進度條
+
+                if (loaded === toBeLoaded) {
+                    cb(); // 載入完成時執行回呼
+                }
+            });
+        });
+    }
+
+    function isInit() {
+        return State.length <= 0;
+    }
+
+    function preload() {
+        var list = [].slice.call(arguments).flat(Infinity);
+        var id = isInit() ? LoadScreen.lock() : false;
+
+        // 生成載入畫面 UI
+        $("#init-loading").css({
+            animation: "none", border: "none", width: "100%", height: "100%"
+        }).empty().append(`
+            <div style="text-align: center; text-indent: inherit;">
+                <img src="media/img/loadscreen.png" width="80%"><br>
+                遊戲載入中..<br><br><br>
+                <div class="hzbarbkg">
+                    <div id="hzloadingbar" class="hzbar" style="background-color: #7abf70; width: 0%;"></div>
+                </div>
+            </div>
+        `);
+
+        preloadAll(list, function (loadPct) {
+            $("#hzloadingbar").css("width", loadPct + "%"); // 更新進度條
+        }, function () {
+            if (id) {
+                LoadScreen.unlock(id);
+            }
+            $("#init-loading").empty().append('<div>遊戲載入完成！</div>'); // 載入完成後更新 UI
+            $("#init-loading").css({ animation: "", border: "", width: "", height: "" });
+        });
+
+        return id;
+    }
+
+    setup.preload = preload;
+    setup.preload.force = false;
+
+    /* <<preload imageUrls...>> */
+    Macro.add('preload', {
+        handler: function () {
+            if (!isInit() && !setup.preload.force) {
+                return this.error("Attempting to preload images outside of `StoryInit` or similar can cause performance issues. Set `setup.preload.force` to `true` if you want to do it anyway.");
+            }
+            preload(this.args.flat(Infinity).filter(function (url) {
+                return typeof url === 'string';
+            }));
+        }
+    });
+
+}());
+
+
+/* twine-user-script : <<runAbacus>> */
+/* coment--使用方法
+  ::passage
+	<div id="myAbacusContainer"></div>
+	<<timed 1s>><<runAbacus>><</timed>>
+	<<button "輸入" "2">><<run setabacus()>><</button>> //不需要儲存變數button可拿掉
+*/
+/* ==============================
+   關卡算盤互動，參考自Abacus Simulator by Thorsten Thormaehlen
+   https://codepen.io/ridl27/pen/jjewgy
+============================== */
+// ---------- 算盤互動 (abacus.js) -----------
+window.UIElement = function(x, y, width, height, type, ref, subref, slotType) {
+this.x = x;
+this.y = y;
+this.x2 = x + width;
+this.y2 = y + height;
+this.type = type; // 0 = bead node, 1 = slot, 2 = connection
+this.ref = ref;
+};
+
+window.Bead = function() {
+this.position = [0.0, 0.0];
+this.value = 0;
+this.active = false;
+this.uniqueID = -1;
+};
+
+window.AbacusCtrl = function(type) {
+// type=0 => 日式(1+4珠)， type=1 => 中式(2+5珠)
+// 此處以 type=1 為「一斤十六兩」邏輯 (上2下5)，顯示十進制
+this.type = type;
+this.beadLines = 2; // 改為 2 行
+this.beadPerLine = (this.type == 0) ? 5 : 7;
+this.beadSep = (this.type == 0) ? 3 : 4;
+this.beadHeight = 40;
+this.beadSpacing = 80;
+this.beadWidth = 60;
+this.nodes = [];
+this.init = function() {
+	this.nodes.length = 0;
+	var id = 0;
+	for (var i = 0; i < this.beadLines; i++) {
+	for (var j = 0; j < this.beadPerLine; j++) {
+		var bead = new Bead();
+		// X、Y 為設計座標（後續會加上 leftMargin)
+		bead.position[0] = 80 - i * this.beadSpacing;
+		bead.position[1] = 60 + this.beadPerLine * this.beadHeight - j * this.beadHeight;
+		bead.value = 1;
+		if (j > this.beadSep) {
+		bead.position[1] = 60 + this.beadPerLine * this.beadHeight - (j * this.beadHeight + 2 * this.beadHeight);
+		bead.value = 5;
+		}
+		bead.uniqueID = id;
+		this.nodes.push(bead);
+		id++;
+	}
+	}
+};
+this.getBeadsCount = function() {
+	return this.nodes.length;
+};
+this.getBeadPositionX = function(nodeId) {
+	return this.nodes[nodeId].position[0];
+};
+this.getBeadPositionY = function(nodeId) {
+	return this.nodes[nodeId].position[1];
+};
+this.activated = function(nodeId) {
+	var line = Math.floor(nodeId / this.beadPerLine);
+	var beadInLine = nodeId - line * this.beadPerLine;
+	var active = this.nodes[nodeId].active;
+	this.nodes[nodeId].active = !active;
+	var dir = (beadInLine > this.beadSep) ? -1 : 1;
+	var offset = dir * (-1) * this.beadHeight;
+	if (active) offset = dir * this.beadHeight;
+	this.nodes[nodeId].position[1] += offset;
+	if (beadInLine <= this.beadSep) {
+	for (var j = 0; j < this.beadPerLine; j++) {
+		var n = line * this.beadPerLine + j;
+		if (j <= this.beadSep && j !== beadInLine) {
+		if ((!active && j > beadInLine) || (active && j < beadInLine)) {
+			if (this.nodes[n].active === active) {
+			this.nodes[n].position[1] += offset;
+			this.nodes[n].active = !this.nodes[n].active;
+			}
+		}
+		}
+	}
+	} else {
+	for (var j = 0; j < this.beadPerLine; j++) {
+		var n = line * this.beadPerLine + j;
+		if (j > this.beadSep && j !== beadInLine) {
+		if ((!active && j < beadInLine) || (active && j > beadInLine)) {
+			if (this.nodes[n].active === active) {
+			this.nodes[n].position[1] += offset;
+			this.nodes[n].active = !this.nodes[n].active;
+			}
+		}
+		}
+	}
+	}
+};
+};
+
+window.Abacus = function(parentDivId, type) {
+var abacusCtrl = new AbacusCtrl(type);
+var canvas;
+var divId = parentDivId;
+var beadColor = "rgba(125, 2, 2, 1.0)";
+var hooveredBeadColor = "rgba(167, 69, 69, 1.0)";
+var hooveredElement = -1;
+var hooveredBead = -1;
+var uiElements = [];
+var that = this;
+var leftMargin = 40;
+// 新增 scaleFactor 屬性
+this.scaleFactor = 1;
+
+this.init = function() {
+	abacusCtrl.init();
+	canvas = document.createElement('canvas');
+	if (!canvas) console.log("Abacus error: cannot create a canvas element");
+	canvas.id = parentDivId + "_Abacus";
+	// 取得容器高度作為自適應依據
+	var container = document.getElementById(divId);
+	var containerHeight = container ? container.clientHeight : 400;
+	// 設計時的固定高度
+	var designHeight = 60 + (abacusCtrl.beadPerLine + 2) * abacusCtrl.beadHeight + 50;
+	that.scaleFactor = containerHeight / designHeight;
+	// canvas 寬度與高度依 scaleFactor 調整
+	canvas.width = (40 + abacusCtrl.beadLines * abacusCtrl.beadSpacing + leftMargin) * that.scaleFactor;
+	canvas.height = designHeight * that.scaleFactor;
+	document.body.appendChild(canvas);
+	var parent = document.getElementById(divId);
+	if (!parent) console.log("Abacus error: no element named: " + divId);
+	parent.appendChild(canvas);
+	canvas.onmousedown = function(event) { canvasMouseDown(event); };
+	canvas.onmousemove = function(event) { canvasMouseMove(event); };
+	canvas.onmouseup   = function(event) { canvasMouseUp(event); };
+	this.update();
+};
+
+function drawBead(nodeId, ctx) {
+	var nodePosX = abacusCtrl.getBeadPositionX(nodeId) + leftMargin;
+	var nodePosY = abacusCtrl.getBeadPositionY(nodeId);
+	var dn = new UIElement(nodePosX, nodePosY + 2,
+							abacusCtrl.beadWidth,
+							abacusCtrl.beadHeight - 4,
+							0, nodeId, 0, 0);
+	ctx.fillStyle = "rgba(60, 60, 60, 0.3)";
+	drawRoundRectFilled(ctx, dn.x + 4, dn.y + 4,
+						dn.x2 - dn.x, dn.y2 - dn.y, 15);
+	ctx.fillStyle = (nodeId === hooveredBead) ? hooveredBeadColor : beadColor;
+	drawRoundRectFilled(ctx, dn.x, dn.y,
+						dn.x2 - dn.x, dn.y2 - dn.y, 15);
+	uiElements.push(dn);
+}
+
+function drawBeads(ctx) {
+	var count = abacusCtrl.getBeadsCount();
+	for (var i = 0; i < count; i++) {
+	drawBead(i, ctx);
+	}
+}
+
+this.update = function() {
+	// 清除畫布
+	canvas.width = canvas.width;
+	uiElements.length = 0;
+
+	var ctx = canvas.getContext('2d');
+	ctx.strokeStyle = '#000000';
+
+	// ★ 1) 開始縮放空間
+	ctx.save();
+	ctx.scale(that.scaleFactor, that.scaleFactor);
+
+	// (A) 在「縮放空間」裡畫算盤本體 (直桿、橫桿、珠子)
+	ctx.lineWidth = 5;
+	for (var i = 0; i < abacusCtrl.beadLines; i++) {
+	var x = leftMargin - 50 + abacusCtrl.beadLines * abacusCtrl.beadSpacing
+			- i * abacusCtrl.beadSpacing;
+	var y = 20 + (abacusCtrl.beadPerLine + 2) * abacusCtrl.beadHeight;
+	ctx.beginPath();
+	ctx.moveTo(x, 20);
+	ctx.lineTo(x, y);
+	ctx.stroke();
+	}
+	for (var j = 0; j < 3; j++) {
+	var y = 20;
+	if (j === 1) {
+		y = 20 + (abacusCtrl.beadPerLine - abacusCtrl.beadSep) * abacusCtrl.beadHeight;
+	}
+	if (j === 2) {
+		y = 20 + (abacusCtrl.beadPerLine + 2) * abacusCtrl.beadHeight;
+	}
+	ctx.beginPath();
+	ctx.moveTo(0, y);
+	ctx.lineTo(620, y);
+	ctx.stroke();
+	}
+	ctx.lineWidth = 1;
+
+	// (B) 畫出所有珠子
+	drawBeads(ctx);
+
+	// ★ 2) 結束縮放空間
+	ctx.restore();
+
+	// (C) 在「未縮放」空間裡畫下方文字
+	// 這裡的座標直接用 canvas 的像素座標
+	ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
+	ctx.textAlign = 'center';
+	ctx.font = '1em sans-serif';
+
+	// 假設想把文字放在畫布底部附近
+	// 你可以先算出 canvas.height，或保留原本 textY 但需自行抓 offset
+	var baseY = canvas.height - 30;
+
+	// 以 "左排" 與 "右排" 的文字示例
+	// 例如分別放在畫布寬度的 1/3、2/3
+	var leftX = canvas.width * 0.33;
+	var rightX = canvas.width * 0.66;
+
+	// 取算盤當前值
+	var vals = this.getRowValues(); 
+	// 0 => 右排, 1 => 左排 (你可以依實際需求改)
+	var rightVal = vals[0];
+	var leftVal = vals[1];
+
+	// (C1) 左排數字
+	ctx.fillText(leftVal, leftX, baseY);
+	// 下方文字 "斤"
+	ctx.font = '1em sans-serif';
+	ctx.fillText("斤", leftX, baseY + 25);
+
+	// (C2) 右排數字
+	ctx.font = '1em sans-serif';
+	ctx.fillText(rightVal, rightX, baseY);
+	ctx.font = '1em sans-serif';
+	ctx.fillText("兩", rightX, baseY + 25);
+};
+
+function mouseOverElement(pos) {
+	var selectedElement = -1;
+	for (var n in uiElements) {
+	if (uiElements[n].type !== 2) {
+		if (
+		uiElements[n].x - 1 < pos.x && uiElements[n].x2 + 1 > pos.x &&
+		uiElements[n].y - 1 < pos.y && uiElements[n].y2 + 1 > pos.y
+		) {
+		selectedElement = n;
+		}
+	}
+	}
+	return selectedElement;
+}
+
+function canvasMouseDown(event) {
+	var pos = getMouse(event);
+	if (!event.altKey && event.which === 1) {
+	var selectedElement = mouseOverElement(pos);
+	if (selectedElement !== -1) {
+		if (uiElements[selectedElement].type === 0) {
+		var newSelectedBead = uiElements[selectedElement].ref;
+		abacusCtrl.activated(newSelectedBead);
+		}
+	}
+	that.update();
+	}
+	event.preventDefault();
+}
+
+function canvasMouseUp(event) {
+	event.preventDefault();
+}
+
+function canvasMouseMove(event) {
+	var pos = getMouse(event);
+	hooveredBead = -1;
+	var oldHooveredElement = hooveredElement;
+	hooveredElement = mouseOverElement(pos);
+	if (hooveredElement !== -1) {
+	hooveredBead = uiElements[hooveredElement].ref;
+	}
+	if (oldHooveredElement !== hooveredElement) that.update();
+	event.preventDefault();
+}
+
+function getMouse(e) {
+	var element = canvas;
+	var offsetX = 0, offsetY = 0;
+	if (element.offsetParent !== undefined) {
+	do {
+		offsetX += element.offsetLeft;
+		offsetY += element.offsetTop;
+	} while ((element = element.offsetParent));
+	}
+	var mx = e.pageX - offsetX;
+	var my = e.pageY - offsetY;
+
+	// ★ 關鍵：將滑鼠座標轉回「未縮放」設計空間
+	mx /= that.scaleFactor;
+	my /= that.scaleFactor;
+
+	return { x: mx, y: my };
+}
+
+function drawRoundRectFilled(ctx, x, y, width, height, radius) {
+	var lineWidthBackup = ctx.lineWidth;
+	var strokeStyleBackup = ctx.strokeStyle;
+	ctx.strokeStyle = ctx.fillStyle;
+	ctx.lineJoin = "round";
+	ctx.lineWidth = radius;
+	ctx.strokeRect(x + (radius / 2), y + (radius / 2),
+					width - radius, height - radius);
+	ctx.fillRect(x + (radius / 2), y + (radius / 2),
+				width - radius, height - radius);
+	ctx.lineWidth = lineWidthBackup;
+	ctx.strokeStyle = strokeStyleBackup;
+}
+
+// ★ 新增方法：取得目前算盤每排的數值，回傳陣列 [左排, 右排]
+this.getRowValues = function() {
+	var values = [];
+	for (var i = 0; i < abacusCtrl.beadLines; i++) {
+	var sum = 0;
+	for (var j = 0; j < abacusCtrl.beadPerLine; j++) {
+		var n = i * abacusCtrl.beadPerLine + j;
+		if (abacusCtrl.nodes[n].active) {
+		sum += abacusCtrl.nodes[n].value;
+		}
+	}
+	values.push(sum);
+	}
+	return values;
+};
+};
+// ---------- 結束: abacus.js -----------
+
+// === 定義 Macro <<runAbacus>> 來初始化算盤 ===
+Macro.add("runAbacus", {
+skipArgs: true,
+handler : function () {
+// "myAbacusContainer" 對應 Passage 裡的 <div id="myAbacusContainer">
+var abacus = new Abacus("myAbacusContainer", 1);
+abacus.init();
+// 存入全域，方便後續讀取算盤數值
+window.abacusInstance = abacus;
+}
+});
+
+// === 定義函式 setabacus() 將算盤數值儲存為 Twine 變數 ===
+window.setabacus = function () {
+var vals = window.abacusInstance.getRowValues();
+// 假設右排為第一排 (索引 0)，左排為第二排 (索引 1)
+State.variables.abacusright = vals[0];
+State.variables.abacusleft = vals[1];
+// 你也可以在此處做提示：
+// alert("右排：" + vals[0] + " 左排：" + vals[1]);
+};
+
+
+/* twine-user-script : <<VNText>> */
+/* comment
+用 Twine Helper(by Connor Gabriel)產生
+
+1.基本使用
+<<VNText "diaryPages1">>
+
+2.自訂動畫、背景圖、對話回顧
+<<set _VNOptions to { animation: "wipe-reveal", bgImage: "media/img/bookbg.png", textBoxId: "story-box", delay: 800, duration: 2000, showHistory: true }>>
+<<VNText "diaryPages1" _VNOptions "ch0-0">>
+
+animation-動畫類型：fade-in、wipe-in、wipe-reveal
+bgImage-自訂背景圖
+textBoxId-對話區塊ID
+delay-對話逐行顯示(每行間隔 100ms)
+duration-動畫時間(1000ms)
+showHistory-顯示 "對話回顧" 按鈕(true、false)
+
+3.讀取的Passage 內容
+
+:: 旁白模式
+<p>我是韓律之，<br>一名身世平凡的美少女。<br>沒想到一場意外，<br>我竟然轉生到了陰界！</p>
+<p>我來到陰界，<br>發現這裡跟人間很不一樣。<br>該怎麼辦呢？</p>
+
+::角色對白模式
+<name>艾莉絲</name><scene>森林.png</scene><img>艾莉絲_微笑.png</img><p>這裡真美……</p>
+	
+	* 第一段 "下一頁"，最後一段 "繼續"
+	* 換行 (<br>) 變 "逐行顯示"
+*/
+// ==============================
+// 📌 VNText - 讀取 Passage 內容並顯示對話動畫
+// ==============================
+Macro.add("VNText", {
+    handler: function () {
+        if (this.args.length === 0) {
+            return this.error("請提供一個 Passage 名稱");
+        }
+        console.log("VNText 開始執行", this.args);
+
+        // === 1. 參數處理 ===
+        var sourcePassage = this.args[0]; // Passage 名稱
+        var options = (this.args.length > 1 && typeof this.args[1] === "object") ? this.args[1] : {};
+        var nextPassage = (this.args.length > 2 && typeof this.args[2] === "string") ? this.args[2] : "";
+        var historyVar = options.historyVar || "diaryPages";
+
+        console.log("來源 Passage:", sourcePassage);
+        console.log("選項:", options);
+        console.log("下一個 Passage:", nextPassage);
+
+        // **設定動畫與樣式參數**
+        var showHistory = options.showHistory !== undefined ? options.showHistory : true;
+        var bgImage = options.bgImage || "media/img/default_dialogue.png";
+        var textBoxId = options.textBoxId || "dialogue-box"; // 對話框容器ID
+        var animationType = options.animation || "fade-in";
+        var delay = options.delay !== undefined ? Number(options.delay) : 100;
+        var duration = options.duration !== undefined ? Number(options.duration) : 1000;
+        console.log("動畫類型:", animationType, "背景圖片:", bgImage, "延遲:", delay, "持續時間:", duration);
+
+        // === 2. 讀取 Passage 內容 ===
+        var passageContent = Story.get(sourcePassage);
+        if (!passageContent) {
+            console.error(`無法找到 Passage "${sourcePassage}"`);
+            return this.error(`Passage "${sourcePassage}" 不存在`);
+        }
+        console.log("成功獲取 Passage 內容");
+
+        var tempDiv = document.createElement("div");
+        tempDiv.innerHTML = passageContent.text;
+
+        // 檢查是否為獨白模式：若包含 <OS> 標籤
+        var osElement = tempDiv.querySelector("os");
+        var isMonologueMode = false;
+        var paragraphs = [];
+        if (osElement) {
+            isMonologueMode = true;
+            var osText = osElement.innerHTML.replace(/<br\s*\/?>/gi, "\n");
+            var osLines = osText.split("\n").filter(line => line.trim().length > 0);
+            paragraphs.push({ speaker: "", scene: "default_scene.png", characterImg: "default_character.png", lines: osLines });
+        } else {
+            // === 3. 解析對話段落 ===
+            var pElements = tempDiv.querySelectorAll("p");
+            var nameTags = tempDiv.querySelectorAll("name");
+            var sceneTags = tempDiv.querySelectorAll("scene");
+            var imgMatches = passageContent.text.match(/<img>([\s\S]*?)<\/img>/gi) || [];
+            if (nameTags.length > 0 && nameTags.length !== pElements.length) {
+                console.error("❌ `name` 和 `p` 數量不匹配！");
+                return this.error("請確保 `name` 和 `p` 配對使用！");
+            }
+            for (let i = 0; i < pElements.length; i++) {
+                let speaker = nameTags[i] ? nameTags[i].textContent.trim() : "";
+                let scene = sceneTags[i] ? sceneTags[i].textContent.trim() : "default_scene.png";
+                let characterImg = "";
+                if (imgMatches[i]) {
+                    characterImg = imgMatches[i].replace(/<\/?img>/gi, "").trim();
+                }
+                if (!characterImg) {
+                    characterImg = "default_character.png";
+                }
+                let text = pElements[i].innerHTML.replace(/<br\s*\/?>/gi, "\n");
+                let lines = text.split("\n").filter(line => line.trim().length > 0);
+                paragraphs.push({ speaker, scene, characterImg, lines });
+            }
+        }
+        console.log("解析後對話內容:", paragraphs);
+
+        // === 4. 判斷模式 ===
+        // 修改判斷：只要 passage 中出現 <name> 標籤，就使用 vn-speech-container
+        var hasNameTag = tempDiv.querySelectorAll("name").length > 0;
+        var containerClass = "";
+        if (isMonologueMode) {
+            containerClass = "vn-os-container";
+        } else {
+            containerClass = hasNameTag ? "vn-speech-container" : "vn-diary-container";
+        }
+
+        // === 5. 建立最外層容器 ===
+        $("#" + textBoxId).remove();
+        $(".vn-diary-container").remove();
+        $(".vn-speech-container").remove();
+        $(".vn-os-container").remove();
+        var $outerContainer = $("<div>", {
+            "id": "vn-text-main",
+            "class": containerClass
+        }).css({ "background-image": `url('${bgImage}')` });
+        $(this.output).append($outerContainer);
+
+        // === 6. 儲存對話記錄 (對話回顧用) ===
+        State.variables[historyVar] = paragraphs;
+        State.variables._currentHistory = [];
+
+        // === 7. 更新背景與角色立繪函式 ===
+        var lastScene = null;
+        var lastCharacterImg = null;
+        function updateCharacterBg(scene) {
+            if (scene !== "default_scene.png" && scene !== lastScene) {
+                $("#vn-character").css("background-image", `url("media/img/${scene}")`);
+                lastScene = scene;
+            }
+        }
+        function updateCharacterImage(characterImg) {
+            if (characterImg !== "default_character.png" && characterImg !== lastCharacterImg) {
+                if ($("#vn-character #characterimg .macro-crossfade").length === 0) {
+                    $("#vn-character #characterimg").empty();
+                    $("#vn-character #characterimg").html(
+                        `<div class="macro-crossfade" data-macro-crossfade-id="characterimg">
+                            <img class="macro-crossfade-image" src="media/img/${characterImg}">
+                         </div>`
+                    );
+                } else {
+                    new Wikifier(null, `<<crossfade "characterimg" "media/img/${characterImg}" "300ms">>`);
+                }
+                lastCharacterImg = characterImg;
+            }
+            $(document).trigger(":liveupdate");
+        }
+
+        // === 8. 旁白/獨白模式顯示對話函式 ===
+        function generateDiaryArea(lines, idx) {
+            var $dialogueArea = $("<div>").addClass("vn-dialogue");
+            $outerContainer.append($dialogueArea);
+            function showTextLine(i) {
+                if (i >= lines.length) {
+                    setTimeout(() => showButtons(idx, $outerContainer), 500);
+                    return;
+                }
+                var line = lines[i].trim();
+                var $span = $("<span>")
+                    .addClass("vn-text")
+                    .addClass(animationType)
+                    .css({
+                        "--duration": `${duration}ms`,
+                        "opacity": "1",
+                        "visibility": "visible"
+                    });
+                new Wikifier($span[0], line);
+                $dialogueArea.append($span).append("<br>");
+                setTimeout(() => showTextLine(i + 1), duration + delay);
+            }
+            showTextLine(0);
+        }
+
+        // === 9. 按鈕顯示函式 (按鈕加入目標容器) ===
+        function showButtons(idx, $targetContainer) {
+            var $buttonContainer = $("<div>").addClass("vn-buttons");
+            if (hasNameTag) {
+                // 對話模式
+                if (idx === 0) {
+                    $buttonContainer.append(
+                        $("<button>")
+                            .text("▼下一句")
+                            .addClass("vn-continue")
+                            .on("click", () => showPage(idx + 1))
+                    );
+                } else if (idx < paragraphs.length - 1) {
+                    $buttonContainer.append(
+                        $("<button>")
+                            .text("對話回顧")
+                            .addClass("vn-history-button")
+                            .on("click", showDialogHistory)
+                    );
+                    $buttonContainer.append(
+                        $("<button>")
+                            .text("▼下一句")
+                            .addClass("vn-continue")
+                            .on("click", () => showPage(idx + 1))
+                    );
+                } else {
+                    $buttonContainer.append(
+                        $("<button>")
+                            .text("對話回顧")
+                            .addClass("vn-history-button")
+                            .on("click", showDialogHistory)
+                    );
+                    $buttonContainer.append(
+                        $("<button>")
+                            .text("繼續▸▸")
+                            .addClass("vn-continue")
+                            .on("click", () => Engine.play(nextPassage))
+                    );
+                }
+            } else {
+                // 旁白模式
+                if (idx < paragraphs.length - 1) {
+                    $buttonContainer.append(
+                        $("<button>")
+                            .text("下一頁→")
+                            .addClass("vn-next-page")
+                            .on("click", () => showPage(idx + 1))
+                    );
+                } else if (idx === paragraphs.length - 1 && nextPassage) {
+                    $buttonContainer.append(
+                        $("<button>")
+                            .text("繼續▸▸")
+                            .addClass("vn-continue")
+                            .on("click", () => Engine.play(nextPassage))
+                    );
+                }
+            }
+            $targetContainer.append($buttonContainer);
+        }
+
+        // === 10. 顯示對話頁面函式 ===
+        function showPage(index) {
+            if (index >= paragraphs.length) return;
+            console.log("顯示頁面:", index);
+            $outerContainer.empty();
+            var textBlock = paragraphs[index];
+            var { speaker, scene, characterImg, lines } = textBlock;
+            State.variables._currentHistory.push(textBlock);
+
+            if (!hasNameTag) {
+                generateDiaryArea(lines, index);
+                return;
+            }
+
+            // === 角色對白模式 ===
+            updateCharacterBg(scene);
+
+            // 建立對話框 (dialogue-box) (不帶 vn-text-container class)
+            var $dialogueBox = $("<div>", { "id": textBoxId });
+            $dialogueBox.css("opacity", 0);
+            $outerContainer.append($dialogueBox);
+
+            if (index === 0) {
+                // 第一段對話：同時出現對話框淡入、角色立繪 (crossfade) 與角色名稱 (淡入)
+                setTimeout(() => {
+                    $dialogueBox.animate({ "opacity": 1 }, 100, () => {
+                        // 同時更新角色立繪與角色名稱
+                        updateCharacterImage(characterImg);
+                        var $nameTag = $("<div>")
+                            .addClass("vn-name")
+                            .css({"opacity": 0 })
+                            .text(speaker);
+                        $dialogueBox.prepend($nameTag);
+                        $nameTag.animate({ "opacity": 1 }, 300);
+                        // 0.3秒後開始逐行顯示對話內容
+                        setTimeout(() => {
+                            var $dialogueArea = $("<div>").addClass("vn-dialogue");
+                            $dialogueBox.append($dialogueArea);
+                            function showTextLine(i) {
+                                if (i >= lines.length) {
+                                    setTimeout(() => showButtons(index, $dialogueBox), 300);
+                                    return;
+                                }
+                                var line = lines[i].trim();
+                                var $span = $("<span>")
+                                    .addClass("vn-text")
+                                    .addClass(animationType)
+                                    .css({
+                                        "--duration": `${duration}ms`,
+                                        "opacity": "1",
+                                        "visibility": "visible"
+                                    });
+                                new Wikifier($span[0], line);
+                                $dialogueArea.append($span).append("<br>");
+                                setTimeout(() => showTextLine(i + 1), duration + delay);
+                            }
+                            showTextLine(0);
+                        }, 100);
+                    });
+                }, 100);
+            } else {
+                // 後續對話：立即更新角色立繪與角色名稱，然後立即顯示對白
+                $dialogueBox.css("opacity", 1);
+                updateCharacterImage(characterImg);
+                var $nameTag = $("<div>")
+                    .addClass("vn-name")
+                    .css({ "font-weight": "bold", "opacity": 0 })
+                    .text(speaker);
+                $dialogueBox.prepend($nameTag);
+                $nameTag.animate({ "opacity": 1 }, 300);
+                var $dialogueArea = $("<div>").addClass("vn-dialogue");
+                $dialogueBox.append($dialogueArea);
+                function showTextLine(i) {
+                    if (i >= lines.length) {
+                        setTimeout(() => showButtons(index, $dialogueBox), 300);
+                        return;
+                    }
+                    var line = lines[i].trim();
+                    var $span = $("<span>")
+                        .addClass("vn-text")
+                        .addClass(animationType)
+                        .css({
+                            "--duration": `${duration}ms`,
+                            "opacity": "1",
+                            "visibility": "visible"
+                        });
+                    new Wikifier($span[0], line);
+                    $dialogueArea.append($span).append("<br>");
+                    setTimeout(() => showTextLine(i + 1), duration + delay);
+                }
+                showTextLine(0);
+            }
+        }
+
+        // === 11. 從第一頁開始顯示 ===
+        showPage(0);
+    }
+});
+
+// ==============================
+// 📌 顯示對話回顧 (dialog 彈窗式)
+// ==============================
+function showDialogHistory() {
+    console.log("📜 顯示對話回顧");
+    var $historyContainer = $("<div>").addClass("vn-history-container");
+    $("body").append($historyContainer);
+    if (State.variables._currentHistory && State.variables._currentHistory.length > 0) {
+        State.variables._currentHistory.forEach((block) => {
+            if (block.speaker === "") {
+                block.lines.forEach((line) => {
+                    var $em = $("<em>").text(line);
+                    $historyContainer.append($em).append("<br>");
+                });
+            } else {
+                block.lines.forEach((line) => {
+                    var $p = $("<p>")
+                        .addClass("vn-history-text")
+                        .text(`${block.speaker}：「${line}」`);
+                    $historyContainer.append($p);
+                });
+            }
+            $historyContainer.append($("<hr>"));
+        });
+    } else {
+        $historyContainer.append($("<p>").text("沒有對話記錄"));
+    }
+    $historyContainer.append(
+        $("<button>")
+            .addClass("vn-history-close")
+            .text("關閉")
+            .on("click", () => $historyContainer.remove())
+    );
 }
 
 
-/* mobile ui */
+/* twine-user-script : <<showtip>> */
+Macro.add('showtip', {
+    handler: function () {
+        if (this.args.length < 2) {
+            return this.error("請提供 passage 名稱及函數名稱。");
+        }
+        var passageName = this.args[0];
+        var funcName = this.args[1];
+        var passageContent = Story.has(passageName)
+            ? Story.get(passageName).processText()
+            : "找不到名為「" + passageName + "」的 passage。";
+        
+        if (typeof window[funcName] === "function") {
+            window[funcName]();
+            // 找到最新建立的提示框中的 .tiptext 區塊
+            var $newTiptext = $("div.tipdialog").last().find(".tiptext");
+            $newTiptext.empty();
+            // 用 Wikifier 重新解析 passageContent（讓 <<link>> 與 <<replace>> 等能正確運作）
+            new Wikifier($newTiptext[0], passageContent);
+        } else {
+            return this.error("找不到函數：" + funcName);
+        }
+    }
+});
 
-@media only screen and (max-width: 750px) {
+// ==============================
+// 七爺提示框 (dialog 彈窗式)
+// ==============================
+window.show7tip = function() {
+    console.log("顯示七爺對話框");
+    var $tipContainer = $("<div>").addClass("tipdialog");
+    $("body").append($tipContainer);
+    // 建立 tipcontent 區塊，並將背景圖片設為七爺圖片
+    var $tipContent = $("<div>").attr("id", "replacetext").addClass("tipcontent").css({
+        "background-image": "url(media/img/對話框-七爺.png)",
+        "background-size": "cover",
+        "background-repeat": "no-repeat"
+    });
+    // 在 tipcontent 區塊中加入文字區塊
+    $tipContent.append($("<span>").addClass("tiptext"));
+    // 加入關閉按鈕
+    $tipContent.append(
+        $("<button>")
+            .addClass("tipclose")
+            .text("關閉")
+            .on("click", function() {
+                $tipContainer.remove();
+            })
+    );
+    $tipContainer.append($tipContent);
+};
 
-  body {
-    width: 100%;
-    min-width: auto;
-  }
+// ==============================
+// 八爺提示框 (dialog 彈窗式)
+// ==============================
+window.show8tip = function() {
+    console.log("顯示八爺對話框");
+    var $tipContainer = $("<div>").addClass("tipdialog");
+    $("body").append($tipContainer);
+    // 建立 tipcontent 區塊，並將背景圖片設為八爺圖片
+    var $tipContent = $("<div>").attr("id", "replacetext").addClass("tipcontent").css({
+        "background-image": "url(media/img/對話框-八爺.png)",
+        "background-size": "cover",
+        "background-repeat": "no-repeat"
+    });
+    // 在 tipcontent 區塊中加入文字區塊
+    $tipContent.append($("<span>").addClass("tiptext"));
+    // 加入關閉按鈕
+    $tipContent.append(
+        $("<button>")
+            .addClass("tipclose")
+            .text("關閉")
+            .on("click", function() {
+                $tipContainer.remove();
+            })
+    );
+    $tipContainer.append($tipContent);
+};
 
-  #passages {
-    padding: 0.5em 0em;
-    max-height: 72vh;
-    margin: 0.5em 0em;
-    width: 100%;
-  }
+/* twine-user-script : <<captureScreen>> */
+// ==========================================
+// <<captureScreen ".class">>
+// ==========================================
+// 匯入html2canvas
+importScripts("https://html2canvas.hertzen.com/dist/html2canvas.js");
 
-  #console {
-    padding: 2vh 5vw 3vh 5vw;
-  }
+// 新增自訂巨集<<captureScreen>>
+Macro.add('captureScreen', {
+	handler: function() {
+	try {
+		var screenID = this.args[0] || "#screen"; // 預設id為#screen的<div>區塊
 
-  body.start-menu {
-    background-image: url("media/img/bgloading.png");
-  }
+		// 創建一個覆蓋層來顯示提示文字
+		var overlay = document.createElement('div');
+		overlay.style.position = 'fixed';
+		overlay.style.top = '0';
+		overlay.style.left = '0';
+		overlay.style.width = '100%';
+		overlay.style.height = '100%';
+		overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+		overlay.style.color = 'white';
+		overlay.style.display = 'flex';
+		overlay.style.justifyContent = 'center';
+		overlay.style.alignItems = 'center';
+		overlay.style.zIndex = '1000';
+		overlay.innerText = '產生圖片中...';
+		document.body.appendChild(overlay);
 
-  .start-menu #passages {
-    margin-top: 40vh;
-  }
+		// 開始截圖過程
+		html2canvas(document.querySelector(screenID), {
+			useCORS: true, // 允许跨域资源加载
+			backgroundColor: null, // 保持原始背景色
+			imageTimeout: 0, // 防止加载图像时超时
+			scale: 2, // 提高缩放比例以提升图片清晰度
+			logging: true // 启用日志以查看详细信息
+		}).then(canvas => {
+			var image = canvas.toDataURL("image/png");
+			var fileName = "screenshot_" + Date.now() + ".png";
+			var link = document.createElement("a");
+			link.href = image;
+			link.download = fileName;
+			link.click();
+			
+			// 移除覆蓋層
+			document.body.removeChild(overlay);
+		}).catch(error => {
+			console.error("截圖過程中發生錯誤: ", error.toString());
+			// 移除覆蓋層
+			document.body.removeChild(overlay);
+		});
+		
+	} catch (error) {
+		console.error("發生錯誤: ", error.toString());
+		// 如果錯誤發生在截圖之前，移除覆蓋層
+		if (overlay && document.body.contains(overlay)) {
+		document.body.removeChild(overlay);
+		}
+	}
+	}
+});
 
-  .start-menu #header {
-    display: block;
-  }
 
-  #header {
-    display: none;
-  }
+/* change localization template */
+/* comment --
+the localization template lists the defaults used for the settings, saves, restart, error labels etc.
 
-  /*
-  #footer {
-    display: none;
-  }
-  */
+you are able to change the labels to whatever you want like below! e.g. instead of 'Save to Disk' (the default) i have changed it to 'Download Save'.
 
-  #title-container {
-    font-size: 1em;
-    padding: 0.3em;
-    margin-top: 0.5em;
-  }
+if you search strings localization in the Sugarcube 2 Documentation, it will lead you to an explanation about localization and the template on github where all the labels are listed. you can take any of the labels, copy and paste them into your javascript file (here!), and change the labels.
+*/
 
-  /* ui dialog body */
-  #ui-dialog-body, #ui-dialog-titlebar {
-    width: 92vw;
-  }
+(function () {
+	/*******************************************************************************
+		General.
+	*******************************************************************************/
 
-  #ui-dialog-body.saves, #ui-dialog-body.credits, #ui-dialog-body.profile, #ui-dialog-body.settings, #ui-dialog-body.restart, #ui-dialog-body.map {
-    height: -webkit-fill-available;
-  }
+	l10nStrings.textAbort = '終止';
 
-  #ui-dialog-body.saves>:not(:first-child) {
-    display: inline-grid;
-    width: 100%;
-    margin-top: 0.5em;
-  }
+	l10nStrings.textAborting = '正在終止';
 
-  #ui-dialog-body.saves ul.buttons button {
-    width: 100%;
-  }
+	l10nStrings.textCancel = '取消';
 
-  #ui-dialog-body.saves ul.buttons>li+li>button {
-    margin-left: 0;
-  }
+	l10nStrings.textClear = '清除';
 
-  #ui-dialog-body.settings ul.buttons button {
-    width: 7em;
-  }
+	l10nStrings.textClose = '關閉';
 
-  /* notify */
+	l10nStrings.textDelete = '刪除';
 
-  #notify {
-    width: 100%;
-    top: -10em;
-    right: 0em;
-    left: 0;
-    height: 1em;
-    padding: 0.25em;
-    transition: top 0.5s;
-    text-align: center;
-  }
+	l10nStrings.textExport = '匯出';
 
-  #notify.open {
-    top: 0;
-  }
+	// In lowercase, if possible.
+	l10nStrings.textIdentity = '遊戲';
 
-  /* <<VNtext>> */
-  .vn-diary-container {
-    width: 90vw;
-    padding: 12vw;
-  }
+	l10nStrings.textImport = '匯入';
 
-}</script><tw-tag name="chapter-intro" color="yellow"></tw-tag><tw-tag name="game-start" color="green"></tw-tag><tw-tag name="nofooter" color="orange"></tw-tag><tw-tag name="title" color="green"></tw-tag><tw-tag name="start-menu" color="red"></tw-tag><tw-tag name="diary" color="purple"></tw-tag><tw-tag name="nonav" color="blue"></tw-tag><tw-tag name="autosave" color="red"></tw-tag><tw-passagedata pid="1" name="Loading Page" tags="loading-page nobr nofooter" position="600,0" size="100,100">&lt;div class=&quot;main&quot;&gt;
+	l10nStrings.textLoad = '載入';
+
+	l10nStrings.textOff = '關閉';
+
+	l10nStrings.textOk = '確認';
+
+	l10nStrings.textOn = '開啟';
+
+	l10nStrings.textSave = '儲存';
+
+	// (noun) chance to act (in a game), moment, period
+	l10nStrings.textTurn = '回合';
+
+
+	/*******************************************************************************
+		Errors.
+	*******************************************************************************/
+
+	// NOTE: `passage` is supplied locally.
+	l10nStrings.errorNonexistentPassage = '段落"{passage}"不存在';
+
+
+	/*******************************************************************************
+		Warnings.
+	*******************************************************************************/
+
+	l10nStrings.warningNoStorage = '遺失可用的Storage APIs。可能的原因是禁用了第三方 Cookie 設置，這也會影響 Web Storage，或者使用了私密瀏覽模式。';
+
+	l10nStrings.warningNoWebStorage = '遺失Web Storage API，所以{textIdentity}在降級模式中運行。你可以繼續運行，但是一些內容可能不能正確工作。';
+
+	l10nStrings.warningDegraded = '缺少支持 {textIdentity} 所需的功能，因此正在降級模式中運行。你可以繼續運行，但是一些內容可能不能正確工作。';
+
+	l10nStrings.warningNoSaves = '缺少支持存檔所需的功能，因此本次體驗的存檔功能已被禁用。';
+
+
+	/*******************************************************************************
+		API: Save.
+	*******************************************************************************/
+
+	l10nStrings.saveErrorDisallowed = '在這個段落中不允許存檔';
+
+	l10nStrings.saveErrorDecodeFail = '無法解碼存檔文件，可能是因為存檔文件被損壞';
+
+	l10nStrings.saveErrorDiskLoadFail = '讀取存檔失敗';
+
+	l10nStrings.saveErrorIdMismatch = '儲存{textIdentity}是錯誤的';
+
+	l10nStrings.saveErrorInvalidData = '存檔缺少必須的數據，可能是因為存檔文件被損壞';
+
+	l10nStrings.saveErrorNonexistent = '存檔不存在';
+
+
+	/*******************************************************************************
+		Base UI.
+	*******************************************************************************/
+
+	l10nStrings.uiBarLabelToggle = '打開/關閉導航欄';
+
+	l10nStrings.uiBarLabelBackward = '回朔{textIdentity}的歷史紀錄';
+
+	l10nStrings.uiBarLabelForward = '快轉{textIdentity}的歷史紀錄';
+
+	// [DEPRECATED]
+	l10nStrings.uiBarLabelJumpto = '跳到{textIdentity}的歷史紀錄中的某一點';
+
+
+	/*******************************************************************************
+		Dialog: Alert.
+	*******************************************************************************/
+
+	l10nStrings.alertTitle = '警告';
+
+
+	/*******************************************************************************
+		Dialog: Restart.
+	*******************************************************************************/
+
+	l10nStrings.restartTitle = '重新開始';
+
+	l10nStrings.restartMesgPrompt = '你確定要重新開始嗎？未儲存的進度將會丟失。';
+
+
+	/*******************************************************************************
+		Dialog: Saves.
+	*******************************************************************************/
+
+	l10nStrings.continueTitle = '繼續';
+
+	l10nStrings.savesTitle = '存檔';
+
+	l10nStrings.savesHeaderBrowser = '瀏覽器中';
+
+	l10nStrings.savesHeaderDisk = '磁碟中';
+
+	l10nStrings.savesLabelBrowserClear = '清除所有瀏覽器中的存檔';
+
+	l10nStrings.savesLabelBrowserExport = '將瀏覽器中的存檔匯出成檔案';
+
+	l10nStrings.savesLabelBrowserImport = '匯入檔案至瀏覽器中的存檔';
+
+	l10nStrings.savesLabelDiskLoad = '從硬碟讀取存檔';
+
+	l10nStrings.savesLabelDiskSave = '將存檔儲存至硬碟';
+
+	l10nStrings.savesTextBrowserAuto = '自動存檔';
+
+	l10nStrings.savesTextBrowserSlot = '插槽';
+
+	l10nStrings.savesTextNoDate = '未知';
+
+
+	/*******************************************************************************
+		Dialog: Settings.
+	*******************************************************************************/
+
+	l10nStrings.settingsTitle = '設置';
+
+	l10nStrings.settingsTextReset = '重置為預設';
+
+
+	/*******************************************************************************
+		Debugging: Error Views.
+	*******************************************************************************/
+
+	l10nStrings.errorViewTitle = '錯誤頁面';
+
+	l10nStrings.errorViewLabelToggle = '打開/關閉錯誤頁面';
+
+
+	/*******************************************************************************
+		Debugging: Debug bar.
+	*******************************************************************************/
+
+	l10nStrings.debugBarLabelToggle = '打開/關閉偵錯列';
+
+	l10nStrings.debugBarLabelViewsToggle = '打開/關閉偵錯預覽模式';
+
+	l10nStrings.debugBarLabelWatchAdd = '增加監看變數';
+
+	l10nStrings.debugBarLabelWatchAll = '監看全部變數';
+
+	l10nStrings.debugBarLabelWatchClear = '清除所有監看變數';
+
+	l10nStrings.debugBarLabelWatchDelete = '刪除監看變數';
+
+	l10nStrings.debugBarLabelWatchPlaceholder = '變數名稱';
+
+	l10nStrings.debugBarLabelPassagePlaceholder = '段落名稱';
+
+	l10nStrings.debugBarLabelPassagePlay = '播放此段落';
+
+	l10nStrings.debugBarLabelWatchToggle = '打開/關閉監看面板';
+
+	l10nStrings.debugBarMesgNoWatches = '沒有監看變數';
+
+	l10nStrings.debugBarTextAdd = '增加';
+
+	l10nStrings.debugBarTextPassage = '段落';
+
+	l10nStrings.debugBarTextViews = '預覽';
+
+	l10nStrings.debugBarTextWatch = '監看';
+
+
+	/*******************************************************************************
+		Macros.
+	*******************************************************************************/
+
+	// (verb) rewind, revert
+	l10nStrings.macroBackText = '返回';
+
+	// (verb) go/send back
+	l10nStrings.macroReturnText = '返回';
+
+
+	/*******************************************************************************
+		[DEPRECATED] Dialog: Autoload.
+	*******************************************************************************/
+
+	l10nStrings.autoloadTitle = '自動保存';
+
+	l10nStrings.autoloadMesgPrompt = '有一個自動存檔，讀取它還是前往最初的段落？';
+
+	l10nStrings.autoloadTextCancel = '前往最初的段落';
+
+	l10nStrings.autoloadTextOk = '讀取自動存檔';
+
+
+	/*******************************************************************************
+		[DEPRECATED] Dialog: Jump To.
+	*******************************************************************************/
+
+	l10nStrings.jumptoTitle = '跳到';
+
+	l10nStrings.jumptoMesgUnavailable = '目前沒有跳躍點\u2026';
+
+
+	/*******************************************************************************
+		[DEPRECATED] Dialog: Share.
+	*******************************************************************************/
+
+	l10nStrings.shareTitle = '分享';
+})();</script><tw-tag name="chapter-intro" color="yellow"></tw-tag><tw-tag name="game-start" color="green"></tw-tag><tw-tag name="nofooter" color="orange"></tw-tag><tw-tag name="title" color="green"></tw-tag><tw-tag name="start-menu" color="red"></tw-tag><tw-tag name="diary" color="purple"></tw-tag><tw-tag name="nonav" color="blue"></tw-tag><tw-tag name="autosave" color="red"></tw-tag><tw-passagedata pid="1" name="Loading Page" tags="loading-page nobr nofooter" position="600,0" size="100,100">&lt;div class=&quot;main&quot;&gt;
 &lt;div class=&quot;story-banner&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 
