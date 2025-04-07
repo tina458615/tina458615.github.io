@@ -507,8 +507,16 @@ custom animation
 }
 
 #abacus #leftabacus, #abacus #rightabacus {
-  width: 20%;
+  width: 25%;
   height: 35vh;
+  display: flex;
+  align-items: flex-start;
+}
+#abacus #leftabacus {
+  padding: 10px 5px 0 0;
+}
+#abacus #rightabacus {
+  padding: 10px 0 0 5px;
 }
 #abacus #leftabacus .abacus-vertical-writing , #abacus #rightabacus .abacus-vertical-writing {
   width: 100%;
@@ -897,7 +905,10 @@ custom animation
 /* title image */
 #title-container .titleimage {
   height: 6vh;
-  max-height: 200px;
+  max-height: 180px;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, .3));
+  display: block;
+  margin: auto;
 }
 
 #start-title .titleimage {
@@ -4506,7 +4517,7 @@ Set up your profile, stats and meters, and other relevant information here!
 /* ChapelR Meter Macro set up */
 /* these stat meter set ups are purely examples and do not need to be used */
 
-&lt;&lt;preload  &#39;media/img/menu.jpg&#39; &#39;media/img/府城隍廟平面圖.jpg&#39; &#39;media/img/撥動算盤.jpg&#39; &#39;media/img/bgloading.png&#39; &#39;media/img/bgloading_pc.png&#39; &#39;media/img/bookbg.png&#39; &#39;media/img/book_bg.png&#39; &#39;media/img/button_bg.png&#39; &#39;media/img/cardbg.png&#39; &#39;media/img/character_bg.png&#39; &#39;media/img/default_dialogue.png&#39; &#39;media/img/default_scene.png&#39; &#39;media/img/diarybg.png&#39; &#39;media/img/diaryfooter.png&#39; &#39;media/img/endlogo.png&#39; &#39;media/img/favicon.png&#39; &#39;media/img/gamelogo.png&#39; &#39;media/img/headlogo.png&#39; &#39;media/img/loadscreen.png&#39; &#39;media/img/title_bg.png&#39; &#39;media/img/win.png&#39; &#39;media/img/七爺.png&#39; &#39;media/img/七爺八爺.png&#39; &#39;media/img/八爺.png&#39; &#39;media/img/准考證.png&#39; &#39;media/img/城隍.png&#39; &#39;media/img/大算盤.png&#39; &#39;media/img/孫子.png&#39; &#39;media/img/學政司.png&#39; &#39;media/img/對聯.png&#39; &#39;media/img/對話框-七爺.png&#39; &#39;media/img/對話框-八爺.png&#39; &#39;media/img/小之.png&#39; &#39;media/img/小之到廟前.png&#39; &#39;media/img/彩繪門枕石.png&#39; &#39;media/img/掌案司.png&#39; &#39;media/img/文武判官.png&#39; &#39;media/img/爾來了.png&#39; &#39;media/img/盤子發光.png&#39; &#39;media/img/算盤對聯右.png&#39; &#39;media/img/算盤對聯左.png&#39; &#39;media/img/算盤說明.png&#39; &#39;media/img/老人.png&#39; &#39;media/img/老人孫子.png&#39; &#39;media/img/考功司.png&#39; &#39;media/img/陰陽司.png&#39; &#39;media/img/霸凌1.png&#39; &#39;media/img/霸凌2.png&#39; &#39;media/img/霸凌3.png&#39;&gt;&gt; </tw-passagedata><tw-passagedata pid="9" name="title-bar" tags="noreturn nobr" position="325,0" size="100,100">&lt;div id=&quot;title-container&quot;&gt;
+&lt;&lt;preload  &#39;media/img/menu.jpg&#39; &#39;media/img/府城隍廟平面圖.jpg&#39; &#39;media/img/撥動算盤.jpg&#39; &#39;media/img/bgloading.png&#39; &#39;media/img/bgloading_pc.png&#39; &#39;media/img/bookbg.png&#39; &#39;media/img/book_bg.png&#39; &#39;media/img/button_bg.png&#39; &#39;media/img/cardbg.png&#39; &#39;media/img/character_bg1.png&#39; &#39;media/img/character_bg2.png&#39; &#39;media/img/character_bg3.png&#39; &#39;media/img/default_dialogue.png&#39; &#39;media/img/default_scene.png&#39; &#39;media/img/diarybg.png&#39; &#39;media/img/diaryfooter.png&#39; &#39;media/img/endlogo.png&#39; &#39;media/img/favicon.png&#39; &#39;media/img/gamelogo.png&#39; &#39;media/img/gamesoon.png&#39; &#39;media/img/headlogo.png&#39; &#39;media/img/loadscreen.png&#39; &#39;media/img/title_bg.png&#39; &#39;media/img/win.png&#39; &#39;media/img/七爺.png&#39; &#39;media/img/七爺八爺.png&#39; &#39;media/img/八爺.png&#39; &#39;media/img/准考證.png&#39; &#39;media/img/城隍.png&#39; &#39;media/img/大算盤.png&#39; &#39;media/img/孫子.png&#39; &#39;media/img/學政司.png&#39; &#39;media/img/對聯.png&#39; &#39;media/img/對話框-七爺.png&#39; &#39;media/img/對話框-八爺.png&#39; &#39;media/img/小之.png&#39; &#39;media/img/小之到廟前.png&#39; &#39;media/img/彩繪門枕石.png&#39; &#39;media/img/掌案司.png&#39; &#39;media/img/撥動算盤.png&#39; &#39;media/img/文武判官.png&#39; &#39;media/img/爾來了.png&#39; &#39;media/img/盤子發光.png&#39; &#39;media/img/算盤對聯右.png&#39; &#39;media/img/算盤對聯左.png&#39; &#39;media/img/算盤說明.png&#39; &#39;media/img/老人.png&#39; &#39;media/img/老人孫子.png&#39; &#39;media/img/考功司.png&#39; &#39;media/img/陰陽司.png&#39; &#39;media/img/霸凌1.png&#39; &#39;media/img/霸凌2.png&#39; &#39;media/img/霸凌3.png&#39;&gt;&gt; </tw-passagedata><tw-passagedata pid="9" name="title-bar" tags="noreturn nobr" position="325,0" size="100,100">&lt;div id=&quot;title-container&quot;&gt;
     &lt;span class=&quot;title-item&quot;&gt;&lt;img src=&quot;media/img/headlogo.png&quot; class=&quot;titleimage&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="nav" tags="noreturn nobr" position="425,0" size="100,100">&lt;&lt;link &#39;&lt;i class=&quot;fas fa-save&quot; alt=&quot;saves&quot;&gt;&lt;/i&gt;&#39;&gt;&gt;&lt;&lt;run UI.saves();&gt;&gt;&lt;&lt;/link&gt;&gt;
 
@@ -4644,7 +4655,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;p&gt;&lt;img src=&quot;media/img/小之到廟前.png&quot; class=&quot;diaryimage&quot;&gt;
 府城隍廟懸掛著，「爾來了」的匾額，寓意著無論你在陽世如何行事，最終都難逃城隍爺的審判。&lt;/p&gt;
 &lt;p&gt;匾額上方懸掛著，一只古老的算盤，它不偏不倚，精確計算著每個人的功過。
-無論多少，皆有定數，絲毫不差。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="24" name="dialoguePages1" tags="" position="1200,400" size="100,100">&lt;name&gt;城隍&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;妳就是韓律之，我可以叫你小之嗎？這樣比較可愛。&lt;/p&gt;
+無論多少，皆有定數，絲毫不差。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="24" name="dialoguePages1" tags="" position="1200,400" size="100,100">&lt;name&gt;城隍&lt;/name&gt;&lt;scene&gt;character_bg1.png&lt;/scene&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;妳就是韓律之，我可以叫你小之嗎？這樣比較可愛。&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;這是雙關笑話嗎？因為我長得很小隻嗎？(心想)&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;沒、問題，絕對沒問題！&lt;/p&gt;
 &lt;name&gt;城隍&lt;/name&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;很好很好，不愧是我從陽界找來的優秀判官。&lt;/p&gt;
@@ -4685,7 +4696,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;序幕&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;div&gt;&lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages2&quot; _VNOptions &quot;ch0-2&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;/div&gt;
-/*[[ch0-2]]*/</tw-passagedata><tw-passagedata pid="29" name="ch0關卡1提示" tags="" position="100,800" size="100,100">答案就是&quot;威靈公&quot;。</tw-passagedata><tw-passagedata pid="30" name="dialoguePages2" tags="" position="1500,400" size="100,100">&lt;name&gt;城隍&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;回答正確。不枉費我特定讓妳轉生到陰界。&lt;/p&gt;
+/*[[ch0-2]]*/</tw-passagedata><tw-passagedata pid="29" name="ch0關卡1提示" tags="" position="100,800" size="100,100">答案就是&quot;威靈公&quot;。</tw-passagedata><tw-passagedata pid="30" name="dialoguePages2" tags="" position="1500,400" size="100,100">&lt;name&gt;城隍&lt;/name&gt;&lt;scene&gt;character_bg1.png&lt;/scene&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;回答正確。不枉費我特定讓妳轉生到陰界。&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;為什麼、為什麼城隍大人會知道我是從陽界來的！&lt;/p&gt;
 &lt;name&gt;城隍&lt;/name&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;因為讓妳轉生到陰界是我特地安排。&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;城隍大人，你也多考慮我的感受。&lt;/p&gt;
@@ -4699,8 +4710,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;是⋯⋯&lt;/p&gt;
 &lt;name&gt;城隍&lt;/name&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;也不要如此洩氣，如果妳的裁決能通過陰界的肯定，我就施法讓妳回到陽界。&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;確定，真的嗎？&lt;/p&gt;
-&lt;name&gt;城隍&lt;/name&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;當然沒問題，說一不二。&lt;/p&gt;
-</tw-passagedata><tw-passagedata pid="31" name="ch0-2" tags="nofooter nonav black title center" position="1700,400" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, showHistory: false }&gt;&gt;\
+&lt;name&gt;城隍&lt;/name&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;當然沒問題，說一不二。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="31" name="ch0-2" tags="nofooter nonav black title center" position="1700,400" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;OSPages2&quot; _VNOptions &quot;ch1-0&quot;&gt;&gt;
 /* [[ch1-0]] */</tw-passagedata><tw-passagedata pid="32" name="ch1-0" tags="nofooter title nonav diary autosave" position="1100,1000" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, bgImage: &quot;media/img/bookbg.png&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1300, showHistory: false }&gt;&gt;&lt;&lt;notify&gt;&gt;第一幕&lt;&lt;/notify&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages2&quot; _VNOptions &quot;ch1-1&quot;&gt;&gt;
@@ -4758,7 +4768,7 @@ Set up your profile, stats and meters, and other relevant information here!
     	&lt;&lt;showtip &quot;關卡錯誤提示&quot; &quot;show7tip&quot;&gt;&gt;
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/button&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/* [[ch1關卡1破關]] */</tw-passagedata><tw-passagedata pid="39" name="dialoguePages3" tags="" position="1200,1200" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;想不到府城隍廟的歷史如此深厚，&lt;br&gt;想要輕鬆找到「惡源」並非易事。&lt;/p&gt;
+/* [[ch1關卡1破關]] */</tw-passagedata><tw-passagedata pid="39" name="dialoguePages3" tags="" position="1200,1200" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;想不到府城隍廟的歷史如此深厚，&lt;br&gt;想要輕鬆找到「惡源」並非易事。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;老人.png&lt;/img&gt;&lt;p&gt;不過，我注意到一位長輩不斷嘆氣，便上前詢問原因。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;老人.png&lt;/img&gt;&lt;p&gt;原來，他正在為自己的孫子求籤，而每一支籤的指引竟全是&quot;凶相&quot;，讓他憂心忡忡。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;老人孫子.png&lt;/img&gt;&lt;p&gt;然而，他身後的孫子，卻始終沉默不語，彷彿對此事毫不在意。&lt;/p&gt;
@@ -4787,7 +4797,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;第一幕&lt;/h3&gt;&lt;/div&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages5&quot; _VNOptions &quot;ch2-0&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/*[[ch2-0]]*/</tw-passagedata><tw-passagedata pid="42" name="dialoguePages5" tags="" position="2000,1200" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;想必你的孫子正為了學業相關的問題苦惱吧？&lt;br&gt;但所求的籤詩都面對&quot;凶相&quot;。&lt;/p&gt;
+/*[[ch2-0]]*/</tw-passagedata><tw-passagedata pid="42" name="dialoguePages5" tags="" position="2000,1200" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;想必你的孫子正為了學業相關的問題苦惱吧？&lt;br&gt;但所求的籤詩都面對&quot;凶相&quot;。&lt;/p&gt;
 &lt;name&gt;阿福伯&lt;/name&gt;&lt;img&gt;老人.png&lt;/img&gt;&lt;p&gt;妳怎麼會知道。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;老人.png&lt;/img&gt;&lt;p&gt;原來這位老者是阿福伯，今日來府城隍廟祈求孫子考試順利。&lt;br&gt;卻不知為何得到的結果都不盡人意。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;老人.png&lt;/img&gt;&lt;p&gt;雖然我知道阿福伯背後的動機。&lt;br&gt;不過籤指向的&quot;凶&quot;，搞不好與孫子有關……&lt;/p&gt;</tw-passagedata><tw-passagedata pid="43" name="ch1關卡1提示" tags="" position="200,800" size="100,100">答案就是「石榴」。</tw-passagedata><tw-passagedata pid="44" name="ch1關卡1破關" tags="center nofooter black one" position="1100,1450" size="100,100">&lt;span class=&quot;slide-container&quot;&gt;
@@ -4802,7 +4812,7 @@ Set up your profile, stats and meters, and other relevant information here!
   &lt;img src=&quot;media/img/win.png&quot; width=&quot;100%&quot; class=&quot;scale-in-center&quot;&gt;
 &lt;/span&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;button &#39;繼續&#39; &#39;ch1-3&#39;&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/* [[ch1-3]] */</tw-passagedata><tw-passagedata pid="47" name="dialoguePages4" tags="" position="1500,1200" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;是石榴。&lt;/p&gt;
+/* [[ch1-3]] */</tw-passagedata><tw-passagedata pid="47" name="dialoguePages4" tags="" position="1500,1200" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;是石榴。&lt;/p&gt;
 &lt;name&gt;文武判官&lt;/name&gt;&lt;img&gt;文武判官.png&lt;/img&gt;&lt;p&gt;石榴？&lt;br&gt;石榴意味著多子多孫。&lt;/p&gt;
 &lt;name&gt;文武判官&lt;/name&gt;&lt;img&gt;文武判官.png&lt;/img&gt;&lt;p&gt;孫，難道這位長者所求，&lt;br&gt;代表&quot;凶相&quot;籤詩來自於孫子嗎？&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;老人孫子.png&lt;/img&gt;&lt;p&gt;我便向這位老者詢問為何求籤的經過。&lt;/p&gt;
@@ -4849,7 +4859,7 @@ Set up your profile, stats and meters, and other relevant information here!
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-/* [[ch2關卡1-2]] */</tw-passagedata><tw-passagedata pid="56" name="dialoguePages6" tags="" position="1200,2000" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;我該找誰來幫忙？&lt;/p&gt;
+/* [[ch2關卡1-2]] */</tw-passagedata><tw-passagedata pid="56" name="dialoguePages6" tags="" position="1200,2000" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;我該找誰來幫忙？&lt;/p&gt;
 &lt;name&gt;七爺&lt;/name&gt;&lt;img&gt;七爺.png&lt;/img&gt;&lt;p&gt;看來小之遇到困難了？需要身為陰界的老前輩幫忙。&lt;/p&gt;
 &lt;name&gt;八爺&lt;/name&gt;&lt;img&gt;八爺.png&lt;/img&gt;&lt;p&gt;嗯嗯嗯⋯⋯小之妳遇到怎樣的難題？&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;七爺八爺.png&lt;/img&gt;&lt;p&gt;我把凶相與孫子似乎隱瞞真相的事情，向七爺八爺稟報。&lt;/p&gt;
@@ -4872,7 +4882,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;replace &quot;#replace&quot;&gt;&gt;&lt;&lt;include &#39;算盤&#39;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 &lt;&lt;/timed&gt;&gt;&lt;/div&gt;
-/* [[ch2關卡2破關]] */</tw-passagedata><tw-passagedata pid="61" name="dialoguePages7" tags="" position="1500,2000" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;&quot;學政司&quot;與&quot;考功司&quot;和學業有關。我調查桌上的准考證，不過實在太多了。&lt;/p&gt;
+/* [[ch2關卡2破關]] */</tw-passagedata><tw-passagedata pid="61" name="dialoguePages7" tags="" position="1500,2000" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;&quot;學政司&quot;與&quot;考功司&quot;和學業有關。我調查桌上的准考證，不過實在太多了。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;准考證.png&lt;/img&gt;&lt;p&gt;根本不知道哪張准考證，跟這件事情有關係。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;准考證.png&lt;/img&gt;&lt;p&gt;此時，我從准考證中，感受到一幅對聯。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;准考證.png&lt;/img&gt;&lt;p&gt;但跟之前不太一樣，感受到的對聯看不清模樣。&lt;/p&gt;
@@ -4900,7 +4910,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 1s t8n&gt;&gt;請觀察府城隍廟內的大算盤，
 對照下面的圖案，
 選出哪些算珠被移動了？
-&lt;img src=&quot;media/img/撥動算盤.jpg&quot; width=&quot;80%&quot;&gt;
+&lt;img src=&quot;media/img/撥動算盤.png&quot; width=&quot;70%&quot;&gt;
 
 &lt;span class=&quot;levelinput&quot;&gt;&lt;&lt;listbox &quot;_answer&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;/span&gt;
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
@@ -4915,12 +4925,11 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;第二幕&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages8&quot; _VNOptions &quot;ch2關卡3&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/*[[ch2關卡3]]*/</tw-passagedata><tw-passagedata pid="67" name="dialoguePages8" tags="" position="1800,2000" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;城隍廟大算盤，這個命名品味值得擔憂……&lt;br&gt;不過總算啟動大算盤了！&lt;/p&gt;
+/*[[ch2關卡3]]*/</tw-passagedata><tw-passagedata pid="67" name="dialoguePages8" tags="" position="1800,2000" size="100,100">&lt;name&gt;小之&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;城隍廟大算盤，這個命名品味值得擔憂……&lt;br&gt;不過總算啟動大算盤了！&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;大算盤出現&quot;准考證&quot;的字眼，結合感應到的對聯，到底是什麼意思？&lt;/p&gt;
 &lt;name&gt;文武判官&lt;/name&gt;&lt;img&gt;文武判官.png&lt;/img&gt;&lt;p&gt;只要撥動算盤，就能解開這組暗號。&lt;/p&gt;
-&lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;撥動算盤？算盤的珠子似乎不太對勁……&lt;/p&gt;</tw-passagedata><tw-passagedata pid="68" name="算盤2" tags="" position="1800,2250" size="100,100">&lt;div id=&quot;abacus&quot;&gt;&lt;div id=&quot;leftabacus&quot;&gt;&lt;/div&gt;&lt;div id=&quot;myAbacusContainer&quot;&gt;&lt;/div&gt;&lt;div id=&quot;rightabacus&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;&lt;timed 0.3s&gt;&gt;&lt;&lt;replace &quot;#leftabacus&quot;&gt;&gt;&lt;span  class=&#39;abacus-vertical-writing&#39;&gt;&lt;img src=&quot;media/img/算盤對聯左.png&quot;  width=&quot;100%&quot;&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &quot;#rightabacus&quot;&gt;&gt;&lt;span class=&#39;abacus-vertical-writing&#39;&gt;&lt;img src=&quot;media/img/算盤對聯右.png&quot;  width=&quot;100%&quot;&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;timed 0.3s&gt;&gt;&lt;&lt;runAbacus&gt;&gt;
-&lt;div id=&quot;choicebutton&quot;&gt;\
+&lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;撥動算盤？算盤的珠子似乎不太對勁……&lt;/p&gt;</tw-passagedata><tw-passagedata pid="68" name="算盤2" tags="" position="1800,2250" size="100,100">&lt;div id=&quot;abacus&quot;&gt;&lt;div id=&quot;leftabacus&quot;&gt;&lt;/div&gt;&lt;div id=&quot;myAbacusContainer&quot;&gt;&lt;/div&gt;&lt;div id=&quot;rightabacus&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;&lt;timed 0.3s&gt;&gt;&lt;&lt;replace &quot;#leftabacus&quot;&gt;&gt;&lt;span  class=&#39;abacus-vertical-writing&#39;&gt;&lt;img src=&quot;media/img/算盤對聯左.png&quot;  width=&quot;100%&quot;&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;replace &quot;#rightabacus&quot;&gt;&gt;&lt;span class=&#39;abacus-vertical-writing&#39;&gt;&lt;img src=&quot;media/img/算盤對聯右.png&quot;  width=&quot;100%&quot;&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;\
+&lt;&lt;timed 0.3s&gt;&gt;&lt;&lt;runAbacus&gt;&gt;&lt;div id=&quot;choicebutton&quot;&gt;\
 &lt;&lt;button &quot;關於大算盤&quot;&gt;&gt;
     &lt;&lt;run Dialog.setup(&quot;關於大算盤&quot;)&gt;&gt;
     &lt;&lt;run Dialog.wiki(Story.get(&#39;關於大算盤&#39;).processText())&gt;&gt;
@@ -4941,9 +4950,9 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;第二幕&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages9&quot; _VNOptions &quot;ch2-6&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/*[[ch2-6]]*/</tw-passagedata><tw-passagedata pid="72" name="ch2-6" tags="nofooter nonav black title center autosave" position="2300,2000" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, showHistory: false }&gt;&gt;\
+/*[[ch2-6]]*/</tw-passagedata><tw-passagedata pid="72" name="ch2-6" tags="nofooter nonav black title center autosave" position="2300,2000" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, delay: 200, duration: 1600, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;OSPages4&quot; _VNOptions &quot;ch3-0&quot;&gt;&gt;
-/* [[ch3-0]] */</tw-passagedata><tw-passagedata pid="73" name="dialoguePages9" tags="" position="2100,2000" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;算盤上的珠子快速地翻動後，得到了&quot;聰正動&quot;的訊息。&lt;/p&gt;
+/* [[ch3-0]] */</tw-passagedata><tw-passagedata pid="73" name="dialoguePages9" tags="" position="2100,2000" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;算盤上的珠子快速地翻動後，得到了&quot;聰正動&quot;的訊息。&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;這兩個字跟府城隍廟有什麼關聯嗎？&lt;/p&gt;
 &lt;name&gt;文武判官&lt;/name&gt;&lt;img&gt;文武判官.png&lt;/img&gt;&lt;p&gt;根據我們敏銳的直覺，好像某個人的名字。&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;我來問問。&lt;/p&gt;
@@ -4958,8 +4967,8 @@ Set up your profile, stats and meters, and other relevant information here!
 /*[[ch3-2]]*/</tw-passagedata><tw-passagedata pid="77" name="diaryPages4" tags="" position="1200,2600" size="100,100">&lt;p&gt;&lt;img src=&quot;media/img/霸凌1.png&quot; class=&quot;diaryimage&quot;&gt;&lt;em&gt;你不要以為你成績好，&lt;/em&gt;&lt;em&gt;就可以為所欲為。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;media/img/霸凌2.png&quot; class=&quot;diaryimage&quot;&gt;&lt;em&gt;別自以為是⋯⋯&lt;/em&gt;&lt;em&gt;我才有資格成為第一。&lt;/em&gt;&lt;br&gt;&lt;em&gt;下次再自作聰明，&lt;/em&gt;&lt;em&gt;就不會只有這樣。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;media/img/霸凌3.png&quot; class=&quot;diaryimage&quot;&gt;&lt;em&gt;嗚嗚，為什麼，&lt;/em&gt;&lt;em&gt;我明明這麼努力。&lt;/em&gt;&lt;em&gt;聰正，這個渾蛋⋯⋯&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;當我總算找到「惡源」的方向時，一段陌生的對話傳到我的耳邊。&lt;br&gt;此次惡緣重五斤六兩，若無解決，將嚴重影響此人命運。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="78" name="dialoguePages10" tags="" position="1200,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;雖然我不知道這段對話的意義，&lt;br&gt;但話中提到&quot;聰正&quot;。&lt;/p&gt;
-&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;難道與孫子有什麼關聯？&lt;/p&gt;</tw-passagedata><tw-passagedata pid="79" name="ch3-2" tags="center nobr black notran" position="1400,2800" size="100,100">&lt;&lt;set _VNOptions to { showHistory: true }&gt;&gt;
+&lt;p&gt;當我總算找到「惡源」的方向時，一段陌生的對話傳到我的耳邊。&lt;br&gt;此次惡緣重五斤六兩，若無解決，將嚴重影響此人命運。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="78" name="dialoguePages10" tags="" position="1200,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;雖然我不知道這段對話的意義，&lt;br&gt;但話中提到&quot;聰正&quot;。&lt;/p&gt;
+&lt;name&gt;&lt;/name&gt;&lt;img&gt;孫子.png&lt;/img&gt;&lt;p&gt;難道與孫子有什麼關聯？&lt;/p&gt;</tw-passagedata><tw-passagedata pid="79" name="ch3-2" tags="center nobr black notran" position="1400,2800" size="100,100">&lt;&lt;set _VNOptions to { showHistory: true }&gt;&gt;
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;第三幕&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;\
 &lt;div id=&quot;vn-text-main&quot; class=&quot;vn-speech-container&quot;&gt;
@@ -4993,7 +5002,7 @@ Set up your profile, stats and meters, and other relevant information here!
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-/* [[ch3關卡1破關]] */</tw-passagedata><tw-passagedata pid="82" name="dialoguePages11" tags="" position="1700,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我知道了&quot;聰正&quot;這個人與孫子發生過糾紛。&lt;/p&gt;
+/* [[ch3關卡1破關]] */</tw-passagedata><tw-passagedata pid="82" name="dialoguePages11" tags="" position="1700,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我知道了&quot;聰正&quot;這個人與孫子發生過糾紛。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;那個&quot;動&quot;，意味著&quot;動機&quot;。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;那個&quot;動機&quot;又是什麼？&lt;/p&gt;</tw-passagedata><tw-passagedata pid="83" name="ch3-4" tags="center nobr black notran" position="1900,2800" size="100,100">&lt;&lt;set _VNOptions to { showHistory: true }&gt;&gt;
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;第三幕&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
@@ -5013,7 +5022,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;第三幕&lt;/h3&gt;&lt;/div&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages12&quot; _VNOptions &quot;ch3關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/*[[ch3關卡1]]*/</tw-passagedata><tw-passagedata pid="85" name="dialoguePages12" tags="" position="2200,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;從先前謎題中，理解阿福伯向學政司祈求孫子考試順利。&lt;/p&gt;
+/*[[ch3關卡1]]*/</tw-passagedata><tw-passagedata pid="85" name="dialoguePages12" tags="" position="2200,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;從先前謎題中，理解阿福伯向學政司祈求孫子考試順利。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;這些相關事件，我知道孫子與&quot;聰正&quot;發生糾紛的原因是來自於&quot;考試&quot;。&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;你是不是和這位聰正，因為考試的事情，才發生衝突。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;孫子.png&lt;/img&gt;&lt;p&gt;孫子聽到我的話，臉色整個翻白，他依然不願意吐露實話。&lt;/p&gt;
@@ -5056,7 +5065,7 @@ Set up your profile, stats and meters, and other relevant information here!
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-/* [[ch3關卡2破關]] */</tw-passagedata><tw-passagedata pid="90" name="dialoguePages13" tags="" position="2500,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;這個對聯似乎與&quot;虎&quot;有關係。&lt;/p&gt;
+/* [[ch3關卡2破關]] */</tw-passagedata><tw-passagedata pid="90" name="dialoguePages13" tags="" position="2500,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;這個對聯似乎與&quot;虎&quot;有關係。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;但府城隍廟裡哪來的&quot;虎&quot;？&lt;/p&gt;
 &lt;name&gt;小之&lt;/name&gt;&lt;img&gt;小之.png&lt;/img&gt;&lt;p&gt;會不會和府城隍廟的空間配置有關？&lt;/p&gt;</tw-passagedata><tw-passagedata pid="91" name="ch3關卡2破關" tags="center one nofooter black" position="2400,3050" size="100,100">&lt;span class=&quot;slide-container&quot;&gt;
   &lt;img src=&quot;media/img/win.png&quot; width=&quot;100%&quot; class=&quot;scale-in-center&quot;&gt;
@@ -5070,7 +5079,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;好結局&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages15&quot; _VNOptions &quot;結束&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/*[[結束]]*/</tw-passagedata><tw-passagedata pid="95" name="dialoguePages14" tags="" position="2800,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我跟文武判官，終於在&quot;虎堵&quot;找到准考證。&lt;/p&gt;
+/*[[結束]]*/</tw-passagedata><tw-passagedata pid="95" name="dialoguePages14" tags="" position="2800,2800" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg2.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我跟文武判官，終於在&quot;虎堵&quot;找到准考證。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;當我碰觸准考證時，城隍大人與七爺八爺出現在我眼前。&lt;/p&gt;
 &lt;name&gt;七爺&lt;/name&gt;&lt;img&gt;七爺.png&lt;/img&gt;&lt;p&gt;看來小之已經解開整個事件的謎團。&lt;/p&gt;
 &lt;name&gt;八爺&lt;/name&gt;&lt;img&gt;八爺.png&lt;/img&gt;&lt;p&gt;不過身為實習判官，不是找到真相而已，而是要做出公正的裁決。&lt;/p&gt;
@@ -5104,7 +5113,7 @@ Set up your profile, stats and meters, and other relevant information here!
         &lt;&lt;/switch&gt;&gt;
       &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;&lt;button &quot;下載結果&quot;&gt;&gt;&lt;&lt;captureScreen &quot;.card&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-（截圖保留或下載結果以兌換小獎品）</tw-passagedata><tw-passagedata pid="99" name="dialoguePages15" tags="" position="1400,3300" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;根據文武判官的簿冊，我查到了阿福伯孫子的聯絡方式，並將他的所作所為如實呈現給他看。&lt;/p&gt;
+（截圖保留或下載結果以兌換小獎品）</tw-passagedata><tw-passagedata pid="99" name="dialoguePages15" tags="" position="1400,3300" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg3.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;根據文武判官的簿冊，我查到了阿福伯孫子的聯絡方式，並將他的所作所為如實呈現給他看。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;孫子.png&lt;/img&gt;&lt;p&gt;孫子看到後，瞬間愣住，隨即悔恨不已，淚流滿面。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;孫子.png&lt;/img&gt;&lt;p&gt;我嚴肅地告誡他，並給予安慰，希望他能引以為戒，不再誤入歧途。&lt;/p&gt;
 &lt;name&gt;孫子&lt;/name&gt;&lt;img&gt;孫子.png&lt;/img&gt;&lt;p&gt;（低聲問道）那……林聰正呢？&lt;br&gt;難道他就不用接受城隍爺的審判嗎？&lt;/p&gt;
@@ -5121,7 +5130,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;name&gt;城隍&lt;/name&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;妳才解決了一個惡源，至少累積 100 個，才能算是功德圓滿。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;什麼？！還差 99 個？！這也太遙遠了吧！&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;總之，事不宜遲，請大家趕快來府城隍廟，幫我提升破案效率！&lt;br&gt;我可不想永遠卡在這裡！！&lt;/p&gt;
-&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;對了，大家來看我時，記得帶好吃的點心來喔。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="100" name="dialoguePages16" tags="" position="1700,3300" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我向城隍爺報告來龍去脈，城隍爺要求文武判官將孫子的所作所為記載簿子裡。&lt;/p&gt;
+&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;對了，大家來看我時，記得帶好吃的點心來喔。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="100" name="dialoguePages16" tags="" position="1700,3300" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;character_bg3.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我向城隍爺報告來龍去脈，城隍爺要求文武判官將孫子的所作所為記載簿子裡。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;孫子.png&lt;/img&gt;&lt;p&gt;等孫子陽壽結束之後，這一筆帳和他人生其他的功過，加加減減後得到他應有的待遇。&lt;/p&gt;
 &lt;name&gt;城隍&lt;/name&gt;&lt;img&gt;城隍.png&lt;/img&gt;&lt;p&gt;無論惡有多小，上蒼都會一筆筆記得。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="101" name="關於大算盤" tags="" position="300,700" size="100,100">大算盤屬於二五珠算盤，採用上二珠、下五珠的形式，上一珠當五，下一珠當一。
 其計算方式是一斤十六兩，也就是十六進制，又被稱為斤兩算盤。
@@ -5162,7 +5171,7 @@ Set up your profile, stats and meters, and other relevant information here!
   &lt;/div&gt;
 &lt;/div&gt;&lt;&lt;/nobr&gt;&gt;
 
-&lt;&lt;button &#39;輸入&#39;&gt;&gt;
+&lt;&lt;button &#39;確認&#39;&gt;&gt;
 	&lt;&lt;if $check1 is true and $check2 is false and $check3 is false and $check4 is true&gt;&gt;
 		&lt;&lt;goto &#39;ch2關卡1破關&#39;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
