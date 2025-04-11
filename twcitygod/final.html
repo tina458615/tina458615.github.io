@@ -2891,6 +2891,43 @@ window.slideWin = function (dir) {
 };
 /* SlideWin - End */
 
+/* Anchor Link to Passage - Start */
+if ("onhashchange" in window) {  // event supported
+	window.onhashchange = function () {
+		hashChanged();
+	};
+} else {  // event not supported
+	window.setInterval(function () {
+		if (window.location.hash != setup.storedHash) {
+			hashChanged();
+		}
+	}, 100);
+}
+function hashChanged() {
+	if (Engine.isIdle()) {
+		if (window.location.hash && (setup.storedHash != window.location.hash)) {
+			setup.storedHash = window.location.hash;
+			var anchor = decodeURI(window.location.hash.substring(1));
+			if (Story.has(anchor) && (passage() !== anchor)) {
+				Engine.play(anchor);
+			}
+		} else {
+			// Comment out the following line of code if you don't want the
+			// anchor link of the current passage displayed in the URL bar.
+			window.location.hash = encodeURI(passage());
+		}
+		// Comment out the following line of code if you don't want the
+		// title of the page set to the passage name.
+		/*
+		document.title = passage();
+		*/
+	} else {
+		setTimeout(hashChanged, 100);
+	}
+}
+$(document).on(':passageend', function () { hashChanged(); });
+/* Anchor Link to Passage - End */
+
 /*! ChapelR macros
  *  Chapel's Custom Macro Collection
  *  by Chapel
