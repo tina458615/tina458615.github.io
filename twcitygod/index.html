@@ -2424,6 +2424,18 @@ $(document.head).append("<link rel='icon' href='media/img/favicon.png'>");
 $(document).ready(function () {
 	document.documentElement.setAttribute("lang", "zh-Hant-TW");
   });
+// 📌 如果網址沒有以 / 結尾，重新導向到加上 / 的版本
+(function () {
+    const pathname = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+
+    // 檢查是否缺少尾端的 "/"
+    if (!pathname.endsWith("/")) {
+        const newUrl = pathname + "/" + search + hash;
+        window.location.replace(newUrl);  // 用 replace 避免產生歷史紀錄
+    }
+})();
 
 /* 在<head>元素中置入google分析的script程式碼 */
 // 創建 <script> 元素
