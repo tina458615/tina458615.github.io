@@ -104,7 +104,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="城垣尋憶" startnode="2" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="7ccbfd3e-0385-42ab-a0ee-0392e8fdeecd" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* IMPORT FONTS
+	<tw-storydata name="城垣尋憶" startnode="2" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="7ccbfd3e-0385-42ab-a0ee-0392e8fdeecd" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* IMPORT FONTS
 comment --
 webfont import
 */
@@ -168,6 +168,8 @@ set up your css variables here!
 
   --bg2: #ddd;
   --text_light: #111;
+
+  --text_hover: white;
 
   /* fonts */
   --fontbody: 'Noto Sans TC', sans-serif, Arial;
@@ -4892,21 +4894,21 @@ Set up your profile, stats and meters, and other relevant information here!
 這麼看來，&lt;strong&gt;府城隍廟&lt;/strong&gt;不僅審案、執法，還要維護整個轄區的公平正義！每位神明都是這個體系中不可或缺的一環，一起讓陰陽世界的秩序井然！&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;color: red; font-size: 1.1em;&quot;&gt;(3)什麼是「惡源」&lt;/span&gt;&lt;/strong&gt;
 目前沒有相對應的答案，但從城隍爺的口中得知，當人內心有「惡念」時，就會產生「惡源」，身為判官的我們能感受到「惡源」，並且從中找到能解開「惡源」線索，讓起惡念的人能誠心悔改。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="36" name="選擇章節" tags="" position="100,700" size="100,100">&lt;div style=&#39;text-align: left; padding: 0 5%;&#39;&gt;
-  &lt;&lt;link &#39;【序幕】&#39;&gt;&gt;&lt;&lt;goto &#39;開場-1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【前導關卡】&#39;&gt;&gt;&lt;&lt;goto &#39;ch0關卡&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
+  &lt;&lt;link &#39;【序幕】&#39;&gt;&gt;&lt;&lt;goto &#39;開場-1&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【前導關卡】&#39;&gt;&gt;&lt;&lt;goto &#39;ch0關卡&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
   
-  &lt;&lt;link &#39;【第一幕】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1-0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【關卡2】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
+  &lt;&lt;link &#39;【第一幕】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1-0&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1關卡1&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【關卡2】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1關卡2&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
   
-  &lt;&lt;link &#39;【第二幕】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2-0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【關卡3】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【關卡4】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【關卡5】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2關卡3&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
+  &lt;&lt;link &#39;【第二幕】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2-0&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【關卡3】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2關卡1&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【關卡4】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2關卡2&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【關卡5】&#39;&gt;&gt;&lt;&lt;goto &#39;ch2關卡3&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
   
-  &lt;&lt;link &#39;【第三幕】&#39;&gt;&gt;&lt;&lt;goto &#39;ch3-0&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【關卡6】&#39;&gt;&gt;&lt;&lt;goto &#39;ch3關卡1&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【關卡7】&#39;&gt;&gt;&lt;&lt;goto &#39;ch3關卡2&#39;&gt;&gt;&lt;&lt;script&gt;&gt;Dialog.close();&lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="ch1-1" tags="center nobr black autosave" position="1100,1200" size="100,100">&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;
+  &lt;&lt;link &#39;【第三幕】&#39;&gt;&gt;&lt;&lt;goto &#39;ch3-0&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【關卡6】&#39;&gt;&gt;&lt;&lt;goto &#39;ch3關卡1&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
+  └&lt;&lt;link &#39;【關卡7】&#39;&gt;&gt;&lt;&lt;goto &#39;ch3關卡2&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="ch1-1" tags="center nobr black autosave" position="1100,1200" size="100,100">&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;第一幕&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages3&quot; _VNOptions &quot;ch1關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -4978,7 +4980,8 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 1s t8n&gt;&gt;從碑林中找到【萬＿同＿所】的字句，
 幫城玄回想起完整的文字。
 
-&lt;span class=&quot;levelinput&quot;&gt;城玄回想起的字句是：&lt;&lt;textbox &#39;$inputtext&#39; &#39;輸入完整五個字&#39; autofocus&gt;&gt;&lt;/span&gt;
+城玄回想起的字句是：&lt;&lt;textbox &#39;_answer&#39; &#39;輸入完整五個字&#39; autofocus&gt;&gt;
+
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
 	&lt;&lt;if $answer is &#39;萬善同歸所&#39;&gt;&gt;
@@ -5001,11 +5004,11 @@ Set up your profile, stats and meters, and other relevant information here!
 /*[[ch2關卡1]]*/</tw-passagedata><tw-passagedata pid="54" name="OSPages3" tags="" position="1500,1800" size="100,100">&lt;OS&gt;孫子不願吐露真相，&lt;br&gt;你只好轉換策略，&lt;br&gt;請教城隍廟的夥伴。&lt;/OS&gt;</tw-passagedata><tw-passagedata pid="55" name="ch2關卡1" tags="center nofooter one autosave" position="2975,300" size="100,100">&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;h3&gt;2-1尋找阿香姊的食譜(1)&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;iframe src=&quot;https://tina458615.github.io/tainanmemory/ar/index.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allow=&quot;camera&quot;&gt;&lt;/iframe&gt;
 
-&lt;span class=&quot;levelinput&quot;&gt;根據食譜的提示進行探索！&lt;/span&gt;
+根據食譜的提示進行探索！
 【第一句】一開始會先朝向「西北」，這時候你的右手邊為A。
 【第二句】接著你轉過來，面對「正北」，這時候右邊為B。
 【第三句】最後你再轉，面向「東北」，你的右手邊為C。
-找出A、B、C三個點交匯處，是哪個建築設施的位置：&lt;&lt;textbox &#39;$inputtext&#39; &#39;輸入名稱&#39; autofocus&gt;&gt;
+找出A、B、C三個點交匯處，是哪個建築設施的位置：&lt;&lt;textbox &#39;_answer&#39; &#39;輸入名稱&#39; autofocus&gt;&gt;
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
 	&lt;&lt;if $answer is &#39;寧南門&#39;&gt;&gt;
