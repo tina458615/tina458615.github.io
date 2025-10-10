@@ -5160,7 +5160,6 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;color: red; font-size: 1.1em;&quot;&gt;(3)什麼是「惡源」&lt;/span&gt;&lt;/strong&gt;
 目前沒有相對應的答案，但從城隍爺的口中得知，當人內心有「惡念」時，就會產生「惡源」，身為判官的我們能感受到「惡源」，並且從中找到能解開「惡源」線索，讓起惡念的人能誠心悔改。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="36" name="選擇章節" tags="" position="100,700" size="100,100">&lt;div style=&#39;text-align: left; padding: 0 5%;&#39;&gt;
   &lt;&lt;link &#39;【序幕】&#39;&gt;&gt;&lt;&lt;goto &#39;開場-1&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
-  └&lt;&lt;link &#39;【前導關卡】&#39;&gt;&gt;&lt;&lt;goto &#39;ch0關卡&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
   
   &lt;&lt;link &#39;【第一幕】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1-0&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
   └&lt;&lt;link &#39;【關卡1】&#39;&gt;&gt;&lt;&lt;goto &#39;ch1關卡1&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -5319,10 +5318,10 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 1s t8n&gt;&gt;從說明牌中得到【神秘數字】的意義
 &lt;img src=&quot;media/img/說明牌.png&quot; width=&quot;100%&quot;&gt;
 
-&lt;span class=&quot;levelinput&quot;&gt;【神秘數字】與&lt;&lt;listbox &quot;_answer&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;有關&lt;/span&gt;
+【神秘數字】與&lt;&lt;listbox &quot;_answer&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;有關
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
-	&lt;&lt;if $answer is &#39;府城建城牆四&#39;&gt;&gt;
+	&lt;&lt;if $answer is &#39;府城建城牆&#39;&gt;&gt;
 		&lt;&lt;goto &#39;ch2關卡3破關&#39;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
     	&lt;&lt;showtip &quot;關卡錯誤&quot; &quot;show7tip&quot;&gt;&gt;
@@ -5620,9 +5619,14 @@ Set up your profile, stats and meters, and other relevant information here!
   &lt;&lt;if passage() is &quot;ch3關卡2&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;到平面圖上各代碼的位置，看哪一個地方有虎，就是答案囉！&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;button &#39;關閉&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="114" name="密碼鎖" tags="center nofooter one autosave notran" position="3225,300" size="100,100">&lt;div class=&quot;title-box&quot; style=&quot;color: black !important;&quot;&gt;&lt;h3&gt;2-1尋找阿香姊的食譜(2)&lt;/h3&gt;&lt;/div&gt;
 
-&lt;&lt;set $boxnum to [1, 7, 2, 5]&gt;&gt;請從城牆迷宮中，使用卦象的符號，找出箱子的密碼。
+&lt;&lt;set $boxnum to [1, 7, 2, 5]&gt;&gt;參考卦象的符號來走城牆迷宮，找出箱子的密碼。
+城牆迷宮移動規則：
+&lt;li&gt;「一」陽卦向左；「一 一」陰卦向右&lt;/li&gt;
+&lt;li&gt;移動過程沿著線走，碰到直線就向上&lt;/li&gt;
+
 &lt;div id=&quot;lock-container&quot;&gt;
-&lt;svg id=&quot;svg&quot; viewBox=&quot;0 0 500 500&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
+&lt;span class=&#39;Roundel&#39;&gt;艮&lt;/span&gt;&lt;span class=&#39;Roundel&#39;&gt;震&lt;/span&gt;&lt;span class=&#39;Roundel&#39;&gt;巽&lt;/span&gt;
+&lt;svg id=&quot;svg&quot; viewBox=&quot;0 0 500 500&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;
 	&lt;defs&gt;
 		&lt;g class=&quot;combination-input-template&quot;&gt;
 			&lt;rect x=&quot;-25&quot; y=&quot;-40&quot; width=&quot;50&quot; height=&quot;80&quot;
@@ -5644,7 +5648,7 @@ Set up your profile, stats and meters, and other relevant information here!
 		&lt;text x=&quot;0&quot; y=&quot;6&quot; font-size=&quot;16&quot; fill=&quot;white&quot; text-anchor=&quot;middle&quot;&gt;解鎖&lt;/text&gt;
 		&lt;rect x=&quot;-50&quot; y=&quot;-20&quot; width=&quot;100&quot; height=&quot;40&quot; fill=&quot;transparent&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot; rx=&quot;3&quot;/&gt;
 	&lt;/g&gt;
-	&lt;text id=&quot;response-text&quot; x=&quot;50%&quot; y=&quot;360&quot; font-size=&quot;50&quot; fill=&quot;white&quot; text-anchor=&quot;middle&quot; opacity=&quot;0&quot;&gt;correct&lt;/text&gt;
+	&lt;text id=&quot;response-text&quot; x=&quot;50%&quot; y=&quot;360&quot; font-size=&quot;1.5em&quot; fill=&quot;white&quot; text-anchor=&quot;middle&quot; opacity=&quot;0&quot;&gt;correct&lt;/text&gt;
 	&lt;g id=&quot;combination-input-container&quot; transform=&quot;translate(250,365)&quot;&gt;&lt;/g&gt;
 &lt;/svg&gt;
 &lt;/div&gt;
