@@ -519,23 +519,21 @@ custom animation
 
 /* 密碼鎖 */
 #lockContainer {
-  max-height: 300px;  /* 或依你想要的比例調 */
   background-color: #222;
   display: flex;
   flex-direction: column; /* 改成上下排列 */
   align-items: center;
   justify-content: flex-start; /* 不置中，從上開始排 */
-  padding-top: 10px; /* 上方留一點距離即可 */
 }
 
 #lockContainer > div:first-child {
-  margin: 10px 0; /* 控制「艮震巽」與鎖之間距離 */
+  margin-top: 10px; /* 控制「艮震巽」與鎖之間距離 */
 }
 
 #lockContainer svg {
   width: 100%;
   max-width: 400px;
-  max-height: 250px;  /* 或依你想要的比例調 */
+  max-height: 300px;  /* 或依你想要的比例調 */
   height: auto;
   display: block;
 }
@@ -4518,9 +4516,9 @@ Macro.add("fadein", {
     if (!container) return;
 
     container.innerHTML = `
-      <div><span class='Roundel'>艮</span>　<span class='Roundel'>震</span>　<span class='Roundel'>巽</span></div>
+      <div style="position: fixed;"><span class='Roundel'>艮</span>　<span class='Roundel'>震</span>　<span class='Roundel'>巽</span></div>
       <svg id="svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet"
-        width="100%" height="100%">
+        width="100%">
         <defs>
           <g class="combination-input-template">
             <rect x="-25" y="-40" width="50" height="80" fill="none" stroke="white" stroke-width="2" rx="3"/>
@@ -4539,8 +4537,8 @@ Macro.add("fadein", {
         </g>
 
         <g id="unlock-button" transform="translate(250,450)">
-          <text x="0" y="6" font-size="20" fill="white" text-anchor="middle">解鎖</text>
-          <rect x="-50" y="-20" width="100" height="40" fill="transparent" stroke="white" stroke-width="2" rx="3"/>
+          <text x="0" y="15" font-size="30" fill="white" text-anchor="middle">解鎖</text>
+          <rect x="-50" y="-20" width="100" height="50" fill="transparent" stroke="white" stroke-width="2" rx="3"/>
         </g>
 
         <text id="response-text" x="50%" y="360" font-size="30" fill="white" text-anchor="middle" opacity="0">密碼正確</text>
@@ -6720,7 +6718,7 @@ Set up your profile, stats and meters, and other relevant information here!
 陰卦【─ ─】向右，陽卦【──】向左，
 請以「爬格子」的方式解開謎題。
 
-&lt;div id=&quot;lockContainer&quot; style=&quot;width:100%; height:420px;&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;lockContainer&quot; style=&quot;width:100%;&quot;&gt;&lt;/div&gt;
 
 &lt;span id=&quot;tipbtn&quot;&gt;&lt;&lt;button &#39;貓草提示&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;關卡提示&quot;)&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="113" name="密碼鎖解鎖" tags="" position="3225,400" size="100,100">&lt;&lt;goto &#39;ch2關卡2破關&#39;&gt;&gt;
 /* [[ch2關卡2破關]] */</tw-passagedata><tw-passagedata pid="114" name="擲骰子" tags="black" position="3675,300" size="100,100">&lt;div&gt;&lt;h2&gt;城玄&lt;/h2&gt;
