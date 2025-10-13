@@ -4810,6 +4810,170 @@ Macro.add("fadein", {
   });
 })();
 
+/* twine-user-script : <<dice>> 完整修正版 */
+(function () {
+  const ROTATION_MAP = {
+    1: [0, 0],
+    2: [0, 270],
+    3: [270, 0],
+    4: [90, 0],
+    5: [0, 90],
+    6: [0, 180]
+  };
+
+  const getRandomInt = (max) => Math.floor(Math.random() * max);
+
+  const rollDice = (el, state) => {
+    if (!state.clickable || !state.canRoll) return;
+    state.canRoll = false;
+
+    const xTurn = 1 + getRandomInt(2);
+    const yTurn = 1 + getRandomInt(2);
+    const delay = Math.max(xTurn, yTurn) * 150;
+
+    state.angleX += 90 * xTurn;
+    state.angleY += 90 * yTurn;
+
+    if (state.angleX % 180 && getRandomInt(3) > 1) {
+      state.angleX += 90;
+    }
+
+    // 注意：現在要找到 .dice-container 裡的 .dice
+    const diceEl = el.querySelector('.dice-container .dice');
+    diceEl.style.transform = `rotateX(${state.angleX}deg) rotateY(${state.angleY}deg)`;
+    diceEl.style.transitionDuration = delay + 'ms';
+
+    let x = state.angleX % 360;
+    let y = state.angleY % 360;
+    let result = 1;
+
+    if (x === 0 || x === 180) {
+      switch ((x + y) % 360) {
+        case 0: result = 1; break;
+        case 90: result = 5; break;
+        case 180: result = 6; break;
+        case 270: result = 2; break;
+      }
+    } else if (x === 90) result = 4;
+    else if (x === 270) result = 3;
+
+    state.result = result;
+
+    if (state.correct !== null) {
+      State.variables["dice_result_" + state.id] = (result === state.correct);
+    }
+
+    setTimeout(() => state.canRoll = true, delay);
+  };
+
+  Macro.add('dice', {
+    handler: function () {
+      const id = this.args[0];
+      if (!id || typeof id !== 'string') {
+        return this.error("<<dice>> 第一個參數必須是 ID（例如：<<dice \"d1\">>)");
+      }
+
+      const opts = {
+        id,
+        start: 1,
+        correct: null,
+        clickable: true,
+        angleX: 0,
+        angleY: 0,
+        canRoll: true,
+        result: 1
+      };
+
+      // 解析字串格式的具名參數 (例如 "clickable:true", "start:2")
+      for (let i = 1; i < this.args.length; i++) {
+        const arg = this.args[i];
+        
+        if (typeof arg === 'string' && arg.includes(':')) {
+          const [key, value] = arg.split(':');
+          
+          if (key === 'clickable') {
+            opts.clickable = (value === 'true');
+          } else if (key === 'start') {
+            const num = parseInt(value);
+            if (!isNaN(num)) {
+              opts.start = Math.clamp(num, 1, 6);
+            }
+          } else if (key === 'correct') {
+            const num = parseInt(value);
+            if (!isNaN(num)) {
+              opts.correct = Math.clamp(num, 1, 6);
+            }
+          }
+        }
+      }
+
+      const [initX, initY] = ROTATION_MAP[opts.start];
+      opts.angleX = initX;
+      opts.angleY = initY;
+
+      // 最外層：光暈包裹層
+      const $wrapper = $('<div>')
+        .addClass('dice-glow-wrapper')
+        .attr('data-dice-id', opts.id);
+
+      // 中間層：3D perspective 容器
+      const $container = $('<div>')
+        .addClass('dice-container');
+
+      // 內層：實際旋轉的骰子
+      const $dice = $('<div>')
+        .addClass('dice')
+        .css({
+          transform: `rotateX(${initX}deg) rotateY(${initY}deg)`,
+          transitionDuration: "0ms"
+        });
+
+      // 關鍵：光暈和點擊事件加在最外層
+      if (opts.clickable) {
+        $wrapper.addClass('clickable');
+        
+        // 綁定點擊事件（支援桌面）
+        $wrapper.on('click', (e) => {
+          e.preventDefault();
+          rollDice($wrapper[0], opts);
+        });
+        
+        // 綁定觸控事件（支援手機/平板）
+        $wrapper.on('touchstart', (e) => {
+          e.preventDefault();
+          rollDice($wrapper[0], opts);
+        });
+      }
+
+      // 加入骰子點
+      const FACE_MAP = {
+        1: [['middle', 'center']],
+        2: [['top', 'right'], ['bottom', 'left']],
+        3: [['top', 'right'], ['middle', 'center'], ['bottom', 'left']],
+        4: [['top', 'right'], ['top', 'left'], ['bottom', 'right'], ['bottom', 'left']],
+        5: [['top', 'right'], ['top', 'left'], ['middle', 'center'], ['bottom', 'right'], ['bottom', 'left']],
+        6: [['top', 'right'], ['top', 'left'], ['middle', 'right'], ['middle', 'left'], ['bottom', 'right'], ['bottom', 'left']]
+      };
+
+      for (let i = 1; i <= 6; i++) {
+        const $face = $('<div>').addClass('face').attr('data-id', i);
+        FACE_MAP[i].forEach(([v, h]) => {
+          const $point = $('<div>')
+            .addClass('point')
+            .addClass(`point-${v}`)
+            .addClass(`point-${h}`);
+          $face.append($point);
+        });
+        $dice.append($face);
+      }
+
+      $container.append($dice);
+      $wrapper.append($container);
+      $(this.output).append($wrapper);
+    }
+  });
+})()
+
 /* twine-user-script : <<runAbacus>> */
 /* coment--使用方法
   ::passage
