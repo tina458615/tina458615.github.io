@@ -519,17 +519,25 @@ custom animation
 
 /* 密碼鎖 */
 #lockContainer {
+  max-height: 300px;  /* 或依你想要的比例調 */
   background-color: #222;
   display: flex;
+  flex-direction: column; /* 改成上下排列 */
   align-items: center;
-  justify-content: center;
-  height: 420px;
+  justify-content: flex-start; /* 不置中，從上開始排 */
+  padding-top: 10px; /* 上方留一點距離即可 */
+}
+
+#lockContainer > div:first-child {
+  margin: 10px 0; /* 控制「艮震巽」與鎖之間距離 */
 }
 
 #lockContainer svg {
   width: 100%;
   max-width: 400px;
+  max-height: 250px;  /* 或依你想要的比例調 */
   height: auto;
+  display: block;
 }
 
 /* 動畫 */
@@ -4510,6 +4518,7 @@ Macro.add("fadein", {
     if (!container) return;
 
     container.innerHTML = `
+      <div><span class='Roundel'>艮</span>　<span class='Roundel'>震</span>　<span class='Roundel'>巽</span></div>
       <svg id="svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet"
         width="100%" height="100%">
         <defs>
