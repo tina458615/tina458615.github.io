@@ -6261,16 +6261,15 @@ if you search strings localization in the Sugarcube 2 Documentation, it will lea
     &lt;div id=&quot;start-title&quot;&gt;&lt;&lt;include &#39;遊戲標題&#39;&gt;&gt;&lt;/div&gt;
     &lt;div id=&quot;start-menu&quot;&gt;&lt;&lt;include &#39;遊戲開始選單&#39;&gt;&gt;&lt;/div&gt;
 &lt;&lt;/fadein&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="credits" tags="credits noreturn" position="125,125" size="100,100">&lt;h3&gt;▍主協辦單位&lt;/h3&gt;
-指導單位：臺南市政府民政局
-　　　　　臺南市中西區公所
-主辦單位：臺灣府城隍廟
+指導單位：文化部、臺南市政府文化局
+主辦單位：臺南市中西區公所、台南社區大學
+合辦單位：街密、台南塾、得時書店、紳川漫士、山川設計、秘密製造所、左猫視覺、臺灣府城隍廟
 
 &lt;h3&gt;▍設計開發&lt;/h3&gt;
-故事文本：陳志軒
-遊戲設計：林承樸
+故事文本：陳志軒、林承樸、王閔儀
+關卡設計：林承樸、李汶洳、王閔儀、羅士哲
 遊戲程式：張雅婷
-遊戲美術：秘密製造所
-遊戲顧問：羅士哲</tw-passagedata><tw-passagedata pid="4" name="PassageHeader" tags="noreturn nobr" position="25,250" size="100,100">&lt;&lt;if settings.notifs&gt;&gt;&lt;&lt;if tags().includes(&#39;autosave&#39;)&gt;&gt;&lt;&lt;notify 3.5s&gt;&gt;自動存檔完成！&lt;&lt;/notify&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+視覺美術：許維禔、黃漢樺、林瑞育</tw-passagedata><tw-passagedata pid="4" name="PassageHeader" tags="noreturn nobr" position="25,250" size="100,100">&lt;&lt;if settings.notifs&gt;&gt;&lt;&lt;if tags().includes(&#39;autosave&#39;)&gt;&gt;&lt;&lt;notify 3.5s&gt;&gt;自動存檔完成！&lt;&lt;/notify&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 /* autosaving --
 the autosave notif needs to be &#39;present&#39; at all times so is stored in the passageheader, only popping up when you add the [autosave] tag onto one of your passages. 
@@ -6831,7 +6830,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="關卡答案" tags="" position="300,800" size="100,100">&lt;&lt;nobr&gt;&gt;
   &lt;&lt;if passage() is &quot;ch1關卡1&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;答案是四文錢&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;link [img[media/img/提示返回.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if passage() is &quot;ch1關卡2&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;答案是萬善同歸所&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;link [img[media/img/提示返回.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-  &lt;&lt;if passage() is &quot;ch2關卡1&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;A是砲台、B是甕城、C是大南門，三者交匯處就是寧南門&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;button &#39;關閉&#39;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/button&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+  &lt;&lt;if passage() is &quot;ch2關卡1&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;A是砲台、B是甕城、C是大南門，三者交匯處就是寧南門&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;link [img[media/img/提示返回.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if passage() is &quot;ch2關卡2&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;密碼是1725&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;link [img[media/img/提示返回.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if passage() is &quot;ch2關卡3&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;答案是府城建城牆&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;link [img[media/img/提示返回.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
   &lt;&lt;if passage() is &quot;ch3關卡1&quot;&gt;&gt;&lt;span class=&quot;tiptext&quot;&gt;骰子要改成1點&lt;/span&gt;&lt;div id=&quot;choicebutton&quot;&gt;&lt;&lt;link [img[media/img/提示返回.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;&lt;&lt;/if&gt;&gt;
