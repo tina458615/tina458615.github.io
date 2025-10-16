@@ -1723,7 +1723,7 @@ button:disabled {
 }
 
 select {
-  width: 10em;
+  width: fit-content;
   border: solid 1px var(--text);
   background-color: var(--bg);
 }
@@ -6474,7 +6474,8 @@ Set up your profile, stats and meters, and other relevant information here!
 /*[[ch1-2]]*/</tw-passagedata><tw-passagedata pid="33" name="ch1關卡1" tags="center nofooter one autosave white" position="2000,700" size="100,100">&lt;&lt;set _options = [&quot;一&quot;, &quot;二&quot;, &quot;三&quot;, &quot;四&quot;, &quot;五&quot;, &quot;六&quot;, &quot;七&quot;, &quot;八&quot;, &quot;九&quot;, &quot;十&quot;]&gt;&gt;&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot; style=&quot;color: black !important;&quot;&gt;&lt;h3&gt;關卡1-1&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;前往【南門碑林】，找到《大南門菜市埔示禁碑記》，並從碑文中找出「香油錢」的數量。
 
-&lt;span class=&quot;levelinput&quot;&gt;香油錢為&lt;&lt;listbox &quot;_answer&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;文錢&lt;/span&gt;
+香油錢為
+&lt;span class=&quot;levelinput&quot;&gt;&lt;&lt;listbox &quot;_answer&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;文錢&lt;/span&gt;
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
 	&lt;&lt;if $answer is &#39;四&#39;&gt;&gt;
@@ -6588,7 +6589,8 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 1s t8n&gt;&gt;你來到【南門城牆】，請找出照片中的對應場景，並解讀其中隱藏的【17．2．5】三個數字之意涵。
 &lt;img src=&quot;media/img/說明牌.png&quot; width=&quot;100%&quot;&gt;
 
-【神秘數字】與&lt;&lt;listbox &quot;_answer&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;有關
+【神秘數字】與
+&lt;&lt;listbox &quot;_answer&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;有關
 
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
