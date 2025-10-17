@@ -240,11 +240,15 @@ body.nonav #nav {
 
 /* "bg"標籤：自訂背景 */
 body.start-menu {
-  background-image: url("media/img/bgloading_pc.png");
+  background: linear-gradient(to bottom, #065754 0%, #065754 51%, #0c1c22 99%);
+  background-repeat: no-repeat;
   background-size: cover;
+}
+body.start-menu #story {
+  background-image: url("media/img/bgloading.png");
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #ffffff;
 }
 
 body.diary {
@@ -876,7 +880,7 @@ custom animation
 #vn-character > span {
   position: absolute; /* 子元素疊放 */
   left: 0; /* 貼在左方 */
-  bottom: 55%; /* 壓在對話框上 */
+  top: -30%;
   width: 100%; /* 讓圖片等寬 */
 }
 
@@ -1150,7 +1154,6 @@ custom animation
 
 #start-title .titleimage {
   width: 100%;
-  height: 20vh;
 }
 
 /* footer */
@@ -1502,6 +1505,8 @@ html {
 #container {
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #header {
@@ -1555,8 +1560,11 @@ body {
   display: block;
   text-transform: uppercase;
   text-align: center;
-  font-size: 2em;
   letter-spacing: 0.2em;
+  position: absolute;
+  width: 38%;
+  left: 10%;
+  bottom: 5%;
 }
 
 #start-subtitle {
@@ -1589,7 +1597,6 @@ body {
 }
 
 .start-menu #passages {
-  margin-top: 50vh;
   height: 100%;
 }
 
@@ -2715,8 +2722,8 @@ html.indicator .flirt-choice-item a::after {
     padding: 1vh 5vw 3vh 5vw;
   }
 
-  body.start-menu {
-    background-image: url("media/img/bgloading.png");
+  body.start-menu #story {
+    background-size: cover !important;
   }
 
   #ui-dialog-body,
@@ -2748,14 +2755,6 @@ html.indicator .flirt-choice-item a::after {
 
   #console {
     padding: 2vh 5vw 3vh 5vw;
-  }
-
-  body.start-menu {
-    background-image: url("media/img/bgloading.png");
-  }
-
-  .start-menu #passages {
-    margin-top: 40vh;
   }
 
   .start-menu #header {
@@ -6392,7 +6391,8 @@ Set up your profile, stats and meters, and other relevant information here!
 			$args[1]
 		&lt;/label&gt;
 	&lt;/span&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="13" name="遊戲標題" tags="" position="25,0" size="100,100">&lt;img src=&quot;media/img/gamelogo.png&quot; class=&quot;titleimage&quot;&gt;</tw-passagedata><tw-passagedata pid="14" name="遊戲副標題" tags="" position="125,0" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="遊戲開始選單" tags="nobr" position="225,0" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.browser.auto.isEnabled() and Save.browser.auto.has(0)&gt;&gt;&lt;&lt;link [img[media/img/繼續體驗.png]]&gt;&gt;  &lt;&lt;script&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="13" name="遊戲標題" tags="" position="25,0" size="100,100">&lt;img src=&quot;media/img/gamelogo.svg&quot; class=&quot;titleimage&quot;&gt;\
+&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.browser.auto.isEnabled() and Save.browser.auto.has(0)&gt;&gt;&lt;&lt;link [img[media/img/繼續體驗.png]]&gt;&gt;  &lt;&lt;script&gt;&gt;
     Save.browser.auto.load(0)
     .then(() =&gt; {
       Engine.show();
@@ -6403,8 +6403,7 @@ Set up your profile, stats and meters, and other relevant information here!
       UI.alert(error);
     });
   &lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-  &lt;&lt;link [img[media/img/開始體驗.png][guide1]]&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link [img[media/img/開始選擇章節.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;選擇章節&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="error" tags="" position="25,550" size="100,100">操作失敗！
+  &lt;&lt;link [img[media/img/開始體驗.png][guide1]]&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="遊戲副標題" tags="" position="125,0" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="遊戲開始選單" tags="" position="225,0" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="error" tags="" position="25,550" size="100,100">操作失敗！
 請重新選擇……
 
 &lt;&lt;button &quot;ch02_1&quot;&gt;&gt;&lt;&lt;run Dialog.close()&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="guide1" tags="noreturn nofooter title white" position="725,200" size="100,100">&lt;span style =&#39;text-align: center;&#39;&gt;&lt;h1&gt;操作說明&lt;/h1&gt;&lt;/span&gt;
@@ -6426,14 +6425,14 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 0.5s t8n&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;img src=&quot;media/img/南門公園.png&quot; class=&quot;storyimage&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div&gt;&lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages1&quot; _VNOptions &quot;ch0-2&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;/div&gt;
-/*[[ch0-2]]*/</tw-passagedata><tw-passagedata pid="21" name="開場-1.1" tags="nofooter title nonav diary autosave" position="1100,200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+/*[[ch0-2]]*/</tw-passagedata><tw-passagedata pid="21" name="開場-1.1" tags="nofooter title diary autosave" position="1100,200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages1.1&quot; _VNOptions &quot;開場-1.2&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /* [[開場-1.2]] */</tw-passagedata><tw-passagedata pid="22" name="diaryPages1.1" tags="" position="1200,200" size="100,100">&lt;p&gt;劇烈的頭痛與灼熱如潮水般席捲全身⋯⋯&lt;/p&gt;</tw-passagedata><tw-passagedata pid="23" name="dialoguePages1" tags="" position="1500,400" size="100,100">&lt;name&gt;貓醬&lt;/name&gt;&lt;scene&gt;default_scene.png&lt;/scene&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;喵，你終於醒了。&lt;br&gt;我還以為你要睡到天荒地老呢。&lt;/p&gt;
 &lt;name&gt;城玄&lt;/name&gt;&lt;img&gt;城玄.png&lt;/img&gt;&lt;p&gt;我⋯⋯睡了多久？&lt;br&gt;我是誰？我在哪裡？我在做什麼？&lt;/p&gt;
 &lt;name&gt;貓醬&lt;/name&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;呵呵呵喵，典型的「失憶三問」。&lt;br&gt;想不到你真的把記憶弄丟了，真是麻煩的寶寶呀。&lt;/p&gt;
 &lt;name&gt;城玄&lt;/name&gt;&lt;img&gt;城玄.png&lt;/img&gt;&lt;p&gt;你⋯⋯知道我的身份？&lt;br&gt;拜託，請告訴我，我究竟是誰？&lt;/p&gt;
-&lt;name&gt;貓醬&lt;/name&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;關於&lt;em&gt;你的名字&lt;/em&gt;這件事，我沒辦法直接碰觸。&lt;/p&gt;
+&lt;name&gt;貓醬&lt;/name&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;關於你的名字這件事，我沒辦法直接碰觸。&lt;/p&gt;
 &lt;name&gt;貓醬&lt;/name&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;不過，你曾經在府城生活過。&lt;br&gt;殘留的記憶碎片還散落在這片土地。&lt;/p&gt;
 &lt;name&gt;城玄&lt;/name&gt;&lt;img&gt;城玄.png&lt;/img&gt;&lt;p&gt;記憶碎片⋯⋯&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我愣住了。那究竟是何物？&lt;/p&gt;
@@ -6441,7 +6440,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;VNText &quot;OSPages1&quot; _VNOptions &quot;ch0-0&quot;&gt;&gt;
 /* [[ch0-0]] */</tw-passagedata><tw-passagedata pid="25" name="ch0關卡1提示" tags="" position="100,900" size="100,100">答案就是&quot;威靈公&quot;。</tw-passagedata><tw-passagedata pid="26" name="ch0-2" tags="nofooter nonav black title center" position="1700,400" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;OSPages2&quot; _VNOptions &quot;ch1-0&quot;&gt;&gt;
-/* [[ch1-0]] */</tw-passagedata><tw-passagedata pid="27" name="ch1-0" tags="nofooter title nonav diary autosave" position="1100,600" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1300, showHistory: false }&gt;&gt;\
+/* [[ch1-0]] */</tw-passagedata><tw-passagedata pid="27" name="ch1-0" tags="nofooter title diary autosave" position="1100,600" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1300, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages2&quot; _VNOptions &quot;ch1-1&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /* [[ch1-1]] */</tw-passagedata><tw-passagedata pid="28" name="OSPages1" tags="" position="1200,400" size="100,100">&lt;OS&gt;初章&lt;br&gt;黑與白&lt;/OS&gt;</tw-passagedata><tw-passagedata pid="29" name="OSPages2" tags="" position="1800,400" size="100,100">&lt;OS&gt;第一章&lt;br&gt;紅色俠女&lt;/OS&gt;</tw-passagedata><tw-passagedata pid="30" name="diaryPages2" tags="" position="1200,600" size="100,100">&lt;p&gt;我跟隨貓醬來到大碑林。
@@ -6486,7 +6485,7 @@ Set up your profile, stats and meters, and other relevant information here!
 /* [[ch1關卡1破關]] */</tw-passagedata><tw-passagedata pid="34" name="dialoguePages3" tags="" position="1500,600" size="100,100">&lt;name&gt;火爆娘子&lt;/name&gt;&lt;scene&gt;南門碑林.png&lt;/scene&gt;&lt;img&gt;火爆娘子.png&lt;/img&gt;&lt;p&gt;大膽狂徒！&lt;br&gt;在碑林裡鬼鬼祟祟，&lt;br&gt;是想幹什麼壞事？&lt;/p&gt;
 &lt;name&gt;火爆娘子&lt;/name&gt;&lt;img&gt;火爆娘子.png&lt;/img&gt;&lt;p&gt;看我火爆娘子，&lt;br&gt;不教訓你一頓不行！&lt;/p&gt;
 &lt;name&gt;城玄&lt;/name&gt;&lt;img&gt;城玄.png&lt;/img&gt;&lt;p&gt;不、不敢⋯⋯&lt;br&gt;我只是因為失去了記憶，&lt;br&gt;想在碑林裡，&lt;br&gt;尋找一些線索罷了。&lt;/p&gt;
-&lt;name&gt;貓醬&lt;/name&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;呵呵呵喵～&lt;br&gt;怎麼嚇得渾身直抖啊？&lt;/p&gt;</tw-passagedata><tw-passagedata pid="35" name="ch1-3" tags="nonav title diary autosave nofooter" position="1100,1000" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+&lt;name&gt;貓醬&lt;/name&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;呵呵呵喵～&lt;br&gt;怎麼嚇得渾身直抖啊？&lt;/p&gt;</tw-passagedata><tw-passagedata pid="35" name="ch1-3" tags="title diary autosave nofooter" position="1100,1000" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages2.5&quot; _VNOptions &quot;ch1-4&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /*[[ch1-4]]*/</tw-passagedata><tw-passagedata pid="36" name="ch1-4" tags="center nobr black autosave" position="1400,1000" size="100,100">&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;
@@ -6515,7 +6514,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;name&gt;城玄&lt;/name&gt;&lt;img&gt;城玄.png&lt;/img&gt;&lt;p&gt;好，我來幫忙妳找看看。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="43" name="ch1關卡2" tags="center nofooter one autosave white" position="2000,1300" size="100,100">&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot; style=&quot;color: black !important;&quot;&gt;&lt;h3&gt;關卡1-2&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;請在【大碑林】中，尋找刻有「萬＿同＿所」字樣的石碑。
 
-城玄回想起的字句是：&lt;&lt;textbox &#39;_answer&#39; &#39;輸入完整五個字&#39; autofocus&gt;&gt;
+城玄回想起的字句是：&lt;&lt;textbox &#39;_answer&#39; &#39;&#39; autofocus&gt;&gt;
 
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
@@ -6526,7 +6525,7 @@ Set up your profile, stats and meters, and other relevant information here!
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 &lt;span id=&quot;tipbtn&quot;&gt;&lt;&lt;link [img[media/img/tip.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;關卡提示&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;&lt;/timed&gt;&gt;
-/* [[ch1關卡2破關]] */</tw-passagedata><tw-passagedata pid="44" name="ch1關卡2提示" tags="" position="300,900" size="100,100">答案是「讀」。</tw-passagedata><tw-passagedata pid="45" name="ch2-0" tags="nofooter title nonav diary autosave" position="1100,1200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+/* [[ch1關卡2破關]] */</tw-passagedata><tw-passagedata pid="44" name="ch1關卡2提示" tags="" position="300,900" size="100,100">答案是「讀」。</tw-passagedata><tw-passagedata pid="45" name="ch2-0" tags="nofooter title diary autosave" position="1100,1200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages3&quot; _VNOptions &quot;ch2-1&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /* [[ch2-1]] */</tw-passagedata><tw-passagedata pid="46" name="ch2-1" tags="nofooter nonav black center title" position="1400,1200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, showHistory: false }&gt;&gt;\
@@ -6546,7 +6545,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;img src=&quot;media/img/城牆圖.png&quot; width=&quot;100%&quot;&gt;
 
 找出A、B、C三個點交匯處，是哪個建築設施的位置：
-&lt;&lt;textbox &#39;_answer&#39; &#39;輸入名稱&#39; autofocus&gt;&gt;
+&lt;&lt;textbox &#39;_answer&#39; &#39;&#39; autofocus&gt;&gt;
 
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
@@ -6607,7 +6606,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;img src=&quot;media/img/第一章.png&quot;&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages9&quot; _VNOptions &quot;ch2-6&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/*[[ch2-6]]*/</tw-passagedata><tw-passagedata pid="63" name="ch2-6" tags="nofooter nonav black title center autosave" position="1400,1725" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, delay: 300, duration: 1400, showHistory: false }&gt;&gt;\
+/*[[ch2-6]]*/</tw-passagedata><tw-passagedata pid="63" name="ch2-6" tags="nofooter black title center autosave nonav" position="1400,1725" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, delay: 300, duration: 1400, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;OSPages4&quot; _VNOptions &quot;ch3-0&quot;&gt;&gt;
 /* [[ch3-0]] */</tw-passagedata><tw-passagedata pid="64" name="dialoguePages9" tags="" position="1200,1725" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;南門碑林.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;我的身體瞬間像被抽空力氣般軟下去，&lt;br&gt;若不是火爆娘子及時扶住，&lt;br&gt;我早已癱倒在地。&lt;/p&gt;
 &lt;name&gt;貓醬&lt;/name&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;城玄，你看到了什麼，喵？&lt;/p&gt;
@@ -6638,7 +6637,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;name&gt;阿香姐&lt;/name&gt;&lt;img&gt;阿香姐.png&lt;/img&gt;&lt;p&gt;前幾天，我特意把獨家配方藏在大南門裡。&lt;br&gt;可是現在完全忘記放在哪了！&lt;br&gt;你能不能幫我找找？&lt;/p&gt;
 &lt;name&gt;城玄&lt;/name&gt;&lt;img&gt;城玄.png&lt;/img&gt;&lt;p&gt;好、好⋯⋯別哭，我幫妳找。&lt;br&gt;妳有沒有留下什麼線索？&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;阿香姐從懷裡掏出一只奇特的羅盤。&lt;br&gt;羅盤上標示著不同顏色，&lt;br&gt;對應著各個方位。&lt;/p&gt;
-&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;最後，我將羅盤握在手裡，&lt;br&gt;和貓醬一同邁入大南門。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="68" name="ch3-2" tags="autosave nofooter title nonav diary" position="1100,2300" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;最後，我將羅盤握在手裡，&lt;br&gt;和貓醬一同邁入大南門。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="68" name="ch3-2" tags="autosave nofooter title diary" position="1100,2300" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages4&quot; _VNOptions &quot;ch3-2.5&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /*[[ch3-2.5]]*/</tw-passagedata><tw-passagedata pid="69" name="ch3-3" tags="center nobr black autosave" position="1100,2600" size="100,100">&lt;&lt;notify&gt;&gt;城玄得到黃色的記憶&lt;&lt;/notify&gt;&gt;&lt;&lt;removeclass &quot;#story&quot; &quot;yellowbg&quot;&gt;&gt;&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;
@@ -6684,7 +6683,7 @@ Set up your profile, stats and meters, and other relevant information here!
     &lt;div style=&quot;display: flex; flex-direction: column; padding: 5px; row-gap: 5px; border: 1px solid black;&quot;&gt;&lt;span class=&#39;card&#39;&gt;？&lt;/span&gt;&lt;span class=&#39;card&#39;&gt;郭&lt;/span&gt;&lt;/div&gt;
     &lt;div style=&quot;display: flex; flex-direction: column; padding: 5px; row-gap: 5px; border: 1px solid black;&quot;&gt;&lt;span class=&#39;card&#39;&gt;？&lt;/span&gt;&lt;span class=&#39;card&#39;&gt;壑&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;
-正確的順序是：&lt;&lt;textbox &#39;_answer&#39; &#39;從左到右&#39; autofocus&gt;&gt;
+正確的順序是：&lt;&lt;textbox &#39;_answer&#39; &#39;&#39; autofocus&gt;&gt;
 
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
@@ -6735,7 +6734,8 @@ Set up your profile, stats and meters, and other relevant information here!
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);&#39;&gt;&lt;h2&gt;【遊戲結束，感謝您的遊玩】&lt;/h2&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="86" name="dialoguePages15" tags="" position="1200,3825" size="100,100">&lt;name&gt;貓醬&lt;/name&gt;&lt;scene&gt;小南城隍廟.png&lt;/scene&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;城玄⋯⋯你為何要哭？&lt;br&gt;你並不是孤單一人。&lt;/p&gt;
+    transform: translate(-50%, -50%);&#39;&gt;&lt;h2&gt;【遊戲結束，感謝您的遊玩】&lt;/h2&gt;
+    &lt;&lt;link [img[media/img/返回遊戲.png][start-menu]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="86" name="dialoguePages15" tags="" position="1200,3825" size="100,100">&lt;name&gt;貓醬&lt;/name&gt;&lt;scene&gt;小南城隍廟.png&lt;/scene&gt;&lt;img&gt;貓醬.png&lt;/img&gt;&lt;p&gt;城玄⋯⋯你為何要哭？&lt;br&gt;你並不是孤單一人。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;貓醬的身影忽然扭動、拉長。&lt;br&gt;轉眼化為一位膚色黝黑、目光堅毅的青年。&lt;br&gt;他跪伏在我面前。&lt;/p&gt;
 &lt;name&gt;城玄&lt;/name&gt;&lt;img&gt;城玄.png&lt;/img&gt;&lt;p&gt;貓醬⋯⋯不，這是⋯⋯&lt;/p&gt;
 &lt;name&gt;八爺&lt;/name&gt;&lt;img&gt;八爺.png&lt;/img&gt;&lt;p&gt;城隍大人，雖然您在陽世壯志未酬，&lt;br&gt;但在陰間，您依舊能守護這座府城。&lt;/p&gt;
@@ -6799,7 +6799,7 @@ Set up your profile, stats and meters, and other relevant information here!
         Dialog.open();
     &lt;&lt;/script&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-*/</tw-passagedata><tw-passagedata pid="94" name="開場-1.2" tags="nofooter title nonav diary autosave" position="1400,200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+*/</tw-passagedata><tw-passagedata pid="94" name="開場-1.2" tags="nofooter title diary autosave" position="1400,200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages1.2&quot; _VNOptions &quot;開場-2&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 &lt;&lt;done&gt;&gt;&lt;&lt;addclass &quot;#story&quot; &quot;blackbg&quot;&gt;&gt;&lt;&lt;/done&gt;&gt;
@@ -6883,7 +6883,7 @@ Set up your profile, stats and meters, and other relevant information here!
 /* [[ch3關卡2-3]] */</tw-passagedata><tw-passagedata pid="104" name="ch3關卡2-3" tags="autosave center one nofooter white" position="2150,3400" size="100,100">&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot; style=&quot;color: black !important;&quot;&gt;&lt;h3&gt;關卡3-2-3&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;城玄的真名與【鴨母王】有關，請在【小南城隍廟】中，尋找出城玄的真名。
 
-城玄的真名是：&lt;&lt;textbox &#39;_answer&#39; &#39;輸入全名&#39; autofocus&gt;&gt;
+城玄的真名是：&lt;&lt;textbox &#39;_answer&#39; &#39;&#39; autofocus&gt;&gt;
 
 &lt;&lt;button &#39;輸入&#39;&gt;&gt;
 	&lt;&lt;set $answer to _answer.trim()&gt;&gt;
@@ -6899,7 +6899,7 @@ Set up your profile, stats and meters, and other relevant information here!
 找到記錄香油錢數目的文字。&lt;/p&gt;
 &lt;p&gt;火爆娘子驚喜不已，
 當場拉起我的手，
-興奮地轉了一圈。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="106" name="ch2-4" tags="nofooter title nonav diary autosave" position="1400,1600" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+興奮地轉了一圈。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="106" name="ch2-4" tags="nofooter title diary autosave" position="1400,1600" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages3.5&quot; _VNOptions &quot;ch2-5&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 &lt;&lt;done&gt;&gt;&lt;&lt;addclass &quot;#story&quot; &quot;redbg&quot;&gt;&gt;&lt;&lt;/done&gt;&gt;
@@ -6922,13 +6922,13 @@ Set up your profile, stats and meters, and other relevant information here!
 我的記憶⋯⋯難道全與此人有關？
 我想看清他的樣貌，
 但水面驟然散開，
-記憶也隨之斷裂。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="109" name="ch3-2.5" tags="autosave title nonav diary nofooter notran" position="1400,2300" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+記憶也隨之斷裂。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="109" name="ch3-2.5" tags="autosave title diary nofooter notran" position="1400,2300" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages4.5&quot; _VNOptions &quot;ch3-3&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 &lt;&lt;done&gt;&gt;&lt;&lt;addclass &quot;#story&quot; &quot;yellowbg&quot;&gt;&gt;&lt;&lt;/done&gt;&gt;
 /*[[ch3-3]]*/</tw-passagedata><tw-passagedata pid="110" name="ch3-5.5" tags="nofooter nonav black title center" position="1400,3000" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;OSPages5&quot; _VNOptions &quot;ch3-6&quot;&gt;&gt;
-/* [[ch3-6]] */</tw-passagedata><tw-passagedata pid="111" name="OSPages5" tags="" position="1500,3000" size="100,100">&lt;OS&gt;第三章&lt;br&gt;賭注&lt;/OS&gt;</tw-passagedata><tw-passagedata pid="112" name="ch3-6.5" tags="nofooter title nonav diary autosave" position="1100,3200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+/* [[ch3-6]] */</tw-passagedata><tw-passagedata pid="111" name="OSPages5" tags="" position="1500,3000" size="100,100">&lt;OS&gt;第三章&lt;br&gt;賭注&lt;/OS&gt;</tw-passagedata><tw-passagedata pid="112" name="ch3-6.5" tags="nofooter title diary autosave" position="1100,3200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages5&quot; _VNOptions &quot;ch3-6.6&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /*[[ch3-6.6]]*/</tw-passagedata><tw-passagedata pid="113" name="diaryPages5" tags="" position="1200,3200" size="100,100">&lt;p&gt;想不到，在貓醬的機靈幫助下，
@@ -6940,7 +6940,7 @@ Set up your profile, stats and meters, and other relevant information here!
 掉出了一枚閃著微光的記憶碎片。
 我指尖剛觸到它，
 身體便被強烈的吸力捲入其中。
-這次的記憶卻異常輕快。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="114" name="ch3-6.6" tags="nofooter title nonav diary autosave notran" position="1400,3200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+這次的記憶卻異常輕快。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="114" name="ch3-6.6" tags="nofooter title diary autosave notran" position="1400,3200" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages6&quot; _VNOptions &quot;ch3-7&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 &lt;&lt;done&gt;&gt;&lt;&lt;addclass &quot;#story&quot; &quot;greenbg&quot;&gt;&gt;&lt;&lt;/done&gt;&gt;
@@ -6953,7 +6953,7 @@ Set up your profile, stats and meters, and other relevant information here!
 那一刻，
 心中莫名湧起一種踏實與熟悉感。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="116" name="ch3-8" tags="nofooter nonav black title center" position="1100,3700" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;text-wipe-in&quot;, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;OSPages6&quot; _VNOptions &quot;ch3-9&quot;&gt;&gt;
-/* [[ch3-9]] */</tw-passagedata><tw-passagedata pid="117" name="OSPages6" tags="" position="1200,3700" size="100,100">&lt;OS&gt;終章&lt;br&gt;我的名字&lt;/OS&gt;</tw-passagedata><tw-passagedata pid="118" name="ch3-9" tags="nofooter title diary nonav autosave" position="1400,3700" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+/* [[ch3-9]] */</tw-passagedata><tw-passagedata pid="117" name="OSPages6" tags="" position="1200,3700" size="100,100">&lt;OS&gt;終章&lt;br&gt;我的名字&lt;/OS&gt;</tw-passagedata><tw-passagedata pid="118" name="ch3-9" tags="nofooter title diary autosave" position="1400,3700" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages7&quot; _VNOptions &quot;ch3-10&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /*[[ch3-10]]*/</tw-passagedata><tw-passagedata pid="119" name="diaryPages7" tags="" position="1500,3700" size="100,100">&lt;p&gt;終於，在小南城隍廟的石碑前，
