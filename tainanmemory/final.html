@@ -1505,8 +1505,6 @@ html {
 #container {
   width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 #header {
@@ -2886,7 +2884,7 @@ scriptElement.src = "https://www.googletagmanager.com/gtag/js?id=G-6P8STVEQZ7"; 
 var codeElement = document.createElement("script");
 // 設置 <script> 元素的內容
 codeElement.innerHTML =
-  "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-6P8STVEQZ7');";
+  "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', '');";
 // 將 <script> 元素添加到 <head> 元素中
 document.head.appendChild(scriptElement);
 document.head.appendChild(codeElement);
@@ -2939,6 +2937,7 @@ var settingFontSizeHandler = function () {
 Setting.addList("fontsize", {
   label: "設定文字大小",
   list: settingFontSizeNames,
+  default: "中",
   onInit: settingFontSizeHandler,
   onChange: settingFontSizeHandler,
 });
