@@ -278,8 +278,8 @@ body.white {
   background-color: rgb(150 120 45 / 70%);
   border-image-source: url(media/img/levelbg.svg);
   border-image-slice: 70 0 0 0 fill;
-  border-image-width: 40px 0px 0 0;
-  border-image-repeat: round;
+  border-image-width: 5% 0 95% 0;
+  border-image-repeat: stretch;
   border-image-outset: 2px;
 }
 body.white #nav {
@@ -853,7 +853,7 @@ custom animation
   background-color: rgb(150 120 45 / 60%);
   border-image-source: url(media/img/levelbg.svg);
   border-image-slice: 70 0 0 0 fill;
-  border-image-width: 30px 0px 0 0;
+  border-image-width: 30px 0 90% 0;
   border-image-repeat: stretch;
   border-image-outset: 2px;
   position: relative;
@@ -1019,6 +1019,7 @@ custom animation
   position: fixed;
   width: 70%;
   height: 70%;
+  max-width: 400px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -2833,10 +2834,19 @@ html.indicator .flirt-choice-item a::after {
     top: 0;
   }
 
+  /* white標籤版面 */
+  body.white {
+    border-image-width: 40px 0px 0 0;
+  }
+
   /* <<VNtext>> */
   .vn-diary-container {
     width: 90vw;
     padding: 12vw;
+  }
+
+  .vn-speech-container {
+    border-image-width: 30px 0 0 0 !important;
   }
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* IMPORT */
@@ -2886,7 +2896,7 @@ $(document).ready(function () {
 var scriptElement = document.createElement("script");
 // 設置 <script> 元素的屬性
 scriptElement.async = true;
-scriptElement.src = "https://www.googletagmanager.com/gtag/js?id=G-6P8STVEQZ7"; //替換成自己專案的GA追蹤碼
+scriptElement.src = "https://www.googletagmanager.com/gtag/js?id="; //替換成自己專案的GA追蹤碼
 // 創建用於嵌入代碼的 <script> 元素
 var codeElement = document.createElement("script");
 // 設置 <script> 元素的內容
@@ -6506,13 +6516,13 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;link [img[media/img/繼續.png][ch1-3]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/timed&gt;&gt;
 /* [[ch1-3]] */</tw-passagedata><tw-passagedata pid="40" name="ch1-2" tags="center nobr black autosave notran" position="1700,600" size="100,100">&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;img src=&quot;media/img/第一章.png&quot;&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
-&lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;img src=&quot;media/img/南門碑林.png&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages4&quot; _VNOptions &quot;ch1關卡1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 /*[[ch1關卡1]]*/</tw-passagedata><tw-passagedata pid="41" name="ch1關卡2破關" tags="center nofooter black one" position="2000,1400" size="100,100">&lt;span class=&quot;slide-container&quot;&gt;
   &lt;img src=&quot;media/img/win.png&quot; width=&quot;90%&quot; class=&quot;scale-in-center&quot;&gt;
 &lt;/span&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;link [img[media/img/繼續.png][ch2-3]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/* [[ch2-3]] */</tw-passagedata><tw-passagedata pid="42" name="dialoguePages4" tags="" position="1800,600" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;scene&gt;南門碑林.png&lt;/scene&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;在我連聲解釋後，&lt;br&gt;火爆娘子這才收斂氣勢，&lt;br&gt;仔細打量我。&lt;/p&gt;
+/* [[ch2-3]] */</tw-passagedata><tw-passagedata pid="42" name="dialoguePages4" tags="" position="1800,600" size="100,100">&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;在我連聲解釋後，&lt;br&gt;火爆娘子這才收斂氣勢，&lt;br&gt;仔細打量我。&lt;/p&gt;
 &lt;name&gt;火爆娘子&lt;/name&gt;&lt;img&gt;火爆娘子.png&lt;/img&gt;&lt;p&gt;哼⋯⋯原來如此。&lt;br&gt;既然你也在碑林，&lt;br&gt;那可否幫我一個忙？&lt;/p&gt;
 &lt;name&gt;火爆娘子&lt;/name&gt;&lt;img&gt;火爆娘子.png&lt;/img&gt;&lt;p&gt;其實，我本是行走江湖的俠女。&lt;/p&gt;
 &lt;name&gt;火爆娘子&lt;/name&gt;&lt;img&gt;火爆娘子.png&lt;/img&gt;&lt;p&gt;最近鄰近的菜市場出了點糾紛，&lt;br&gt;地方惡霸竟勒索攤販，&lt;br&gt;繳納十文香油錢。&lt;/p&gt;
@@ -6723,7 +6733,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;img src=&quot;media/img/第三章.png&quot;&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages14&quot; _VNOptions &quot;ch3關卡2-1&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
-/*[[ch3關卡2-1]]*/</tw-passagedata><tw-passagedata pid="83" name="ch3-10" tags="black nobr center autosave" position="1100,3825" size="100,100">&lt;&lt;set $end to &quot;end01&quot;&gt;&gt;&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;&lt;&lt;notify&gt;&gt;結局&lt;&lt;/notify&gt;&gt;
+/*[[ch3關卡2-1]]*/</tw-passagedata><tw-passagedata pid="83" name="ch3-10" tags="black nobr center autosave" position="1100,3825" size="100,100">&lt;&lt;set $end to &quot;end01&quot;&gt;&gt;&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;&lt;&lt;notify&gt;&gt;終章&lt;&lt;/notify&gt;&gt;
 &lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;img src=&quot;media/img/終章.png&quot;&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages15&quot; _VNOptions &quot;結束&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
