@@ -1560,9 +1560,11 @@ body {
   text-align: center;
   letter-spacing: 0.2em;
   position: absolute;
-  width: 38%;
-  left: 10%;
-  bottom: 5%;
+  width: 50%;
+  max-width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #start-subtitle {
@@ -1574,11 +1576,11 @@ body {
 
 #start-menu {
   display: flex;
-  grid-gap: 1vh;
   width: 100%;
   height: 100%;
   flex-direction: column;
   align-items: center;
+  max-width: 400px;
 }
 
 #start-menu button {
@@ -2753,6 +2755,11 @@ html.indicator .flirt-choice-item a::after {
 
   .start-menu #header {
     display: block;
+  }
+
+  #start-menu {
+    width: 38%;
+    margin-top: 60vh;
   }
 
   #header {
@@ -6386,8 +6393,8 @@ Set up your profile, stats and meters, and other relevant information here!
 			$args[1]
 		&lt;/label&gt;
 	&lt;/span&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="13" name="遊戲標題" tags="" position="25,0" size="100,100">&lt;img src=&quot;media/img/gamelogo.png&quot; class=&quot;titleimage&quot;&gt;\
-&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.browser.auto.isEnabled() and Save.browser.auto.has(0)&gt;&gt;&lt;&lt;link [img[media/img/繼續體驗.png]]&gt;&gt;  &lt;&lt;script&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="13" name="遊戲標題" tags="" position="25,0" size="100,100"></tw-passagedata><tw-passagedata pid="14" name="遊戲副標題" tags="" position="125,0" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="遊戲開始選單" tags="" position="225,0" size="100,100">&lt;img src=&quot;media/img/gamelogo.png&quot; width=&quot;80%&quot;&gt;\
+&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.browser.auto.isEnabled() and Save.browser.auto.has(0)&gt;&gt;&lt;&lt;link [img[media/img/繼續體驗.png]]&gt;&gt; &lt;&lt;script&gt;&gt;
     Save.browser.auto.load(0)
     .then(() =&gt; {
       Engine.show();
@@ -6397,8 +6404,8 @@ Set up your profile, stats and meters, and other relevant information here!
       console.error(error);
       UI.alert(error);
     });
-  &lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-  &lt;&lt;link [img[media/img/開始體驗.png][guide1]]&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="遊戲副標題" tags="" position="125,0" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="遊戲開始選單" tags="" position="225,0" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="error" tags="" position="25,550" size="100,100">操作失敗！
+  &lt;&lt;/script&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;\
+  &lt;&lt;link [img[media/img/開始體驗.png][guide1]]&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="error" tags="" position="25,550" size="100,100">操作失敗！
 請重新選擇……
 
 &lt;&lt;button &quot;ch02_1&quot;&gt;&gt;&lt;&lt;run Dialog.close()&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="guide1" tags="noreturn nofooter title white" position="725,200" size="100,100">&lt;span style =&#39;text-align: center;&#39;&gt;&lt;h1&gt;操作說明&lt;/h1&gt;&lt;/span&gt;
