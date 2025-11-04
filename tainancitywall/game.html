@@ -4506,7 +4506,8 @@ if you search strings localization in the Sugarcube 2 Documentation, it will lea
 
 &lt;&lt;button &quot;開新遊戲&quot; &quot;guide1&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="start-menu" tags="start-menu noreturn nobr nofooter" position="600,200" size="100,100">&lt;&lt;fadein 1s&gt;&gt;
-敬啟期待！
+    &lt;div id=&quot;start-title&quot;&gt;&lt;&lt;include &#39;遊戲標題&#39;&gt;&gt;&lt;/div&gt;
+    &lt;div id=&quot;start-menu&quot;&gt;&lt;&lt;include &#39;遊戲開始選單&#39;&gt;&gt;&lt;/div&gt;
 &lt;&lt;/fadein&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="credits" tags="credits noreturn" position="125,125" size="100,100">&lt;h3&gt;▍主協辦單位&lt;/h3&gt;
 指導單位：臺南市政府民政局
 　　　　　臺南市中西區公所
@@ -4655,22 +4656,7 @@ Set up your profile, stats and meters, and other relevant information here!
 			$args[1]
 		&lt;/label&gt;
 	&lt;/span&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="13" name="遊戲標題" tags="" position="25,0" size="100,100">&lt;img src=&quot;media/img/gamelogo.png&quot; class=&quot;titleimage&quot;&gt;</tw-passagedata><tw-passagedata pid="14" name="遊戲副標題" tags="" position="125,0" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="遊戲開始選單" tags="nobr" position="225,0" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;if Save.browser.auto.isEnabled() and Save.browser.auto.has(0)&gt;&gt;&lt;&lt;button &quot;繼續體驗&quot;&gt;&gt;
-  &lt;&lt;script&gt;&gt;
-    Save.browser.auto.load(0)
-    .then(() =&gt; {
-      Engine.show();
-    })
-    .catch(error =&gt; {
-      /* Failure.  Handle the error. */
-      console.error(error);
-      UI.alert(error);
-    });
-  &lt;&lt;/script&gt;&gt;
-&lt;&lt;/button&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;button &quot;開始體驗&quot; &quot;guide1&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &quot;載入存檔&quot;&gt;&gt;&lt;&lt;run UI.saves();&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &quot;設定&quot;&gt;&gt;&lt;&lt;run UI.settings();&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="error" tags="" position="25,550" size="100,100">操作失敗！
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="map" tags="" position="225,125" size="100,100">可以放特展展區地圖</tw-passagedata><tw-passagedata pid="13" name="遊戲標題" tags="" position="25,0" size="100,100">&lt;img src=&quot;media/img/gamelogo.png&quot; class=&quot;titleimage&quot;&gt;</tw-passagedata><tw-passagedata pid="14" name="遊戲副標題" tags="" position="125,0" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="遊戲開始選單" tags="nobr" position="225,0" size="100,100">敬請期待</tw-passagedata><tw-passagedata pid="16" name="PassageFooter" tags="nobr noreturn" position="125,250" size="100,100">&lt;&lt;if tags().includes(&quot;nofooter&quot;)&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;replace &quot;#footer&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="error" tags="" position="25,550" size="100,100">操作失敗！
 請重新選擇……
 
 &lt;&lt;button &quot;ch02_1&quot;&gt;&gt;&lt;&lt;run Dialog.close()&gt;&gt;&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="guide1" tags="noreturn nofooter title" position="725,200" size="100,100">&lt;span style =&#39;text-align: center;&#39;&gt;&lt;h1&gt;操作說明&lt;/h1&gt;&lt;/span&gt;
