@@ -416,8 +416,8 @@ body.end {
 /* 遊戲提示視窗 */
 /* 黑色遮罩背景 */
 .tipdialog {
-  width: 101vw;
-  height: 101vh;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -446,7 +446,7 @@ body.end {
 /* 龍神卡圖鑑：全螢幕對話框 */
 .cardcollection {
   width: 100%;
-  height: 90%;
+  height: 100%;
   background-position: center;
   margin: auto;
   position: relative;
@@ -454,16 +454,16 @@ body.end {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 30px 20px;
+  padding: 10% 5% 20% 5%;
   box-sizing: border-box;
   background-size: cover;
   background-repeat: no-repeat;
   overflow-y: auto;
 }
 .cardcollection .tiptext {
-  margin: 5% 0 0 0 !important;
+  margin: 0 !important;
   overflow: auto;
-  width: 95% !important;
+  width: 90% !important;
   padding: 0 15px;
 }
 
@@ -526,6 +526,7 @@ body.end {
 #dragoncard a,
 #dragoncard img {
   width: 30%;
+  opacity: 1;
 }
 #dragoncard a img {
   width: 100%;
@@ -5315,8 +5316,8 @@ Set up your profile, stats and meters, and other relevant information here!
 應該說是個孩童？&lt;/p&gt;
 &lt;p&gt;那孩子頭上居然長著一對角？
 在威靈公詳細的說明下，
-祂説府城共有八座城門，
-每一座都由府城龍神鎮守。&lt;/p&gt;
+祂説府城的每一座城門，
+都有龍神守護。&lt;/p&gt;
 &lt;p&gt;如今在昨日，
 有人趁機竊取「府城龍神之力」。
 在威靈公口中提到那位「府城龍神」，
@@ -5338,7 +5339,7 @@ Set up your profile, stats and meters, and other relevant information here!
   
   &lt;&lt;link [img[media/img/提示返回.png]]&gt;&gt;&lt;&lt;run slideWin(&quot;hide&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="ch1-1" tags="center nobr black autosave" position="1400,500" size="100,100">&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;
-&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;img src=&quot;media/img/第一章.png&quot;&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot;&gt;&lt;img src=&quot;media/img/初章.png&quot;&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;div id=&quot;vn-character&quot;&gt;&lt;span id=&quot;characterimg&quot;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;&lt;&lt;VNText &quot;dialoguePages3&quot; _VNOptions &quot;ch1-1.5&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 /*[[ch1-1.5]]*/</tw-passagedata><tw-passagedata pid="29" name="ch1關卡1" tags="center nofooter one autosave white" position="2150,700" size="100,100">&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot; style=&quot;color: black !important;&quot;&gt;&lt;h3&gt;關卡1-1&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
@@ -5365,9 +5366,9 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;name&gt;韓律之&lt;/name&gt;&lt;img&gt;韓律之.png&lt;/img&gt;&lt;p&gt;不過失去龍神之力，好像也不會怎樣？&lt;br&gt;除了府城變成陰天之外，天氣變得比較冷，好像也不錯。&lt;/p&gt;
 &lt;name&gt;响悅&lt;/name&gt;&lt;img&gt;响悅.png&lt;/img&gt;&lt;p&gt;菜鳥判官，妳可別亂說！&lt;br&gt;若龍神失去力量，天地失衡，&lt;br&gt;未來連雨都可能下不來！&lt;/p&gt;
 &lt;name&gt;韓律之&lt;/name&gt;&lt;img&gt;韓律之.png&lt;/img&gt;&lt;p&gt;什麼？！這不是很嚴重嗎！&lt;/p&gt;
-&lt;name&gt;&lt;/name&gt;&lt;img&gt;&lt;/img&gt;&lt;p&gt;府城隍威靈公見我知曉龍神神力的重要性，&lt;br&gt;便囑咐我，協助龍神响悅，尋找龍神卡。&lt;/p&gt;
-&lt;name&gt;&lt;/name&gt;&lt;img&gt;&lt;/img&gt;&lt;p&gt;話音剛落，响悅雙眼忽然綻放出雷射般的金光，筆直指向府城隍廟的正殿──&lt;/p&gt;
-&lt;name&gt;&lt;/name&gt;&lt;img&gt;&lt;/img&gt;&lt;p&gt;那裡，似乎正隱藏著龍神卡的蹤跡⋯⋯&lt;/p&gt;</tw-passagedata><tw-passagedata pid="31" name="ch1-3" tags="title diary autosave nofooter" position="1100,1300" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
+&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;府城隍威靈公見我知曉龍神神力的重要性，&lt;br&gt;便囑咐我，協助龍神响悅，尋找龍神卡。&lt;/p&gt;
+&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;話音剛落，响悅雙眼忽然綻放出雷射般的金光，筆直指向府城隍廟的正殿──&lt;/p&gt;
+&lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;那裡，似乎正隱藏著龍神卡的蹤跡⋯⋯&lt;/p&gt;</tw-passagedata><tw-passagedata pid="31" name="ch1-3" tags="title diary autosave nofooter" position="1100,1300" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages2.5&quot; _VNOptions &quot;ch1-4&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
 /*[[ch1-4]]*/</tw-passagedata><tw-passagedata pid="32" name="ch1-4" tags="center nobr black autosave" position="1400,1300" size="100,100">&lt;&lt;set _VNOptions to {  showHistory: true }&gt;&gt;
