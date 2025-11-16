@@ -5752,8 +5752,8 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;/p&gt;</tw-passagedata><tw-passagedata pid="101" name="ch1-7" tags="title diary autosave nofooter" position="1600,1575" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages2.7&quot; _VNOptions &quot;ch1-8&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
-/*[[ch1-8]]*/</tw-passagedata><tw-passagedata pid="102" name="龍神圖鑑" tags="diary" position="100,1000" size="100,100">點擊卡片，觀看龍神故事。
-&lt;div style=&#39;max-width: 400px; margin: 0 auto; text-align: center;&#39;&gt;&lt;&lt;if $getcard is false&gt;&gt;圖鑑未解鎖！&lt;&lt;else&gt;&gt;&lt;div id=&#39;dragoncard&#39;&gt;&lt;&lt;nobr&gt;&gt;
+/*[[ch1-8]]*/</tw-passagedata><tw-passagedata pid="102" name="龍神圖鑑" tags="diary" position="100,1000" size="100,100">&lt;div style=&#39;max-width: 400px; margin: 0 auto; text-align: center;&#39;&gt;&lt;&lt;if $getcard is false&gt;&gt;圖鑑未解鎖！&lt;&lt;else&gt;&gt;點擊卡片，觀看龍神故事。
+&lt;div id=&#39;dragoncard&#39;&gt;&lt;&lt;nobr&gt;&gt;
     &lt;&lt;if $card.includes(&#39;螭吻&#39;)&gt;&gt;&lt;&lt;link [img[media/img/龍神卡螭吻.png]]&gt;&gt;&lt;&lt;set $cardtext to &#39;响悅卡&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;龍神卡&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;img src=&quot;media/img/龍神卡螭吻剪影.png&quot; class=&quot;unlock&quot;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;if $card.includes(&#39;囚牛&#39;)&gt;&gt;&lt;&lt;link [img[media/img/龍神卡囚牛.png]]&gt;&gt;&lt;&lt;set $cardtext to &#39;玹奏&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;龍神卡&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;img src=&quot;media/img/龍神卡囚牛剪影.png&quot; class=&quot;unlock&quot;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;if $card.includes(&#39;嘲風&#39;)&gt;&gt;&lt;&lt;link [img[media/img/龍神卡嘲風.png]]&gt;&gt;&lt;&lt;set $cardtext to &#39;見險&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;龍神卡&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;else&gt;&gt;&lt;img src=&quot;media/img/龍神卡嘲風剪影.png&quot; class=&quot;unlock&quot;&gt;&lt;&lt;/if&gt;&gt;
