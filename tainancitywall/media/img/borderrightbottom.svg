@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173.38 182.66">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #d0a63e;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-3, .cls-2 {
+        fill: #2eebc6;
+      }
+
+      .cls-2 {
+        stroke: #2eebc6;
+      }
+
+      .cls-4 {
+        fill: #d0a63e;
+      }
+    </style>
+  </defs>
+  <g id="_對話框_功能框" data-name="對話框 功能框">
+    <g id="_功能頁裝飾02" data-name="功能頁裝飾02">
+      <line class="cls-2" x1="30.16" y1="181.66" x2="148.77" y2="181.66"/>
+      <line class="cls-1" x1="1" y1="181.66" x2="30.16" y2="181.66"/>
+      <polygon class="cls-3" points="148.77 182.66 149.05 182.66 173.38 158.33 173.38 15.72 148.77 28.52 148.77 182.66"/>
+      <polygon class="cls-4" points="148.77 21.04 148.77 12.76 173.38 0 173.38 8.28 148.77 21.04"/>
+    </g>
+  </g>
+</svg>
