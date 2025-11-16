@@ -5285,6 +5285,15 @@ Set up your profile, stats and meters, and other relevant information here!
 /*[[開場-1.1]]*/</tw-passagedata><tw-passagedata pid="20" name="開場-1.1" tags="nofooter title diary autosave" position="1100,100" size="100,100">&lt;&lt;set _VNOptions to { animation: &quot;wipe-reveal&quot;, textBoxId: &quot;story-box&quot;, delay: 0, duration: 1000, showHistory: false }&gt;&gt;\
 &lt;&lt;VNText &quot;diaryPages1.1&quot; _VNOptions &quot;開場-1.2&quot;&gt;&gt;
 &lt;div id=&quot;diary-footer&quot;&gt;&lt;/div&gt;
+&lt;&lt;script&gt;&gt;
+if (typeof gtag === &quot;function&quot;) {
+  gtag(&#39;event&#39;, &#39;game_start&#39;, {
+    event_category: &#39;game_flow&#39;,
+    event_label: &#39;start_passage&#39;,
+    value: 1
+  });
+}
+&lt;&lt;/script&gt;&gt;
 /* [[開場-1.2]] */</tw-passagedata><tw-passagedata pid="21" name="diaryPages1.1" tags="" position="1200,100" size="100,100">&lt;p&gt;黑蝶掠過重重木質齒輪，
 留下一抹詭譎的笑聲，
 寒意隨之瀰漫。&lt;/p&gt;
