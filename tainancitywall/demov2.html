@@ -407,7 +407,7 @@ body.end {
 /* 文字圓框 */
 .Roundel {
   font-family: "Yuji Syuku";
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #ff0;
   /* border: 1px solid #ff0; */
   border-radius: 3em;
@@ -3069,11 +3069,11 @@ $(document).ready(function () {
 var scriptElement = document.createElement("script");
 // 設置 <script> 元素的屬性
 scriptElement.async = true;
-scriptElement.src = "https://www.googletagmanager.com/gtag/js?id=G-6P8STVEQZ7"; //替換成自己專案的GA追蹤碼
+scriptElement.src = "https://www.googletagmanager.com/gtag/js?id=G-KSNED4ZWGT"; //替換成自己專案的GA追蹤碼
 // 創建用於嵌入代碼的 <script> 元素
 var codeElement = document.createElement("script");
 // 設置 <script> 元素的內容
-codeElement.innerHTML = "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-6P8STVEQZ7');";
+codeElement.innerHTML = "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-KSNED4ZWGT');";
 // 將 <script> 元素添加到 <head> 元素中
 document.head.appendChild(scriptElement);
 document.head.appendChild(codeElement);
@@ -5576,7 +5576,16 @@ Set up your profile, stats and meters, and other relevant information here!
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);&#39;&gt;&lt;h2&gt;【遊戲結束，感謝您的遊玩】&lt;/h2&gt;
-    &lt;&lt;link [img[media/img/返回遊戲.png][start-menu]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="69" name="關於大算盤" tags="" position="300,800" size="100,100">大算盤屬於二五珠算盤，採用上二珠、下五珠的形式，上一珠當五，下一珠當一。
+    &lt;&lt;link [img[media/img/返回遊戲.png][start-menu]]&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
+ &lt;&lt;script&gt;&gt;
+if (typeof gtag === &quot;function&quot;) {
+  gtag(&#39;event&#39;, &#39;reached_ending&#39;, {
+    &#39;event_category&#39;: &#39;game_progress&#39;,
+    &#39;event_label&#39;: &#39;Ending&#39;,
+    &#39;value&#39;: 1
+  });
+}
+&lt;&lt;/script&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="關於大算盤" tags="" position="300,800" size="100,100">大算盤屬於二五珠算盤，採用上二珠、下五珠的形式，上一珠當五，下一珠當一。
 其計算方式是一斤十六兩，也就是十六進制，又被稱為斤兩算盤。
 &lt;img src=&quot;media/img/算盤說明.png&quot; class=&quot;abacusguide&quot;&gt;</tw-passagedata><tw-passagedata pid="70" name="dialoguePages11.5" tags="center nobr black" position="1500,2850" size="100,100">&lt;name&gt;响悅&lt;/name&gt;&lt;scene&gt;永華宮.png&lt;/scene&gt;&lt;img&gt;响悅.png&lt;/img&gt;&lt;p&gt;小之，妳看，黑蝴蝶夫人留下一個訊息。&lt;/p&gt;
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;响悅撿起一張照片，似乎跟永華宮的某樣東西有關。&lt;br&gt;上頭的重點位置被遮住。&lt;/p&gt;
@@ -5679,7 +5688,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;p&gt;隱藏的寶箱，
 發出「喀啦」一聲，緩緩開啟。
 &lt;img src=&quot;media/img/寶箱開啟.png&quot; width=&#39;90%&#39;&gt;
-金光閃爍中，最後三張龍神卡，
+金光閃爍中，最後二張龍神卡，
 浮現於眼前。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="88" name="ch1關卡2" tags="center nofooter one autosave white" position="2150,1000" size="100,100">&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot; style=&quot;color: black !important;&quot;&gt;&lt;h3&gt;關卡1-2&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;根據小之所說「昭和元年是1926年」、「昭和丁丑是昭和十二年」的線索，推算出昭和丁丑對應的西元年份，並撥動&lt;span class=&quot;facttip&quot;&gt;&lt;span class=&quot;sc-icon sc-lightbulb&quot;&gt;&lt;/span&gt;&lt;&lt;link &#39;府城隍廟的算盤&#39;&gt;&gt;&lt;&lt;run slideWin(&quot;府城隍廟的算盤&quot;)&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;來作答。
 
@@ -5798,7 +5807,7 @@ Set up your profile, stats and meters, and other relevant information here!
 &lt;name&gt;&lt;/name&gt;&lt;img&gt;default_dialogue.png&lt;/img&gt;&lt;p&gt;於是，我與响悅立刻啟程，&lt;br&gt;朝著清水寺的方向前進。&lt;br&gt;隨著黑蝴蝶的翅影在暮色中飄忽。&lt;/p&gt;</tw-passagedata><tw-passagedata pid="117" name="ch2關卡2-2" tags="center nofooter one autosave white" position="2150,2175" size="100,100">&lt;&lt;set _options = [&quot;供品&quot;, &quot;尺&quot;, &quot;剪刀&quot;, &quot;鏡子&quot;]&gt;&gt;&lt;&lt;timed 0.5s t8n&gt;&gt;&lt;div class=&quot;title-box&quot; style=&quot;color: black !important;&quot;&gt;&lt;h3&gt;關卡2-2&lt;/h3&gt;&lt;/div&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 1s t8n&gt;&gt;你已經找到正確的祭品，請按照「分寸」、「家」、「境」的順序擺放供品。
 
-&lt;div id=&#39;offeringtable&#39;&gt;&lt;span class=&quot;Roundel&quot;&gt;&lt;strong&gt;分寸&lt;/strong&gt;得宜，&lt;strong&gt;家境&lt;/strong&gt;平安&lt;/span&gt;
+&lt;div id=&#39;offeringtable&#39;&gt;&lt;span class=&quot;Roundel&quot;&gt;&lt;strong&gt;&lt;u&gt;分 寸&lt;/u&gt;&lt;/strong&gt; 得 宜 ， &lt;strong&gt;&lt;u&gt;家&lt;/u&gt; &lt;u&gt;境&lt;/u&gt;&lt;/strong&gt; 平 安&lt;/span&gt;
 &lt;span class=&#39;offeringans&#39;&gt;&lt;&lt;listbox &quot;_answer1&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;｜&lt;&lt;listbox &quot;_answer2&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;｜&lt;&lt;listbox &quot;_answer3&quot; autoselect&gt;&gt;&lt;&lt;optionsfrom _options&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;/span&gt;
 &lt;/div&gt;
 
