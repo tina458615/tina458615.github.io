@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最後的備忘錄 - 台灣人民解放陣線絕筆</title>
+    <style>
+        :root {
+            --bg-color: #0f0f13;
+            --text-color: #c0c0c0;
+            --accent-color: #a83f39; /* 暗紅色，象徵香火與血 */
+            --highlight-color: #e0e0e0;
+            --font-main: "Noto Serif TC", "Songti TC", serif;
+            --font-mono: "Courier New", Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        header {
+            border-bottom: 1px solid #333;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .meta-info {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-top: 15px;
+            font-family: var(--font-mono);
+            letter-spacing: 1px;
+            font-weight: bold;
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            display: inline-block;
+        }
+
+        /* 遊戲主視圖區域 */
+        #game-view {
+            display: block; /* 預設顯示 */
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .scene-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            white-space: pre-wrap;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: auto;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+        }
+
+        button {
+            background: transparent;
+            border: 1px solid #444;
+            color: var(--text-color);
+            padding: 15px 20px;
+            text-align: left;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            border-color: var(--accent-color);
+            background-color: rgba(168, 63, 57, 0.1);
+            color: var(--highlight-color);
+        }
+
+        button:disabled {
+            border-color: #222;
+            color: #444;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        #controls {
+            margin-top: 20px;
+            padding-top: 10px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        #back-btn {
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border: 1px dashed #555;
+            color: #777;
+        }
+        
+        #back-btn:hover:not(:disabled) {
+            border-color: var(--text-color);
+            color: var(--text-color);
+            background-color: transparent;
+        }
+
+        /* 書籍介紹觸發按鈕樣式 */
+        #book-trigger-area {
+            margin-top: 50px;
+            text-align: center;
+            display: none; /* 預設隱藏，由 JS 控制 */
+            animation: fadeIn 1s ease-in;
+        }
+
+        .promo-btn {
+            background: rgba(26, 26, 32, 0.8);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 12px 25px;
+            font-family: var(--font-main);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-align: center;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+        .promo-btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(168, 63, 57, 0.5);
+        }
+
+        /* 書籍介紹頁面樣式 (獨立視圖) */
+        #book-page-view {
+            display: none; /* 預設隱藏 */
+            animation: fadeIn 0.5s ease-in;
+            margin-top: 0;
+            padding-top: 20px;
+        }
+
+        .book-content {
+            border: 1px solid #333;
+            background-color: #1a1a20;
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .book-cover {
+            flex-shrink: 0;
+        }
+
+        .book-cover img {
+            width: 200px;
+            height: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            border: 1px solid #555;
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-info h3 {
+            color: var(--highlight-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .book-info p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.8;
+            margin: 0;
+            text-align: justify;
+        }
+
+        .book-controls {
+            text-align: center;
+        }
+
+        .return-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+            padding: 10px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .return-btn:hover {
+            border-color: var(--text-color);
+            color: var(--text-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 手機適配 */
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.2rem; }
+            .scene-text { font-size: 1rem; }
+            
+            .book-content {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                gap: 20px;
+            }
+            .book-cover img {
+                width: 140px;
+            }
+            .book-info h3 {
+                font-size: 1.2rem;
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>檔案編號：TPLF-202X-FINAL</h1>
+        <p class="meta-info">地點：新北市石碇山區光明寺 | 時間：戰爭末期</p>
+    </header>
+
+    <!-- 遊戲主要視圖 -->
+    <div id="game-view">
+        <div id="game-content">
+            <div id="scene-text" class="scene-text"></div>
+            <div id="choices" class="choices"></div>
+            <div id="controls">
+                <button id="back-btn" onclick="navigateBack()" disabled>← 回上一頁</button>
+            </div>
+        </div>
+
+        <!-- 書籍介紹觸發按鈕區 (結局時顯示) -->
+        <div id="book-trigger-area">
+            <button class="promo-btn" onclick="showBookPage()">📖 關於原著小說《以下證言將被全面否認》</button>
+        </div>
+    </div>
+
+    <!-- 書籍介紹獨立頁面 (預設隱藏) -->
+    <div id="book-page-view">
+        <div class="book-content">
+            <div class="book-cover">
+                <!-- 
+                     注意：請確保圖片檔案名稱為「以下證言將被全面否認.jpeg」，
+                     並且與此 HTML 檔案位於同一個資料夾中。
+                -->
+                <img src="以下證言將被全面否認.jpeg" alt="《以下證言將被全面否認》書籍封面" onerror="this.style.display='none'; this.parentElement.innerHTML='[書籍封面圖片]';">
+            </div>
+            <div class="book-info">
+                <h3>原著小說：《以下證言將被全面否認》</h3>
+                <p>
+                    《以下證言將被全面否認》由五篇圍繞著台海戰爭主題的小說構成：在不太遙遠的未來，二〇四七年，中國因為內部因素，猝然發動對台戰爭。一位長年關注戰爭記憶的作家，在戰後二十年之際，有感於同儕雖然都在青少年時期經歷了戰事，但每個人的記憶卻都不一樣，於是開始採訪不同的見證者。他在採訪過程中發現有不少在官方說法外的戰爭樣貌，接觸到許多檯面上不可見的歷史資料，因而寫成了絕對會被官方否認的戰時故事。
+                </p>
+            </div>
+        </div>
+        <div class="book-controls">
+            <button class="return-btn" onclick="hideBookPage()">← 返回遊戲結尾</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // 遊戲數據庫
+    const storyData = {
+        start: {
+            text: `此刻的我們，在荒陬的寺裡燃起了最後一盒香燭。
+滿室令人暈眩的馨香，烈士牌位的影子打在我們的紙面上。
+他們的腳步越來越近了，軍靴的聲音，槍械跟戰術背心摩擦的聲音...
+我們幾乎一無所懼，我們只害怕時間不夠，不夠產下我方的歷史。
+
+我是那沒有分配到槍枝，卻分配到紙筆的人。
+在這最後的時刻，我該從何處落筆？`,
+            choices: [
+                { text: "從阿明的畫開始：那第一枚導彈落下的狂喜。", next: "ah_ming" },
+                { text: "從絕望的現實開始：回想那個該死的「四維事件」。", next: "si_wei" },
+                { text: "看著眼前的牌位：想起張松炎與黃正民的犧牲。", next: "martyrs" }
+            ]
+        },
+        ah_ming: {
+            text: `我想起了九歲的阿明。
+從祖國的第一枚導彈落在台灣島上時，歷史就開始扭曲了。
+阿明畫下了那一幕——導彈如長針刺入淡水河邊，土地猶如皮膚猛烈痙攣。
+
+「中國人不打中國人，所以我們家連一片窗戶都沒有破。」那孩子當時是這麼說的。
+那是一次偉大的「佯攻」。我們當時多麼堅信，這是百年統一的第一個音符。
+
+但現在，阿明在哪裡？`,
+            choices: [
+                { text: "他在南港山區搜救飛行員時崩潰了。", next: "pilot_search" },
+                { text: "他在旁邊，眼神空洞地看著佛像。", next: "temple_state" }
+            ]
+        },
+        si_wei: {
+            text: `我不願去想，但不得不想。那個讓局勢逆轉的關鍵——高雄的「四維事件」。
+趙思墨上將，那個我們以為會被俘虜的人，竟然反殺了打算投誠的縣市長。
+
+那是第一張倒下的骨牌。接著是「濁水級」潛艦的「詐死」...
+原來整個海峽暢行無阻的登陸，只是台軍為了誘敵深入設下的陷阱。
+三十萬大軍，沒彈沒糧，成了這一代人最慘痛的人質。`,
+            choices: [
+                { text: "這是假的！這一定是台獨份子的假訊息！", next: "denial" },
+                { text: "陳塗山帶來了新聞影像，我們不得不信。", next: "news_arrival" }
+            ]
+        },
+        martyrs: {
+            text: `張松炎夫婦被掛在路燈上，鄰居漠然走過。
+黃正民在台北車站抱著炸彈，把自己的血肉炸成了一條路。
+
+我們曾經有三十七人，現在只剩下這些殘兵敗將，躲在這個叫做「光明寺」的地方。
+這裡的對聯寫著：「光耀古今不生不滅...」
+多麼諷刺，我們即將毀滅，而歷史將由勝利者書寫。`,
+            choices: [
+                { text: "回到現實，陳塗山進來了，臉色鐵青。", next: "news_arrival" }
+            ]
+        },
+        pilot_search: {
+            text: `那是一段地獄般的記憶。
+為了搜救彈射的飛行員，我們在山區找到了十四具屍體。
+每一具都是我們的飛行員。
+
+阿明咬著自己的手臂，哭喊著要把手給那條叼著殘肢的野狗。
+還有那個倖存的汪立上尉，他在發高燒時的夢囈...
+「衛星...星星...是衛星燒壞了迴路...」
+
+如果連天上的衛星都輸了，我們還剩下什麼？`,
+            choices: [
+                { text: "不再去想，專注於當下的困境。", next: "temple_state" }
+            ]
+        },
+        temple_state: {
+            text: `光明寺的正殿素淨空闊。
+我們把這裡當作最後的基地。陳氏祖母——那位九十多歲的老人，默默地支持著我們。
+她說：「好好幹，不必謝。」
+
+但現在，山下的風聲變了。陳塗山說，村民們開始相信台軍反攻了。
+他們相信我們輸了。
+重點不是真相，重點是「他們相信」。`,
+            choices: [
+                { text: "村民會出賣我們。", next: "betrayal_fear" }
+            ]
+        },
+        news_arrival: {
+            text: `陳塗山站在大殿門口，聲音顫抖。
+「他們說，台軍坦克已經開到海邊了...」
+「村民們都在傳，濁水級沒沉，那是圈套...」
+
+恐懼像病毒一樣蔓延。如果村民相信祖國戰敗了，那他們看我們的眼神就會改變。
+原本的「義士」，將變成「戰犯」。`,
+            choices: [
+                { text: "我們必須先下手為強。", next: "the_plan" },
+                { text: "我們只能打自己打得起的仗。", next: "the_plan" }
+            ]
+        },
+        denial: {
+            text: `我在紙上憤怒地寫下：這一切都是謊言！
+可是...為什麼連這裡都能聽到遠方的爆炸聲？為什麼沒有增援？
+為什麼汪立上尉死前會說那些話？
+
+承認吧。無論真假，我們都被拋棄在這座孤島上了。`,
+            choices: [
+                { text: "只能面對現實。", next: "news_arrival" }
+            ]
+        },
+        betrayal_fear: {
+            text: `恐懼在我們眼中傳遞。
+陳塗山被我們嚇退了一步。
+「我們現在要怎麼辦？」他問。
+
+我看著殿內的佛像，心中升起一個最後的計劃。
+這不是為了生存，是為了尊嚴，或者...瘋狂。`,
+            choices: [
+                { text: "「我們要請客吃飯。」", next: "the_plan" }
+            ]
+        },
+        the_plan: {
+            text: `「告訴村民，戰爭結束了。我們輸了，要投降。」我平靜地說。
+「但在那之前，我們要宴請全村，把所有的罐頭、酒都拿出來。」
+
+這是一場最後的晚餐。
+我們要讓他們放下戒心，然後...
+
+我們無視佛寺的戒規，大口吃肉，大口喝酒。
+村民們醉了，笑著談論祖國的失敗，笑著談論我們的末路。`,
+            choices: [
+                { text: "聽著他們的笑聲，心中的殺意漸起。", next: "interrogation" },
+                { text: "灌醉他們，然後鎖上大門。", next: "lock_up" }
+            ]
+        },
+        lock_up: {
+            text: `酒效發作，村民們歪倒一片。
+我們動手了。
+綁住手腳，若有抵抗就用鈍物打暈。
+即使是陳塗山，也被我們一棍打翻在地，額角流血。
+
+我們鎖上正殿。
+現在，這裡是審訊室了。`,
+            choices: [
+                { text: "開始審訊：找出是誰散佈謠言。", next: "interrogation" }
+            ]
+        },
+        interrogation: {
+            text: `隔日正午，哭聲與咆哮震耳欲聾。
+我們把人拖進臨時偵訊室。
+問題只有一個：「你聽誰說的？」
+
+恐懼讓他們崩潰。
+「就是他！」
+鄰居出賣鄰居，親人指認親人。
+這張赤煉蛇般的人際網覆蓋了整個村子。
+他們彼此撕咬，為了爭取一點點我們給予的「寬恕」。
+
+只有一個人例外。`,
+            choices: [
+                { text: "陳氏祖母。", next: "grandma" }
+            ]
+        },
+        grandma: {
+            text: `那位九十多歲的老人，被綁了一整天，全身惡臭。
+但沒有任何村民敢提她的名字。
+她一整天沒有移動，像一尊肉身佛。
+
+當我們要將她拖出去時，全村的人暴動了。
+他們用盡最後的力氣，用牙齒咬住我們的腿，試圖阻止我們。
+場面失控了。血腥味，汗臭味，以及絕望的氣息。
+
+我們揮舞棍棒，敲擊，戳刺...
+直到...`,
+            choices: [
+                { text: "槍聲響起。", next: "climax" }
+            ]
+        },
+        climax: {
+            text: `遠方傳來了槍聲。
+軍靴的聲音。
+槍械跟戰術背心摩擦的聲音。
+
+能聽見，就不算太遠了。
+月光打進光明寺，照亮了殿內橫陳的身體。
+
+這時，沉默已久的陳氏祖母開口了。
+她用一種幾乎已被遺忘的溫柔，看著我們。`,
+            choices: [
+                { text: "聽她最後一句話。", next: "ending" }
+            ]
+        },
+        ending: {
+            text: `「很久很久以前，我就見過你們了。」她說。
+
+這句話是什麼意思？
+是說她見過歷史的輪迴？還是看透了我們這些狂熱者的本質？
+
+沒時間了。
+隊員們拿著僅有的幾把槍衝出去了。
+而我，我是那分配到記憶的人。
+
+我在這裡寫下最後一個字。
+祖國啊祖國，你是我們陣痛而還沒產下的那段歷史。
+現在，我也將打完自己的最後一發彈藥——我的筆。
+
+<span class="highlight">--- 訊號中斷 ---</span>`,
+            choices: [
+                { text: "重新閱讀檔案", next: "start" }
+            ]
+        }
+    };
+
+    // 遊戲引擎狀態
+    const sceneTextEl = document.getElementById('scene-text');
+    const choicesEl = document.getElementById('choices');
+    const backBtn = document.getElementById('back-btn');
+    const bookTrigger = document.getElementById('book-trigger-area');
+    const gameView = document.getElementById('game-view');
+    const bookPageView = document.getElementById('book-page-view');
+    
+    let historyStack = [];
+    let currentSceneKey = 'start';
+
+    function renderScene(sceneKey) {
+        const scene = storyData[sceneKey];
+        currentSceneKey = sceneKey;
+        
+        // 淡入效果
+        sceneTextEl.style.animation = 'none';
+        sceneTextEl.offsetHeight; /* trigger reflow */
+        sceneTextEl.style.animation = 'fadeIn 1s ease-in';
+        
+        sceneTextEl.innerHTML = scene.text.replace(/\n/g, '<br>');
+        
+        // 生成選項
+        choicesEl.innerHTML = '';
+        scene.choices.forEach(choice => {
+            const btn = document.createElement('button');
+            btn.innerText = `> ${choice.text}`;
+            btn.onclick = () => {
+                navigateTo(choice.next);
+            };
+            choicesEl.appendChild(btn);
+        });
+
+        // 處理書籍介紹按鈕的顯示邏輯
+        handleBookTriggerVisibility(sceneKey);
+
+        // 更新按鈕狀態
+        updateBackBtnState();
+    }
+
+    function handleBookTriggerVisibility(sceneKey) {
+        // 只有在結局時顯示按鈕
+        if (sceneKey === 'ending') {
+            bookTrigger.style.display = 'block';
+        } else {
+            bookTrigger.style.display = 'none';
+        }
+    }
+
+    // 顯示書籍頁面（隱藏遊戲視圖）
+    function showBookPage() {
+        gameView.style.display = 'none';
+        bookPageView.style.display = 'block';
+        // 滾動到頂部
+        window.scrollTo(0, 0);
+    }
+
+    // 隱藏書籍頁面（返回遊戲視圖）
+    function hideBookPage() {
+        bookPageView.style.display = 'none';
+        gameView.style.display = 'block';
+    }
+
+    function navigateTo(nextKey) {
+        // 如果是回到起點（重新開始），則清空歷史紀錄
+        if (nextKey === 'start') {
+            historyStack = [];
+        } else {
+            // 將當前場景推入歷史堆疊
+            historyStack.push(currentSceneKey);
+        }
+        renderScene(nextKey);
+    }
+
+    function navigateBack() {
+        if (historyStack.length === 0) return;
+        
+        // 取出上一個場景
+        const prevKey = historyStack.pop();
+        renderScene(prevKey);
+    }
+
+    function updateBackBtnState() {
+        backBtn.disabled = historyStack.length === 0;
+    }
+
+    // 初始化
+    renderScene('start');
+
+</script>
+
+</body>
+</html>

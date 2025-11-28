@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>噤飛：聖誕夜的假面舞會</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+
+        /* 老電影膠卷雜訊效果 */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .choice-btn {
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .choice-btn:hover {
+            border-left: 2px solid #d4af37; /* 金色 */
+            background-color: rgba(255, 255, 255, 0.05);
+            padding-left: 1rem;
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: 500;
+        }
+        
+        .memory-flash {
+            border-left: 4px solid #6b7280;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #9ca3af;
+        }
+
+        /* 書籍介紹頁面的特殊樣式 */
+        .book-intro {
+            background-color: #000;
+            padding: 2rem;
+            border: 1px solid #333;
+            margin-top: 1rem;
+        }
+        
+        .book-cover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #444;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+
+        /* 隱藏滾動條但保持功能 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="film-grain"></div>
+
+    <div id="game-container" class="max-w-2xl w-full bg-neutral-900 border border-neutral-800 p-8 shadow-2xl relative z-10 min-h-[80vh] flex flex-col justify-between">
+        
+        <!-- 頂部狀態欄 -->
+        <div class="flex flex-wrap gap-2 justify-between items-center text-sm md:text-base text-neutral-300 mb-8 border-b border-neutral-600 pb-3 tracking-wide font-medium">
+            <span>1967年12月15日</span>
+            <span>新竹空軍基地・聖誕晚會</span>
+            <span id="mood-indicator" class="text-[#d4af37]">心境：平靜</span>
+        </div>
+
+        <!-- 主要文本區域 -->
+        <div id="story-text" class="text-lg leading-relaxed space-y-6 flex-grow">
+            <!-- 故事內容將透過 JS 渲染 -->
+        </div>
+
+        <!-- 選擇區域 -->
+        <div id="choices-container" class="mt-12 space-y-3">
+            <!-- 按鈕將透過 JS 渲染 -->
+        </div>
+
+    </div>
+
+    <script>
+        // 遊戲狀態
+        let state = {
+            anger: 0,     // 憤怒值
+            nostalgia: 0, // 懷舊值 (對丈夫的愛)
+            scene: 'start'
+        };
+
+        // 故事數據庫
+        const storyData = {
+            'start': {
+                text: `
+                    <p>十二月十五日星期三，空軍第四中隊聖誕晚會。</p>
+                    <p>新房子在東大路上，是中隊成員們的宿舍兼活動空間。進門後是小客廳，孩子們熟門熟路，到角落的吧檯區拿可樂。妳轉向門邊的全身鏡，脫下外套、深呼吸、吐氣。</p>
+                    <p>鏡中的妳，穿著象牙白的旗袍，珍珠耳環，在白玫瑰美髮店整理的髮型。美國口紅也蓋不掉的唇紋，熟悉得令人安心。</p>
+                    <p>妳看著鏡子裡的自己，一身亮麗完好，只有妳知道自己不一樣。</p>
+                `,
+                choices: [
+                    { text: "我是來享受這場久違的宴會的。", target: 'denial', effect: { anger: -1 } },
+                    { text: "我是來破壞這場晚會的。", target: 'bar', effect: { anger: 2 } }
+                ]
+            },
+            'denial': {
+                text: `
+                    <p>妳試著微笑。畢竟，難得穿得這麼漂亮。新竹的風大，好不容易弄好的頭髮不能白費。</p>
+                    <p>「大嫂！大白天就開始喝了，帶孩子很辛苦啊？」吧檯邊的勤務兵招呼妳。</p>
+                    <p>妳拿了一杯酒，那是為了麻醉。妳告訴自己，這只是因為心情好。人群往大廳流去，每張臉都盈潤明亮，高咧著嘴。</p>
+                    <p class="highlight">妳看起來就是他們的一員。</p>
+                `,
+                choices: [
+                    { text: "走向大廳，尋找丈夫何裕明的身影。", target: 'dance_intro' }
+                ]
+            },
+            'bar': {
+                text: `
+                    <p>妳仰頭飲盡杯中的液體，瞪著灰色的格狀天花板，再把杯子「喀」地放上檯面。</p>
+                    <p>「大嫂！大白天就開始喝了？」</p>
+                    <p>妳笑得僵硬：「今天心情好嘛！」</p>
+                    <p>謊言。周圍穿西裝的、制服的、旗袍的人們，每張臉都盈潤明亮。只有妳心底清楚，<span class="highlight">這是一場充滿謊言的聚會</span>。</p>
+                `,
+                choices: [
+                    { text: "帶著這股怒氣，走進大廳。", target: 'dance_intro' }
+                ]
+            },
+            'dance_intro': {
+                text: `
+                    <p>大廳裡，何裕明穿著剛換上的靛藍色西裝，那是妳替他燙平的。他看見妳，中斷了與樂手的對話，邁步走來。</p>
+                    <p>燈光驟然暗下，提琴的弦音流瀉，幽暗浸染了一點多彩的迷幻。</p>
+                    <p>「和我跳支舞吧。」他向妳伸手。</p>
+                `,
+                choices: [
+                    { text: "握住他的手，感受掌心的溫度。", target: 'flashback_zuoying', effect: { nostalgia: 2 } },
+                    { text: "看著他的臉，想起他隨時會消失。", target: 'flashback_jeep', effect: { anger: 1 } }
+                ]
+            },
+            'flashback_zuoying': {
+                text: `
+                    <p class="memory-flash">回憶湧上。那是十九歲的妳，在左營海軍俱樂部。</p>
+                    <p>那時妳還沒生過孩子，隨便套件洋裝都有堅挺的線條。何裕明那時常踩到妳的腳，笨拙卻真誠。</p>
+                    <p>妳曾以為嫁給飛行員就能進入一個更大、更廣闊的世界。妳喜歡他眼裡看過大江南北的神采。</p>
+                    <p>妳想起了婚禮那天，海軍總司令證婚，掀開的面紗歪斜打在他鼻尖。那時妳告訴自己：<span class="highlight">就爭搶這麼一次，未來的結果全盤承受。</span></p>
+                `,
+                choices: [
+                    { text: "那時太天真了，不知道代價是無盡的恐懼。", target: 'reality_check' },
+                    { text: "即使是現在，這份愛依然真實。", target: 'reality_check' }
+                ]
+            },
+            'flashback_jeep': {
+                text: `
+                    <p class="memory-flash">妳看著他英俊的輪廓，腦中浮現的卻是那輛吉普車的聲音。</p>
+                    <p>格愣、格愣。那是死神的腳步。</p>
+                    <p>在眷村，吉普車停在哪家門口，那家就要傳出哭聲。妳記得那天在廚房炒菜，車燈慘白地射進屋內，心跳幾乎停滯，直到車子停在隔壁。</p>
+                    <p>然後是玻璃碎裂聲，和戴慧玲的哭叫。</p>
+                    <p>何裕明那次回來了，像什麼都沒發生過一樣。但妳知道，<span class="highlight">下一次可能就是妳。</span></p>
+                `,
+                choices: [
+                    { text: "這種提心吊膽的日子，我受夠了。", target: 'reality_check', effect: { anger: 1 } }
+                ]
+            },
+            'reality_check': {
+                text: `
+                    <p>一曲舞畢。妳回到現實，看著周圍歡騰的人群。紅色彩條閃爍，像是在嘲笑。</p>
+                    <p>主持人高喊：「今天是民國五十六年十二月十五日，很開心在這裡看到大家......」</p>
+                    <p>開心？離真正的聖誕節還有一週，誰不知道這是什麼意思？在真正的節日裡，許多飛行員可能已經不在了。</p>
+                    <p><span class="highlight">越豪華的宴會，要用越慘烈的犧牲來換。</span></p>
+                    <p>妳想起了一個月前去探望剛喪夫的戴慧玲。那間充滿霉味與死亡氣息的房子。</p>
+                `,
+                choices: [
+                    { text: "戴慧玲那張蒼白、像麵粉袋一樣的臉。", target: 'climax_pre' }
+                ]
+            },
+            'climax_pre': {
+                text: `
+                    <p>這是不對的，人怎麼能和死亡生活在一起！</p>
+                    <p>妳走向點心桌，拿起一個高腳杯。裡面盛著紅酒，還是果汁？不重要。</p>
+                    <p>聽說空軍總司令快到了。妳的手指捏緊杯腳，不住顫抖。</p>
+                    <p>妳想要破壞這一切。潑牆上？潑沙發？還是摔碎杯子？至少要讓他們記得這一天，撕破這層虛假的和平。</p>
+                `,
+                choices: [
+                    { text: "我要上台，我要摔杯子，我要尖叫。", target: 'climax_choice', effect: { anger: 2 } },
+                    { text: "我的腿在發軟，但我必須做點什麼。", target: 'climax_choice' }
+                ]
+            },
+            'climax_choice': {
+                text: `
+                    <p>主持人喊道：「恭迎總司令賴名湯上將！」</p>
+                    <p>妳往前走了兩步，完全隱沒在黑暗中，距離舞台只有一步之遙。酸苦的酒液在胃裡燃燒。</p>
+                    <p>只要鬆手，杯子就會碎裂。只要大喊，這個夢就會醒。</p>
+                    <p>這時，妳感覺腰際被一雙小手抱住。</p>
+                    <p>「媽媽！我們就差妳了。」是何裕明牽著伊伊和欣欣，還有抱著妳腰的小志。</p>
+                `,
+                choices: [
+                    { text: "【結局A】甩開孩子的手，將杯子狠狠摔在地上。", target: 'bad_ending', condition: (s) => s.anger >= 4 },
+                    { text: "【結局B】看向孩子明亮的雙眼，放下舉起的手。", target: 'true_ending' }
+                ]
+            },
+            'bad_ending': {
+                text: `
+                    <p>「框啷！」</p>
+                    <p>清脆的碎裂聲切斷了樂聲。妳甩開了小志，紅酒潑灑在地板上，像一道鮮紅的傷口。全場死寂，總司令停下了腳步，何裕明的笑容僵在臉上。</p>
+                    <p>妳終於哭喊出聲，控訴這一切的虛偽。但妳看見孩子們驚恐的眼神，欣欣嚇得後退，小志哭了起來。</p>
+                    <p>這是一場災難。妳撕破了面具，但也粉碎了家人們僅有的、若無其事的快樂。</p>
+                    <p class="text-sm text-neutral-500 mt-8">—— 虛構結局：崩毀的聖誕夜 ——</p>
+                `,
+                choices: [
+                    { text: "關於原著《噤飛》", target: 'about_book' },
+                    { text: "重新開始", target: 'start', action: 'reset' }
+                ]
+            },
+            'true_ending': {
+                text: `
+                    <p>「來了。」妳聽見自己的聲音，輕飄飄的，像出自本能。</p>
+                    <p>手中是孩子軟膩的掌，像個小暖爐。妳放下了那一瞬間的殺意。</p>
+                    <p>「喀擦！」強光一閃。</p>
+                    <p>照相官按下了快門。這就是那一瞬間凝住的畫面了：光線昏暗、彩條閃動，妳與何裕明與三個孩子，牽手，很多的笑。</p>
+                    <p>妳意識到，妳的抗議改變不了輪迴一樣的犧牲。妳真正能做的，只有不讓那幾雙期待遊戲的眼睛失望。</p>
+                    <p><span class="highlight">也許沉默不是木然，是真正堅毅而漫長的反抗。</span></p>
+                    <p>多虧有妳，今天又是和平歡樂的一天。</p>
+                    <p class="text-sm text-neutral-500 mt-8">—— 真實結局：噤飛 ——</p>
+                `,
+                choices: [
+                    { text: "關於原著《噤飛》", target: 'about_book' },
+                    { text: "再次回味", target: 'start', action: 'reset' }
+                ]
+            },
+            'about_book': {
+                text: `
+                    <div class="book-intro">
+                        <img src="噤飛.jpeg" alt="噤飛書籍封面" class="book-cover">
+                        <h2 class="text-2xl text-center text-[#d4af37] mb-6 font-bold">歷史的真相：黑蝙蝠中隊</h2>
+                        <p class="mb-4">「我一定得去！但不一定回來。」</p>
+                        <p class="mb-4 text-justify text-neutral-300 text-sm">
+                            二十年的深入敵境、出生入死，從如入無人之境，到次次生死交關，一共折損十五架戰機，犧牲一百四十七位特戰菁英——這是空軍史上犧牲最慘烈的特種部隊：空軍三十四中隊，人稱「黑蝙蝠中隊」。
+                        </p>
+                        <p class="mb-4 text-justify text-neutral-300 text-sm">
+                            「行動必須低調，任務必須完成，訓練必須嚴苛」，百位出色的飛行員經過嚴格培訓後，執行「不得攜帶武裝的飛行偵查任務」，在鐵幕中僅憑「精密電子設備、精湛飛行技術、夜幕低空飛行」生存，以此完成偵蒐、逃脫攻擊、誘敵自毀，也多次壯烈犧牲。
+                        </p>
+                        <p class="mb-4 text-justify text-neutral-300 text-sm">
+                            這段悲壯的故事一直被列為最高機密，就連家屬都不知情。直到五十年後的今天才得以解密，一窺這段珍貴的歷史。本書以多次親身作戰的何祚明少校為藍本，是一本最貼近歷史的改編小說，也是最戲劇化的歷史呈現。每一位生長在這片土地上的你我，都不容錯過。
+                        </p>
+                    </div>
+                `,
+                choices: [
+                    { text: "返回遊戲標題", target: 'start', action: 'reset' }
+                ]
+            }
+        };
+
+        // DOM 元素
+        const storyTextEl = document.getElementById('story-text');
+        const choicesContainerEl = document.getElementById('choices-container');
+        const moodIndicatorEl = document.getElementById('mood-indicator');
+
+        // 初始化
+        function initGame() {
+            renderScene('start');
+        }
+
+        function resetGame() {
+            state = { anger: 0, nostalgia: 0, scene: 'start' };
+            renderScene('start');
+        }
+
+        // 渲染場景
+        function renderScene(sceneKey) {
+            const scene = storyData[sceneKey];
+            state.scene = sceneKey;
+
+            // 更新心境顯示
+            updateMood();
+
+            // 渲染文字 (帶淡入效果)
+            // 如果是 about_book 場景，我們可能需要特殊處理，或者直接渲染 HTML
+            storyTextEl.innerHTML = `<div class="fade-in">${scene.text}</div>`;
+
+            // 渲染選項
+            choicesContainerEl.innerHTML = '';
+            scene.choices.forEach(choice => {
+                // 檢查條件 (如果有)
+                if (choice.condition && !choice.condition(state)) {
+                    return;
+                }
+
+                const btn = document.createElement('button');
+                btn.className = "choice-btn w-full text-left py-3 text-neutral-300 hover:text-white text-base md:text-lg focus:outline-none";
+                btn.innerHTML = `> ${choice.text}`;
+                
+                btn.onclick = () => {
+                    if (choice.action === 'reset') {
+                        resetGame();
+                        return;
+                    }
+                    
+                    // 應用效果
+                    if (choice.effect) {
+                        if (choice.effect.anger) state.anger += choice.effect.anger;
+                        if (choice.effect.nostalgia) state.nostalgia += choice.effect.nostalgia;
+                    }
+
+                    renderScene(choice.target);
+                };
+
+                choicesContainerEl.appendChild(btn);
+            });
+        }
+
+        function updateMood() {
+            let mood = "平靜";
+            if (state.scene === 'about_book') {
+                mood = "歷史"; // 特殊狀態
+            } else if (state.anger >= 3) {
+                mood = "瀕臨崩潰";
+            } else if (state.anger >= 1) {
+                mood = "壓抑憤怒";
+            } else if (state.nostalgia >= 2) {
+                mood = "眷戀";
+            }
+            
+            moodIndicatorEl.innerText = `心境：${mood}`;
+            
+            // 根據憤怒值改變背景微調
+            if (state.anger >= 3 && state.scene !== 'about_book') {
+                document.body.style.backgroundColor = "#2a1515"; 
+            } else {
+                document.body.style.backgroundColor = "#1a1a1a";
+            }
+        }
+
+        // 啟動
+        initGame();
+
+    </script>
+</body>
+</html>

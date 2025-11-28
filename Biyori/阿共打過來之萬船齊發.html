@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萬船齊發：後勤大崩潰 (敘事版)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #e2e8f0; overflow: hidden; user-select: none; touch-action: none; }
+        
+        /* 動畫類 */
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 畫面基礎設定：預設允許垂直捲動以適應不同螢幕 */
+        .screen { 
+            display: none; 
+            height: 100vh; 
+            width: 100vw; 
+            flex-direction: column; 
+            overflow-y: auto; /* 關鍵：開啟滾輪 */
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; /* iOS 滑動優化 */
+        }
+        .active-screen { display: flex; }
+
+        /* 遊戲關卡強制鎖定畫面，不顯示滾輪 (避免遊戲中誤觸) */
+        #screen-level2, #screen-level3 {
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        /* Level 1 投影片樣式 */
+        .slide-container { display: none; height: 100%; flex-direction: column; justify-content: center; items-center; padding: 20px; animation: slideEnter 0.5s ease-out; }
+        .active-slide { display: flex; }
+        @keyframes slideEnter { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* Level 3 特效 */
+        .foxhole {
+            background: radial-gradient(circle, #292524 40%, #57534e 70%);
+            box-shadow: inset 0 5px 10px rgba(0,0,0,0.8);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .soldier-pop { transition: transform 0.1s ease-in; transform: translateY(0); }
+        /* 加上 !important 確保覆蓋任何殘留的行內樣式 */
+        .soldier-hide { transform: translateY(120%) !important; opacity: 0.5; }
+        
+        .aim-reticle {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 80%; height: 80%;
+            border: 4px solid red; border-radius: 50%;
+            animation: lockOn 2s linear forwards;
+            pointer-events: none;
+            opacity: 0;
+        }
+        @keyframes lockOn {
+            0% { transform: translate(-50%, -50%) scale(2); opacity: 0; border-color: yellow; }
+            50% { opacity: 1; border-color: orange; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; border-color: red; }
+        }
+
+        .explosion {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, orange, red, transparent);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .boom-anim { animation: boom 0.5s ease-out; }
+        @keyframes boom { 0% { opacity: 1; transform: scale(0.5); } 100% { opacity: 0; transform: scale(2); } }
+
+        .news-ticker-item { border-left: 2px solid #ef4444; padding-left: 8px; margin-bottom: 8px; animation: fadeIn 0.3s; }
+
+        /* 書封裝飾 */
+        .book-cover {
+            background-color: #b91c1c; 
+            background-image: url('https://www.transparenttextures.com/patterns/black-scales.png');
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== 主選單 ==================== -->
+    <div id="screen-menu" class="screen active-screen bg-gradient-to-br from-gray-900 to-blue-900">
+        <!-- 修正：移除 justify-center，改用子元素 my-auto。這樣當內容過長時，頂部不會被切掉，且可以正常滾動。 -->
+        <div class="min-h-full w-full flex flex-col items-center py-10 px-4">
+            
+            <div class="text-center space-y-6 fade-in p-8 border border-gray-700 bg-gray-800/80 rounded-2xl shadow-2xl max-w-4xl w-full relative overflow-hidden my-auto">
+                <h1 class="text-4xl md:text-5xl font-black text-red-500 tracking-tighter mb-2">萬船齊發</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-gray-300">Operation: Logistics Nightmare</h2>
+                <p class="text-sm md:text-base text-gray-400">體驗物理限制下的真實登陸戰</p>
+                
+                <!-- 修改：強制 grid-cols-3 讓選項水平並置，並調整 gap 與寬度 -->
+                <div class="grid grid-cols-3 gap-2 md:gap-6 mt-8 w-full">
+                    
+                    <!-- 第一章按鈕：調整 padding 與字體大小以適應手機水平排列 -->
+                    <button onclick="GameApp.startLevel(1)" class="flex flex-col items-center justify-center p-3 md:p-6 bg-gray-700 hover:bg-gray-600 rounded-xl transition border-2 border-gray-600 hover:border-yellow-500 group relative overflow-hidden h-full">
+                        <div class="text-2xl md:text-4xl mb-1 md:mb-2">📖</div>
+                        <div class="font-bold text-sm md:text-xl group-hover:text-yellow-400">第一章</div>
+                        <div class="text-[10px] md:text-xs text-gray-400 mt-1 leading-tight">戰前科普<br class="md:hidden">登船困難</div>
+                    </button>
+
+                    <!-- 第二章按鈕 -->
+                    <button onclick="GameApp.startLevel(2)" class="flex flex-col items-center justify-center p-3 md:p-6 bg-gray-700 hover:bg-gray-600 rounded-xl transition border-2 border-gray-600 hover:border-blue-500 group h-full">
+                        <div class="text-2xl md:text-4xl mb-1 md:mb-2">🌊</div>
+                        <div class="font-bold text-sm md:text-xl group-hover:text-blue-400">第二章</div>
+                        <div class="text-[10px] md:text-xs text-gray-400 mt-1 leading-tight">海峽生存<br class="md:hidden">閃避彈幕</div>
+                    </button>
+
+                    <!-- 第三章按鈕 -->
+                    <button onclick="GameApp.startLevel(3)" class="flex flex-col items-center justify-center p-3 md:p-6 bg-gray-700 hover:bg-gray-600 rounded-xl transition border-2 border-gray-600 hover:border-red-500 group h-full">
+                        <div class="text-2xl md:text-4xl mb-1 md:mb-2">💣</div>
+                        <div class="font-bold text-sm md:text-xl group-hover:text-red-400">第三章</div>
+                        <div class="text-[10px] md:text-xs text-gray-400 mt-1 leading-tight">灘頭躲避<br class="md:hidden">生存挑戰</div>
+                    </button>
+                </div>
+
+                <!-- 參考文獻按鈕：置於下方 -->
+                <div class="mt-8 border-t border-gray-700 pt-6">
+                    <button onclick="GameApp.showReference()" class="w-full md:w-auto text-gray-400 hover:text-white text-sm flex items-center justify-center gap-2 mx-auto px-6 py-3 hover:bg-gray-700 rounded-lg transition border border-transparent hover:border-gray-500">
+                        <span>📚</span>
+                        <span>參考資料與書籍來源</span>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- ==================== 參考資料畫面 ==================== -->
+    <div id="screen-reference" class="screen bg-stone-900">
+        <!-- 修正：同樣使用 flex-col + items-center + my-auto 確保滾動體驗 -->
+        <div class="min-h-full w-full flex flex-col items-center py-10 px-4">
+            
+            <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-2xl max-w-4xl w-full my-auto">
+                
+                <!-- 書封區塊：包含圖片與 CSS 後備方案 -->
+                <div class="flex-shrink-0 relative group mx-auto md:mx-0 w-64 h-96 shadow-2xl rounded-lg">
+                    
+                    <!-- 1. 優先嘗試顯示圖片 -->
+                    <!-- 注意：下載後請確保 '阿共打過來該怎麼辦.jpg' 與此 html 在同一資料夾 -->
+                    <img id="book-real-img"
+                         src="阿共打過來該怎麼辦.jpg" 
+                         alt="阿共打來怎麼辦 書封" 
+                         class="absolute inset-0 w-full h-full object-cover rounded-lg z-20 transition transform group-hover:scale-105 duration-300"
+                         onerror="document.getElementById('book-real-img').style.display='none'; document.getElementById('book-css-fallback').classList.remove('hidden');">
+                    
+                    <!-- 2. 圖片讀取失敗時的 CSS 繪製封面 (Fallback) -->
+                    <div id="book-css-fallback" class="book-cover w-full h-full flex flex-col justify-between p-6 absolute inset-0 z-10 hidden rounded-lg transform transition group-hover:scale-105 duration-300">
+                        <div class="book-texture absolute inset-0 pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="text-yellow-400 font-['Oswald'] text-4xl leading-none mb-2 drop-shadow-md">
+                                IF CHINA<br>ATTACKS
+                            </div>
+                            <div class="text-white font-black text-5xl leading-tight drop-shadow-md">
+                                阿共打來<br>怎麼辦
+                            </div>
+                        </div>
+                        <div class="relative z-10 border-t border-white/30 pt-2 mt-4">
+                            <div class="text-white text-xs opacity-80 mb-1">Taiwan Strait Military Knowledge</div>
+                            <div class="text-white font-bold text-sm">王立 Matt Wang<br>沈伯洋 Puma Shen</div>
+                        </div>
+                        <div class="absolute bottom-0 right-0 opacity-20 text-black text-9xl pointer-events-none">🏝️</div>
+                    </div>
+
+                    <!-- 裝飾光暈 -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-yellow-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 -z-10"></div>
+                </div>
+
+                <div class="flex-1 space-y-4 text-gray-300">
+                    <h2 class="text-3xl font-bold text-white mb-4 border-b border-gray-600 pb-2">關於本遊戲</h2>
+                    <p>本遊戲的關卡設計與科普內容，皆改編自暢銷科普書籍<span class="text-yellow-400 font-bold">《阿共打來怎麼辦：你以為知道但實際一無所知的台海軍事常識》</span>。</p>
+                    <ul class="list-disc list-inside space-y-2 text-sm bg-black/30 p-4 rounded-lg">
+                        <li><span class="text-green-400 font-bold">第一關（登船）：</span>破解「萬船齊發」謠言。點出民用漁船在裝載武裝部隊與補給時，面臨的物理限制與時間成本。</li>
+                        <li><span class="text-blue-400 font-bold">第二關（渡海）：</span>模擬非正規載具在台海風浪與現代化火力面前的脆弱性。</li>
+                        <li><span class="text-red-400 font-bold">第三關（登陸）：</span>展示輕裝步兵在缺乏重裝備與制空權的情況下，難以在灘頭對抗主戰坦克。</li>
+                    </ul>
+                    <p class="text-sm italic text-gray-500 mt-4">※ 本遊戲旨在以互動方式傳遞軍事科普知識，破除常見的攻台謠言與恐懼。</p>
+                    <button onclick="GameApp.backToMenu()" class="mt-6 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition transform hover:scale-105 w-full md:w-auto">
+                        ⬅️ 返回主選單
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== 第一關：科普圖文 ==================== -->
+    <div id="screen-level1" class="screen bg-gray-900 relative">
+        <header class="h-16 bg-gray-800 border-b border-gray-700 flex-shrink-0 flex justify-between items-center px-4 z-20">
+            <div>
+                <h3 class="text-yellow-500 font-bold">第一章：碼頭作業解密</h3>
+                <p class="text-[10px] text-gray-400">點擊畫面或按鈕進行下一頁</p>
+            </div>
+            <button onclick="GameApp.backToMenu()" class="text-xs bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded">退出</button>
+        </header>
+
+        <div class="flex-1 relative overflow-y-auto flex flex-col items-center p-4 bg-[url('https://www.transparenttextures.com/patterns/blueprint.png')]">
+            
+            <!-- Slides Container -->
+            <div class="w-full max-w-2xl my-auto">
+                <!-- Slide 0 -->
+                <div id="l1-slide-0" class="slide-container active-slide w-full">
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-600 shadow-2xl w-full">
+                        <div class="flex justify-center items-center gap-8 mb-6 h-48 bg-gray-900 rounded-xl relative overflow-hidden">
+                            <div class="text-center opacity-50 grayscale">
+                                <div class="text-6xl mb-2">🖱️</div>
+                                <div class="text-xs">世紀帝國</div>
+                                <div class="text-sm font-bold">點一下就上船</div>
+                            </div>
+                            <div class="w-1 h-32 bg-gray-700"></div>
+                            <div class="text-center relative">
+                                <div class="text-6xl mb-2 animate-bounce">🪜</div>
+                                <div class="text-xs text-yellow-400">真實世界</div>
+                                <div class="text-sm font-bold text-white">要爬梯子！</div>
+                            </div>
+                        </div>
+                        <h2 class="text-2xl font-bold text-yellow-500 mb-2">01. 上船不是點滑鼠</h2>
+                        <p class="text-gray-300 leading-relaxed">
+                            「萬船齊發」最常被忽視的物理限制就是<span class="text-white font-bold">登船速度</span>。
+                            不像電玩遊戲，現實中的漁船沒有寬敞的跳板。全副武裝的士兵必須一個個攀爬搖晃的繩梯或窄梯。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 1 -->
+                <div id="l1-slide-1" class="slide-container w-full">
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-600 shadow-2xl w-full">
+                        <div class="flex justify-center items-center mb-6 h-48 bg-gray-900 rounded-xl">
+                            <div class="relative">
+                                <div class="text-8xl">🪖</div>
+                                <div class="absolute -right-4 top-0 text-6xl">🎒</div>
+                                <div class="absolute -left-4 bottom-0 text-6xl">📦</div>
+                            </div>
+                        </div>
+                        <h2 class="text-2xl font-bold text-yellow-500 mb-2">02. 士兵不是遊客</h2>
+                        <p class="text-gray-300 leading-relaxed">
+                            士兵上戰場不能只帶手機。槍械、彈藥、口糧、通訊器材、水...
+                            <span class="text-white font-bold">每個人都像一座移動的小山</span>。
+                            這些物資必須在船艙底部堆疊整齊以維持重心，否則出海遇到浪就會翻船。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div id="l1-slide-2" class="slide-container w-full">
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-600 shadow-2xl w-full">
+                        <div class="flex flex-col justify-center items-center mb-6 h-48 bg-gray-900 rounded-xl relative overflow-hidden">
+                            <div class="flex gap-1 animate-pulse">
+                                <span class="text-4xl">🛥️</span><span class="text-4xl">🛥️</span><span class="text-4xl">🛥️</span>
+                            </div>
+                            <div class="w-full h-1 bg-gray-600 my-2"></div>
+                            <div class="flex flex-wrap justify-center gap-1 text-2xl text-gray-500">
+                                👨‍✈️👨‍✈️👨‍✈️👨‍✈️👨‍✈️👨‍✈️👨‍✈️👨‍✈️👨‍✈️<br>
+                                🤬🤬🤬🤬🤬🤬🤬🤬🤬
+                            </div>
+                        </div>
+                        <h2 class="text-2xl font-bold text-yellow-500 mb-2">03. 碼頭空間有限</h2>
+                        <p class="text-gray-300 leading-relaxed">
+                            一個漁港能同時停靠幾艘船？假設一次 50 艘，裝滿這批要半小時。
+                            那剩下的幾千艘船呢？剩下的幾萬名士兵呢？
+                            <span class="text-white font-bold">他們只能在岸上排隊。</span>
+                            這會導致嚴重的交通堵塞與後勤崩潰。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div id="l1-slide-3" class="slide-container w-full">
+                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-600 shadow-2xl w-full text-center">
+                        <div class="text-8xl mb-6">📉</div>
+                        <h2 class="text-3xl font-bold text-red-500 mb-4">結論：這是不可能的任務</h2>
+                        <p class="text-gray-300 leading-relaxed mb-8 text-left">
+                            想要用漁船載運大軍，在還沒出發前，就會被「時間」與「物理空間」打敗。
+                            <br><br>
+                            但假設...你真的勉強出發了呢？
+                        </p>
+                        <button onclick="GameApp.startLevel(2)" class="bg-red-600 hover:bg-red-500 text-white text-xl font-bold py-4 px-12 rounded-full shadow-lg transform transition hover:scale-105 animate-pulse">
+                            進入第二章：海峽生存戰 ➡️
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex-shrink-0 mt-8 mb-4 flex gap-4" id="l1-controls">
+                <button onclick="L1Game.prev()" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-bold">⬅️ 上一頁</button>
+                <button onclick="L1Game.next()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full font-bold">下一頁 ➡️</button>
+            </div>
+            <div class="flex-shrink-0 mb-2 text-xs text-gray-500">
+                <span id="l1-page-indicator">1 / 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 第二關：海峽渡海 ==================== -->
+    <div id="screen-level2" class="screen bg-blue-900 relative overflow-hidden">
+        <canvas id="l2-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        <div class="absolute top-0 left-0 w-full p-4 flex justify-between items-start pointer-events-none z-10">
+            <div class="bg-black/60 p-3 rounded-lg border border-gray-600 text-white text-sm shadow-xl">
+                <div class="flex items-center gap-2">
+                    <span class="text-yellow-400 font-bold">距離台灣:</span> 
+                    <span id="l2-dist" class="font-mono text-lg">100.0</span> km
+                </div>
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="text-green-400 font-bold">船隊兵力:</span> 
+                    <span id="l2-hp" class="font-mono text-lg text-green-300">100</span>%
+                </div>
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="text-blue-300 font-bold">當前航速:</span> 
+                    <span id="l2-speed-display" class="font-mono text-white">正常</span>
+                </div>
+            </div>
+            <button onclick="GameApp.backToMenu()" class="bg-gray-800/80 hover:bg-gray-700 text-white px-4 py-2 rounded pointer-events-auto border border-gray-600">退出演習</button>
+        </div>
+
+        <div id="l2-warning" class="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-red-500 font-bold text-4xl hidden animate-pulse z-10 text-shadow">⚠️ 飛彈來襲 ⚠️</div>
+
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-6 pointer-events-auto z-20 w-full max-w-md px-4">
+            <button id="l2-btn-evade" class="flex-1 bg-gradient-to-t from-blue-700 to-blue-500 hover:from-blue-600 hover:to-blue-400 text-white p-4 rounded-xl font-bold shadow-lg active:scale-95 transition-all border-b-4 border-blue-900 group">
+                <div class="text-2xl mb-1 group-active:rotate-12 transition-transform">⚡ 蛇行閃避</div>
+                <div class="text-[10px] text-blue-100 opacity-80">短暫無敵但<span class="text-red-300 font-bold">大幅增加暈船</span></div>
+            </button>
+            <button id="l2-btn-armor" class="flex-1 bg-gradient-to-t from-gray-700 to-gray-500 hover:from-gray-600 hover:to-gray-400 text-white p-4 rounded-xl font-bold shadow-lg active:scale-95 transition-all border-b-4 border-gray-900 relative">
+                <div class="text-2xl mb-1">🛡️ 加掛鐵板</div>
+                <div class="text-[10px] text-gray-200 opacity-80">減傷但<span class="text-red-300 font-bold">航速剩 30%</span></div>
+                <div id="l2-armor-status" class="absolute top-2 right-2 w-3 h-3 rounded-full bg-red-500 border border-black"></div>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== 第三關：孤獨的灘頭 ==================== -->
+    <div id="screen-level3" class="screen bg-stone-900 relative font-mono overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dirt-alamo.png')] opacity-30"></div>
+        
+        <header class="h-12 bg-black/80 border-b border-red-900 flex justify-between items-center px-4 z-20 text-red-500 flex-shrink-0">
+            <h3 class="font-bold tracking-widest text-sm flex items-center gap-2">
+                <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                灘頭陣地 (Beachhead) - 敵火壓制中
+            </h3>
+            <button onclick="GameApp.backToMenu()" class="text-xs bg-gray-800 border border-gray-600 px-2 py-1 hover:bg-gray-700">撤退 (Exit)</button>
+        </header>
+
+        <div class="flex-1 flex flex-col md:flex-row relative z-10 overflow-hidden">
+            
+            <!-- 左側：遊戲主區 (沙灘) -->
+            <div class="flex-1 relative p-4 flex flex-col items-center justify-center overflow-hidden">
+                <div class="absolute top-4 bg-black/60 px-4 py-2 rounded text-center mb-4 z-10">
+                    <p class="text-yellow-400 font-bold text-lg animate-pulse">點擊士兵以躲避砲擊！</p>
+                    <p class="text-xs text-gray-400">0.3秒多發齊射，瞄準圈出現時立刻點擊！</p>
+                </div>
+
+                <!-- 散兵坑網格 (3x2) -->
+                <div class="grid grid-cols-3 gap-4 w-full max-w-2xl aspect-[4/3] p-4" id="l3-grid">
+                    <!-- JS 生成 -->
+                </div>
+            </div>
+
+            <!-- 右側：戰況資訊欄 -->
+            <div class="w-full md:w-80 bg-gray-900 border-t md:border-t-0 md:border-l border-gray-700 flex flex-col h-48 md:h-auto flex-shrink-0">
+                <div class="p-4 border-b border-gray-800 bg-gray-800/50 flex-shrink-0">
+                    <div class="text-xs text-gray-400 mb-1">第二波援軍預計抵達</div>
+                    <div id="l3-timer" class="text-2xl md:text-3xl font-bold text-red-500 font-['Share_Tech_Mono']">04:00:00</div>
+                    <div class="text-[10px] text-red-400 mt-1 blink">⚠️ 嚴重延誤</div>
+                </div>
+
+                <div class="p-4 border-b border-gray-800 flex-shrink-0">
+                    <div class="flex justify-between items-end">
+                        <span class="text-gray-400 text-xs">倖存兵力</span>
+                        <span id="l3-score" class="text-2xl font-bold text-green-500">6</span>
+                    </div>
+                    <div class="w-full bg-gray-700 h-2 mt-2 rounded-full">
+                        <div id="l3-hp-bar" class="bg-green-500 h-full rounded-full w-full transition-all"></div>
+                    </div>
+                </div>
+
+                <div class="flex-1 p-2 overflow-hidden flex flex-col">
+                    <div class="text-xs text-yellow-500 font-bold mb-2 flex-shrink-0 flex items-center">
+                        <span class="text-xl mr-1">📡</span> 台海即時戰況
+                    </div>
+                    <div id="l3-news-feed" class="flex-1 overflow-y-auto text-xs space-y-2 font-mono text-gray-300 pr-1">
+                        <!-- JS 插入新聞 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="l3-shake-layer" class="absolute inset-0 pointer-events-none"></div>
+    </div>
+
+    <!-- ==================== 結算 Modal ==================== -->
+    <div id="modal-result" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-gray-800 border-2 border-gray-600 rounded-2xl max-w-md w-full p-6 text-center shadow-2xl my-auto">
+            <div id="modal-icon" class="text-6xl mb-4">☠️</div>
+            <h2 id="modal-title" class="text-2xl font-bold text-white mb-2">任務失敗</h2>
+            <div id="modal-desc" class="text-gray-300 text-sm mb-6 text-left space-y-2 bg-gray-900/50 p-4 rounded"></div>
+            <div class="text-xs text-yellow-500 mb-6 border-t border-gray-700 pt-2">
+                💡 <span id="modal-fact">科普內容</span>
+            </div>
+            <button onclick="GameApp.backToMenu()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg">返回主選單</button>
+        </div>
+    </div>
+
+    <script>
+        // ==================== 全局管理 ====================
+        const GameApp = {
+            currentLevel: 0,
+            startLevel(n) {
+                document.querySelectorAll('.screen').forEach(el => el.classList.remove('active-screen'));
+                document.getElementById(`screen-level${n}`).classList.add('active-screen');
+                this.currentLevel = n;
+                if(n === 1) L1Game.init();
+                if(n === 2) L2Game.init();
+                if(n === 3) L3Game.init();
+            },
+            showReference() {
+                document.querySelectorAll('.screen').forEach(el => el.classList.remove('active-screen'));
+                document.getElementById('screen-reference').classList.add('active-screen');
+                L2Game.stop(); L3Game.stop();
+            },
+            backToMenu() {
+                L2Game.stop(); L3Game.stop();
+                document.getElementById('modal-result').classList.add('hidden');
+                document.querySelectorAll('.screen').forEach(el => el.classList.remove('active-screen'));
+                document.getElementById('screen-menu').classList.add('active-screen');
+            },
+            showResult(win, title, desc, fact) {
+                const modal = document.getElementById('modal-result');
+                document.getElementById('modal-icon').textContent = win ? '🤔' : '☠️';
+                document.getElementById('modal-title').textContent = title;
+                document.getElementById('modal-title').className = win ? "text-2xl font-bold text-yellow-400" : "text-2xl font-bold text-red-500";
+                document.getElementById('modal-desc').innerHTML = desc;
+                document.getElementById('modal-fact').textContent = fact;
+                modal.classList.remove('hidden');
+            }
+        };
+
+        // ==================== 第一關：科普圖文邏輯 ====================
+        const L1Game = {
+            currentIndex: 0,
+            maxIndex: 3,
+            init() { this.currentIndex = 0; this.updateSlide(); },
+            stop() { },
+            next() { if (this.currentIndex < this.maxIndex) { this.currentIndex++; this.updateSlide(); } },
+            prev() { if (this.currentIndex > 0) { this.currentIndex--; this.updateSlide(); } },
+            updateSlide() {
+                document.querySelectorAll('.slide-container').forEach(el => el.classList.remove('active-slide'));
+                document.getElementById(`l1-slide-${this.currentIndex}`).classList.add('active-slide');
+                const controls = document.getElementById('l1-controls');
+                if (this.currentIndex === this.maxIndex) controls.style.display = 'none'; else controls.style.display = 'flex';
+                document.getElementById('l1-page-indicator').textContent = `${this.currentIndex + 1} / ${this.maxIndex + 1}`;
+            }
+        };
+
+        // ==================== 第二關：海峽生存戰 ====================
+        const L2Game = {
+            canvas: null, ctx: null, loopId: null, state: {},
+            init() { 
+                this.canvas = document.getElementById('l2-canvas'); this.ctx = this.canvas.getContext('2d');
+                this.resize(); window.addEventListener('resize', () => this.resize());
+                this.state = { active: true, dist: 100, hp: 100, baseSpeed: 0.15, armorActive: false, evadeActive: false, evadeTimer: 0, missiles: [], particles: [], frameCount: 0 };
+                document.getElementById('l2-btn-evade').onmousedown = document.getElementById('l2-btn-evade').ontouchstart = () => this.triggerEvade();
+                document.getElementById('l2-btn-armor').onclick = () => this.toggleArmor();
+                this.updateUI(); this.loopId = requestAnimationFrame(() => this.loop());
+            },
+            stop() { this.state.active = false; if(this.loopId) cancelAnimationFrame(this.loopId); },
+            resize() { this.canvas.width = window.innerWidth; this.canvas.height = window.innerHeight; },
+            triggerEvade() {
+                if(!this.state.active || this.state.evadeActive) return;
+                this.state.evadeActive = true; this.state.evadeTimer = 40; this.state.hp -= 4; 
+                this.addParticles(this.canvas.width/4, this.canvas.height/2, 'green'); 
+            },
+            toggleArmor() { this.state.armorActive = !this.state.armorActive; this.updateUI(); },
+            updateUI() {
+                const as = document.getElementById('l2-armor-status'); const sd = document.getElementById('l2-speed-display');
+                if (this.state.armorActive) { as.className = "absolute top-2 right-2 w-3 h-3 rounded-full bg-green-500 border border-black shadow-[0_0_5px_#4ade80]"; sd.textContent = "緩慢 (30%)"; sd.className = "font-mono text-red-400 font-bold"; } 
+                else { as.className = "absolute top-2 right-2 w-3 h-3 rounded-full bg-red-900 border border-white/20"; sd.textContent = "正常"; sd.className = "font-mono text-blue-300"; }
+            },
+            addParticles(x, y, color) { for(let i=0; i<8; i++) this.state.particles.push({ x: x, y: y, vx: (Math.random()-0.5)*10, vy: (Math.random()-0.5)*10, life: 30, color: color }); },
+            loop() {
+                if(!this.state.active) return;
+                const s = this.state; const ctx = this.ctx; const W = this.canvas.width; const H = this.canvas.height;
+                s.frameCount++;
+                let currentSpeed = s.baseSpeed; if (s.armorActive) currentSpeed *= 0.3; s.dist -= currentSpeed;
+                if (s.evadeActive) { s.evadeTimer--; if (s.evadeTimer <= 0) s.evadeActive = false; }
+                let spawnRate = 20; if (s.dist < 80) spawnRate = 15; if (s.dist < 50) spawnRate = 10; if (s.dist < 20) spawnRate = 5;
+                if (s.frameCount % spawnRate === 0) { const count = Math.random() > 0.7 ? 2 : 1; for(let i=0; i<count; i++) s.missiles.push({ x: W + Math.random() * 200, y: H * 0.3 + Math.random() * (H * 0.5), speed: 8 + Math.random() * 8, w: 30, h: 8 }); }
+                ctx.fillStyle = '#1e3a8a'; ctx.fillRect(0, 0, W, H);
+                ctx.fillStyle = '#3b82f6'; for(let i=0; i<5; i++) { let waveY = (H * 0.4) + (i * 80) + Math.sin((s.frameCount + i * 50) * 0.02) * 20; ctx.fillRect(0, waveY, W, 2); }
+                const shipX = W * 0.15; const shipY = H * 0.6 + Math.sin(s.frameCount * 0.05) * 10;
+                ctx.save(); ctx.translate(shipX, shipY);
+                if (s.evadeActive) { ctx.globalAlpha = 0.5; ctx.translate((Math.random()-0.5)*20, (Math.random()-0.5)*20); }
+                ctx.fillStyle = s.armorActive ? '#4b5563' : '#92400e';
+                ctx.beginPath(); ctx.moveTo(-40, -10); ctx.lineTo(40, -10); ctx.lineTo(30, 20); ctx.lineTo(-30, 20); ctx.fill();
+                ctx.fillStyle = '#b45309'; ctx.fillRect(-10, -25, 20, 15);
+                if (s.armorActive) { ctx.strokeStyle = '#d1d5db'; ctx.lineWidth = 3; ctx.strokeRect(-42, -12, 84, 34); ctx.fillStyle = '#9ca3af'; ctx.beginPath(); ctx.arc(-35, 0, 2, 0, Math.PI*2); ctx.arc(0, 0, 2, 0, Math.PI*2); ctx.arc(35, 0, 2, 0, Math.PI*2); ctx.fill(); }
+                ctx.fillStyle = s.hp < 50 ? '#84cc16' : '#fca5a5'; ctx.beginPath(); ctx.arc(0, -15, 6, 0, Math.PI*2); ctx.fill(); ctx.restore();
+                for (let i = s.missiles.length - 1; i >= 0; i--) {
+                    let m = s.missiles[i]; m.x -= m.speed; ctx.fillStyle = '#ef4444'; ctx.fillRect(m.x, m.y, m.w, m.h); ctx.fillStyle = '#f59e0b'; ctx.fillRect(m.x + m.w, m.y + 2, 10 + Math.random()*10, 4);
+                    if (m.x < shipX + 40 && m.x + m.w > shipX - 40 && m.y < shipY + 20 && m.y + m.h > shipY - 20) {
+                        if (s.evadeActive) { ctx.fillStyle = 'white'; ctx.font = 'bold 20px Arial'; ctx.fillText("MISS", shipX, shipY - 40); } else { let dmg = 15; if (s.armorActive) dmg = 5; s.hp -= dmg; this.addParticles(shipX, shipY, 'orange'); this.canvas.style.transform = `translate(${(Math.random()-0.5)*10}px, ${(Math.random()-0.5)*10}px)`; setTimeout(() => this.canvas.style.transform = 'none', 50); }
+                        s.missiles.splice(i, 1); continue;
+                    }
+                    if (m.x < -50) s.missiles.splice(i, 1);
+                }
+                for (let i = s.particles.length - 1; i >= 0; i--) { let p = s.particles[i]; p.x += p.vx; p.y += p.vy; p.life--; ctx.fillStyle = p.color; ctx.globalAlpha = p.life / 30; ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, Math.PI*2); ctx.fill(); ctx.globalAlpha = 1; if(p.life <= 0) s.particles.splice(i, 1); }
+                document.getElementById('l2-dist').innerText = Math.max(0, s.dist).toFixed(1); document.getElementById('l2-hp').innerText = Math.max(0, Math.floor(s.hp));
+                if (s.hp <= 0) { this.state.active = false; GameApp.showResult(false, "葬身魚腹", s.armorActive ? "你加掛了裝甲，但過慢的航速讓你承受了過量的攻擊。" : "薄皮漁船無法抵擋現代化火力。", "加裝防護裝甲會嚴重拖慢漁船速度，使其成為海上的固定靶。而不裝甲則一觸即碎。"); } else if (s.dist <= 0) { this.state.active = false; GameApp.showResult(true, "倖存登岸", "你奇蹟般地活下來了（機率 < 0.1%）。", "雖然你到了，但船上的士兵因為長途暈船與恐懼，戰力所剩無幾。"); } else { this.loopId = requestAnimationFrame(() => this.loop()); }
+            }
+        };
+
+        // ==================== 第三關：灘頭躲避球 (反向打地鼠) ====================
+        const L3Game = {
+            state: {},
+            intervals: [],
+
+            init() {
+                this.state = {
+                    active: true,
+                    soldiers: Array.from({length: 6}, () => ({ alive: true, hiding: false })),
+                    score: 6,
+                    timer: 4 * 60 * 60, 
+                    difficulty: 2000
+                };
+
+                const grid = document.getElementById('l3-grid');
+                grid.innerHTML = '';
+                grid.className = "grid grid-cols-3 gap-4 w-full max-w-2xl aspect-[4/3] p-4";
+                
+                for(let i=0; i<6; i++) {
+                    const hole = document.createElement('div');
+                    hole.className = 'foxhole w-full h-full flex items-center justify-center';
+                    hole.id = `hole-${i}`;
+                    hole.onclick = () => this.clickSoldier(i);
+                    
+                    const soldier = document.createElement('div');
+                    soldier.className = 'text-4xl md:text-5xl cursor-pointer select-none soldier-pop';
+                    soldier.id = `soldier-${i}`;
+                    soldier.innerText = '🪖';
+                    hole.appendChild(soldier);
+
+                    const aim = document.createElement('div');
+                    aim.className = 'aim-reticle hidden';
+                    aim.id = `aim-${i}`;
+                    hole.appendChild(aim);
+
+                    const boom = document.createElement('div');
+                    boom.className = 'explosion';
+                    boom.id = `boom-${i}`;
+                    hole.appendChild(boom);
+
+                    grid.appendChild(hole);
+                }
+
+                this.updateUI();
+                this.addNews("指揮部：第一梯隊登陸成功，建立灘頭堡。");
+                this.addNews("偵查回報：敵軍裝甲部隊正在集結。");
+
+                this.intervals.push(setInterval(() => this.gameLoop(), 100));
+                this.intervals.push(setInterval(() => this.spawnThreat(), 300));
+                this.intervals.push(setInterval(() => this.addRandomNews(), 5000));
+            },
+
+            stop() {
+                this.state.active = false;
+                this.intervals.forEach(i => clearInterval(i));
+                this.intervals = [];
+            },
+
+            clickSoldier(idx) {
+                if (!this.state.active) return;
+                const soldier = this.state.soldiers[idx];
+                if (!soldier.alive || soldier.hiding) return;
+
+                soldier.hiding = true;
+                const el = document.getElementById(`soldier-${idx}`);
+                el.classList.add('soldier-hide');
+                
+                setTimeout(() => {
+                    if(this.state.active && this.state.soldiers[idx] === soldier) {
+                        soldier.hiding = false;
+                        el.classList.remove('soldier-hide');
+                    }
+                }, 1500);
+            },
+
+            spawnThreat() {
+                if (!this.state.active) return;
+                
+                // Get all available targets first
+                const available = this.state.soldiers
+                    .map((s, i) => ({...s, idx: i}))
+                    .filter(s => !s.hiding && document.getElementById(`aim-${s.idx}`).classList.contains('hidden'));
+                
+                if (available.length === 0) return;
+
+                // Randomize count: 2 or 3
+                const count = Math.min(available.length, Math.floor(Math.random() * 2) + 2);
+                
+                // Shuffle array to pick random distinct targets
+                for (let i = available.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [available[i], available[j]] = [available[j], available[i]];
+                }
+                
+                const targets = available.slice(0, count);
+
+                targets.forEach(target => {
+                    const idx = target.idx;
+                    const aim = document.getElementById(`aim-${idx}`);
+                    aim.classList.remove('hidden');
+                    aim.style.animation = 'none';
+                    aim.offsetHeight;
+                    aim.style.animation = 'lockOn 2s linear forwards';
+
+                    setTimeout(() => {
+                        if (!this.state.active) return;
+                        aim.classList.add('hidden');
+
+                        if (this.state.soldiers[idx].hiding) {
+                            console.log("Dodged!");
+                        } else {
+                            const boom = document.getElementById(`boom-${idx}`);
+                            boom.classList.remove('boom-anim');
+                            void boom.offsetWidth; 
+                            boom.classList.add('boom-anim');
+
+                            if (this.state.soldiers[idx].alive) {
+                                this.killSoldier(idx);
+                            } 
+                        }
+                    }, 2000); // Duration stays 2s for reaction time
+                });
+            },
+
+            killSoldier(idx) {
+                this.state.soldiers[idx].alive = false;
+                this.state.score--;
+                
+                const el = document.getElementById(`soldier-${idx}`);
+                el.innerText = '⚰️';
+                el.classList.add('opacity-50');
+                
+                document.getElementById('l3-shake-layer').classList.add('shake');
+                setTimeout(() => document.getElementById('l3-shake-layer').classList.remove('shake'), 500);
+
+                this.updateUI();
+
+                if (this.state.score <= 0) {
+                    this.finish(false, "全軍覆沒", "你的小隊在灘頭被火砲清除殆盡。", "現代戰爭中，缺乏重武器與掩體的輕步兵，面對火砲洗地時毫無生存空間。");
+                } else {
+                    // 修改：隨機時間後補充兵力 (10~15秒)
+                    setTimeout(() => this.respawnSoldier(idx), 10000 + Math.random() * 5000);
+                }
+            },
+
+            respawnSoldier(idx) {
+                if (!this.state.active || this.state.soldiers[idx].alive) return;
+
+                this.state.soldiers[idx] = { alive: true, hiding: false };
+                this.state.score++;
+
+                const el = document.getElementById(`soldier-${idx}`);
+                el.innerText = '🪖';
+                el.classList.remove('opacity-50');
+                el.classList.remove('soldier-hide'); 
+
+                el.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                el.style.transform = 'scale(0)';
+                
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        el.style.transform = 'scale(1)';
+                        setTimeout(() => {
+                            el.style.transform = ''; 
+                            el.style.transition = '';
+                        }, 250);
+                    });
+                });
+
+                this.updateUI();
+                if(Math.random() > 0.7) this.addNews("後勤：補充兵已填補防線缺口。");
+            },
+
+            gameLoop() {
+                this.state.timer -= 10; 
+                this.updateTimer();
+            },
+
+            addRandomNews() {
+                const news = [
+                    "戰報：第 2 護衛艦隊遭到反艦飛彈飽和攻擊。",
+                    "空軍：失去台海制空權，無法執行對地支援。",
+                    "後勤：運輸船團燃油不足，航速下降。",
+                    "前線：登陸點 B 遭遇重裝甲反擊，死傷慘重。",
+                    "氣象：海峽風浪增強，後續梯隊無法出港。",
+                    "雷達：偵測到多批次 F-16V 起飛攔截。",
+                    "通訊：與指揮艦失去聯繫..."
+                ];
+                this.addNews(news[Math.floor(Math.random() * news.length)]);
+            },
+
+            addNews(text) {
+                const container = document.getElementById('l3-news-feed');
+                const div = document.createElement('div');
+                div.className = 'news-ticker-item text-red-300';
+                div.innerText = text;
+                container.prepend(div);
+                if(container.children.length > 10) container.lastChild.remove();
+            },
+
+            updateTimer() {
+                let h = Math.floor(this.state.timer / 3600);
+                let m = Math.floor((this.state.timer % 3600) / 60);
+                let s = this.state.timer % 60;
+                document.getElementById('l3-timer').innerText = 
+                    `0${h}:${m<10?'0':''}${m}:${s<10?'0':''}${s}`;
+            },
+
+            updateUI() {
+                document.getElementById('l3-score').innerText = this.state.score;
+                document.getElementById('l3-hp-bar').style.width = (this.state.score / 6 * 100) + '%';
+                if(this.state.score < 3) document.getElementById('l3-hp-bar').className = "bg-red-500 h-full rounded-full w-full transition-all";
+            },
+
+            finish(win, title, desc, fact) {
+                this.stop();
+                GameApp.showResult(win, title, desc, fact);
+            }
+        };
+    </script>
+</body>
+</html>
