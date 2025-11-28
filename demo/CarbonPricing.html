@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碳費大作戰：淨零企業家 (單機穩定版)</title>
+    <!-- 引入 Tailwind CSS (美化介面用，需連網) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Microsoft JhengHei', 'Heiti TC', sans-serif; }
+        .hidden { display: none !important; }
+        .modal-open { overflow: hidden; }
+        /* 簡單的動畫 */
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 針對滑桿的樣式優化 */
+        input[type=range] {
+            -webkit-appearance: none; 
+            background: transparent; 
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            margin-top: -8px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #bfdbfe;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen pb-20">
+
+    <!-- 1. 初始畫面 (Intro Screen) -->
+    <div id="intro-screen" class="min-h-screen flex items-center justify-center p-4 fade-in">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-8 text-center space-y-6 border-t-8 border-blue-600">
+            <div class="flex justify-center mb-4 text-blue-600">
+                <!-- Factory Icon -->
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><line x1="17" y1="18" x2="17" y2="18.01"></line><line x1="12" y1="18" x2="12" y2="18.01"></line><line x1="7" y1="18" x2="7" y2="18.01"></line></svg>
+            </div>
+            <h1 class="text-4xl font-extrabold text-gray-800 tracking-tight">碳費大作戰：淨零企業家</h1>
+            <div class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">單機穩定版</div>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                你是一家台灣製造業的 CEO。<br>面對「國內碳費」與「國際供應鏈」的雙重壓力，<br>
+                你有 300 萬資金，要在 5 年內帶領公司生存並轉型。
+            </p>
+            
+            <button onclick="game.start()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-xl shadow-lg transform transition hover:-translate-y-1 flex items-center justify-center gap-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                開始挑戰
+            </button>
+            
+            <p class="text-xs text-gray-400 mt-4">提示：此遊戲為單機 HTML 檔，可直接用瀏覽器開啟。</p>
+        </div>
+    </div>
+
+    <!-- 2. 遊戲主畫面 (Game Screen) -->
+    <div id="game-screen" class="hidden max-w-5xl mx-auto p-4 space-y-6 fade-in">
+        
+        <!-- 頂部資訊列 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-4 rounded-lg shadow border-b-4 border-blue-500">
+                <div class="text-xs text-gray-500 uppercase font-bold">年份 Year</div>
+                <div class="text-2xl font-bold"><span id="display-year">1</span> / 5</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow border-b-4 border-green-500" id="funds-card">
+                <div class="text-xs text-gray-500 uppercase font-bold">公司資金 Funds</div>
+                <div class="text-2xl font-bold" id="display-funds">$300.00 萬</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow border-b-4 border-gray-500">
+                <div class="text-xs text-gray-500 uppercase font-bold">目前基礎碳排</div>
+                <div class="text-2xl font-bold" id="display-emissions">20,000 噸</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow border-b-4 border-orange-500">
+                <div class="text-xs text-gray-500 uppercase font-bold">國際容忍上限</div>
+                <div class="text-2xl font-bold text-orange-600" id="display-target">18,000 噸</div>
+            </div>
+        </div>
+
+        <!-- 事件通知區 -->
+        <div id="event-banner" class="hidden bg-yellow-50 border-l-8 border-yellow-500 p-4 rounded shadow-sm flex items-start gap-4">
+            <div class="bg-yellow-200 p-2 rounded-full shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-yellow-800"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg text-yellow-800" id="event-title">事件標題</h3>
+                <p class="text-gray-800" id="event-desc">事件描述...</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- 左側：決策區 -->
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-gray-800">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                        年度減碳決策
+                    </h2>
+
+                    <div class="space-y-6">
+                        <!-- 選項 1: 製程 -->
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="font-bold text-blue-900 flex items-center gap-2">
+                                    投資低碳製程
+                                    <span class="text-xs bg-blue-200 text-blue-800 px-2 py-0.5 rounded-full">長期有效</span>
+                                </label>
+                                <span class="text-sm font-bold text-blue-700">成本: $4.00 萬/單位</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mb-3">永久減少 1,000 噸排放。</p>
+                            <div class="flex items-center gap-4">
+                                <input type="range" id="input-process" min="0" max="10" value="0" oninput="game.updateInputs()">
+                                <span id="val-process" class="text-xl font-bold w-12 text-center bg-white rounded border">0</span>
+                            </div>
+                        </div>
+
+                        <!-- 選項 2: 綠電 -->
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-100 hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="font-bold text-green-900 flex items-center gap-2">
+                                    綠電採購
+                                    <span class="text-xs bg-green-200 text-green-800 px-2 py-0.5 rounded-full">當期有效</span>
+                                </label>
+                                <span class="text-sm font-bold text-green-700">成本: $1.20 萬/單位</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mb-3">本年度減少 500 噸排放。</p>
+                            <div class="flex items-center gap-4">
+                                <input type="range" id="input-green" min="0" max="20" value="0" oninput="game.updateInputs()">
+                                <span id="val-green" class="text-xl font-bold w-12 text-center bg-white rounded border">0</span>
+                            </div>
+                        </div>
+
+                        <!-- 選項 3: 碳權 -->
+                        <div class="bg-purple-50 p-4 rounded-lg border border-purple-100 hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="font-bold text-purple-900 flex items-center gap-2">
+                                    國際碳權
+                                    <span class="text-xs bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full">有抵換上限</span>
+                                </label>
+                                <span class="text-sm font-bold text-purple-700">成本: $0.20 萬/單位</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mb-3">本年度抵扣 100 噸 (僅能抵扣碳費，上限 5%)。</p>
+                            <div class="flex items-center gap-4">
+                                <input type="range" id="input-credit" min="0" max="50" value="0" oninput="game.updateInputs()">
+                                <span id="val-credit" class="text-xl font-bold w-12 text-center bg-white rounded border">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t flex justify-between items-center">
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">本回合預計支出</p>
+                            <p class="text-3xl font-bold text-gray-800" id="total-cost">$0.00 萬</p>
+                        </div>
+                        <button onclick="game.submitRound()" class="bg-gray-800 hover:bg-black text-white text-lg font-bold py-3 px-8 rounded shadow-lg transition-transform transform active:scale-95">
+                            執行決策
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右側：預覽區 -->
+            <div class="space-y-6">
+                <div class="bg-slate-50 border-t-4 border-slate-400 p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-gray-700 mb-4 flex items-center gap-2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                        減碳效果預覽
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span>當前基礎:</span>
+                            <span id="preview-base">20,000</span>
+                        </div>
+                        <div class="flex justify-between text-blue-600 font-bold">
+                            <span>- 製程減量:</span>
+                            <span id="preview-process">0</span>
+                        </div>
+                        <div class="flex justify-between text-green-600 font-bold">
+                            <span>- 綠電減量:</span>
+                            <span id="preview-green">0</span>
+                        </div>
+                        <div class="border-t border-gray-300 my-2 pt-2 flex justify-between text-lg font-bold">
+                            <span>預計淨排放:</span>
+                            <span id="preview-net" class="text-gray-800">20,000</span>
+                        </div>
+                        <div class="text-right text-xs text-gray-500">
+                            目標門檻: <span id="preview-target">18,000</span>
+                        </div>
+                        
+                        <!-- 警告狀態 -->
+                        <div id="preview-alert" class="hidden mt-3 bg-red-100 text-red-800 p-3 rounded text-xs flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            <b>警告：未達標！將遭罰款 $15.00 萬</b>
+                        </div>
+                        <div id="preview-ok" class="hidden mt-3 bg-green-100 text-green-800 p-3 rounded text-xs flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <b>安全：符合國際標準</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. 結算彈窗 (Result Modal) -->
+    <div id="modal-overlay" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full overflow-hidden fade-in">
+            <div class="bg-gray-100 px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-xl font-bold text-gray-800" id="modal-title">年度結算</h3>
+            </div>
+            
+            <div class="p-6 space-y-4">
+                <!-- 訂單狀態 -->
+                <div id="result-status" class="p-4 rounded-lg flex items-center justify-between border">
+                    <!-- JS 填入內容 -->
+                </div>
+
+                <!-- 瀑布流計算 -->
+                <div class="bg-slate-50 p-4 rounded text-sm space-y-2 border border-slate-200">
+                    <h4 class="font-bold border-b pb-2 mb-2 text-gray-700">碳費計算過程</h4>
+                    <div class="flex justify-between"><span>淨排放量:</span> <span id="res-net"></span></div>
+                    <div class="flex justify-between text-purple-600"><span>- 碳權抵扣 (Max 5%):</span> <span id="res-credit"></span></div>
+                    <div class="text-xs text-gray-400 text-right" id="res-credit-note"></div>
+                    <div class="border-t border-dashed border-gray-300 my-1"></div>
+                    <div class="flex justify-between font-bold"><span>應稅排放量:</span> <span id="res-billable"></span></div>
+                    <div class="flex justify-between items-center mt-2 bg-white p-2 border rounded">
+                        <span class="font-bold text-gray-700">應繳碳費:</span>
+                        <span class="text-red-600 font-bold text-lg" id="res-fee"></span>
+                    </div>
+                </div>
+
+                <!-- 財務變動 -->
+                <div class="space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>投資支出:</span> <span class="text-red-500" id="res-invest"></span></div>
+                    <div class="flex justify-between font-bold text-red-600 hidden" id="res-penalty-row"><span>訂單罰款:</span> <span>-$15.00 萬</span></div>
+                    <div class="flex justify-between font-bold text-xl mt-2 pt-2 border-t">
+                        <span>資金餘額:</span>
+                        <span id="res-final-funds" class="text-blue-600"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 px-6 py-4 flex justify-end">
+                <button onclick="game.nextLevel()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded shadow">
+                    下一年度
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. 結局畫面 (Ending Screen) -->
+    <div id="ending-screen" class="hidden min-h-screen flex items-center justify-center p-4 fade-in">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 text-center border-t-8" id="ending-card">
+            <div class="flex justify-center mb-6" id="ending-icon"></div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2" id="ending-title">結局標題</h2>
+            <p class="text-gray-600 mb-8 leading-relaxed" id="ending-desc">結局描述...</p>
+            
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <div class="text-xs text-gray-500">最終資金</div>
+                    <div class="font-bold text-xl text-gray-800" id="end-funds"></div>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <div class="text-xs text-gray-500">總減碳量</div>
+                    <div class="font-bold text-xl text-gray-800" id="end-reduction"></div>
+                </div>
+            </div>
+
+            <button onclick="location.reload()" class="w-full bg-gray-800 hover:bg-black text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                重新挑戰
+            </button>
+        </div>
+    </div>
+
+    <!-- 核心邏輯 (純 JS) -->
+    <script>
+        // 遊戲設定 (Easy Mode)
+        const CONFIG = {
+            totalYears: 5,
+            initialFunds: 3000000,
+            initialEmissions: 20000,
+            carbonFee: 30, // 每噸 30 元
+            penalty: 150000, // 罰款 15 萬
+            costs: { process: 40000, green: 12000, credit: 2000 },
+            effects: { process: 1000, green: 500, credit: 100 }
+        };
+
+        // 遊戲狀態
+        const state = {
+            year: 1,
+            funds: CONFIG.initialFunds,
+            baseEmissions: CONFIG.initialEmissions,
+            processReductions: 0,
+            target: 18000,
+            totalReduction: 0,
+            inputs: { process: 0, green: 0, credit: 0 },
+            lastResult: null
+        };
+
+        // DOM 捷徑
+        const $ = (id) => document.getElementById(id);
+        const formatMoney = (val) => `$${(val/10000).toFixed(2)} 萬`;
+        const formatTons = (val) => `${val.toLocaleString()} 噸`;
+
+        const game = {
+            start: () => {
+                $('intro-screen').classList.add('hidden');
+                $('game-screen').classList.remove('hidden');
+                game.triggerEvent(1);
+                game.renderUI();
+            },
+
+            triggerEvent: (year) => {
+                // 年度隨機事件
+                const events = [
+                    { t: "歐盟綠色新政", d: "歐盟宣布綠色採購標準，本年度若不達標，國際客戶將嚴格執行罰款！", impact: 0 },
+                    { t: "能源價格波動", d: "國際能源漲價，製程改善成本略升，但現在不改以後更貴。", impact: 0 },
+                    { t: "供應鏈碳盤查", d: "品牌大廠要求提供碳數據，標準加嚴，請注意淨排放量。", impact: 0 },
+                    { t: "極端氣候來襲", d: "工廠受高溫影響，空調能耗激增，基礎排放量增加 500 噸。", impact: 500 },
+                    { t: "新技術突破", d: "低碳製程技術突破，現在投資正是好時機！", impact: 0 }
+                ];
+                const evt = events[(year - 1) % events.length];
+                
+                // 處理效果
+                if (evt.impact > 0) state.baseEmissions += evt.impact;
+
+                // 顯示 Banner
+                $('event-title').innerText = `第 ${year} 年事件：${evt.t}`;
+                $('event-desc').innerText = evt.d;
+                $('event-banner').classList.remove('hidden');
+            },
+
+            updateInputs: () => {
+                state.inputs.process = parseInt($('input-process').value);
+                state.inputs.green = parseInt($('input-green').value);
+                state.inputs.credit = parseInt($('input-credit').value);
+                game.renderUI();
+            },
+
+            renderUI: () => {
+                // 更新數字
+                $('display-year').innerText = state.year;
+                $('display-funds').innerText = formatMoney(state.funds);
+                $('display-emissions').innerText = formatTons(state.baseEmissions - state.processReductions);
+                $('display-target').innerText = formatTons(state.target);
+
+                // 更新滑桿數值
+                $('val-process').innerText = state.inputs.process;
+                $('val-green').innerText = state.inputs.green;
+                $('val-credit').innerText = state.inputs.credit;
+
+                // 計算成本
+                const cost = (state.inputs.process * CONFIG.costs.process) + 
+                             (state.inputs.green * CONFIG.costs.green) + 
+                             (state.inputs.credit * CONFIG.costs.credit);
+                $('total-cost').innerText = formatMoney(cost);
+
+                // 預覽計算
+                const currentBase = state.baseEmissions - state.processReductions;
+                const processCut = state.inputs.process * CONFIG.effects.process;
+                const greenCut = state.inputs.green * CONFIG.effects.green;
+                const net = Math.max(0, currentBase - processCut - greenCut);
+
+                $('preview-base').innerText = formatTons(currentBase);
+                $('preview-process').innerText = `-${formatTons(processCut)}`;
+                $('preview-green').innerText = `-${formatTons(greenCut)}`;
+                $('preview-net').innerText = formatTons(net);
+                $('preview-target').innerText = formatTons(state.target);
+
+                // 預覽警告
+                if (net > state.target) {
+                    $('preview-alert').classList.remove('hidden');
+                    $('preview-ok').classList.add('hidden');
+                    $('preview-net').className = "text-red-600 font-bold";
+                } else {
+                    $('preview-alert').classList.add('hidden');
+                    $('preview-ok').classList.remove('hidden');
+                    $('preview-net').className = "text-green-600 font-bold";
+                }
+            },
+
+            submitRound: () => {
+                // 1. 成本扣除
+                const cost = (state.inputs.process * CONFIG.costs.process) + 
+                             (state.inputs.green * CONFIG.costs.green) + 
+                             (state.inputs.credit * CONFIG.costs.credit);
+                
+                // 2. 減量計算
+                const newProcessRed = state.processReductions + (state.inputs.process * CONFIG.effects.process);
+                const greenRed = state.inputs.green * CONFIG.effects.green;
+                const net = Math.max(0, state.baseEmissions - newProcessRed - greenRed);
+
+                // 3. 國際檢核
+                const failed = net > state.target;
+                const penalty = failed ? CONFIG.penalty : 0;
+
+                // 4. 碳費計算 (5% 上限)
+                const creditLimit = Math.floor(state.baseEmissions * 0.05);
+                const boughtCredit = state.inputs.credit * CONFIG.effects.credit;
+                const validCredit = Math.min(boughtCredit, creditLimit);
+                const fee = Math.floor(Math.max(0, net - validCredit) * CONFIG.carbonFee);
+
+                // 5. 更新狀態
+                const newFunds = state.funds - cost - fee - penalty;
+                
+                state.lastResult = {
+                    net, failed, penalty, fee, validCredit, boughtCredit, creditLimit, cost, newFunds,
+                    billable: Math.max(0, net - validCredit)
+                };
+
+                // 更新累積數據
+                state.funds = newFunds;
+                state.processReductions = newProcessRed;
+                state.totalReduction += (state.baseEmissions - net);
+
+                game.showResult();
+            },
+
+            showResult: () => {
+                const r = state.lastResult;
+                $('modal-title').innerText = `第 ${state.year} 年結算報告`;
+                
+                // 訂單狀態 UI
+                const statusDiv = $('result-status');
+                if (r.failed) {
+                    statusDiv.className = "p-4 rounded-lg flex items-center justify-between border bg-red-100 border-red-200 text-red-800";
+                    statusDiv.innerHTML = `<span>⚠️ 未達國際標準</span><span class="font-bold">訂單取消 (罰款!)</span>`;
+                    $('res-penalty-row').classList.remove('hidden');
+                } else {
+                    statusDiv.className = "p-4 rounded-lg flex items-center justify-between border bg-green-100 border-green-200 text-green-800";
+                    statusDiv.innerHTML = `<span>✅ 符合標準</span><span class="font-bold">Safe! 訂單確認</span>`;
+                    $('res-penalty-row').classList.add('hidden');
+                }
+
+                // 數值填入
+                $('res-net').innerText = formatTons(r.net);
+                $('res-credit').innerText = `-${formatTons(r.validCredit)}`;
+                $('res-credit-note').innerText = r.boughtCredit > r.creditLimit ? 
+                    `(購買了 ${formatTons(r.boughtCredit)}，但上限僅 ${formatTons(r.creditLimit)})` : "";
+                $('res-billable').innerText = formatTons(r.billable);
+                $('res-fee').innerText = `-${formatMoney(r.fee)}`;
+                $('res-invest').innerText = `-${formatMoney(r.cost)}`;
+                $('res-final-funds').innerText = formatMoney(r.newFunds);
+                if(r.newFunds < 0) $('res-final-funds').className = "text-red-600 font-bold";
+
+                $('modal-overlay').classList.remove('hidden');
+            },
+
+            nextLevel: () => {
+                $('modal-overlay').classList.add('hidden');
+                
+                if (state.funds < 0) {
+                    game.endGame("bankrupt");
+                    return;
+                }
+                if (state.year >= CONFIG.totalYears) {
+                    game.endGame("victory");
+                    return;
+                }
+
+                state.year++;
+                state.target = Math.floor(state.target * 0.95); // 目標變嚴 5%
+                
+                // 重置輸入
+                state.inputs = { process: 0, green: 0, credit: 0 };
+                $('input-process').value = 0;
+                $('input-green').value = 0;
+                $('input-credit').value = 0;
+                
+                game.triggerEvent(state.year);
+                game.renderUI();
+            },
+
+            endGame: (type) => {
+                $('game-screen').classList.add('hidden');
+                $('ending-screen').classList.remove('hidden');
+                const card = $('ending-card');
+                
+                $('end-funds').innerText = formatMoney(state.funds);
+                $('end-reduction').innerText = formatTons(state.totalReduction);
+
+                if (type === "bankrupt") {
+                    card.className = "bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 text-center border-t-8 border-red-600";
+                    $('ending-title').innerText = "公司破產";
+                    $('ending-desc').innerText = "資金已耗盡。因為無法負擔高額的碳費與訂單違約金，公司被迫倒閉。";
+                    $('ending-icon').innerHTML = `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
+                } else {
+                    // Victory Logic
+                    const ratio = state.totalReduction / (CONFIG.initialEmissions * 5);
+                    let title, desc, color, iconColor;
+                    
+                    if (ratio > 0.4) {
+                        title = "淨零之光";
+                        desc = "你是全球淨零典範！果斷投入自主減量，不僅避開懲罰，更帶動供應鏈轉型。";
+                        color = "border-blue-500";
+                        iconColor = "#3b82f6"; // Blue
+                    } else if (ratio > 0.2) {
+                        title = "初見曙光";
+                        desc = "你成功平衡了獲利與減碳。公司財務穩定，為未來的轉型奠定了基礎。";
+                        color = "border-green-500";
+                        iconColor = "#22c55e"; // Green
+                    } else {
+                        title = "氣候孤島";
+                        desc = "你雖然繳清了碳費保住公司，但產品碳足跡仍高，隨時可能被國際市場淘汰。";
+                        color = "border-orange-500";
+                        iconColor = "#f97316"; // Orange
+                    }
+                    
+                    card.className = `bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 text-center border-t-8 ${color}`;
+                    $('ending-title').innerText = title;
+                    $('ending-desc').innerText = desc;
+                    // Trophy Icon
+                    $('ending-icon').innerHTML = `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="${iconColor}" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`;
+                }
+            }
+        };
+    </script>
+</body>
+</html>
