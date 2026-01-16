@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>颱風氣候預測模擬器</title>
+</head>
+<body style="background:#f5f9fc; color:#1a3a5c; font-family:sans-serif; padding:0; margin:0; min-height:100vh;">
+
+<div style="max-width:500px; margin:0 auto; padding:20px;">
+
+<h1 style="color:#0077aa; font-size:20px; text-align:center; margin-bottom:5px;">🌀 颱風氣候變遷預測</h1>
+<p style="text-align:center; color:#6688aa; font-size:13px; margin-bottom:20px;">跟著科學家的腳步，模擬未來颱風變化</p>
+
+<!-- 進度指示 -->
+<div style="display:flex; justify-content:space-between; margin-bottom:25px; padding:0 5px;">
+<div id="dot1" style="width:20px; height:20px; border-radius:50%; background:#0099cc; color:white; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold;">1</div>
+<div style="flex:1; height:2px; background:#d0e4f0; margin:9px 4px;"></div>
+<div id="dot2" style="width:20px; height:20px; border-radius:50%; background:#d0e4f0; color:#999; display:flex; align-items:center; justify-content:center; font-size:11px;">2</div>
+<div style="flex:1; height:2px; background:#d0e4f0; margin:9px 4px;"></div>
+<div id="dot3" style="width:20px; height:20px; border-radius:50%; background:#d0e4f0; color:#999; display:flex; align-items:center; justify-content:center; font-size:11px;">3</div>
+<div style="flex:1; height:2px; background:#d0e4f0; margin:9px 4px;"></div>
+<div id="dot4" style="width:20px; height:20px; border-radius:50%; background:#d0e4f0; color:#999; display:flex; align-items:center; justify-content:center; font-size:11px;">4</div>
+<div style="flex:1; height:2px; background:#d0e4f0; margin:9px 4px;"></div>
+<div id="dot5" style="width:20px; height:20px; border-radius:50%; background:#d0e4f0; color:#999; display:flex; align-items:center; justify-content:center; font-size:11px;">5</div>
+<div style="flex:1; height:2px; background:#d0e4f0; margin:9px 4px;"></div>
+<div id="dot6" style="width:20px; height:20px; border-radius:50%; background:#d0e4f0; color:#999; display:flex; align-items:center; justify-content:center; font-size:11px;">6</div>
+</div>
+
+<div id="content"></div>
+
+</div>
+
+<script>
+var step = 1;
+var data = {};
+
+var results = {
+    mid: {
+        sst: '+1.5℃',
+        humidity: '+15%',
+        tcCount: '+10%',
+        strongTC: '+105%',
+        maxWind: '+5%',
+        rain200km: '+20%',
+        landRain: '+20%',
+        surfaceWind: '+8%'
+    },
+    end: {
+        sst: '+3℃',
+        humidity: '+25%',
+        tcCount: '-50%',
+        strongTC: '+60%',
+        strongIntensity: '+6.5%',
+        maxWind: '+9%',
+        rain200km: '+35%',
+        landRain: '+40%',
+        surfaceWind: '+10%'
+    }
+};
+
+function render() {
+    var h = '';
+    
+    // ===== 步驟 1：建立虛擬地球 =====
+    if (step == 1) {
+        h += '<div style="text-align:center; padding:15px 0;">';
+        h += '<div style="font-size:70px; margin-bottom:10px;">🌍</div>';
+        h += '<h2 style="font-size:18px; color:#0077aa; margin-bottom:8px;">步驟 1：建立虛擬地球</h2>';
+        h += '<p style="color:#5577aa; font-size:14px; line-height:1.6; margin-bottom:15px;">科學家用超級電腦建立「虛擬地球」，模擬大氣、海洋的交互作用。</p>';
+        h += '</div>';
+        
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        h += '<p style="font-size:13px; color:#6688aa; margin-bottom:12px;">選擇氣候模式的解析度：</p>';
+        h += '<button onclick="choose(1,\'20km\')" style="display:block; width:100%; padding:14px; margin-bottom:10px; background:#e8f4fa; border:2px solid #0099cc; color:#0077aa; border-radius:10px; font-size:14px; text-align:left;">🔬 <strong>高解析度（20-25公里）</strong><br><span style="font-size:12px; color:#6688aa;">可直接模擬颱風生成與路徑</span></button>';
+        h += '</div>';
+        
+        h += '<div style="background:#e0f0f8; border-radius:8px; padding:12px;">';
+        h += '<p style="font-size:12px; color:#4477aa; margin:0;">💡 TCCIP 使用 HiRAM 與 MRI-AGCM 高解析度模式</p>';
+        h += '</div>';
+    }
+    
+    // ===== 步驟 2：設定排放情境 =====
+    else if (step == 2) {
+        h += '<div style="text-align:center; padding:15px 0;">';
+        h += '<div style="font-size:70px; margin-bottom:10px;">🏭</div>';
+        h += '<h2 style="font-size:18px; color:#0077aa; margin-bottom:8px;">步驟 2：設定排放情境</h2>';
+        h += '<p style="color:#5577aa; font-size:14px; line-height:1.6; margin-bottom:15px;">未來人類會排放多少溫室氣體？這決定了地球暖化的程度。</p>';
+        h += '</div>';
+        
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        h += '<p style="font-size:13px; color:#6688aa; margin-bottom:12px;">選擇溫室氣體排放情境：</p>';
+        h += '<button onclick="choose(2,\'RCP8.5\')" style="display:block; width:100%; padding:14px; margin-bottom:10px; background:#fff5f0; border:2px solid #ee7744; color:#cc5522; border-radius:10px; font-size:14px; text-align:left;">🔥 <strong>RCP8.5 高排放情境</strong><br><span style="font-size:12px; color:#aa7766;">持續大量排放，世紀末升溫約3-4°C</span></button>';
+        h += '</div>';
+        
+        h += '<div style="background:#fff8f0; border-radius:8px; padding:12px;">';
+        h += '<p style="font-size:12px; color:#aa7755; margin:0;">📊 RCP = 代表濃度途徑，描述不同的未來排放假設</p>';
+        h += '</div>';
+    }
+    
+    // ===== 步驟 3：挑選觀察時間 =====
+    else if (step == 3) {
+        h += '<div style="text-align:center; padding:15px 0;">';
+        h += '<div style="font-size:70px; margin-bottom:10px;">📅</div>';
+        h += '<h2 style="font-size:18px; color:#0077aa; margin-bottom:8px;">步驟 3：挑選觀察時間</h2>';
+        h += '<p style="color:#5577aa; font-size:14px; line-height:1.6; margin-bottom:15px;">選擇想要預測的未來時間範圍。</p>';
+        h += '</div>';
+        
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        h += '<p style="font-size:13px; color:#6688aa; margin-bottom:12px;">選擇預測時期：</p>';
+        h += '<button onclick="choose(3,\'mid\')" style="display:block; width:100%; padding:14px; margin-bottom:10px; background:#f0f8ff; border:2px solid #0099cc; color:#0077aa; border-radius:10px; font-size:14px; text-align:left;">📆 <strong>世紀中（2040-2065年）</strong><br><span style="font-size:12px; color:#6688aa;">約20-40年後的氣候</span></button>';
+        h += '<button onclick="choose(3,\'end\')" style="display:block; width:100%; padding:14px; margin-bottom:10px; background:#f0f8ff; border:2px solid #0099cc; color:#0077aa; border-radius:10px; font-size:14px; text-align:left;">🔮 <strong>世紀末（2075-2099年）</strong><br><span style="font-size:12px; color:#6688aa;">約50-75年後的氣候</span></button>';
+        h += '</div>';
+        
+        h += '<div style="background:#e8f4fa; border-radius:8px; padding:12px;">';
+        h += '<p style="font-size:12px; color:#4477aa; margin:0;">⏱️ 與基期（1979-2003年）比較變化</p>';
+        h += '</div>';
+    }
+    
+    // ===== 步驟 4：動力降尺度找出臺灣 =====
+    else if (step == 4) {
+        h += '<div style="text-align:center; padding:15px 0;">';
+        h += '<div style="font-size:70px; margin-bottom:10px;">🔬</div>';
+        h += '<h2 style="font-size:18px; color:#0077aa; margin-bottom:8px;">步驟 4：動力降尺度</h2>';
+        h += '<p style="color:#5577aa; font-size:14px; line-height:1.6; margin-bottom:15px;">全球模式的網格太大，需要「對焦」到臺灣才能看清細節。</p>';
+        h += '</div>';
+        
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        
+        // 圖解
+        h += '<div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:15px; padding:15px; background:#f5fafd; border-radius:10px;">';
+        h += '<div style="text-align:center;"><div style="font-size:35px;">🌍</div><div style="font-size:10px; color:#888;">全球 25km</div></div>';
+        h += '<div style="font-size:20px; color:#0099cc;">→</div>';
+        h += '<div style="text-align:center;"><div style="font-size:35px;">🗺️</div><div style="font-size:10px; color:#888;">區域 5km</div></div>';
+        h += '<div style="font-size:20px; color:#0099cc;">→</div>';
+        h += '<div style="text-align:center;"><div style="font-size:35px;">🇹🇼</div><div style="font-size:10px; color:#888;">臺灣 2.5km</div></div>';
+        h += '</div>';
+        
+        h += '<p style="font-size:13px; color:#5577aa; margin-bottom:12px; line-height:1.6;">使用 WRF 區域模式，將解析度從 25 公里提高到 5 公里甚至 2.5 公里，才能呈現臺灣複雜地形對颱風降雨的影響。</p>';
+        
+        h += '<button onclick="choose(4,\'5km\')" style="display:block; width:100%; padding:14px; margin-bottom:10px; background:#e8f4fa; border:2px solid #0099cc; color:#0077aa; border-radius:10px; font-size:14px; text-align:left;">🎯 <strong>執行動力降尺度</strong><br><span style="font-size:12px; color:#6688aa;">WRF 模式 → 5公里解析度</span></button>';
+        h += '</div>';
+        
+        h += '<div style="background:#e0f0f8; border-radius:8px; padding:12px;">';
+        h += '<p style="font-size:12px; color:#4477aa; margin:0;">🏔️ 高解析度才能模擬山脈地形導致的極端降雨</p>';
+        h += '</div>';
+    }
+    
+    // ===== 步驟 5：統計颱風 =====
+    else if (step == 5) {
+        h += '<div style="text-align:center; padding:15px 0;">';
+        h += '<div style="font-size:70px; margin-bottom:10px;">🌀</div>';
+        h += '<h2 style="font-size:18px; color:#0077aa; margin-bottom:8px;">步驟 5：統計侵台颱風</h2>';
+        h += '<p style="color:#5577aa; font-size:14px; line-height:1.6; margin-bottom:15px;">追蹤模擬出的每個颱風，統計會影響臺灣的颱風變化。</p>';
+        h += '</div>';
+        
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        
+        h += '<div style="background:#f5fafd; border-radius:10px; padding:12px; margin-bottom:15px;">';
+        h += '<p style="font-size:13px; color:#0077aa; margin:0 0 8px; font-weight:bold;">📊 分析項目：</p>';
+        h += '<p style="font-size:13px; color:#5577aa; margin:3px 0;">• 侵台颱風的數量變化</p>';
+        h += '<p style="font-size:13px; color:#5577aa; margin:3px 0;">• 颱風強度與風速變化</p>';
+        h += '<p style="font-size:13px; color:#5577aa; margin:3px 0;">• 颱風帶來的降雨變化</p>';
+        h += '</div>';
+        
+        h += '<button onclick="runAnalysis()" style="display:block; width:100%; padding:14px; background:linear-gradient(135deg,#0099cc,#0077aa); border:none; color:white; border-radius:10px; font-size:15px; font-weight:bold;">▶️ 開始統計分析</button>';
+        h += '</div>';
+    }
+    
+    // ===== 步驟 5.5：分析動畫 =====
+    else if (step == 5.5) {
+        h += '<div style="text-align:center; padding:50px 20px;">';
+        h += '<div style="font-size:60px; margin-bottom:15px;">🌀</div>';
+        h += '<h2 style="font-size:16px; color:#0077aa; margin-bottom:8px;">正在統計颱風資料...</h2>';
+        h += '<p style="color:#6688aa; font-size:13px;" id="analysisText">追蹤西北太平洋颱風路徑</p>';
+        h += '<div style="background:#e0e8f0; border-radius:10px; height:8px; margin-top:20px; overflow:hidden;">';
+        h += '<div id="analysisBar" style="background:linear-gradient(90deg,#0099cc,#00bbaa); height:100%; width:0%; transition:width 0.3s;"></div>';
+        h += '</div>';
+        h += '</div>';
+        
+        setTimeout(function() {
+            if(document.getElementById('analysisBar')) document.getElementById('analysisBar').style.width = '25%';
+            if(document.getElementById('analysisText')) document.getElementById('analysisText').innerText = '統計侵台颱風數量...';
+        }, 600);
+        setTimeout(function() {
+            if(document.getElementById('analysisBar')) document.getElementById('analysisBar').style.width = '50%';
+            if(document.getElementById('analysisText')) document.getElementById('analysisText').innerText = '計算颱風強度變化...';
+        }, 1200);
+        setTimeout(function() {
+            if(document.getElementById('analysisBar')) document.getElementById('analysisBar').style.width = '75%';
+            if(document.getElementById('analysisText')) document.getElementById('analysisText').innerText = '分析風速與降雨變化...';
+        }, 1800);
+        setTimeout(function() {
+            if(document.getElementById('analysisBar')) document.getElementById('analysisBar').style.width = '100%';
+            if(document.getElementById('analysisText')) document.getElementById('analysisText').innerText = '產生科學報告...';
+        }, 2400);
+        setTimeout(function() {
+            step = 6;
+            render();
+        }, 3000);
+    }
+    
+    // ===== 步驟 6：科學報告 =====
+    else if (step == 6) {
+        var r = results[data.period];
+        var periodName = data.period == 'end' ? '世紀末' : '世紀中';
+        var periodYear = data.period == 'end' ? '2075-2099' : '2040-2065';
+        
+        h += '<div style="background:linear-gradient(135deg,#0099cc,#0077aa); border-radius:15px; padding:20px; margin-bottom:15px; color:white; text-align:center;">';
+        h += '<div style="font-size:45px; margin-bottom:8px;">📊</div>';
+        h += '<h2 style="font-size:18px; margin:0 0 5px;">臺灣颱風氣候變遷</h2>';
+        h += '<h2 style="font-size:16px; font-weight:normal; margin:0 0 8px;">預測報告</h2>';
+        h += '<p style="font-size:12px; opacity:0.9;">RCP8.5 情境 ｜ ' + periodName + '（' + periodYear + '）</p>';
+        h += '</div>';
+        
+        // 環境變化
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        h += '<h3 style="font-size:14px; color:#0077aa; margin:0 0 12px;">🌡️ 環境變化</h3>';
+        h += '<div style="display:flex; gap:10px;">';
+        h += '<div style="flex:1; background:#fff5f0; border-radius:10px; padding:12px; text-align:center;">';
+        h += '<div style="font-size:24px; font-weight:bold; color:#dd5533;">' + r.sst + '</div>';
+        h += '<div style="font-size:11px; color:#aa7766;">海表面氣溫</div>';
+        h += '</div>';
+        h += '<div style="flex:1; background:#f0f8ff; border-radius:10px; padding:12px; text-align:center;">';
+        h += '<div style="font-size:24px; font-weight:bold; color:#0088bb;">' + r.humidity + '</div>';
+        h += '<div style="font-size:11px; color:#5588aa;">大氣水氣量</div>';
+        h += '</div>';
+        h += '</div>';
+        h += '</div>';
+        
+        // 颱風數量
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        h += '<h3 style="font-size:14px; color:#0077aa; margin:0 0 12px;">🌀 颱風數量變化</h3>';
+        h += '<div style="display:flex; gap:10px;">';
+        h += '<div style="flex:1; background:#f0f8ff; border-radius:10px; padding:12px; text-align:center;">';
+        var tcColor = r.tcCount.includes('-') ? '#0088bb' : '#dd5533';
+        var tcBg = r.tcCount.includes('-') ? '#f0f8ff' : '#fff5f0';
+        h += '<div style="font-size:24px; font-weight:bold; color:' + tcColor + ';">' + r.tcCount + '</div>';
+        h += '<div style="font-size:11px; color:#6688aa;">颱風總數</div>';
+        h += '</div>';
+        h += '<div style="flex:1; background:#fff5f0; border-radius:10px; padding:12px; text-align:center;">';
+        h += '<div style="font-size:24px; font-weight:bold; color:#dd5533;">' + r.strongTC + '</div>';
+        h += '<div style="font-size:11px; color:#aa7766;">強颱頻率</div>';
+        h += '</div>';
+        h += '</div>';
+        h += '</div>';
+        
+        // 風速變化
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        h += '<h3 style="font-size:14px; color:#0077aa; margin:0 0 12px;">💨 風速變化</h3>';
+        h += '<div style="display:flex; gap:10px;">';
+        h += '<div style="flex:1; background:#fff5f0; border-radius:10px; padding:12px; text-align:center;">';
+        h += '<div style="font-size:24px; font-weight:bold; color:#dd5533;">' + r.maxWind + '</div>';
+        h += '<div style="font-size:11px; color:#aa7766;">近中心最大風速</div>';
+        h += '</div>';
+        h += '<div style="flex:1; background:#fff5f0; border-radius:10px; padding:12px; text-align:center;">';
+        h += '<div style="font-size:24px; font-weight:bold; color:#dd5533;">' + r.surfaceWind + '</div>';
+        h += '<div style="font-size:11px; color:#aa7766;">地面平均風速</div>';
+        h += '</div>';
+        h += '</div>';
+        h += '</div>';
+        
+        // 降雨變化
+        h += '<div style="background:white; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,100,150,0.1);">';
+        h += '<h3 style="font-size:14px; color:#0077aa; margin:0 0 12px;">🌧️ 降雨變化</h3>';
+        h += '<div style="display:flex; gap:10px;">';
+        h += '<div style="flex:1; background:#fff5f0; border-radius:10px; padding:12px; text-align:center;">';
+        h += '<div style="font-size:24px; font-weight:bold; color:#dd5533;">' + r.rain200km + '</div>';
+        h += '<div style="font-size:11px; color:#aa7766;">中心200km<br>區域降雨</div>';
+        h += '</div>';
+        h += '<div style="flex:1; background:#fff5f0; border-radius:10px; padding:12px; text-align:center;">';
+        h += '<div style="font-size:24px; font-weight:bold; color:#dd5533;">' + r.landRain + '</div>';
+        h += '<div style="font-size:11px; color:#aa7766;">陸地<br>時雨量</div>';
+        h += '</div>';
+        h += '</div>';
+        h += '</div>';
+        
+        // 科學結論
+        h += '<div style="background:#fff8f0; border:2px solid #ffaa66; border-radius:12px; padding:15px; margin-bottom:15px;">';
+        h += '<h3 style="font-size:14px; color:#dd7733; margin:0 0 10px;">⚠️ 科學結論</h3>';
+        if (data.period == 'end') {
+            h += '<p style="font-size:13px; color:#775544; line-height:1.7; margin:0;">在 RCP8.5 情境下，<strong style="color:#0077aa;">世紀末颱風總數將減少 50%</strong>，但<strong style="color:#dd5533;">強颱頻率增加 60%</strong>。颱風帶來的<strong style="color:#dd5533;">降雨強度增加 35-40%</strong>，代表未來颱風雖然變少，但每次侵台將帶來更極端的風雨。</p>';
+        } else {
+            h += '<p style="font-size:13px; color:#775544; line-height:1.7; margin:0;">在 RCP8.5 情境下，<strong style="color:#dd5533;">世紀中颱風總數略增 10%</strong>，且<strong style="color:#dd5533;">強颱頻率大增 105%</strong>。颱風<strong style="color:#dd5533;">降雨強度增加約 20%</strong>，顯示近幾十年內極端颱風事件將明顯增加。</p>';
+        }
+        h += '</div>';
+        
+        // 來源
+        h += '<p style="text-align:center; font-size:11px; color:#8899aa; margin-bottom:15px;">資料來源：<a href="https://tccip.ncdr.nat.gov.tw/" style="color:#0088bb;">TCCIP 臺灣氣候變遷推估資訊與調適知識平台</a></p>';
+        
+        // 重新模擬
+        h += '<button onclick="restart()" style="display:block; width:100%; padding:14px; background:white; border:2px solid #0099cc; color:#0077aa; border-radius:10px; font-size:14px; font-weight:bold;">🔄 重新模擬其他情境</button>';
+    }
+    
+    document.getElementById('content').innerHTML = h;
+    updateDots();
+}
+
+function updateDots() {
+    var totalSteps = 6;
+    var currentStep = step;
+    if (step == 5.5) currentStep = 5;
+    
+    for (var i = 1; i <= totalSteps; i++) {
+        var dot = document.getElementById('dot' + i);
+        if (dot) {
+            if (i < currentStep) {
+                dot.style.background = '#00bb88';
+                dot.style.color = 'white';
+            } else if (i == currentStep) {
+                dot.style.background = '#0099cc';
+                dot.style.color = 'white';
+            } else {
+                dot.style.background = '#d0e4f0';
+                dot.style.color = '#999';
+            }
+        }
+    }
+}
+
+function choose(s, val) {
+    if (s == 1) data.resolution = val;
+    if (s == 2) data.rcp = val;
+    if (s == 3) data.period = val;
+    if (s == 4) data.downscale = val;
+    step = s + 1;
+    render();
+    window.scrollTo(0, 0);
+}
+
+function runAnalysis() {
+    step = 5.5;
+    render();
+}
+
+function restart() {
+    step = 1;
+    data = {};
+    render();
+    window.scrollTo(0, 0);
+}
+
+render();
+</script>
+
+</body>
+</html>
