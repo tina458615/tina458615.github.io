@@ -17,20 +17,14 @@ button,input{font:inherit} button{border:none;cursor:pointer}.hidden{display:non
 
 .dialogueStage{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;margin-top:8px}.portraitWrap{display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(180deg,#fffdf7,#f6ead7);border:2px solid var(--line);border-radius:24px;padding:14px;min-height:220px;max-width:240px;width:100%;margin:0 auto}.portraitWrap img{width:100%;max-width:180px;display:block;filter:drop-shadow(0 12px 18px rgba(0,0,0,.12))}.dialogueBox{background:#fff;border:2px solid var(--line);border-radius:24px;padding:18px 18px 16px;box-shadow:var(--shadow);min-height:240px;display:flex;flex-direction:column}.dialogueHeader{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.speakerTag{display:inline-flex;align-items:center;gap:8px;background:#fff0f1;color:#c44e59;border-radius:999px;padding:8px 14px;font-weight:800}.speakerTag.player{background:#eef6ff;color:#3b6d95}.dialogueStep{font-size:13px;color:var(--muted)}.dialogueText{font-size:20px;line-height:1.85;white-space:pre-line;flex:1}.dialogueHint{font-size:13px;color:var(--muted);margin-top:10px}.dialogueControls{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}.miniPortraitName{font-size:14px;color:var(--muted);margin-top:8px;text-align:center;font-weight:700}@media (max-width:720px){.dialogueStage{grid-template-columns:1fr;align-items:start}.portraitWrap{min-height:auto;padding:12px 12px 4px;max-width:220px}.portraitWrap img{max-width:140px}.dialogueBox{min-height:unset}.dialogueText{font-size:18px}}
 .pointSummary{text-align:center;padding:22px 18px}.pointCount{font-size:44px;line-height:1;font-weight:900;color:var(--red);margin:8px 0}.pointTrack{height:12px;background:#f1e3d0;border-radius:99px;overflow:hidden;margin:18px 0 8px}.pointTrack span{display:block;height:100%;background:linear-gradient(90deg,#f5a45f,#e75b66);border-radius:inherit;transition:width .3s ease}.stampGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}.stampItem{min-width:0;text-align:center}.stampCircle{width:48px;height:48px;border:2px dashed #d9c5ac;border-radius:50%;display:grid;place-items:center;margin:0 auto 6px;color:transparent;font-weight:900}.stampItem.done .stampCircle{border-style:solid;border-color:#df5a63;background:#fff0f1;color:#df5a63}.stampItem b{font-size:11px;line-height:1.35;display:block}.rewardBox{background:#fff7e9;border:1px solid #efc995;border-radius:20px;padding:18px;text-align:left;margin-top:16px}.rewardBox h3{margin:0 0 8px;color:#b7584f}.rewardStatus{display:inline-block;background:#eaf5e7;color:#4d7c45;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:800}.mutedButton{opacity:.55;cursor:not-allowed}
+.app.home-active::before{display:none}.app.home-active .footerNav{display:none}.homeScreen{padding:0;overflow:hidden;background:#7cccf1}.homeVisual{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}.homeScreen .homeStart{position:absolute;z-index:2;left:24px;right:24px;bottom:calc(24px + env(safe-area-inset-bottom));width:calc(100% - 48px)}
 </style>
 </head>
 <body>
-<div class="app" id="app">
-  <section class="screen active" id="screen-home">
-    <div class="card" style="margin-top:16px;text-align:center">
-      <img src="assets/img/img1.png" class="logo" alt="嘉義市立博物館 Logo">
-      <img src="assets/img/img2.png" class="heroTaoxi" alt="桃喜角色">
-      <h1 class="title"><span class="pink">桃喜</span>的百味手帳</h1>
-      <p class="subtitle">跟著小嘉博，在桃城百味找回桃喜帶走的嘉義生活小知識。</p>
-      <div class="bookTabs" id="homeDots"></div>
-      <button class="primary" onclick="go('story')">開始任務</button>
-      <button class="ghostBtn" style="margin-top:10px" onclick="resetDemo()">重置 Demo 進度</button>
-    </div>
+<div class="app home-active" id="app">
+  <section class="screen active homeScreen" id="screen-home">
+    <img src="assets/img/主視覺v1.png" class="homeVisual" alt="桃城百味主視覺：桃城百味，Savoring Chiayi，Real-World Game">
+    <button class="primary homeStart" onclick="go('story')">開始任務</button>
   </section>
 
   <section class="screen" id="screen-story">
@@ -361,7 +355,7 @@ function resetPrelude(){preludeIndex=0;renderPrelude()}
 
 function load(){try{Object.assign(state,JSON.parse(localStorage.getItem(storeKey)||'{}'))}catch(e){};renderAll(); if(document.getElementById('dialogueText')) renderDialogue()}
 function save(){localStorage.setItem(storeKey,JSON.stringify({done:state.done}))}
-function go(name){stopCamera();document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+name).classList.add('active');renderNav(name);if(name==='story')resetDialogue();if(name==='prelude')resetPrelude();if(name==='map')renderMap();if(name==='points')renderPoints();if(name==='storyBook')renderStories();if(name==='complete')renderComplete();}
+function go(name){stopCamera();document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+name).classList.add('active');document.getElementById('app').classList.toggle('home-active',name==='home');renderNav(name);if(name==='story')resetDialogue();if(name==='prelude')resetPrelude();if(name==='map')renderMap();if(name==='points')renderPoints();if(name==='storyBook')renderStories();if(name==='complete')renderComplete();}
 function renderNav(name){document.querySelectorAll('.navBtn').forEach(b=>b.classList.remove('active')); const idx={home:0,map:1,storyBook:2}[name]; if(idx!==undefined)document.querySelectorAll('.navBtn')[idx].classList.add('active')}
 function doneCount(){return order.filter(k=>state.done&&state.done[k]).length}
 function renderDots(id){const el=document.getElementById(id); if(!el)return; el.innerHTML=order.map(k=>`<div class="dot ${state.done[k]?'done':''}">${state.done[k]?'✓':''}</div>`).join('')}
